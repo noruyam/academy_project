@@ -18,5 +18,10 @@ public class companyMapController {
 		System.out.println("호출");
 		return "/companyMap/"+url;
 	}
+	@RequestMapping(value = "{url}.do")
+	public String map(@PathVariable String url) {
+		System.out.println("호출");
+		return url;
+	}
 	
 }

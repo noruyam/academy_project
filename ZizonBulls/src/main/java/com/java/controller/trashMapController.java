@@ -9,7 +9,7 @@ public class trashMapController {
 
 	@RequestMapping(value = "/trashMap/{url}.do")
 	public String userJoin(@PathVariable String url) {
-		System.out.println("í˜¸ì¶œ");
+		System.out.println("È£Ãâ");
 		return "/trashMap/"+url;
 	}
 	

@@ -19,7 +19,7 @@
 <body>
 
 	<p>
-		<a class="text-success">B U L L S</a>
+		<a class="text-success">B U L L S </a>
 		<a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -47,11 +47,11 @@
 			<a href="">
 			<img src="resources/images/qna.png" alt="qna" width="150px" height="150px"></a>
 			
-			<a href="trashMap/trashMap.do">
+			<a href="trashMap/trashMapList.do">
 			<img src="resources/images/recycle_loc.png" alt="recycle_loc" width="150px" height="150px"></a>
 		</div>		
 	</div>
-
+<a href="maptest.do">맵테스트</a>
 
 
 
