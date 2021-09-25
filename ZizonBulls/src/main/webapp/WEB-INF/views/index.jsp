@@ -147,7 +147,7 @@
 						<h3>Our Partners</h3>
 					</div>
 					<ul class="owl-carousel">
-						<li class="item"><a href="#"><img src="./resources/./resources/img/partners/1.png" alt="" /></a></li>
+						<li class="item"><a href="#"><img src="./resources/img/partners/1.png" alt="" /></a></li>
 						<li class="item"><a href="#"><img src="./resources/img/partners/2.png" alt="" /></a></li>
 						<li class="item"><a href="#"><img src="./resources/img/partners/3.png" alt="" /></a></li>
 						<li class="item"><a href="#"><img src="./resources/img/partners/4.png" alt="" /></a></li>
@@ -208,7 +208,7 @@
 		<div class="rightpart_in">
 		
 			<!-- HOME -->
-			<div id="home" class="tokyo_tm_section">
+			<div id="home" class="tokyo_tm_section active">
 				<div class="container">
 					<div class="tokyo_tm_home">
 						<div class="home_content">
@@ -235,7 +235,7 @@
 			<!-- /HOME -->
 
 			<!-- ABOUT -->
-			<div id="about" class="tokyo_tm_section active">
+			<div id="about" class="tokyo_tm_section">
 				<div class="container">
 					<div class="tokyo_tm_about">
 						<div class="about_image">
@@ -720,28 +720,28 @@
 							<div class="map" id="ieatmaps"></div>
 						</div>
 						<div class="fields">
-							<form action="/" method="post" class="contact_form" id="contact_form" autocomplete="off">
+							<form action="insertTrashMap.do" method="post" class="contact_form" id="contact_form" autocomplete="off">
 								<div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
 								<div class="empty_notice"><span>Please Fill Required Fields</span></div>
 								<div class="first">
 									<ul>
 										<li>
-											<input id="name" type="text" placeholder="Name">
+											<input id="tmTitle" name="tmTitle" type="text" placeholder="제목">
 										</li>
-										<li>
-											<input id="email" type="text" placeholder="Email">
+											<li>
+											<input id="tmAddr" name="tmAddr" type="text" placeholder="주소">
 										</li>
 									</ul>
 								</div>
 								<div class="last">
-									<textarea id="message" placeholder="Message"></textarea>
+									<textarea id="tmContent" name="tmContent" placeholder="내용"></textarea>
 								</div>
 								<div class="tokyo_tm_button" data-position="left">
-									<a id="send_message" href="#">
-										<span>Send Message</span>
+									<a id="send_message" href="#home">
+										<span>글 등록</span>
 									</a>
 								</div>
-
+								<input type="submit" value="gd">
 								<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 
 							</form>
