@@ -5,45 +5,46 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.java.dao.trashDAO;
-import com.java.domain.trashVO;
+import com.java.dao.trashMapDAO;
+import com.java.domain.trashMapVO;
 
 @Service("trashMapService")
 public class trashMapServiceImpl implements trashMapService{
 	
 	@Autowired
-	private trashDAO trashDAO;
+	private trashMapDAO trashMapDAO;
 	
 	@Override
-	public void insertBoard(trashVO vo) {
-		System.out.println(">> boardService.getBoardList() 호출");
-		trashDAO.insertBoard(vo);
+	public void insertTrashMap(trashMapVO vo) {
+		System.out.println(">> TrashMapService.getTrashMapList() 호출");
+		System.out.println(vo.getTmAddr());
+		trashMapDAO.insertTrashMap(vo);
 	}
 
 	@Override
-	public void updateBoard(trashVO vo) {
-		System.out.println(">> boardService.updateBoard() 호출");
-		trashDAO.updateBoard(vo);
+	public void updateTrashMap(trashMapVO vo) {
+		System.out.println(">> TrashMapService.updateTrashMap() 호출");
+		trashMapDAO.updateTrashMap(vo);
 	}
 
 	@Override
-	public void deleteBoard(trashVO vo) {
-		System.out.println(">> boardService.deleteBoard() 호출");
-		trashDAO.deleteBoard(vo);
+	public void deleteTrashMap(trashMapVO vo) {
+		System.out.println(">> TrashMapService.deleteTrashMap() 호출");
+		trashMapDAO.deleteTrashMap(vo);
 	}
 
 	@Override
-	public trashVO getBoard(trashVO vo) {
-		System.out.println(">> boardService.getBoard() 호출");
+	public trashMapVO getTrashMap(trashMapVO vo) {
+		System.out.println(">> TrashMapService.getTrashMap() 호출");
 		
-		return trashDAO.getBoard(vo);
+		return trashMapDAO.getTrashMap(vo);
 	}
 
 	@Override
-	public List<trashVO> getBoardList() {
-		System.out.println(">> boardService.getBoardList() 호출");
+	public List<trashMapVO> getTrashMapList() {
+		System.out.println(">> TrashMapService.getTrashMapList() 호출");
 		
-		return trashDAO.getBoardList();
+		return trashMapDAO.getTrashMapList();
 	}
 	
 }

@@ -2,15 +2,15 @@ package com.java.service;
 
 import java.util.List;
 
-import com.java.domain.trashVO;
+import com.java.domain.trashMapVO;
 
 public interface trashMapService {
 
 	// CRUD 기능 메소드
 	
-	void insertBoard(trashVO vo);
-	void updateBoard(trashVO vo);
-	void deleteBoard(trashVO vo);
-	trashVO getBoard(trashVO vo);
-	List<trashVO> getBoardList();
+	void insertTrashMap(trashMapVO vo);
+	void updateTrashMap(trashMapVO vo);
+	void deleteTrashMap(trashMapVO vo);
+	trashMapVO getTrashMap(trashMapVO vo);
+	List<trashMapVO> getTrashMapList();
 }

@@ -705,7 +705,7 @@
 			<!-- /NEWS -->
 
 			<!-- CONTACT -->
-			<div id="contact" class="tokyo_tm_section">
+			<div id="contact" class="tokyo_tm_section active">
 				<div class="container">
 					<div class="tokyo_tm_contact">
 						<div class="tokyo_tm_title">
@@ -766,7 +766,7 @@
 		
 		
 		<!-- CONTACT -->
-			<div id="contact1" class="tokyo_tm_section active">
+			<div id="contact1" class="tokyo_tm_section">
 				<div class="container">
 					<div class="tokyo_tm_contact">
 						<div class="tokyo_tm_title">
@@ -792,25 +792,25 @@
 										<!-- 추가 -->
 										
 									</tr>
-									<c:forEach items="${boardList }" var="board">
+									<c:forEach items="${trashMapList }" var="trashMap">
 										<!-- 프라퍼티이름 변경 -->
 										<tr>
-											<td>${board.b_id }</td>
+											<td>${trashMapList.tmPostNum }</td>
 											<td align="left"><a
-												href="getBoard.do?b_id=${board.b_id }"> ${board.b_title }</a></td>
-											<td>${board.b_name }</td>
-											<td>${board.b_date }</td>
-											<td>${board.b_count }</td>
+												href="insertTrashMap1.do?b_id=${trashMapList.tmTitle }"> ${trashMapList.tmTitle }</a></td>
+											<td>${trashMapList.tmAddr }</td>
+											<td>${trashMapList.tmContent }</td>
+				
 											<!-- 추가 -->
-											<td><c:choose>
-													<c:when test="${board.b_fsize==0}">첨부파일 없음</c:when>
-													<c:otherwise>
-														<!-- <a href='resources/upload/${board.b_fname}'> -->
-														<img src="resources/images/disk.gif">${board.b_fname}
-					    	<!-- </a>  -->
-													</c:otherwise>
-												</c:choose></td>
-											<td>${board.b_fsize}byte</td>
+<%-- 											<td><c:choose> --%>
+<%-- 													<c:when test="${trashMapList.b_fsize==0}">첨부파일 없음</c:when> --%>
+<%-- 													<c:otherwise> --%>
+<!-- 														<a href='resources/upload/${board.b_fname}'> -->
+<%-- 														<img src="resources/images/disk.gif">${trashMapList.b_fname} --%>
+<!-- 					    	</a>  -->
+<%-- 													</c:otherwise> --%>
+<%-- 												</c:choose></td> --%>
+<%-- 											<td>${trashMapList.b_fsize}byte</td> --%>
 										</tr>
 									</c:forEach>
 								</table>

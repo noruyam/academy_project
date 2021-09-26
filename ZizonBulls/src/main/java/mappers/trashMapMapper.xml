@@ -8,33 +8,33 @@
  
 <mapper namespace="trashMapDAO">
 	
-	<insert id="insertBoard" parameterType="board">
-		INSERT INTO board(seq, title, writer, content, regDate, cnt)
-		VALUES (board_seq.nextval, #{title}, #{writer}, #{content}, sysdate, 0)
+	<insert id="insertTrashMap" parameterType="trashMap">
+		INSERT INTO trashmap(tmPostNum, tmTitle, tmContent, tmAddr )
+		VALUES (TrashMap_seq.nextval, #{tmTitle}, #{tmContent}, #{tmAddr})
 	</insert>
 	
-	<delete id="deleteBoard" parameterType="board">
-		DELETE FROM board
+	<delete id="deleteTrashMap" parameterType="trashMap">
+		DELETE FROM TrashMap
 		WHERE seq = #{seq}
 	</delete>
 	
-	<update id="updateBoard" parameterType="board">
-		UPDATE board 
+	<update id="updateTrashMap" parameterType="trashMap">
+		UPDATE TrashMap 
 		SET title = #{title},
 			content = #{content}
 		WHERE seq = #{seq}
 	</update>
 	
-	<select id="getBoard" parameterType="board" resultType="board">
+	<select id="getTrashMap" parameterType="trashMap" resultType="trashMap">
 		SELECT *
-		FROM board
+		FROM TrashMap
 		WHERE seq = #{seq}
 	</select>
 	
-	<select id="getBoardList" resultType="board">
+	<select id="getTrashMapList" resultType="trashMap">
 		SELECT *
-		FROM board
-		ORDER BY seq DESC
+		FROM trashmap
+		ORDER BY tmPostNum DESC
 	</select>
 	
 </mapper>

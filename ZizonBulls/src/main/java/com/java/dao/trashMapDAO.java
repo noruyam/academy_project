@@ -7,9 +7,9 @@ import com.java.domain.trashMapVO;
 
 public interface trashMapDAO {
 	
-	void insertBoard(trashMapVO vo);
-	void updateBoard(trashMapVO vo);
-	void deleteBoard(trashMapVO vo);
-	trashMapVO getBoard(trashMapVO vo);
-	List<trashMapVO> getBoardList();
+	void insertTrashMap(trashMapVO vo);
+	void updateTrashMap(trashMapVO vo);
+	void deleteTrashMap(trashMapVO vo);
+	trashMapVO getTrashMap(trashMapVO vo);
+	List<trashMapVO> getTrashMapList();
 }

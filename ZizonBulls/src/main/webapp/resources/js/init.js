@@ -429,14 +429,14 @@ function tokyo_tm_contact_form(){
 	
 	"use strict";
 	
-	jQuery(".contact_form #send_message").on('click', function(){
+	jQuery(".contact_form #insertTrashMap").on('click', function(){
 		
-		var name 		= jQuery(".contact_form #name").val();
-		var email 		= jQuery(".contact_form #email").val();
-		var message 	= jQuery(".contact_form #message").val();
+		var name 		= jQuery(".contact_form #tmTitle").val();
+		var email 		= jQuery(".contact_form #tmAddr").val();
+		var message 	= jQuery(".contact_form #tmContent").val();
 		var subject 	= jQuery(".contact_form #subject").val();
 		var success     = jQuery(".contact_form .returnmessage").data('success');
-	
+		
 		jQuery(".contact_form .returnmessage").empty(); //To empty previous error/success message.
 		//checking for blank fields	
 		if(name===''||email===''||message===''){

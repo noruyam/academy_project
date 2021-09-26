@@ -720,7 +720,7 @@
 							<div class="map" id="ieatmaps"></div>
 						</div>
 						<div class="fields">
-							<form action="insertTrashMap.do" method="post" class="contact_form" id="contact_form" autocomplete="off">
+							<form action="insertTrashMap.do" method="post" class="contact_form" id="contact_form" name="contact_form" autocomplete="off">
 								<div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
 								<div class="empty_notice"><span>Please Fill Required Fields</span></div>
 								<div class="first">
@@ -729,7 +729,7 @@
 											<input id="tmTitle" name="tmTitle" type="text" placeholder="제목">
 										</li>
 											<li>
-											<input id="tmAddr" name="tmAddr" type="text" placeholder="주소">
+											<input id="tmAddr" name="tmAddr" type="text" placeholder="맵을 클릭해주세요">
 										</li>
 									</ul>
 								</div>
@@ -737,11 +737,16 @@
 									<textarea id="tmContent" name="tmContent" placeholder="내용"></textarea>
 								</div>
 								<div class="tokyo_tm_button" data-position="left">
-									<a id="send_message" href="#home">
+									<a href="javascript:contact_form.submit();" id="insertTrashMap.do" >
 										<span>글 등록</span>
 									</a>
+									
+								
+						
+									
+									
 								</div>
-								<input type="submit" value="gd">
+								
 								<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 
 							</form>
