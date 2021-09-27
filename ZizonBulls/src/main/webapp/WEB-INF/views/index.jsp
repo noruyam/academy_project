@@ -220,7 +220,6 @@
 								src="./resources/img/svg/briefcase.svg" alt="" /></a></li>
 						<li><a href="#news"><img class="svg"
 								src="./resources/img/svg/paper.svg" alt="" /></a></li>
-						<!-- 					<li><a href="#contact"><img class="svg" src="./resources/img/svg/mail.svg" alt="" /></a></li> -->
 						<li><a href="#contact1"><img class="svg"
 								src="./resources/img/svg/mail.svg" alt="" /></a></li>
 					</ul>
@@ -980,8 +979,8 @@
 							<div class="tokyo_tm_title">
 								<div class="title_flex">
 									<div class="left">
-										<span>Contact</span>
-										<h3>Get in Touch</h3>
+										<span>trashMap</span>
+										<h3>장소 찾기</h3>
 									</div>
 								</div>
 							</div>
@@ -1034,15 +1033,12 @@
 							<div class="tokyo_tm_title">
 								<div class="title_flex">
 									<div class="left">
-										<span>Contact1</span>
-										<h3>Get in Touch</h3>
+										<span>trashMap</span>
+										<h3>장소 찾기 글목록</h3>
 									</div>
 								</div>
 							</div>
 							<div class="fields">
-
-
-								<h1>게시글 목록</h1>
 
 								<table border="1" id="trashMapListTable">
 									<tr>
