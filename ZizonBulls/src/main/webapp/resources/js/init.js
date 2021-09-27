@@ -25,7 +25,6 @@ jQuery(document).ready(function(){
 	tokyo_tm_data_images();
 	tokyo_tm_contact_form();
 	tokyo_tm_owl_carousel();
-	
 	jQuery(window).load('body', function(){
 		tokyo_tm_my_load();
 	});
@@ -56,6 +55,51 @@ function tokyo_tm_menu(){
 			element.addClass('active');
 			vSection.removeClass('active');
 			vContent.find(myHref).addClass('active').animate({ scrollTop: 0 });
+		}
+		
+		
+		
+		
+		
+		
+
+		if(myHref=="#contact1"){
+			test10();
+//			 $.ajax({
+//	                url : "getTrashMapList.do",
+//	                type : "get",
+//
+//// data : {
+//// tmPostNum :1,
+//// tmTitle : "1",
+//// tmContent : "name",
+//// tmAddr : "email"
+//// },
+//	                dataType:"json",
+//	                success : function(result){
+//
+//	                	var len=result.length;
+//	                	var table=$('#test44');
+//	                	var str="";
+//	                	
+//	                	for(var i=0;i<len;i++){
+//	                		   str += "<TR>"
+//	                		   str += '<TD name="tmPostNum" align="center">' + result[i].tmPostNum
+//	                		   + '</TD><TD name="tmTitle" align="center">' + result[i].tmTitle
+//	                		   + '</TD><TD name="tmAddr" align="center">' + result[i].tmAddr
+//	                		   + '</TD><TD name="tmContent" align="center">' + result[i].tmContent  + '</TD>'
+//		                        str += '</TR>'
+//	                	}
+//	                	table.append(str)
+//	                },
+//	                error : function(request, error){
+//	                    alert("fail");
+//	                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+//	                }
+//	            });
+			
+			 
+			
 		}
 	});
 }
@@ -505,4 +549,173 @@ function tokyo_tm_owl_carousel(){
 		}
 	});
 	tokyo_tm_imgtosvg();
+}
+
+
+
+
+
+
+
+
+
+
+function test2(){
+		
+	var list	 = $('#contact1');
+	var element	 = $('#contact');
+//	 $("#deleteTrashMap").hide();
+//	alert("2");
+			list.removeClass('active');
+			element.addClass('active');	
+			
+			 $("#tmTitle").val("");
+			 $("#tmContent").val("");
+			 $("#tmAddr").val("");
+}
+
+
+function test2(tmPostNum,tmTitle,tmAddr,tmContent){
+//	alert(tmTitle);
+//	alert("22");
+	 
+	 if(tmPostNum>0){
+		 $("#deleteTrashMap").show();
+	 }else{
+		 $("#deleteTrashMap").hide(); 
+	 }
+	var list	 = $('#contact1');
+	var element	 = $('#contact');
+	
+			list.removeClass('active');
+			element.addClass('active');	
+			 $("#tmPostNum").val(tmPostNum);
+			 $("#tmTitle").val(tmTitle);
+			 $("#tmContent").val(tmAddr);
+			 $("#tmAddr").val(tmContent);
+}
+
+
+
+
+
+function test3(){
+	var tmPostNum1 = $("#tmPostNum").val();
+	
+//	alert(tmPostNum1);
+	var insertTrashMapData = {
+//			tmPostNum : $("#tmPostNum").val(),
+			tmTitle : $("#tmTitle").val(),
+			tmContent : $("#tmContent").val(),
+			tmAddr : $("#tmAddr").val()
+		};
+	var insertTrashMapData1 = {
+			tmPostNum : $("#tmPostNum").val(),
+			tmTitle : $("#tmTitle").val(),
+			tmContent : $("#tmContent").val(),
+			tmAddr : $("#tmAddr").val()
+		};
+			if(tmPostNum1>0){
+			 $.ajax({
+				 url : "updateTrashMap.do",
+	                type : "get",
+	                 data :insertTrashMapData1 ,
+	                success : function(data){
+
+	                    test10();
+	                },
+	                error : function(xhr, status, error){
+	                    alert("통신 에러");
+	                }
+	            });
+			}else{
+				 $.ajax({
+		                
+		                url : "insertTrashMap.do",
+		                type : "get",
+		                 data :insertTrashMapData ,
+		                success : function(data){
+
+		                    test10();
+		                },
+		                error : function(request, error){
+		                    alert("fail");
+		                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		                }
+		            });
+			}
+//			 insertTrashMapData.remove();
+}
+
+
+
+function test10() {
+	$( '#test44 > #em').remove();
+	
+		 $.ajax({
+               url : "getTrashMapList.do",
+               type : "get",
+               dataType:"json",
+               success : function(result){
+            	   console.log(result[0].tmContent);
+               	var len=result.length;
+               	var table=$('#test44');
+               	var str="";
+			str += "<tbody id='em'>";
+               	for(var i=0;i<len;i++){
+//               	  str +=	'<a style="cursor:pointer" onclick="test2('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+')">'
+               	
+//               		   str += "<TR>"
+               			   str += '<Tr  style="cursor:pointer" align="center" onclick="test2('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+')">'+ result[i].tmTitle
+               		   str += '<TD name="tmPostNum" align="center">' + result[i].tmPostNum
+               		+ '</TD><TD name="tmTitle" align="center">'+ result[i].tmTitle
+               		   + '</TD><TD name="tmAddr" align="center">' + result[i].tmAddr
+               		   + '</TD><TD name="tmContent" align="center">' + result[i].tmContent  + '</TD>'
+	                        
+               		   
+               		   str += '</TR>'
+               			   
+               	}
+            str += "</tbody>";
+               	table.append(str);
+               },
+               error : function(request, error){
+                   alert("fail");
+                   alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+               }
+           });
+		 
+				 	var list	 = $('#contact');
+					var element	 = $('#contact1');
+			
+					list.removeClass('active');
+					element.addClass('active');	
+	
+}
+
+
+
+
+
+function deleteTrashMap(){
+	
+	var insertTrashMapData1 = {
+			tmPostNum : $("#tmPostNum").val(),
+			tmTitle : $("#tmTitle").val(),
+			tmContent : $("#tmContent").val(),
+			tmAddr : $("#tmAddr").val()
+		};
+			
+			 $.ajax({
+				 url : "deleteTrashMap.do",
+	                type : "get",
+	                 data :insertTrashMapData1 ,
+	                success : function(data){
+	                    test10();
+	                },
+	                error : function(xhr, status, error){
+	                    alert("통신 에러");
+	                }
+	            });
+			
 }

@@ -175,6 +175,7 @@
 					<li><a href="#portfolio"><img class="svg" src="./resources/img/svg/briefcase.svg" alt="" /></a></li>
 					<li><a href="#news"><img class="svg" src="./resources/img/svg/paper.svg" alt="" /></a></li>
 					<li><a href="#contact"><img class="svg" src="./resources/img/svg/mail.svg" alt="" /></a></li>
+					<li><a href="#contact1"><img class="svg" src="./resources/img/svg/mail.svg" alt="" /></a></li>
 				</ul>
 			</div>
 		</div>
@@ -814,7 +815,7 @@
 										</tr>
 									</c:forEach>
 								</table>
-								<br> <a href="insertTrashMap1.do">새글 등록</a>
+								<br> <a id="test2" onclick="test2()"  style="cursor:pointer" >새글 등록</a>
 
 
 
@@ -825,7 +826,7 @@
 								
 								<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 
-							</form>
+						
 						</div>
 					</div>
 				</div>	

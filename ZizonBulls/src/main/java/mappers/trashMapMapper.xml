@@ -15,14 +15,15 @@
 	
 	<delete id="deleteTrashMap" parameterType="trashMap">
 		DELETE FROM TrashMap
-		WHERE seq = #{seq}
+		WHERE tmPostNum = #{tmPostNum}
 	</delete>
 	
 	<update id="updateTrashMap" parameterType="trashMap">
 		UPDATE TrashMap 
-		SET title = #{title},
-			content = #{content}
-		WHERE seq = #{seq}
+		SET tmTitle = #{tmTitle},
+			tmContent = #{tmContent},
+			tmAddr = #{tmAddr}
+		WHERE tmPostNum = #{tmPostNum}
 	</update>
 	
 	<select id="getTrashMap" parameterType="trashMap" resultType="trashMap">
