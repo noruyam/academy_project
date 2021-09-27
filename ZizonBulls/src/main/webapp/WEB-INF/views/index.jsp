@@ -208,7 +208,7 @@
 		<div class="tokyo_tm_mobile_menu">
 			<div class="menu_inner">
 				<div class="logo">
-					<img src="./resources/img/logo/dark.png" alt="" />
+					<img src="./resources/img/logo/dark.png" onclick="reload()" style="cursor:pointer" />
 				</div>
 				<div class="menu">
 					<ul>
@@ -232,7 +232,7 @@
 		<div class="leftpart">
 			<div class="leftpart_inner">
 				<div class="logo">
-					<a href="#"><img src="./resources/img/logo/dark.png" alt="" /></a>
+					<a ><img src="./resources/img/logo/dark.png" onclick="reload()" style="cursor:pointer"/></a>
 				</div>
 				<div class="menu">
 					<ul>
