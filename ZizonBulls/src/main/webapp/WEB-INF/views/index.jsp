@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link href="resources/style/main.css"/>
+<link href="resources/style/main.css" />
 <script type="text/javascript" src="resources/js/jquery-1.7.1.js"></script>
 <script src="js/*"></script>
 <meta charset="UTF-8">
@@ -14,12 +14,17 @@
 <meta name="description" content="Name of your web site">
 <meta name="author" content="Marketify">
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <title>Tokyo | Home</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+	rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="css/plugins.css" />
 <link rel="stylesheet" type="text/css" href="css/dark.css" />
@@ -27,186 +32,232 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 <style>
-
 </style>
 </head>
 
 
 <body>
 
-	
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- PRELOADER -->
+	<!-- PRELOADER -->
 	<div id="preloader">
 		<div class="loader_line"></div>
 	</div>
 	<!-- /PRELOADER -->
-	
-<!-- WRAPPER ALL -->
-<div class="tokyo_tm_all_wrap" data-magic-cursor="" data-color="black"> <!-- If you want disable magic cursor add value "hide" -->	
 
-	<!-- MAGIC CURSOR VALUES: "", hide -->
-	<!-- COLOR VALUES: blue, green, brown, pink, orange, black, white, purple, sky, cadetBlue, crimson, olive, red -->
-	
-	<!-- MODALBOX NEWS -->
-	<div class="tokyo_tm_modalbox">
-		<div class="box_inner">
-			<div class="close">
-				<a href="#"><img class="svg" src="./resources/img/svg/cancel.svg" alt="" /></a>
+	<!-- WRAPPER ALL -->
+	<div class="tokyo_tm_all_wrap" data-magic-cursor="" data-color="black">
+		<!-- If you want disable magic cursor add value "hide" -->
+
+		<!-- MAGIC CURSOR VALUES: "", hide -->
+		<!-- COLOR VALUES: blue, green, brown, pink, orange, black, white, purple, sky, cadetBlue, crimson, olive, red -->
+
+		<!-- MODALBOX NEWS -->
+		<div class="tokyo_tm_modalbox">
+			<div class="box_inner">
+				<div class="close">
+					<a href="#"><img class="svg"
+						src="./resources/img/svg/cancel.svg" alt="" /></a>
+				</div>
+				<div class="description_wrap"></div>
 			</div>
-			<div class="description_wrap"></div>
 		</div>
-	</div>
-	<!-- /MODALBOX NEWS -->
-	
-	<!-- MODALBOX ABOUT -->
-	<div class="tokyo_tm_modalbox_about">
-		<div class="box_inner">
-			<div class="close">
-				<a href="#"><img class="svg" src="./resources/img/svg/cancel.svg" alt="" /></a>
-			</div>
-			<div class="description_wrap">
-				<div class="my_box">
-					<div class="left">
-						<div class="about_title">
-							<h3>Photography Skills</h3>
+		<!-- /MODALBOX NEWS -->
+
+		<!-- MODALBOX ABOUT -->
+		<div class="tokyo_tm_modalbox_about">
+			<div class="box_inner">
+				<div class="close">
+					<a href="#"><img class="svg"
+						src="./resources/img/svg/cancel.svg" alt="" /></a>
+				</div>
+				<div class="description_wrap">
+					<div class="my_box">
+						<div class="left">
+							<div class="about_title">
+								<h3>Photography Skills</h3>
+							</div>
+							<div class="tokyo_progress">
+								<div class="progress_inner" data-value="95">
+									<span><span class="label">Wedding Photography</span><span
+										class="number">95%</span></span>
+									<div class="background">
+										<div class="bar">
+											<div class="bar_in"></div>
+										</div>
+									</div>
+								</div>
+								<div class="progress_inner" data-value="80">
+									<span><span class="label">Lifestyle Photography</span><span
+										class="number">80%</span></span>
+									<div class="background">
+										<div class="bar">
+											<div class="bar_in"></div>
+										</div>
+									</div>
+								</div>
+								<div class="progress_inner" data-value="90">
+									<span><span class="label">Family Photography</span><span
+										class="number">90%</span></span>
+									<div class="background">
+										<div class="bar">
+											<div class="bar_in"></div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="tokyo_progress">
-							<div class="progress_inner" data-value="95">
-								<span><span class="label">Wedding Photography</span><span class="number">95%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+						<div class="right">
+							<div class="about_title">
+								<h3>Language Skills</h3>
 							</div>
-							<div class="progress_inner" data-value="80" >
-								<span><span class="label">Lifestyle Photography</span><span class="number">80%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="90">
-								<span><span class="label">Family Photography</span><span class="number">90%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+							<div class="tokyo_progress">
+								<div class="progress_inner" data-value="95">
+									<span><span class="label">English</span><span
+										class="number">95%</span></span>
+									<div class="background">
+										<div class="bar">
+											<div class="bar_in"></div>
+										</div>
+									</div>
+								</div>
+								<div class="progress_inner" data-value="90">
+									<span><span class="label">Japanese</span><span
+										class="number">90%</span></span>
+									<div class="background">
+										<div class="bar">
+											<div class="bar_in"></div>
+										</div>
+									</div>
+								</div>
+								<div class="progress_inner" data-value="85">
+									<span><span class="label">Arabian</span><span
+										class="number">85%</span></span>
+									<div class="background">
+										<div class="bar">
+											<div class="bar_in"></div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="right">
+					<div class="counter">
 						<div class="about_title">
-							<h3>Language Skills</h3>
+							<h3>Fun Facts</h3>
 						</div>
-						<div class="tokyo_progress">
-							<div class="progress_inner" data-value="95">
-								<span><span class="label">English</span><span class="number">95%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="90">
-								<span><span class="label">Japanese</span><span class="number">90%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="85">
-								<span><span class="label">Arabian</span><span class="number">85%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
+						<ul>
+							<li>
+								<div class="list_inner">
+									<h3>
+										<span class="tokyo_tm_counter" data-from="0" data-to="777"
+											data-speed="1500">0</span>
+									</h3>
+									<span class="name">Projects Completed</span>
+								</div>
+							</li>
+							<li>
+								<div class="list_inner">
+									<h3>
+										<span class="tokyo_tm_counter" data-from="0" data-to="500"
+											data-speed="1500">0</span>+
+									</h3>
+									<span class="name">Happy Clients</span>
+								</div>
+							</li>
+							<li>
+								<div class="list_inner">
+									<h3>
+										<span class="tokyo_tm_counter" data-from="0" data-to="100"
+											data-speed="1500">0</span>K+
+									</h3>
+									<span class="name">Lines of Code</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="partners">
+						<div class="about_title">
+							<h3>Our Partners</h3>
 						</div>
+						<ul class="owl-carousel">
+							<li class="item"><a href="#"><img
+									src="./resources/img/partners/1.png" alt="" /></a></li>
+							<li class="item"><a href="#"><img
+									src="./resources/img/partners/2.png" alt="" /></a></li>
+							<li class="item"><a href="#"><img
+									src="./resources/img/partners/3.png" alt="" /></a></li>
+							<li class="item"><a href="#"><img
+									src="./resources/img/partners/4.png" alt="" /></a></li>
+							<li class="item"><a href="#"><img
+									src="./resources/img/partners/5.png" alt="" /></a></li>
+							<li class="item"><a href="#"><img
+									src="./resources/img/partners/6.png" alt="" /></a></li>
+							<li class="item"><a href="#"><img
+									src="./resources/img/partners/7.png" alt="" /></a></li>
+							<li class="item"><a href="#"><img
+									src="./resources/img/partners/8.png" alt="" /></a></li>
+						</ul>
 					</div>
 				</div>
-				<div class="counter">
-					<div class="about_title">
-						<h3>Fun Facts</h3>
-					</div>
+			</div>
+		</div>
+		<!-- /MODALBOX ABOUT -->
+
+		<!-- MOBILE MENU -->
+		<div class="tokyo_tm_mobile_menu">
+			<div class="menu_inner">
+				<div class="logo">
+					<img src="./resources/img/logo/dark.png" alt="" />
+				</div>
+				<div class="menu">
 					<ul>
-						<li>
-							<div class="list_inner">
-								<h3><span class="tokyo_tm_counter" data-from="0" data-to="777" data-speed="1500">0</span></h3>
-								<span class="name">Projects Completed</span>
-							</div>
-						</li>
-						<li>
-							<div class="list_inner">
-								<h3><span class="tokyo_tm_counter" data-from="0" data-to="500" data-speed="1500">0</span>+</h3>
-								<span class="name">Happy Clients</span>
-							</div>
-						</li>
-						<li>
-							<div class="list_inner">
-								<h3><span class="tokyo_tm_counter" data-from="0" data-to="100" data-speed="1500">0</span>K+</h3>
-								<span class="name">Lines of Code</span>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="partners">
-					<div class="about_title">
-						<h3>Our Partners</h3>
-					</div>
-					<ul class="owl-carousel">
-						<li class="item"><a href="#"><img src="./resources/img/partners/1.png" alt="" /></a></li>
-						<li class="item"><a href="#"><img src="./resources/img/partners/2.png" alt="" /></a></li>
-						<li class="item"><a href="#"><img src="./resources/img/partners/3.png" alt="" /></a></li>
-						<li class="item"><a href="#"><img src="./resources/img/partners/4.png" alt="" /></a></li>
-						<li class="item"><a href="#"><img src="./resources/img/partners/5.png" alt="" /></a></li>
-						<li class="item"><a href="#"><img src="./resources/img/partners/6.png" alt="" /></a></li>
-						<li class="item"><a href="#"><img src="./resources/img/partners/7.png" alt="" /></a></li>
-						<li class="item"><a href="#"><img src="./resources/img/partners/8.png" alt="" /></a></li>
+						<li><a href="#home"><img class="svg"
+								src="./resources/img/svg/home-run.svg" alt="" /></a></li>
+						<li><a href="#about"><img class="svg"
+								src="./resources/img/svg/avatar.svg" alt="" /></a></li>
+						<li><a href="#portfolio"><img class="svg"
+								src="./resources/img/svg/briefcase.svg" alt="" /></a></li>
+						<li><a href="#news"><img class="svg"
+								src="./resources/img/svg/paper.svg" alt="" /></a></li>
+						<!-- 					<li><a href="#contact"><img class="svg" src="./resources/img/svg/mail.svg" alt="" /></a></li> -->
+						<li><a href="#contact1"><img class="svg"
+								src="./resources/img/svg/mail.svg" alt="" /></a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- /MODALBOX ABOUT -->
+		<!-- /MOBILE MENU -->
 
-	<!-- MOBILE MENU -->
-	<div class="tokyo_tm_mobile_menu">
-		<div class="menu_inner">
-			<div class="logo">
-				<img src="./resources/img/logo/dark.png" alt="" />
-			</div>
-			<div class="menu">
-				<ul>
-					<li><a href="#home"><img class="svg" src="./resources/img/svg/home-run.svg" alt="" /></a></li>
-					<li><a href="#about"><img class="svg" src="./resources/img/svg/avatar.svg" alt="" /></a></li>
-					<li><a href="#portfolio"><img class="svg" src="./resources/img/svg/briefcase.svg" alt="" /></a></li>
-					<li><a href="#news"><img class="svg" src="./resources/img/svg/paper.svg" alt="" /></a></li>
-<!-- 					<li><a href="#contact"><img class="svg" src="./resources/img/svg/mail.svg" alt="" /></a></li> -->
-					<li><a href="#contact1"><img class="svg" src="./resources/img/svg/mail.svg" alt="" /></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- /MOBILE MENU -->
-	
-	<!-- LEFTPART -->
-	<div class="leftpart">
-		<div class="leftpart_inner">
-			<div class="logo">
-				<a href="#"><img src="./resources/img/logo/dark.png" alt="" /></a>
-			</div>
-			<div class="menu">
-				<ul>
-					<li class="active"><a href="#home">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#news">News</a></li>
-<!-- 					<li><a href="#contact">Contact</a></li> -->
-					<li><a href="#contact1">분리수거 장소찾기</a></li>
-				</ul>
-			</div>
-			<div class="copyright">
-				<p>&copy; 2021 Tokyo<br>Created by <a href="https://themeforest.net/item/tokyo-personal-portfolio-template/31647361" target="_blank">Marketify</a></p>
+		<!-- LEFTPART -->
+		<div class="leftpart">
+			<div class="leftpart_inner">
+				<div class="logo">
+					<a href="#"><img src="./resources/img/logo/dark.png" alt="" /></a>
+				</div>
+				<div class="menu">
+					<ul>
+						<li class="active"><a href="#home">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#portfolio">Portfolio</a></li>
+						<li><a href="#news">News</a></li>
+						<!-- 					<li><a href="#contact">Contact</a></li> -->
+						<li><a href="#contact1">분리수거 장소찾기</a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					<p>
+						&copy; 2021 Tokyo<br>Created by <a
+							href="https://themeforest.net/item/tokyo-personal-portfolio-template/31647361"
+							target="_blank">Marketify</a>
+					</p>
+				</div>
 			</div>
 		</div>
-	</div>
-	<!-- /LEFTPART -->
-	
-	<!-- RIGHTPART -->
-	<div class="rightpart">
+		<!-- /LEFTPART -->
+
+		<!-- RIGHTPART -->
+		<div class="rightpart">
 			<div class="rightpart_in">
 
 				<!-- HOME -->
@@ -961,10 +1012,9 @@
 									</div>
 									<div class="tokyo_tm_button" data-position="left">
 										<!--<a href="javascript:contact_form.submit();" id="insertTrashMap.do" > -->
-										<a id="test3" style="cursor: pointer" onclick="test3()"> <span>글
-												등록</span></a>
-										<!-- 								<a id="deleteTrashMap" style="display:none;" onclick="deleteTrashMap()" > <span>글 삭제</span></a> -->
-										<a id="deleteTrashMap" style="display: none; cursor: pointer;"
+										<a id="trashMapInsertOrUpdate" style="cursor: pointer"
+											onclick="trashMapInsertOrUpdate()"> <span>글 등록</span></a> <a
+											id="deleteTrashMap" style="display: none; cursor: pointer;"
 											onclick="deleteTrashMap()"> <span>글 삭제</span></a>
 									</div>
 
@@ -994,7 +1044,7 @@
 
 								<h1>게시글 목록</h1>
 
-								<table border="1" id="test44">
+								<table border="1" id="trashMapListTable">
 									<tr>
 										<th bgcolor="orange" width="50">번호</th>
 										<th bgcolor="orange" width="200">제목</th>
@@ -1003,7 +1053,7 @@
 									</tr>
 								</table>
 								<div class="tokyo_tm_button" data-position="left">
-									<br> <a id="test2" onclick="test2()"
+									<br> <a id="contactMove" onclick="contactMove()"
 										style="cursor: pointer">새글 등록</a>
 								</div>
 							</div>
@@ -1036,47 +1086,48 @@
 		</div>
 	</div>
 	<!-- /RIGHTPART -->
-		
+
 	<!-- CURSOR -->
 	<div class="mouse-cursor cursor-outer"></div>
-    <div class="mouse-cursor cursor-inner"></div>
+	<div class="mouse-cursor cursor-inner"></div>
 	<!-- /CURSOR -->
-	
-</div>
-<!-- / WRAPPER ALL -->
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	</div>
+	<!-- / WRAPPER ALL -->
 
 
 
 
 
 
-<!-- SCRIPTS -->
-<script src="./resources/js/jquery.js"></script>
-<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->	
-<script src="./resources/js/plugins.js"></script>
-<script src="./resources/js/init.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5bpEs3xlB8vhxNFErwoo3MXR64uavf6Y&callback=initMap"></script>
-<!-- /SCRIPTS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- SCRIPTS -->
+	<script src="./resources/js/jquery.js"></script>
+	<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
+	<script src="./resources/js/plugins.js"></script>
+	<script src="./resources/js/init.js"></script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5bpEs3xlB8vhxNFErwoo3MXR64uavf6Y&callback=initMap"></script>
+	<!-- /SCRIPTS -->
 </body>
 </html>

@@ -32,11 +32,11 @@ jQuery(document).ready(function(){
 });
 
 // -----------------------------------------------------
-// ---------------   FUNCTIONS    ----------------------
+// --------------- FUNCTIONS ----------------------
 // -----------------------------------------------------
 
 // -------------------------------------------------
-// --------------------  MENU  ---------------------
+// -------------------- MENU ---------------------
 // -------------------------------------------------
 
 function tokyo_tm_menu(){
@@ -57,55 +57,15 @@ function tokyo_tm_menu(){
 			vContent.find(myHref).addClass('active').animate({ scrollTop: 0 });
 		}
 		
-		
-		
-		
-		
-		
-
 		if(myHref=="#contact1"){
-			test10();
-//			 $.ajax({
-//	                url : "getTrashMapList.do",
-//	                type : "get",
-//
-//// data : {
-//// tmPostNum :1,
-//// tmTitle : "1",
-//// tmContent : "name",
-//// tmAddr : "email"
-//// },
-//	                dataType:"json",
-//	                success : function(result){
-//
-//	                	var len=result.length;
-//	                	var table=$('#test44');
-//	                	var str="";
-//	                	
-//	                	for(var i=0;i<len;i++){
-//	                		   str += "<TR>"
-//	                		   str += '<TD name="tmPostNum" align="center">' + result[i].tmPostNum
-//	                		   + '</TD><TD name="tmTitle" align="center">' + result[i].tmTitle
-//	                		   + '</TD><TD name="tmAddr" align="center">' + result[i].tmAddr
-//	                		   + '</TD><TD name="tmContent" align="center">' + result[i].tmContent  + '</TD>'
-//		                        str += '</TR>'
-//	                	}
-//	                	table.append(str)
-//	                },
-//	                error : function(request, error){
-//	                    alert("fail");
-//	                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-//	                }
-//	            });
-			
-			 
-			
+			getTrashMapList();
+
 		}
 	});
 }
 
 // -------------------------------------------------
-// -------------  MODALBOX NEWS  -------------------
+// ------------- MODALBOX NEWS -------------------
 // -------------------------------------------------
 
 function tokyo_tm_modalbox_news(){
@@ -145,7 +105,7 @@ function tokyo_tm_modalbox_news(){
 }
 
 // -------------------------------------------------
-// -------------  MODALBOX ABOUT  ------------------
+// ------------- MODALBOX ABOUT ------------------
 // -------------------------------------------------
 
 function tokyo_tm_modalbox_about(){
@@ -169,7 +129,7 @@ function tokyo_tm_modalbox_about(){
 }
 
 // -------------------------------------------------
-// -------------  MODALBOX PORTFOLIO  --------------
+// ------------- MODALBOX PORTFOLIO --------------
 // -------------------------------------------------
 
 function tokyo_tm_modalbox_portfolio(){
@@ -195,7 +155,7 @@ function tokyo_tm_modalbox_portfolio(){
 }
 
 // -------------------------------------------------
-// -----------------    PORTFOLIO    ---------------
+// ----------------- PORTFOLIO ---------------
 // -------------------------------------------------
 
 function tokyo_tm_projects() {
@@ -221,7 +181,7 @@ function tokyo_tm_projects() {
 	});
 }
 
-// filterable 
+// filterable
 
 function tokyo_tm_portfolio(){
 
@@ -234,7 +194,7 @@ function tokyo_tm_portfolio(){
 		var filter		 = jQuery('.tokyo_tm_portfolio .portfolio_filter ul');
 
 		if(filter.length){
-			// Isotope Filter 
+			// Isotope Filter
 			filter.find('a').on('click', function(){
 				var selector = jQuery(this).attr('data-filter');
 				list.isotope({ 
@@ -259,7 +219,7 @@ function tokyo_tm_portfolio(){
 }
 
 // -------------------------------------------------
-// -------------  PROGRESS BAR  --------------------
+// ------------- PROGRESS BAR --------------------
 // -------------------------------------------------
 
 function tokyo_tm_my_progress(){
@@ -285,7 +245,7 @@ function tokyo_tm_my_progress(){
 }
 
 // -----------------------------------------------------
-// ---------------   PRELOADER   -----------------------
+// --------------- PRELOADER -----------------------
 // -----------------------------------------------------
 
 function tokyo_tm_preloader(){
@@ -309,7 +269,7 @@ function tokyo_tm_preloader(){
 }
 
 // -----------------------------------------------------
-// -------------------    COUNTER    -------------------
+// ------------------- COUNTER -------------------
 // -----------------------------------------------------
 
 function tokyo_tm_mycounter(){
@@ -338,7 +298,7 @@ function tokyo_tm_mycounter(){
 }
 
 // -----------------------------------------------------
-// -----------------   MY LOAD    ----------------------
+// ----------------- MY LOAD ----------------------
 // -----------------------------------------------------
 
 function tokyo_tm_my_load(){
@@ -350,7 +310,7 @@ function tokyo_tm_my_load(){
 }
 
 // -----------------------------------------------------
-// ------------------   CURSOR    ----------------------
+// ------------------ CURSOR ----------------------
 // -----------------------------------------------------
 
 function tokyo_tm_cursor(){
@@ -376,7 +336,7 @@ function tokyo_tm_cursor(){
 };
 
 // -----------------------------------------------------
-// ---------------    IMAGE TO SVG    ------------------
+// --------------- IMAGE TO SVG ------------------
 // -----------------------------------------------------
 
 function tokyo_tm_imgtosvg(){
@@ -410,14 +370,15 @@ function tokyo_tm_imgtosvg(){
 }
 
 // -----------------------------------------------------
-// --------------------   POPUP    ---------------------
+// -------------------- POPUP ---------------------
 // -----------------------------------------------------
 
 function tokyo_tm_popup(){
 	
 	"use strict";
 
-	jQuery('.gallery_zoom').each(function() { // the containers for all your galleries
+	jQuery('.gallery_zoom').each(function() { // the containers for all your
+												// galleries
 		jQuery(this).magnificPopup({
 			delegate: 'a.zoom', // the selector for gallery item
 			type: 'image',
@@ -429,7 +390,10 @@ function tokyo_tm_popup(){
 		});
 
 	});
-	jQuery('.popup-youtube, .popup-vimeo').each(function() { // the containers for all your galleries
+	jQuery('.popup-youtube, .popup-vimeo').each(function() { // the
+																// containers
+																// for all your
+																// galleries
 		jQuery(this).magnificPopup({
 			disableOn: 700,
 			type: 'iframe',
@@ -449,7 +413,7 @@ function tokyo_tm_popup(){
 }
 
 // -----------------------------------------------------
-// ---------------   DATA IMAGES    --------------------
+// --------------- DATA IMAGES --------------------
 // -----------------------------------------------------
 
 function tokyo_tm_data_images(){
@@ -466,7 +430,7 @@ function tokyo_tm_data_images(){
 }
 
 // -----------------------------------------------------
-// ----------------    CONTACT FORM    -----------------
+// ---------------- CONTACT FORM -----------------
 // -----------------------------------------------------
 
 function tokyo_tm_contact_form(){
@@ -481,17 +445,25 @@ function tokyo_tm_contact_form(){
 		var subject 	= jQuery(".contact_form #subject").val();
 		var success     = jQuery(".contact_form .returnmessage").data('success');
 		
-		jQuery(".contact_form .returnmessage").empty(); //To empty previous error/success message.
-		//checking for blank fields	
+		jQuery(".contact_form .returnmessage").empty(); // To empty previous
+														// error/success
+														// message.
+		// checking for blank fields
 		if(name===''||email===''||message===''){
 			
 			jQuery('div.empty_notice').slideDown(500).delay(2000).slideUp(500);
 		}
 		else{
-			// Returns successful data submission message when the entered information is stored in database.
+			// Returns successful data submission message when the entered
+			// information is stored in database.
 			jQuery.post("modal/contact.php",{ ajax_name: name, ajax_email: email, ajax_message:message, ajax_subject: subject}, function(data) {
 				
-				jQuery(".contact_form .returnmessage").append(data);//Append returned message to message paragraph
+				jQuery(".contact_form .returnmessage").append(data);// Append
+																	// returned
+																	// message
+																	// to
+																	// message
+																	// paragraph
 				
 				
 				if(jQuery(".contact_form .returnmessage span.contact_error").length){
@@ -502,7 +474,8 @@ function tokyo_tm_contact_form(){
 				}
 				
 				if(data===""){
-					jQuery("#contact_form")[0].reset();//To reset form fields on success
+					jQuery("#contact_form")[0].reset();// To reset form fields
+														// on success
 				}
 				
 			});
@@ -512,7 +485,7 @@ function tokyo_tm_contact_form(){
 }
 
 // -----------------------------------------------------
-// ----------------    OWL CAROUSEL    -----------------
+// ---------------- OWL CAROUSEL -----------------
 // -----------------------------------------------------
 
 function tokyo_tm_owl_carousel(){
@@ -560,12 +533,11 @@ function tokyo_tm_owl_carousel(){
 
 
 
-function test2(){
+function contactMove(){
 		
 	var list	 = $('#contact1');
 	var element	 = $('#contact');
-//	 $("#deleteTrashMap").hide();
-//	alert("2");
+
 			list.removeClass('active');
 			element.addClass('active');	
 			
@@ -575,9 +547,8 @@ function test2(){
 }
 
 
-function test2(tmPostNum,tmTitle,tmAddr,tmContent){
-//	alert(tmTitle);
-//	alert("22");
+function contactMove(tmPostNum,tmTitle,tmAddr,tmContent){
+
 	 
 	 if(tmPostNum>0){
 		 $("#deleteTrashMap").show();
@@ -599,12 +570,11 @@ function test2(tmPostNum,tmTitle,tmAddr,tmContent){
 
 
 
-function test3(){
+function trashMapInsertOrUpdate(){
 	var tmPostNum1 = $("#tmPostNum").val();
 	
-//	alert(tmPostNum1);
+// alert(tmPostNum1);
 	var insertTrashMapData = {
-//			tmPostNum : $("#tmPostNum").val(),
 			tmTitle : $("#tmTitle").val(),
 			tmContent : $("#tmContent").val(),
 			tmAddr : $("#tmAddr").val()
@@ -622,7 +592,7 @@ function test3(){
 	                 data :insertTrashMapData1 ,
 	                success : function(data){
 
-	                    test10();
+	                    getTrashMapList();
 	                },
 	                error : function(xhr, status, error){
 	                    alert("통신 에러");
@@ -636,7 +606,7 @@ function test3(){
 		                 data :insertTrashMapData ,
 		                success : function(data){
 
-		                    test10();
+		                    getTrashMapList();
 		                },
 		                error : function(request, error){
 		                    alert("fail");
@@ -644,13 +614,13 @@ function test3(){
 		                }
 		            });
 			}
-//			 insertTrashMapData.remove();
+// insertTrashMapData.remove();
 }
 
 
 
-function test10() {
-	$( '#test44 > #em').remove();
+function getTrashMapList() {
+	$( '#trashMapListTable > #removeTbody').remove();
 	
 		 $.ajax({
                url : "getTrashMapList.do",
@@ -659,21 +629,16 @@ function test10() {
                success : function(result){
             	   console.log(result[0].tmContent);
                	var len=result.length;
-               	var table=$('#test44');
+               	var table=$('#trashMapListTable');
                	var str="";
-			str += "<tbody id='em'>";
+			str += "<tbody id='removeTbody'>";
                	for(var i=0;i<len;i++){
-//               	  str +=	'<a style="cursor:pointer" onclick="test2('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+')">'
-               	
-//               		   str += "<TR>"
-               			   str += '<Tr  style="cursor:pointer" align="center" onclick="test2('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+')">'+ result[i].tmTitle
+               			   str += '<Tr  style="cursor:pointer" align="center" onclick="contactMove('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+')">'+ result[i].tmTitle
                		   str += '<TD name="tmPostNum" align="center">' + result[i].tmPostNum
                		+ '</TD><TD name="tmTitle" align="center">'+ result[i].tmTitle
                		   + '</TD><TD name="tmAddr" align="center">' + result[i].tmAddr
                		   + '</TD><TD name="tmContent" align="center">' + result[i].tmContent  + '</TD>'
-	                        
-               		   
-               		   str += '</TR>'
+	                  str += '</TR>'
                			   
                	}
             str += "</tbody>";
@@ -711,7 +676,7 @@ function deleteTrashMap(){
 	                type : "get",
 	                 data :insertTrashMapData1 ,
 	                success : function(data){
-	                    test10();
+	                    getTrashMapList();
 	                },
 	                error : function(xhr, status, error){
 	                    alert("통신 에러");
