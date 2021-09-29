@@ -678,6 +678,9 @@ function getTrashMapList() {
 // str += '<Tr class="removeTbody" style="cursor:pointer;" align="center"
 // onclick="contactMove('+result[i].tmPostNum+',\''+result[i].tmTitle+'\',\''+result[i].tmAddr+'\',\''+result[i].tmContent+'\','+result[i].tmTime+','+result[i].tmCnt+')">'
 // str += '<Tr class="removeTbody" style="cursor:pointer;" align="center">'
+               		
+               		 
+               		
                		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+','+result[i].tmCnt+')">'
                		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
                		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
