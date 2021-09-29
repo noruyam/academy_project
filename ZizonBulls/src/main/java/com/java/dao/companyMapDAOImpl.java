@@ -44,6 +44,14 @@ public class companyMapDAOImpl implements companyMapDAO{
 		// BoardMapper.xml에 namespace
 		return mybatis.selectList("BoardDAO.getBoardList");
 	}
+	
+	
+	
+	@Override
+	public void updateCntBoard(companyMapVO vo) {
+		System.out.println(">>>> boardService.updateCntBoard() 호출");
+		mybatis.update("BoardDAO.updateBoard",vo);
+	}
 		
 }
 	

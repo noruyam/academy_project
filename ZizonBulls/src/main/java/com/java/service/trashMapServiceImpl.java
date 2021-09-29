@@ -47,6 +47,13 @@ public class trashMapServiceImpl implements trashMapService{
 		return trashMapDAO.getTrashMapList();
 	}
 	
+	
+	public void updateCntTrashMap(trashMapVO vo) {
+		System.out.println(">> TrashMapService.updateCntTrashMap() 호출");
+		trashMapDAO.updateCntTrashMap(vo);
+	}
+	
+	
 }
 		
 		

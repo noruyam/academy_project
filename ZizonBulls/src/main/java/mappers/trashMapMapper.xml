@@ -9,8 +9,8 @@
 <mapper namespace="trashMapDAO">
 	
 	<insert id="insertTrashMap" parameterType="trashMap">
-		INSERT INTO trashmap(tmPostNum, tmTitle, tmContent, tmAddr )
-		VALUES (TrashMap_seq.nextval, #{tmTitle}, #{tmContent}, #{tmAddr})
+		INSERT INTO trashmap(tmPostNum, tmTitle, tmContent, tmAddr,tmTime,tmCnt )
+		VALUES (TrashMap_seq.nextval, #{tmTitle}, #{tmContent}, #{tmAddr},sysdate,0)
 	</insert>
 	
 	<delete id="deleteTrashMap" parameterType="trashMap">
@@ -29,7 +29,7 @@
 	<select id="getTrashMap" parameterType="trashMap" resultType="trashMap">
 		SELECT *
 		FROM TrashMap
-		WHERE seq = #{seq}
+		WHERE tmPostNum = #{tmPostNum}
 	</select>
 	
 	<select id="getTrashMapList" resultType="trashMap">
@@ -37,6 +37,16 @@
 		FROM trashmap
 		ORDER BY tmPostNum DESC
 	</select>
+	
+	
+	<update id="updateCntTrashMap" parameterType="trashMap">
+		UPDATE TrashMap 
+		SET tmCnt = #{tmCnt}+1
+		WHERE tmPostNum = #{tmPostNum}
+	</update>
+	
+	
+	
 	
 </mapper>
 		

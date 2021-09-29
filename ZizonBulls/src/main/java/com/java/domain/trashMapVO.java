@@ -5,18 +5,24 @@ import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
 public class trashMapVO {
 	int tmPostNum;
 	private String tmTitle;
 	private String tmAddr;
 	private String tmContent;
-	private String tmCnt;
-	private String tmPicNum;
 	private String cusId;
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
+	private Date tmTime;
+	private int tmCnt;
+
 	private String tmFname;
+	private String tmFnameEn;
 	
 	String tmComment;
-	Date tmTime;
+	String tmCommentNum;
 	
 	
 	
@@ -76,20 +82,12 @@ public class trashMapVO {
 		this.tmContent = tmContent;
 	}
 
-	public String getTmCnt() {
+	public int getTmCnt() {
 		return tmCnt;
 	}
 
-	public void setTmCnt(String tmCnt) {
+	public void setTmCnt(int tmCnt) {
 		this.tmCnt = tmCnt;
-	}
-
-	public String getTmPicNum() {
-		return tmPicNum;
-	}
-
-	public void setTmPicNum(String tmPicNum) {
-		this.tmPicNum = tmPicNum;
 	}
 
 	public String getCusId() {
@@ -109,12 +107,14 @@ public class trashMapVO {
 	}
 
 	public String getTmComment() {
-		return tmComment;
+		return tmCommentNum;
 	}
 
 	public void setTmComment(String tmComment) {
-		this.tmComment = tmComment;
+		this.tmCommentNum = tmComment;
 	}
+
+	
 
 	public Date getTmTime() {
 		return tmTime;
@@ -122,6 +122,30 @@ public class trashMapVO {
 
 	public void setTmTime(Date tmTime) {
 		this.tmTime = tmTime;
+	}
+
+	public String getTmFnameEn() {
+		return tmFnameEn;
+	}
+
+	public void setTmFnameEn(String tmFnameEn) {
+		this.tmFnameEn = tmFnameEn;
+	}
+
+	public String getTmPicNumEn() {
+		return tmFnameEn;
+	}
+
+	public void setTmPicNumEn(String tmPicNumEn) {
+		this.tmFnameEn = tmPicNumEn;
+	}
+
+	public String getTmCommentNum() {
+		return tmCommentNum;
+	}
+
+	public void setTmCommentNum(String tmCommentNum) {
+		this.tmCommentNum = tmCommentNum;
 	}
 	
 	

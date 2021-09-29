@@ -12,4 +12,5 @@ public interface trashMapDAO {
 	void deleteTrashMap(trashMapVO vo);
 	trashMapVO getTrashMap(trashMapVO vo);
 	List<trashMapVO> getTrashMapList();
+	void updateCntTrashMap(trashMapVO vo);
 }

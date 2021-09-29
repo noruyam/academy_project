@@ -49,4 +49,10 @@ public class trashMapDAOImpl implements trashMapDAO {
 		return mybatis.selectList("trashMapDAO.getTrashMapList");
 	}
 
+	@Override
+	public void updateCntTrashMap(trashMapVO vo) {
+		// TODO Auto-generated method stub
+		mybatis.update("trashMapDAO.updateCntTrashMap", vo);
+	}
+
 }

@@ -998,6 +998,8 @@
 									</div>
 									<input type="hidden" id="tmPostNum" name="tmPostNum"
 										value="${tmPostNum }">
+										<input type="hidden" id="tmCnt" name="tmCnt"
+										value="${tmCnt }">
 									<div class="first">
 										<ul>
 											<li><input id="tmTitle" name="tmTitle" type="text"
@@ -1040,12 +1042,14 @@
 							</div>
 							<div class="fields">
 
-								<table border="1" id="trashMapListTable">
+								<table id="trashMapListTable">
 									<tr>
 										<th bgcolor="orange" width="50">번호</th>
 										<th bgcolor="orange" width="200">제목</th>
-										<th bgcolor="orange" width="300">주소</th>
-										<th bgcolor="orange" width="150">내용</th>
+										<th bgcolor="orange" width="200">주소</th>
+										<th bgcolor="orange" width="100">아이디</th>
+										<th bgcolor="orange" width="100">시간</th>
+										<th bgcolor="orange" width="50">조회수</th>
 									</tr>
 								</table>
 								<div class="tokyo_tm_button" data-position="left">
@@ -1090,10 +1094,6 @@
 
 	</div>
 	<!-- / WRAPPER ALL -->
-
-
-
-
 
 
 

@@ -1763,6 +1763,12 @@ body.modal{
 	margin-bottom: 7px;
 	text-align: left;
 	font-weight: 500;
+		
+}
+
+.removeTbody {
+	border: 2px solid grey;
+	
 }
 
 /*---------------------------------------------------*/

@@ -11,4 +11,5 @@ public interface companyMapDAO {
 	void deleteBoard(companyMapVO vo);
 	companyMapVO getBoard(companyMapVO vo);
 	List<companyMapVO> getBoardList();
+	void updateCntBoard(companyMapVO vo);
 }

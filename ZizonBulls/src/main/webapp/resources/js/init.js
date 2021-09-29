@@ -41,7 +41,7 @@ function reload() {
 // -------------------------------------------------
 // -------------------- MENU ---------------------
 // -------------------------------------------------
-
+//
 function tokyo_tm_menu(){
 	
 	"use strict";
@@ -53,12 +53,16 @@ function tokyo_tm_menu(){
 	list.on('click',function(){
 		var element = jQuery(this);
 		var myHref	= element.find('a').attr('href');
+// alert(myHref);
+// console.log(myHref);
 		if(!element.hasClass('active')){
 			list.removeClass('active');
 			element.addClass('active');
 			vSection.removeClass('active');
 			vContent.find(myHref).addClass('active').animate({ scrollTop: 0 });
+			
 		}
+		
 		
 		if(myHref=="#contact1"){
 			getTrashMapList();
@@ -537,21 +541,44 @@ function tokyo_tm_owl_carousel(){
 
 
 function contactMove(){
-		
+		alert("1");
 	var list	 = $('#contact1');
 	var element	 = $('#contact');
 
 			list.removeClass('active');
 			element.addClass('active');	
 			
-			 $("#tmTitle").val("");
-			 $("#tmContent").val("");
-			 $("#tmAddr").val("");
+// $("#tmTitle").val("");
+// $("#tmContent").val("");
+// $("#tmAddr").val("");
 }
 
 
-function contactMove(tmPostNum,tmTitle,tmAddr,tmContent){
+function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 
+		
+// console.log(this.tmTitle);
+// alert("2");
+	 var updateCntTrashMap = {
+				tmPostNum : tmPostNum,
+				tmCnt : tmCnt
+	 };
+	 
+	 $.ajax({
+		 url : "updateCntTrashMap.do",
+         type : "get",
+          data :updateCntTrashMap ,
+         success : function(data){
+        	
+         },
+         error : function(xhr, status, error){
+             alert("통신 에러");
+         }
+     });
+	 
+	 
+	 
+	 
 	 
 	 if(tmPostNum>0){
 		 $("#deleteTrashMap").show();
@@ -563,10 +590,14 @@ function contactMove(tmPostNum,tmTitle,tmAddr,tmContent){
 	
 			list.removeClass('active');
 			element.addClass('active');	
+		
+			
 			 $("#tmPostNum").val(tmPostNum);
 			 $("#tmTitle").val(tmTitle);
-			 $("#tmContent").val(tmAddr);
-			 $("#tmAddr").val(tmContent);
+			 $("#tmAddr").val(tmAddr);
+			 $("#tmContent").val(tmContent);
+			
+			 
 }
 
 
@@ -630,29 +661,41 @@ function getTrashMapList() {
                type : "get",
                dataType:"json",
                success : function(result){
-            	   console.log(result[0].tmContent);
+            	   console.log(result[0].tmTime);
+// console.log( DateDeserialize(result[0].tmTime));
+
+            
                	var len=result.length;
                	var table=$('#trashMapListTable');
                	var str="";
-			str += "<tbody id='removeTbody'>";
+               	str += "<tbody id='removeTbody' class='removeTbody'>";
                	for(var i=0;i<len;i++){
-               			   str += '<Tr  style="cursor:pointer" align="center" onclick="contactMove('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+')">'+ result[i].tmTitle
-               		   str += '<TD name="tmPostNum" align="center">' + result[i].tmPostNum
-               		+ '</TD><TD name="tmTitle" align="center">'+ result[i].tmTitle
-               		   + '</TD><TD name="tmAddr" align="center">' + result[i].tmAddr
-               		   + '</TD><TD name="tmContent" align="center">' + result[i].tmContent  + '</TD>'
-	                  str += '</TR>'
+// str += '<Tr class="removeTbody" style="cursor:pointer;" align="center"
+// onclick="contactMove('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+')">'+
+// result[i].tmTitle
+// str += '<Tr class="removeTbody" style="cursor:pointer;" align="center"
+// onclick="contactMove('+result[i].tmPostNum+',\''+result[i].tmTitle+'\',\''+result[i].tmAddr+'\',\''+result[i].tmContent+'\','+result[i].tmTime+','+result[i].tmCnt+')">'
+// str += '<Tr class="removeTbody" style="cursor:pointer;" align="center">'
+               		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+')">'
+               		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
+               		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
+               		+ '</TD><TD class="removeTbody" name="tmAddr" align="center">' + result[i].tmAddr
+               		+ '</TD><TD class="removeTbody" name="cusId" align="center">cusId</TD>'
+               		+ '</TD><TD class="removeTbody" name="tmTime" align="center">' +result[i].tmTime
+               		+ '</TD><TD class="removeTbody" name="tmCnt" align="center">' + result[i].tmCnt+'</td>'
+               		+ '<input type="hidden" class="removeTbody" align="center" value="'+result[i].tmContent+'">'
+	                str += '</TR>'
                			   
                	}
-            str += "</tbody>";
-               	table.append(str);
+               	str += "</tbody>";
+               	table.append(str).trigger("create");
                },
                error : function(request, error){
                    alert("fail");
                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                }
            });
-		 
+		 		
 				 	var list	 = $('#contact');
 					var element	 = $('#contact1');
 			
@@ -687,3 +730,85 @@ function deleteTrashMap(){
 	            });
 			
 }
+
+
+
+
+
+
+
+
+
+
+function getTrashMap(tmPostNum) {
+// alert(tmPostNum);
+	var getTrashMap = {
+			tmPostNum : tmPostNum,
+		
+		};
+	
+
+			
+			var tmTitle = $("#tmTitle")
+			var tmContent = $("#tmContent")
+			var tmAddr = $("#tmAddr")
+		
+	
+	
+	
+		 $.ajax({
+               url : "getTrashMap.do",
+               type : "get",
+               data : getTrashMap,
+               dataType:"json",
+               success : function(result){
+
+            	   tmTitle.val(result.tmTitle);
+            	   tmContent.val(result.tmContent);
+            	   tmAddr.val(result.tmAddr);
+            	   
+            		var list	 = $('#contact1');
+        			var element	 = $('#contact');
+        	
+        			list.removeClass('active');
+        			element.addClass('active');	
+  
+               },
+               error : function(request, error){
+                   alert("fail");
+                   alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+               }
+           });
+		 		
+		
+	
+}
+
+
+
+
+
+
+
+
+
+//
+// $("#trashMapListTable > #removeTbody1 tr").click(function(){
+//
+// var str = ""
+// var tdArr = new Array(); // 배열 선언
+//	            
+// // 현재 클릭된 Row(<tr>)
+// var tr = $(this);
+// var td = tr.children();
+// // tr.text()는 클릭된 Row 즉 tr에 있는 모든 값을 가져온다.
+// console.log("클릭한 Row의 모든 데이터 : "+tr.text());
+//	                
+// // 반복문을 이용해서 배열에 값을 담아 사용할 수 도 있다.
+// td.each(function(i){
+// console.log( tdArr.push(td.eq(i).text()));
+// });
+//	                
+// console.log("배열에 담긴 값 : "+tdArr);
+//
+// })

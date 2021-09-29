@@ -13,4 +13,6 @@ public interface trashMapService {
 	void deleteTrashMap(trashMapVO vo);
 	trashMapVO getTrashMap(trashMapVO vo);
 	List<trashMapVO> getTrashMapList();
+	void updateCntTrashMap(trashMapVO vo);
+	
 }
