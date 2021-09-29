@@ -1001,12 +1001,19 @@
 										<input type="hidden" id="tmCnt" name="tmCnt"
 										value="${tmCnt }">
 									<div class="first">
+									 <div id="hideDateAndCnt" style="display none; cursor: pointer;">
+									<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>조회수 : </span><span id="tmCntText"> </span>
+									</div>
+										<hr>
+										<br>
 										<ul>
 											<li><input id="tmTitle" name="tmTitle" type="text"
-												placeholder="제목"></li>
+												placeholder="제목"></li>												
 											<li><input id="tmAddr" name="tmAddr" type="text"
 												placeholder="맵을 클릭해주세요"></li>
 										</ul>
+										<hr>
+										<br>
 									</div>
 									<div class="last">
 										<textarea id="tmContent" name="tmContent" placeholder="내용"></textarea>

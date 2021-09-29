@@ -559,22 +559,22 @@ function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 		
 // console.log(this.tmTitle);
 // alert("2");
-	 var updateCntTrashMap = {
-				tmPostNum : tmPostNum,
-				tmCnt : tmCnt
-	 };
-	 
-	 $.ajax({
-		 url : "updateCntTrashMap.do",
-         type : "get",
-          data :updateCntTrashMap ,
-         success : function(data){
-        	
-         },
-         error : function(xhr, status, error){
-             alert("통신 에러");
-         }
-     });
+//	 var updateCntTrashMap = {
+//				tmPostNum : tmPostNum,
+//				tmCnt : tmCnt
+//	 };
+//	 
+//	 $.ajax({
+//		 url : "updateCntTrashMap.do",
+//         type : "get",
+//          data :updateCntTrashMap ,
+//         success : function(data){
+//        	
+//         },
+//         error : function(xhr, status, error){
+//             alert("통신 에러");
+//         }
+//     });
 	 
 	 
 	 
@@ -582,8 +582,10 @@ function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 	 
 	 if(tmPostNum>0){
 		 $("#deleteTrashMap").show();
+		 $("#hideDateAndCnt").show();
 	 }else{
 		 $("#deleteTrashMap").hide(); 
+		 $("#hideDateAndCnt").hide();
 	 }
 	var list	 = $('#contact1');
 	var element	 = $('#contact');
@@ -676,7 +678,7 @@ function getTrashMapList() {
 // str += '<Tr class="removeTbody" style="cursor:pointer;" align="center"
 // onclick="contactMove('+result[i].tmPostNum+',\''+result[i].tmTitle+'\',\''+result[i].tmAddr+'\',\''+result[i].tmContent+'\','+result[i].tmTime+','+result[i].tmCnt+')">'
 // str += '<Tr class="removeTbody" style="cursor:pointer;" align="center">'
-               		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+')">'
+               		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+','+result[i].tmCnt+')">'
                		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
                		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
                		+ '</TD><TD class="removeTbody" name="tmAddr" align="center">' + result[i].tmAddr
@@ -704,10 +706,6 @@ function getTrashMapList() {
 	
 }
 
-
-
-
-
 function deleteTrashMap(){
 	
 	var insertTrashMapData1 = {
@@ -731,60 +729,100 @@ function deleteTrashMap(){
 			
 }
 
-
-
-
-
-
-
-
-
-
-function getTrashMap(tmPostNum) {
+function getTrashMap(tmPostNum,tmCnt) {
 // alert(tmPostNum);
-	var getTrashMap = {
-			tmPostNum : tmPostNum,
-		
-		};
+			var getTrashMap = {
+					tmPostNum : tmPostNum,
+					tmCnt : tmCnt
+			};
 	
-
-			
 			var tmTitle = $("#tmTitle")
 			var tmContent = $("#tmContent")
 			var tmAddr = $("#tmAddr")
+			var tmCnt = $("#tmCnt")
+			var tmTime = $("#tmTime")
+			var tmCntText =  $("#tmCntText")
 		
-	
-	
-	
 		 $.ajax({
                url : "getTrashMap.do",
                type : "get",
                data : getTrashMap,
                dataType:"json",
                success : function(result){
-
+            	   
             	   tmTitle.val(result.tmTitle);
             	   tmContent.val(result.tmContent);
             	   tmAddr.val(result.tmAddr);
+    
+            	   tmCntText.text(result.tmCnt);
+            	   tmTime.text(result.tmTime);
+            
+//            	   updateCntTrashMap(result.tmPostNum,result.tmCnt);
+            	   
+//            	   contactMove(result.tmPostNum,result.tmTitle,result.tmAddr,result.tmContent,result.tmTime,result.tmCnt);
             	   
             		var list	 = $('#contact1');
         			var element	 = $('#contact');
         	
         			list.removeClass('active');
         			element.addClass('active');	
-  
+        		
                },
                error : function(request, error){
                    alert("fail");
                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                }
            });
-		 		
+			
+			
+			
+			if(tmPostNum>0){
+				 $("#deleteTrashMap").show();
+				 $("#hideDateAndCnt").show();
+			 }else{
+				 $("#deleteTrashMap").hide(); 
+				 $("#hideDateAndCnt").hide();
+			 }
+			var list	 = $('#contact1');
+			var element	 = $('#contact');
+			
+					list.removeClass('active');
+					element.addClass('active');	
+				
+					
+					 $("#tmPostNum").val(tmPostNum);
+//					 $("#tmTitle").val(tmTitle);
+//					 $("#tmAddr").val(tmAddr);
+//					 $("#tmContent").val(tmContent);
 		
 	
 }
 
 
+function updateCntTrashMap(tmPostNum,tmCnt){
+
+		
+
+// alert(tmPostNum,tmCnt);
+	 var updateCntTrashMap = {
+			 tmPostNum : tmPostNum,
+				tmCnt : tmCnt
+	 };
+	 
+	 $.ajax({
+		 url : "updateCntTrashMap.do",
+         type : "get",
+          data :updateCntTrashMap ,
+         success : function(data){
+        	
+         },
+         error : function(xhr, status, error){
+             alert("통신 에러");
+         }
+     });
+	 
+			 
+}
 
 
 

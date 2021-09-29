@@ -83,6 +83,7 @@ public class trashMapController {
 		
 		System.out.println(vo.getTmPostNum());
 //		return "/trashMap/insertTrashMap";
+		trashMapService.updateCntTrashMap(vo);
 		return trashMapService.getTrashMap(vo);
 	}
 		
