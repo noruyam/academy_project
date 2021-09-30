@@ -988,7 +988,7 @@
 								<div class="map" id="ieatmaps"></div>
 							</div>
 							<div class="fields">
-								<form action="insertTrashMap.do" method="post"
+								<form action="insertTrashMap.do" method="post" enctype="multipart/form-data"
 									class="contact_form" id="contact_form" name="contact_form"
 									autocomplete="off">
 									<div class="returnmessage"
@@ -1003,7 +1003,9 @@
 									<div class="first">
 									 <div id="hideDateAndCnt" style="display none; cursor: pointer;">
 									<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>조회수 : </span><span id="tmCntText"> </span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
+									<span>파일첨부 : <input type="file" name='file' id="file" value="1"> </span>
 										<hr>
 										<br>
 										<ul>

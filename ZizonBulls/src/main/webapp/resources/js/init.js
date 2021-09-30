@@ -613,18 +613,21 @@ function trashMapInsertOrUpdate(){
 	var insertTrashMapData = {
 			tmTitle : $("#tmTitle").val(),
 			tmContent : $("#tmContent").val(),
-			tmAddr : $("#tmAddr").val()
+			tmAddr : $("#tmAddr").val(),
+			tmFname : $("#file").val()
 		};
 	var insertTrashMapData1 = {
 			tmPostNum : $("#tmPostNum").val(),
 			tmTitle : $("#tmTitle").val(),
 			tmContent : $("#tmContent").val(),
-			tmAddr : $("#tmAddr").val()
+			tmAddr : $("#tmAddr").val(),
+			tmFname : $("#file").val()
 		};
 			if(tmPostNum1>0){
 			 $.ajax({
 				 url : "updateTrashMap.do",
 	                type : "get",
+	                enctype: 'multipart/form-data',
 	                 data :insertTrashMapData1 ,
 	                success : function(data){
 
@@ -639,6 +642,7 @@ function trashMapInsertOrUpdate(){
 		                
 		                url : "insertTrashMap.do",
 		                type : "get",
+		                enctype: 'multipart/form-data',
 		                 data :insertTrashMapData ,
 		                success : function(data){
 

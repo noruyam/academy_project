@@ -24,6 +24,8 @@ public class trashMapController {
 		System.out.println(vo.getTmContent());
 		System.out.println(vo.getTmAddr());
 		System.out.println(vo.getTmTitle());
+		System.out.println(vo.getTmFname());
+		System.out.println(vo.getTmFnameEn());
 		trashMapService.insertTrashMap(vo);
 		
 //		return "/trashMap/insertTrashMap";
@@ -44,6 +46,8 @@ public class trashMapController {
 		System.out.println(vo.getTmContent());
 		System.out.println(vo.getTmAddr());
 		System.out.println(vo.getTmTitle());
+		System.out.println(vo.getTmFname());
+		System.out.println(vo.getTmFnameEn());
 		trashMapService.updateTrashMap(vo);
 //		return "/trashMap/insertTrashMap";
 		return null;

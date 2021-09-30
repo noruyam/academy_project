@@ -16,7 +16,7 @@ public class trashMapServiceImpl implements trashMapService{
 	
 	@Override
 	public void insertTrashMap(trashMapVO vo) {
-		System.out.println(">> TrashMapService.getTrashMapList() 호출");
+		System.out.println(">> TrashMapService.insertTrashMap() 호출");
 		System.out.println(vo.getTmAddr());
 		trashMapDAO.insertTrashMap(vo);
 	}
