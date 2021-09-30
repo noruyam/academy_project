@@ -608,13 +608,19 @@ function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 
 function trashMapInsertOrUpdate(){
 	var tmPostNum1 = $("#tmPostNum").val();
-	
-// alert(tmPostNum1);
+//	console.log($("#file").val());
+//	fn_submit();
+//	var str =String.valueOf($("#file").val());
+	var str1=JSON.stringify($("#file").val());
+//	console.log(str1);
+//	var str ="sdfsdf.123";
+	var gg=str1.substring(str1.lastIndexOf(".")-1);
+	console.log(gg);
 	var insertTrashMapData = {
 			tmTitle : $("#tmTitle").val(),
 			tmContent : $("#tmContent").val(),
 			tmAddr : $("#tmAddr").val(),
-			tmFname : $("#file").val()
+			tmFname : gg
 		};
 	var insertTrashMapData1 = {
 			tmPostNum : $("#tmPostNum").val(),
@@ -627,10 +633,10 @@ function trashMapInsertOrUpdate(){
 			 $.ajax({
 				 url : "updateTrashMap.do",
 	                type : "get",
-//	                enctype: 'multipart/form-data',
+
 	                 data :insertTrashMapData1 ,
 	                success : function(data){
-
+//	                	fn_submit();
 	                    getTrashMapList();
 	                },
 	                error : function(xhr, status, error){
@@ -639,13 +645,10 @@ function trashMapInsertOrUpdate(){
 	            });
 			}else{
 				 $.ajax({
-		                
 		                url : "insertTrashMap.do",
 		                type : "get",
-//		                enctype: 'multipart/form-data',
 		                 data :insertTrashMapData ,
 		                success : function(data){
-
 		                    getTrashMapList();
 		                },
 		                error : function(request, error){
@@ -835,8 +838,6 @@ function updateCntTrashMap(tmPostNum,tmCnt){
 
 
 
-
-
 //
 // $("#trashMapListTable > #removeTbody1 tr").click(function(){
 //
@@ -857,3 +858,59 @@ function updateCntTrashMap(tmPostNum,tmCnt){
 // console.log("배열에 담긴 값 : "+tdArr);
 //
 // })
+
+
+
+
+
+
+
+$(document).ready(function() {
+    $("#file").on("change", handleImgFileSelect);
+});
+var sel_file;
+function handleImgFileSelect(e) {
+    var files = e.target.files;
+    var filesArr = Array.prototype.slice.call(files);
+
+    var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/;
+
+    filesArr.forEach(function(f) {
+        if (!f.type.match(reg)) {
+            alert("확장자는 이미지 확장자만 가능합니다.");
+            return;
+        }
+
+        sel_file = f;
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $("#img").attr("src", e.target.result);
+        }
+        reader.readAsDataURL(f);
+    });
+}
+
+
+
+function fn_submit(){
+    alert("fn_submit 클릭함");
+    var form = new FormData();
+    form.append( "file", $("#file")[0].files[0] );
+    
+     jQuery.ajax({
+         url : "result.do"
+       , type : "POST"
+       , processData : false
+       , contentType : false
+       , data : form
+       , success:function(response) {
+           alert("성공하였습니다.");
+           console.log(response);
+       }
+       ,error: function (jqXHR) 
+       { 
+           alert(jqXHR.responseText); 
+       }
+   });
+}

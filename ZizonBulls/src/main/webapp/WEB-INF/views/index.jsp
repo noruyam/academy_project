@@ -987,10 +987,15 @@
 							<div class="map_wrap">
 								<div class="map" id="ieatmaps"></div>
 							</div>
+							
 							<div class="fields">
 								<form action="insertTrashMap.do" method="post" enctype="multipart/form-data"
 									class="contact_form" id="contact_form" name="contact_form"
 									autocomplete="off">
+<!--     <div><label for="file">파일</label>  -->
+    <input type="file" id="file" name="file"> 
+<!--     <button id="btn_submit" onclick="fn_submit()">전송</button>     -->
+<!-- </div> -->
 									<div class="returnmessage"
 										data-success="Your message has been received, We will contact you soon."></div>
 									<div class="empty_notice">
@@ -1005,7 +1010,7 @@
 									<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>조회수 : </span><span id="tmCntText"> </span>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
-									<span>파일첨부 : <input type="file" name='file' id="file" value="1"> </span>
+<!-- 									<span>파일첨부 : <input type="file" name='file' id="file" value="1"> </span> -->
 										<hr>
 										<br>
 										<ul>

@@ -35,20 +35,22 @@ public class trashMapVO {
 
 	public void setFile(MultipartFile file) {
 		this.file = file;
+		System.out.println("setFile");
+		System.out.println(file);
 		// 파일이 업로드가 되면
 		// 파일이 비어있지않을때
 		if (!file.isEmpty()) {
 			this.tmFname = file.getOriginalFilename();
-			System.out.println(tmFname);
+			System.out.println(">>> vo안에잇는 tmFname : "+tmFname);
 			String fileextension=tmFname.substring(tmFname.lastIndexOf("."));
 			this.tmFnameEn=UUID.randomUUID().toString().replaceAll("-", "")+fileextension;
-			File f = new File("C:\\Users\\qkr26\\git\\last\\ZizonBulls\\src\\main\\webapp\\resources\\trashmappic\\"
-					+tmFnameEn);
-			try {
-				file.transferTo(f);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+//			File f = new File("C:\\Users\\qkr26\\git\\last\\ZizonBulls\\src\\main\\webapp\\resources\\trashmappic\\"
+//					+tmFnameEn);
+//			try {
+//				file.transferTo(f);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
 
 		}
 	}
@@ -66,6 +68,7 @@ public class trashMapVO {
 	}
 
 	public void setTmTitle(String tmTitle) {
+		System.out.println(">>>>>>>vo안에잇어:"+tmTitle);
 		this.tmTitle = tmTitle;
 	}
 
