@@ -36,7 +36,7 @@
 			tmAddr = #{tmAddr}
 			<if test="tmFname != null">
 		, tmFname = #{tmFname}
-		, tmFnameEn=#{tmFnameEn}
+<!-- 		, tmFnameEn=#{tmFnameEn} -->
 	</if>
 		WHERE tmPostNum = #{tmPostNum}
 	</update>

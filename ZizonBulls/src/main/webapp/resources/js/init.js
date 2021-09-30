@@ -632,7 +632,7 @@ function trashMapInsertOrUpdate(){
 			if(tmPostNum1>0){
 			 $.ajax({
 				 url : "updateTrashMap.do",
-	                type : "get",
+	                type : "post",
 
 	                 data :insertTrashMapData1 ,
 	                success : function(data){
@@ -646,7 +646,7 @@ function trashMapInsertOrUpdate(){
 			}else{
 				 $.ajax({
 		                url : "insertTrashMap.do",
-		                type : "get",
+		                type : "post",
 		                 data :insertTrashMapData ,
 		                success : function(data){
 		                    getTrashMapList();
