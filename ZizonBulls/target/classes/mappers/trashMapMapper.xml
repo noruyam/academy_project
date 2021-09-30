@@ -10,14 +10,16 @@
 	
 	<insert id="insertTrashMap" parameterType="trashMap">
 	INSERT INTO trashmap(tmPostNum, tmTitle, tmContent, tmAddr,tmTime,tmCnt
-	<if test="tmFname != null">
-		,tmFname, tmFnameEn
-	</if>
+<!-- 	<if test="tmFname != null"> -->
+		,tmFname
+<!-- 		, tmFnameEn -->
+<!-- 	</if> -->
 	)
 	VALUES (TrashMap_seq.nextval, #{tmTitle}, #{tmContent}, #{tmAddr},sysdate,0
-	<if test="tmFname != null">
-		,#{tmFname}, #{tmFnameEn}
-	</if>
+<!-- 	<if test="tmFname != null"> -->
+		,#{tmFname}
+<!-- 		, #{tmFnameEn} -->
+<!-- 	</if> -->
 	)
 
 </insert>

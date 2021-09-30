@@ -39,6 +39,7 @@ public class trashMapVO {
 		// 파일이 비어있지않을때
 		if (!file.isEmpty()) {
 			this.tmFname = file.getOriginalFilename();
+			System.out.println(tmFname);
 			String fileextension=tmFname.substring(tmFname.lastIndexOf("."));
 			this.tmFnameEn=UUID.randomUUID().toString().replaceAll("-", "")+fileextension;
 			File f = new File("C:\\Users\\qkr26\\git\\last\\ZizonBulls\\src\\main\\webapp\\resources\\trashmappic\\"

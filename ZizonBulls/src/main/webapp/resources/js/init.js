@@ -627,7 +627,7 @@ function trashMapInsertOrUpdate(){
 			 $.ajax({
 				 url : "updateTrashMap.do",
 	                type : "get",
-	                enctype: 'multipart/form-data',
+//	                enctype: 'multipart/form-data',
 	                 data :insertTrashMapData1 ,
 	                success : function(data){
 
@@ -642,7 +642,7 @@ function trashMapInsertOrUpdate(){
 		                
 		                url : "insertTrashMap.do",
 		                type : "get",
-		                enctype: 'multipart/form-data',
+//		                enctype: 'multipart/form-data',
 		                 data :insertTrashMapData ,
 		                success : function(data){
 
