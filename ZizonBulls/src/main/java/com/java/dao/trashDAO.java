@@ -2,7 +2,6 @@ package com.java.dao;
 
 import java.util.List;
 
-import com.java.domain.customerVO;
 import com.java.domain.trashVO;
 
 public interface trashDAO {

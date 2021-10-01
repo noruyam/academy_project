@@ -67,6 +67,8 @@ function tokyo_tm_menu(){
 		if(myHref=="#contact1"){
 			getTrashMapList();
 
+		}else if(myHref=="#news"){
+			getBoardList();
 		}
 	});
 }
@@ -962,7 +964,7 @@ function updateBoard(seq){
 
 //게시글 등록
 function insertBoard(){
-	   alert("나눔게시판 새글등록 제목 : " + $("#title").val());
+//	   alert("나눔게시판 새글등록 제목 : " + $("#title").val());
 	   
 	   var yn = confirm("게시글을 등록하시겠습니까?");
 	   
@@ -1001,94 +1003,100 @@ function insertBoard(){
 
 //삭제 함수
 function deleteBoard(seq){
-	
-	alert($("#seq").val());
-	var deletedata = {
-			 seq : $("#seq").val()
-	         
-	};
-		$.ajax({
-			url:"deleteBoard.do",
-			type : "get",
-			data : deletedata,
-			success : function(data){
-				
-				getBoardList();
-			},
-			error : function(xhr, status, error){
-				alert("에러");
-			}
-		});
-}
+	   
+	   
+	   var deletedata = {
+	          seq : $("#seq").val(),
+	            title : $("#title").val(),
+	            writer : $("#writer").val(),
+	            content : $("#content").val()
+	   };
+	      $.ajax({
+	         url:"deleteBoard.do",
+	         type : "get",
+	         data : deletedata,
+	         success : function(data){
+	            
+	            getBoardList();
+	         },
+	         error : function(xhr, status, error){
+	            alert("에러");
+	         }
+	      });
+	}
 
 
 
 function getBoard(seq,title,writer,content,regDate,cnt){
-	
-	
-	
-	$("#test3").html("<span>글 수정</span>");
-	$("#test3").attr("onclick","updateBoard("+seq+")");
-	
-	
-  $("#title").val(title);
-  $("#writer").val(writer);
-  $("#content").val(content);
-	
-	
-	var list    = $('#news');
-	var element    = $('#news1');
 	   
-	list.removeClass('active');
-   element.addClass('active');   
- 
- 
- 
- 
+	   if(seq > 0 ){
+	      
+	   $("#delete").show();
+	   
+	   $("#test3").html("<span>글 수정</span>");
+	   $("#test3").attr("onclick","updateBoard("+seq+")");
+	   
+	   }
+	   $("#seq").val(seq);
+	     $("#title").val(title);
+	     $("#writer").val(writer);
+	     $("#content").val(content);
+	   
+	   
+	   var list    = $('#news');
+	   var element    = $('#news1');
+	      
+	    list.removeClass('active');
+	    element.addClass('active');   
+	        
 }
-
 
 //테이블 리스트 보여주는 함수
 function getBoardList() {
-//	console.log( $('#removetest10').val);
-//	 $('#removetest10').remove();
-	 $('#nanumBoardTable>#removetest10').remove();
-	 $.ajax({
-	        url : "getBoardList.do",
-	        type : "get",
-	        dataType:"json",
-	        success : function(result){
-//	     	 alert(result[0]);
-	           var len=result.length;
-	           var table=$('#nanumBoardTable');
-	           
-	           var str ="<tbody id = 'removetest10'>";
-
-	           for(var i=0;i<len;i++){
-	                 str += "<TR onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\",\""+result[i].content+"\","+result[i].regDate+","+result[i].cnt+")'>"
-	                 str += '<TD name="seq" align="center">' + result[i].seq
-	                 + '</TD><TD name="title" align="center">' + result[i].title
-	                 + '</TD><TD name="writer" align="center">' + result[i].writer
-	                 + '</TD><TD name="content" align="center">' + result[i].content
-	                 + '</TD><TD name="regDate" align="center" pattern="yyyy-MM-dd">' + result[i].regDate
-	                 + '</TD><TD name="cnt" align="center">' + result[i].cnt + '</TD>'
-	                    str += '</TR>'
-//	                    	str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="contactMove('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+','+result[i].tmTime+','+result[i].tmCnt+')">'
-	           }
-	           str +="</tbody>";
-	           table.append(str)
-	        },
-	        error : function(request, error){
-	            alert("fail");
-	            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	        }
-	    });
- 
-   var list    = $('#news1');
-   var element    = $('#news');
+//  console.log( $('#removetest10').val);
+//   $('#removetest10').remove();
+   $('#nanumBoardTable>#removetest10').remove();
    
-         list.removeClass('active');
-         element.addClass('active');   
+   $("#title").val("");
+    $("#writer").val("");
+    $("#content").val("");
+    
+  
+   $.ajax({
+          url : "getBoardList.do",
+          type : "get",
+          dataType:"json",
+          success : function(result){
+//           alert(result[0]);
+             var len=result.length;
+             var table=$('#nanumBoardTable');
+             
+             var str ="<tbody id = 'removetest10'>";
+
+             for(var i=0;i<len;i++){
+                   str += "<TR onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\","+result[i].regDate+","+result[i].cnt+")'>"
+                   str += '<TD name="seq" align="center">' + result[i].seq
+                   + '</TD><TD name="title" align="center">' + result[i].title
+                   + '</TD><TD name="writer" align="center">' + result[i].writer
+                   + '</TD><TD name="regDate" align="center" pattern="yyyy-MM-dd">' + result[i].regDate
+                   + '</TD><TD name="cnt" align="center">' + result[i].cnt + '</TD>'
+                      str += '</TR>'
+//                         str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="contactMove('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+','+result[i].tmTime+','+result[i].tmCnt+')">'
+             }
+             str +="</tbody>";
+             table.append(str)
+          },
+          error : function(request, error){
+              alert("fail");
+              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+          }
+      });
+   
+     var list    = $('#news1');
+     var element    = $('#news');
+     
+           list.removeClass('active');
+           element.addClass('active');   
 }
 
 

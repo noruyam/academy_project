@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="CustomerDAO">
+   
+   <delete id="deleteCustomerInfo" parameterType="customer">
+      DELETE FROM customer1
+      WHERE cusid = #{cusId}
+   </delete>
+   
+   <update id="updateCustomerInfo" parameterType="customer">
+      UPDATE customer1
+      SET
+      <choose>
+      <when test=' (pass == null or pass =="") and (email != null or email != "") '>
+         pass = pass,
+         email = #{email}
+      </when>
+      <when test=' (email == null or email == "") and (pass != null or pass != "") '>
+         pass = #{pass},
+         email = email
+      </when>
+      <otherwise>
+         pass = #{pass},
+         email = #{email}
+      </otherwise>
+      </choose>
+<!--        SET 1=1 -->
+<!--       <set> -->
+<!--          <if test="pass == null"> -->
+<!--             ,email = #{email} -->
+<!--          </if> -->
+<!--          <if test="email == null"> -->
+<!--             SET pass = #{pass} -->
+<!--          </if> -->
+<!--          <if test="pass != null and email != null"> -->
+<!--             SET pass = #{pass}, -->
+<!--             email = #{email}          -->
+<!--          </if> -->
+<!--       </set> -->
+      WHERE cusid = #{cusId}
+      
+   </update>
+   
+   <select id="getCustomerIdPwd" parameterType="customer" resultType="customer">
+      SELECT cusid, pass
+      FROM customer1
+      WHERE email = #{email}
+   </select>
+   
+   <select id="getBoardList" resultType="customer">
+      SELECT *
+      FROM customer
+      ORDER BY seq DESC
+   </select>
+   
+   <select id="idCheck" parameterType="customer" resultType="customer">
+      select *
+      from customer1
+      where cusid = #{cusId}
+      <if test=' pass != null or pass != "" '>
+         and pass = #{pass}
+      </if>
+   </select>
+   
+   <select id="idCheck_Join" parameterType="customer" resultType="customer">
+      select *
+      from customer1
+      where cusid = #{cusId}
+   </select>
+   
+   <insert id="customerInsert" parameterType="customer">
+      <!--  
+      insert into customer
+      (cusname, email, pass)
+      values(#{cusName}, #{email}, #{pass})
+      -->
+      insert into customer1
+      (cusid, pass, cusname, email)
+      values(#{cusId}, #{pass}, #{cusName}, #{email})
+      <!--  
+      where not exists
+      (select cusid from customer1 where cusid = #{cusId})
+      -->
+      <!--  
+      insert into customer
+      (cusid, pass, cusname, birth, gender, ssn, 
+      email, cusaddr, cusnumber, mundab, busid, points)
+      values(#{cusId}, #{pass}, #{cusName}, #{birth}, #{gender}, 
+      #{ssn}, #{email}, #{cusAddr}, #{cusNumber}, #{mundab}, #{busId}, #{points})
+      -->
+   </insert>
+   
+</mapper>
+      

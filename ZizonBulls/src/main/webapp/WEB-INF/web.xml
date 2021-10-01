@@ -62,5 +62,21 @@
 
 
 
+<!-- 프로파일이나 mbean을 사용하지 않으면 web.xml에 다음 컨텍스트 매개 변수를 해결 방법 (트릭)으로 추가하십시오.
+   이 추악한 것보다 더 나은 솔루션을 제공 할 수 있기를 바랍니다. -->
+   <context-param>
+      <param-name>spring.profiles.active</param-name>
+      <param-value>dev</param-value>
+   </context-param>
+   <context-param>
+      <param-name>spring.profiles.default</param-name>
+      <param-value>dev</param-value>
+   </context-param>
+   <context-param>
+      <param-name>spring.liveBeansView.mbeanDomain</param-name>
+      <param-value>dev</param-value>
+   </context-param>
+
+
 
 </web-app>
