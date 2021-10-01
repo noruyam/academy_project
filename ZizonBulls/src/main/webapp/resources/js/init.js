@@ -609,7 +609,7 @@ function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 function trashMapInsertOrUpdate(){
 	var tmPostNum1 = $("#tmPostNum").val();
 //	console.log($("#file").val());
-//	fn_submit();
+	fn_submit();
 //	var str =String.valueOf($("#file").val());
 	var str1=JSON.stringify($("#file").val());
 //	console.log(str1);
