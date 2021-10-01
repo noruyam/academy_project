@@ -239,7 +239,7 @@
 						<li class="active"><a href="#home">Home</a></li>
 						<li><a href="#about">About</a></li>
 						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#news">News</a></li>
+						<li><a href="#news">나눔게시판</a></li>
 						<!-- 					<li><a href="#contact">Contact</a></li> -->
 						<li><a href="#contact1">분리수거 장소찾기</a></li>
 					</ul>
@@ -608,369 +608,99 @@
 				</div>
 				<!-- /PORTFOLIO -->
 
-				<!-- NEWS -->
-				<div id="news" class="tokyo_tm_section">
-					<div class="container">
-						<div class="tokyo_tm_news">
-							<div class="tokyo_tm_title">
-								<div class="title_flex">
-									<div class="left">
-										<span>News</span>
-										<h3>Latest News</h3>
-									</div>
-								</div>
-							</div>
-							<ul>
-								<li>
-									<div class="list_inner">
-										<div class="image">
-											<img src="./resources/img/thumbs/4-3.jpg" alt="" />
-											<div class="main" data-img-url="./resources/img/news/1.jpg"></div>
-											<a class="tokyo_tm_full_link" href="#"></a>
-										</div>
-										<div class="details">
-											<div class="extra">
-												<div class="short">
-													<p class="date">
-														By <a href="#">Alex Watson</a> <span>05 April 2021</span>
-													</p>
-												</div>
-												<div class="my_like">
-													<a href="#"><img class="svg"
-														src="./resources/img/svg/like.svg" alt="" /><span>35</span></a>
-												</div>
-											</div>
-											<h3 class="title">
-												<a href="#">Format releases a new tool that enables
-													direct video hosting</a>
-											</h3>
-											<div class="tokyo_tm_read_more">
-												<a href="#"><span>Read More</span></a>
-											</div>
-										</div>
-										<div class="main_content">
-											<div class="descriptions">
-												<p class="bigger">Just because we can't get out and
-													about like we normally would, doesn’t mean we have to stop
-													taking pictures. There’s still plenty you can do, provided
-													you're prepared to use some imagination. Here are a few
-													ideas to keep you shooting until normal life resumes.</p>
-												<p>Most photographers love to shoot the unusual, and you
-													don’t get much more unusual than These Unprecedented Times.
-													Right now everything counts as out of the ordinary. There
-													are a number of remarkable things about these lockdown days
-													that are worth photographing now so we can remember them
-													when it is all over.</p>
-												<p>Streets empty that are usually busy are remarkable
-													and can evoke the sense of historical pictures from before
-													the invention of the motorcar. Other things that are
-													different at the moment will be queues to get into stores
-													and the lines marked out on the floor to show how far apart
-													we should be.</p>
-												<div class="quotebox">
-													<div class="icon">
-														<img class="svg" src="./resources/img/svg/quote.svg"
-															alt="" />
-													</div>
-													<p>Most photographers find it hard to see interesting
-														pictures in places in which they are most familiar. A trip
-														somewhere new seems always exactly what our photography
-														needed, as shooting away from home consistently inspires
-														us to new artistic heights.</p>
-												</div>
-												<p>Pretend everything is new and that you haven’t seen
-													it before, and then you will be free to notice the leading
-													lines, the places where one edge meets another in
-													delightful geometric harmony, and how the ordinary things
-													in the kitchen are transformed when the light is on or off.</p>
-												<p>The trick here is to look slowly, and then look
-													again. Take the time to look in detail and to look at the
-													same thing from different angles, with different light,
-													long lenses and wide lenses. Then move to the left a bit.
-													You may never feel the need to leave the house again.</p>
-											</div>
-											<div class="news_share">
-												<span>Share:</span>
-												<ul>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/facebook.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/twitter.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/instagram.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/dribbble.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/tik-tok.svg" alt="" /></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="list_inner">
-										<div class="image">
-											<img src="./resources/img/thumbs/4-3.jpg" alt="" />
-											<div class="main" data-img-url="./resources/img/news/2.jpg"></div>
-											<a class="tokyo_tm_full_link" href="#"></a>
-										</div>
-										<div class="details">
-											<div class="extra">
-												<div class="short">
-													<p class="date">
-														By <a href="#">Brook Kennedy</a> <span>22 March
-															2021</span>
-													</p>
-												</div>
-												<div class="my_like">
-													<a href="#"><img class="svg"
-														src="./resources/img/svg/like.svg" alt="" /><span>47</span></a>
-												</div>
-											</div>
-											<h3 class="title">
-												<a href="#">Sony announced two new full frame cameras
-													with zero fanfare</a>
-											</h3>
-											<div class="tokyo_tm_read_more">
-												<a href="#"><span>Read More</span></a>
-											</div>
-										</div>
-										<div class="main_content">
-											<div class="descriptions">
-												<p class="bigger">Just because we can't get out and
-													about like we normally would, doesn’t mean we have to stop
-													taking pictures. There’s still plenty you can do, provided
-													you're prepared to use some imagination. Here are a few
-													ideas to keep you shooting until normal life resumes.</p>
-												<p>Most photographers love to shoot the unusual, and you
-													don’t get much more unusual than These Unprecedented Times.
-													Right now everything counts as out of the ordinary. There
-													are a number of remarkable things about these lockdown days
-													that are worth photographing now so we can remember them
-													when it is all over.</p>
-												<p>Streets empty that are usually busy are remarkable
-													and can evoke the sense of historical pictures from before
-													the invention of the motorcar. Other things that are
-													different at the moment will be queues to get into stores
-													and the lines marked out on the floor to show how far apart
-													we should be.</p>
-												<div class="quotebox">
-													<div class="icon">
-														<img class="svg" src="./resources/img/svg/quote.svg"
-															alt="" />
-													</div>
-													<p>Most photographers find it hard to see interesting
-														pictures in places in which they are most familiar. A trip
-														somewhere new seems always exactly what our photography
-														needed, as shooting away from home consistently inspires
-														us to new artistic heights.</p>
-												</div>
-												<p>Pretend everything is new and that you haven’t seen
-													it before, and then you will be free to notice the leading
-													lines, the places where one edge meets another in
-													delightful geometric harmony, and how the ordinary things
-													in the kitchen are transformed when the light is on or off.</p>
-												<p>The trick here is to look slowly, and then look
-													again. Take the time to look in detail and to look at the
-													same thing from different angles, with different light,
-													long lenses and wide lenses. Then move to the left a bit.
-													You may never feel the need to leave the house again.</p>
-											</div>
-											<div class="news_share">
-												<span>Share:</span>
-												<ul>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/facebook.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/twitter.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/instagram.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/dribbble.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/tik-tok.svg" alt="" /></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="list_inner">
-										<div class="image">
-											<img src="./resources/img/thumbs/4-3.jpg" alt="" />
-											<div class="main" data-img-url="./resources/img/news/3.jpg"></div>
-											<a class="tokyo_tm_full_link" href="#"></a>
-										</div>
-										<div class="details">
-											<div class="extra">
-												<div class="short">
-													<p class="date">
-														By <a href="#">Paola Atkins</a> <span>15 Feb 2021</span>
-													</p>
-												</div>
-												<div class="my_like">
-													<a href="#"><img class="svg"
-														src="./resources/img/svg/like.svg" alt="" /><span>22</span></a>
-												</div>
-											</div>
-											<h3 class="title">
-												<a href="#">Why every photographer should shoot film,
-													even in 2021</a>
-											</h3>
-											<div class="tokyo_tm_read_more">
-												<a href="#"><span>Read More</span></a>
-											</div>
-										</div>
-										<div class="main_content">
-											<div class="descriptions">
-												<p class="bigger">Just because we can't get out and
-													about like we normally would, doesn’t mean we have to stop
-													taking pictures. There’s still plenty you can do, provided
-													you're prepared to use some imagination. Here are a few
-													ideas to keep you shooting until normal life resumes.</p>
-												<p>Most photographers love to shoot the unusual, and you
-													don’t get much more unusual than These Unprecedented Times.
-													Right now everything counts as out of the ordinary. There
-													are a number of remarkable things about these lockdown days
-													that are worth photographing now so we can remember them
-													when it is all over.</p>
-												<p>Streets empty that are usually busy are remarkable
-													and can evoke the sense of historical pictures from before
-													the invention of the motorcar. Other things that are
-													different at the moment will be queues to get into stores
-													and the lines marked out on the floor to show how far apart
-													we should be.</p>
-												<div class="quotebox">
-													<div class="icon">
-														<img class="svg" src="./resources/img/svg/quote.svg"
-															alt="" />
-													</div>
-													<p>Most photographers find it hard to see interesting
-														pictures in places in which they are most familiar. A trip
-														somewhere new seems always exactly what our photography
-														needed, as shooting away from home consistently inspires
-														us to new artistic heights.</p>
-												</div>
-												<p>Pretend everything is new and that you haven’t seen
-													it before, and then you will be free to notice the leading
-													lines, the places where one edge meets another in
-													delightful geometric harmony, and how the ordinary things
-													in the kitchen are transformed when the light is on or off.</p>
-												<p>The trick here is to look slowly, and then look
-													again. Take the time to look in detail and to look at the
-													same thing from different angles, with different light,
-													long lenses and wide lenses. Then move to the left a bit.
-													You may never feel the need to leave the house again.</p>
-											</div>
-											<div class="news_share">
-												<span>Share:</span>
-												<ul>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/facebook.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/twitter.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/instagram.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/dribbble.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/tik-tok.svg" alt="" /></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="list_inner">
-										<div class="image">
-											<img src="./resources/img/thumbs/4-3.jpg" alt="" />
-											<div class="main" data-img-url="./resources/img/news/4.jpg"></div>
-											<a class="tokyo_tm_full_link" href="#"></a>
-										</div>
-										<div class="details">
-											<div class="extra">
-												<div class="short">
-													<p class="date">
-														By <a href="#">Kevin Stone</a> <span>22 Jan 2021</span>
-													</p>
-												</div>
-												<div class="my_like">
-													<a href="#"><img class="svg"
-														src="./resources/img/svg/like.svg" alt="" /><span>16</span></a>
-												</div>
-											</div>
-											<h3 class="title">
-												<a href="#">Stay creative in lockdown with these fun
-													photo projects</a>
-											</h3>
-											<div class="tokyo_tm_read_more">
-												<a href="#"><span>Read More</span></a>
-											</div>
-										</div>
-										<div class="main_content">
-											<div class="descriptions">
-												<p class="bigger">Just because we can't get out and
-													about like we normally would, doesn’t mean we have to stop
-													taking pictures. There’s still plenty you can do, provided
-													you're prepared to use some imagination. Here are a few
-													ideas to keep you shooting until normal life resumes.</p>
-												<p>Most photographers love to shoot the unusual, and you
-													don’t get much more unusual than These Unprecedented Times.
-													Right now everything counts as out of the ordinary. There
-													are a number of remarkable things about these lockdown days
-													that are worth photographing now so we can remember them
-													when it is all over.</p>
-												<p>Streets empty that are usually busy are remarkable
-													and can evoke the sense of historical pictures from before
-													the invention of the motorcar. Other things that are
-													different at the moment will be queues to get into stores
-													and the lines marked out on the floor to show how far apart
-													we should be.</p>
-												<div class="quotebox">
-													<div class="icon">
-														<img class="svg" src="./resources/img/svg/quote.svg"
-															alt="" />
-													</div>
-													<p>Most photographers find it hard to see interesting
-														pictures in places in which they are most familiar. A trip
-														somewhere new seems always exactly what our photography
-														needed, as shooting away from home consistently inspires
-														us to new artistic heights.</p>
-												</div>
-												<p>Pretend everything is new and that you haven’t seen
-													it before, and then you will be free to notice the leading
-													lines, the places where one edge meets another in
-													delightful geometric harmony, and how the ordinary things
-													in the kitchen are transformed when the light is on or off.</p>
-												<p>The trick here is to look slowly, and then look
-													again. Take the time to look in detail and to look at the
-													same thing from different angles, with different light,
-													long lenses and wide lenses. Then move to the left a bit.
-													You may never feel the need to leave the house again.</p>
-											</div>
-											<div class="news_share">
-												<span>Share:</span>
-												<ul>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/facebook.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/twitter.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/instagram.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/dribbble.svg" alt="" /></a></li>
-													<li><a href="#"><img class="svg"
-															src="./resources/img/svg/social/tik-tok.svg" alt="" /></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /NEWS -->
+				<!----------------------- 나눔 게시판 ------------------- -->
+				
+				
+					<div id="news" class="tokyo_tm_section">
+	            <div class="container">
+	               <div class="tokyo_tm_contact">
+	                  <div class="tokyo_tm_title">
+	                     <div class="title_flex">
+	                        <div class="left">
+	                           <span>Notice Board</span>
+	                           <h3>나눔 게시판</h3>
+	                        </div>
+	                     </div>
+	                  </div>
+	                  <div class="fields">
+	                     
+	                        <table border="1" id="nanumBoardTable">
+	                           <tr>
+	                              <th width="50">No.1</th>
+	                              <th width="200">제목</th>
+	                              <th width="300">작성자</th>
+	                              <th width="150">작성시간</th> 
+	                              <th width="150">조회수</th> 
+	                           </tr>
+	                           
+	                        </table>
+	                        <div class="tokyo_tm_button">
+	                            <br> <a id="moveActive" onclick="moveActive()"  style="cursor:pointer">새글 등록</a>
+	                        </div>
+	                     </div>
+	                        
+	                        <!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
+	
+	                  
+	                  </div>
+	               </div>
+	            </div>   
+	         </div>
+	         
+	         
+	         
+	         
+	         
+	         <div id="news1" class="tokyo_tm_section">
+	            <div class="container">
+	               <div class="tokyo_tm_contact">
+	                  <div class="tokyo_tm_title">
+	                     <div class="title_flex">
+	                        <div class="left">
+	                           <span>Notice Board</span>
+	                           <h3>나눔 게시판</h3><br><br>
+	                        </div>
+	                     </div>
+	                  </div>
+	                  <div class="fields">
+	                       <div id="wrap">
+	                      <div id="container">
+	                          <div class="inner">        
+	                              <span>게시글 작성</span>
+	                          </div>
+	                               <input type="hidden" id="seq" value="${seq }">
+	                               <div>
+	                              <ul>
+	                                 <li><input id="title" type="text" placeholder="제목"></li>
+	                                 <li><input id="writer" type="text" placeholder="작성자"></li>
+	                                 <li><textarea id = "content" cols="2" placeholder="내용"></textarea></li>
+	                              </ul>                               
+	                               </div>
+	                                 <div class="tokyo_tm_button">
+	                                    <a id="test3" onclick="insertBoard()" style="cursor:pointer" ><span>글 등록</span></a>
+<!-- 	                                <a id="delete" onclick="deleteBoard(seq)" style="cursor:pointer; display: none" ><span>글 삭제</span></a> -->
+	                                    
+	                               </div>
+	                                
+	                      </div>
+	                  </div>
+	                       
+	<!--                         <br> <a id="test3" onclick="deleteBoard()"  style="cursor:pointer"><span>게시글 삭제</span></a> -->
+	<!--                         <br> <a id="test4" onclick="goBoardList()" style="cursor:pointer">목록으로</a> -->
+	                     </div>
+	                        
+	                        <!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
+	
+	                  
+	                  </div>
+	               </div>
+	            </div>   
+	         </div>
+
+
+
+				
+				<!----------------------- 나눔 게시판 끝 ------------------- --> 
 
 				<!-- CONTACT -->
 				<div id="contact" class="tokyo_tm_section">

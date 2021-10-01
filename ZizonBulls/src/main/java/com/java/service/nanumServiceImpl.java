@@ -16,34 +16,40 @@ public class nanumServiceImpl implements nanumService{
 	
 	@Override
 	public void insertBoard(nanumVO vo) {
-		System.out.println(">> boardService.getBoardList() 호출");
+		System.out.println(">> boardService.getBoardList() �샇異�");
 		nanumDAO.insertBoard(vo);
 	}
 
 	@Override
 	public void updateBoard(nanumVO vo) {
-		System.out.println(">> boardService.updateBoard() 호출");
+		System.out.println(">> boardService.updateBoard() �샇異�");
 		nanumDAO.updateBoard(vo);
 	}
 
 	@Override
 	public void deleteBoard(nanumVO vo) {
-		System.out.println(">> boardService.deleteBoard() 호출");
+		System.out.println(">> boardService.deleteBoard() �샇異�");
 		nanumDAO.deleteBoard(vo);
 	}
 
 	@Override
 	public nanumVO getBoard(nanumVO vo) {
-		System.out.println(">> boardService.getBoard() 호출");
+		System.out.println(">> boardService.getBoard() �샇異�");
 		
 		return nanumDAO.getBoard(vo);
 	}
 
 	@Override
 	public List<nanumVO> getBoardList() {
-		System.out.println(">> boardService.getBoardList() 호출");
+		System.out.println(">> boardService.getBoardList() �샇異�");
 		
 		return nanumDAO.getBoardList();
+	}
+
+	@Override
+	public void updateCount(nanumVO vo) {
+		nanumDAO.updateCount(vo);
+		
 	}
 	
 }

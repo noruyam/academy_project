@@ -6,8 +6,9 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias type="com.java.domain.BoardVO" alias="board"/>
+		
 		<typeAlias type="com.java.domain.trashMapVO" alias="trashMap"/>
+		<typeAlias type="com.java.domain.nanumVO" alias="board" />
 	</typeAliases>
 
 </configuration>
