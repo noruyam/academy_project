@@ -1091,3 +1091,25 @@ function getBoardList() {
          element.addClass('active');   
 }
 
+
+
+
+$(function () {
+   $('.onTs').click(function () {
+      
+      
+      if( $('#test1').css("display") == "none"){
+         $('#test1').show();
+      }      
+   });
+
+   $('.offTs').click(function () {
+      
+      
+      if( $('#test1').css("display") != "none"){
+         $('#test1').hide();
+      }      
+   });
+
+});
+
