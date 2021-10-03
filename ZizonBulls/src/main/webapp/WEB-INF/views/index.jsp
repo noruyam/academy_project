@@ -239,20 +239,22 @@ a.go-to-top {
 		<div class="tokyo_tm_mobile_menu">
 			<div class="menu_inner">
 				<div class="logo">
-					<img src="${path }/resources/index/img/logo/dark.png" alt="" />
+					<img src="${path }/resources/img/logo/dark.png" alt="" />
 				</div>
 				<div class="menu">
 					<ul>
 						<li><a href="#home"><img class="svg"
-								src="${path }/resources/index/img/svg/home-run.svg" alt="" /></a></li>
+								src="${path }/resources/img/svg/home-run.svg" alt="" /></a></li>
 						<li><a href="#about"><img class="svg"
-								src="${path }/resources/index/img/svg/avatar.svg" alt="" /></a></li>
+								src="${path }/resources/img/svg/avatar.svg" alt="" /></a></li>
 						<li><a href="#portfolio"><img class="svg"
-								src="${path }/resources/index/img/svg/briefcase.svg" alt="" /></a></li>
+								src="${path }/resources/img/svg/briefcase.svg" alt="" /></a></li>
 						<li><a href="#news"><img class="svg"
-								src="${path }/resources/index/img/svg/paper.svg" alt="" /></a></li>
-						<li><a href="#contact"><img class="svg"
-								src="${path }/resources/index/img/svg/mail.svg" alt="" /></a></li>
+								src="${path }/resources/img/svg/paper.svg" alt="" /></a></li>
+<!-- 						<li><a href="#contact"><img class="svg" -->
+<%-- 								src="${path }/resources/index/img/svg/mail.svg" alt="" /></a></li> --%>
+								<li><a href="#contact1"><img class="svg"
+								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>
 					</ul>
 				</div>
 			</div>
@@ -264,7 +266,7 @@ a.go-to-top {
 			<div class="leftpart_inner">
 				<div class="logo">
 					<a href="#"><img
-						src="${path }/resources/index/img/logo/dark.png" alt="" /></a>
+						src="${path }/resources/img/logo/dark.png" alt="" /></a>
 				</div>
 				<div class="menu">
 					<ul>
@@ -272,8 +274,8 @@ a.go-to-top {
 						<li><a href="#about">About</a></li>
 						<li><a href="#portfolio">Portfolio</a></li>
 						<li><a href="#news">News</a></li>
-						<li><a href="#contact">Contact</a></li>
-						<li><a href="#contact1">Contact</a></li>
+<!-- 						<li><a href="#contact">Contact</a></li> -->
+						<li><a href="#contact1">분리수거 장소찾기</a></li>
 					</ul>
 				</div>
 				<div class="copyright">
@@ -301,7 +303,7 @@ a.go-to-top {
 							<div class="home_content">
 								<div class="avatar">
 									<div class="image"
-										data-img-url="${path }/resources/index/img/portfolio/1.jpg"></div>
+										data-img-url="${path }/resources/img/portfolio/1.jpg"></div>
 								</div>
 								<div class="details">
 									<h3 class="name">
@@ -312,19 +314,19 @@ a.go-to-top {
 									<div class="social">
 										<ul>
 											<li><a href="#"><img class="svg"
-													src="${path }/resources/index/img/svg/social/facebook.svg"
+													src="${path }/resources/img/svg/social/facebook.svg"
 													alt="" /></a></li>
 											<li><a href="#"><img class="svg"
-													src="${path }/resources/index/img/svg/social/twitter.svg"
+													src="${path }/resources/img/svg/social/twitter.svg"
 													alt="" /></a></li>
 											<li><a href="#"><img class="svg"
-													src="${path }/resources/index/img/svg/social/instagram.svg"
+													src="${path }/resources/img/svg/social/instagram.svg"
 													alt="" /></a></li>
 											<li><a href="#"><img class="svg"
-													src="${path }/resources/index/img/svg/social/dribbble.svg"
+													src="${path }/resources/img/svg/social/dribbble.svg"
 													alt="" /></a></li>
 											<li><a href="#"><img class="svg"
-													src="${path }/resources/index/img/svg/social/tik-tok.svg"
+													src="${path }/resources/img/svg/social/tik-tok.svg"
 													alt="" /></a></li>
 										</ul>
 									</div>
@@ -2446,15 +2448,15 @@ a.go-to-top {
 						<div class="map" id="ieatmaps"></div>
 					</div>
 
-					<div>
-						<label for="file">파일</label> <input type="file" id="file"
-							name="file">
-						<button id="btn_submit" onclick="fn_submit()">전송</button>
-					</div>
 					<div class="fields">
 						<form action="insertTrashMap.do" method="post"
 							enctype="multipart/form-data" class="contact_form"
 							id="contact_form" name="contact_form" autocomplete="off">
+							<div>
+								<label for="file">파일</label> 
+								<input type="file" id="file" name="file">
+								<!--<button id="btn_submit" onclick="fn_submit()">전송</button> -->
+							</div>
 							<div class="returnmessage"
 								data-success="Your message has been received, We will contact you soon."></div>
 							<div class="empty_notice">
@@ -2465,11 +2467,9 @@ a.go-to-top {
 								name="tmCnt" value="${tmCnt }">
 							<div class="first">
 								<div id="hideDateAndCnt" style="cursor: pointer;">
-									<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>조회수
-										: </span><span id="tmCntText"> </span>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</div>
-								<!-- 									<span>파일첨부 : <input type="file" name='file' id="file" value="1"> </span> -->
+									<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<span>조회수 : </span><span id="tmCntText"> </span>
+									</div>
 								<hr>
 								<br>
 								<ul>
@@ -2514,7 +2514,10 @@ a.go-to-top {
 						</div>
 					</div>
 					<div class="fields">
-
+						<div class="tokyo_tm_button" data-position="left">
+							<br> <a id="contactMove" onclick="contactMove()"
+								style="cursor: pointer">새글 등록</a>
+						</div>
 						<table id="trashMapListTable">
 							<tr>
 								<th bgcolor="orange" width="50">번호</th>
@@ -2525,10 +2528,7 @@ a.go-to-top {
 								<th bgcolor="orange" width="50">조회수</th>
 							</tr>
 						</table>
-						<div class="tokyo_tm_button" data-position="left">
-							<br> <a id="contactMove" onclick="contactMove()"
-								style="cursor: pointer">새글 등록</a>
-						</div>
+					
 					</div>
 					<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 				</div>

@@ -543,65 +543,35 @@ function tokyo_tm_owl_carousel(){
 
 
 function contactMove(){
-		alert("1");
+//	alert("1");
 	var list	 = $('#contact1');
 	var element	 = $('#contact');
 
-			list.removeClass('active');
-			element.addClass('active');	
-			
-// $("#tmTitle").val("");
-// $("#tmContent").val("");
-// $("#tmAddr").val("");
+	list.removeClass('active');
+	element.addClass('active');
 }
 
 
 function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 
-		
-// console.log(this.tmTitle);
-// alert("2");
-//	 var updateCntTrashMap = {
-//				tmPostNum : tmPostNum,
-//				tmCnt : tmCnt
-//	 };
-//	 
-//	 $.ajax({
-//		 url : "updateCntTrashMap.do",
-//         type : "get",
-//          data :updateCntTrashMap ,
-//         success : function(data){
-//        	
-//         },
-//         error : function(xhr, status, error){
-//             alert("통신 에러");
-//         }
-//     });
-	 
-	 
-	 
-	 
-	 
-	 if(tmPostNum>0){
-		 $("#deleteTrashMap").show();
-		 $("#hideDateAndCnt").show();
-	 }else{
-		 $("#deleteTrashMap").hide(); 
-		 $("#hideDateAndCnt").hide();
-	 }
-	var list	 = $('#contact1');
-	var element	 = $('#contact');
+	if(tmPostNum>0){
+		$("#deleteTrashMap").show();
+		$("#hideDateAndCnt").show();
+	}else{
+		$("#deleteTrashMap").hide(); 
+		$("#hideDateAndCnt").hide();
+	}
+	var list	= $('#contact1');
+	var element = $('#contact');
 	
-			list.removeClass('active');
-			element.addClass('active');	
+	list.removeClass('active');
+	element.addClass('active');	
+	
 		
-			
-			 $("#tmPostNum").val(tmPostNum);
-			 $("#tmTitle").val(tmTitle);
-			 $("#tmAddr").val(tmAddr);
-			 $("#tmContent").val(tmContent);
-			
-			 
+	$("#tmPostNum").val(tmPostNum);
+	$("#tmTitle").val(tmTitle);
+	$("#tmAddr").val(tmAddr);
+	$("#tmContent").val(tmContent);		 
 }
 
 
@@ -610,61 +580,66 @@ function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 
 function trashMapInsertOrUpdate(){
 	var tmPostNum1 = $("#tmPostNum").val();
-//	console.log($("#file").val());
-	fn_submit();
-//	var str =String.valueOf($("#file").val());
-	var str1=JSON.stringify($("#file").val());
-//	console.log(str1);
-//	var str ="sdfsdf.123";
-	var gg=str1.substring(str1.lastIndexOf(".")-1);
-	console.log(gg);
-	var insertTrashMapData = {
-			tmTitle : $("#tmTitle").val(),
-			tmContent : $("#tmContent").val(),
-			tmAddr : $("#tmAddr").val(),
-			tmFname : gg
+	if($("#file")[0].files[0]!=null){
+		console.log("if시작");
+		var a= fn_submit();
+		var insertTrashMapData = {
+				tmTitle : $("#tmTitle").val(),
+				tmContent : $("#tmContent").val(),
+				tmAddr : $("#tmAddr").val(),			
+				tmFname : a.tmFname,
+				tmFnameEn: a.tmFnameEn		
 		};
-	var insertTrashMapData1 = {
+	}else{
+		var insertTrashMapData = {
+				tmTitle : $("#tmTitle").val(),
+				tmContent : $("#tmContent").val(),
+				tmAddr : $("#tmAddr").val()	
+			};
+	}
+	var updateTrashMapData = {
 			tmPostNum : $("#tmPostNum").val(),
 			tmTitle : $("#tmTitle").val(),
 			tmContent : $("#tmContent").val(),
 			tmAddr : $("#tmAddr").val(),
 			tmFname : $("#file").val()
-		};
-			if(tmPostNum1>0){
-			 $.ajax({
-				 url : "updateTrashMap.do",
-	                type : "post",
+	};
+	
+	if(tmPostNum1>0){
+		 $.ajax({
+			 url : "updateTrashMap.do"
+	         , type : "post"
+	         , data :updateTrashMapData
+	         , success : function(data){
+	             getTrashMapList();
+	         }
+             , error : function(xhr, status, error){
+                 alert("통신 에러");
+             }
+	     });
+	}else{
+		 $.ajax({
+                url : "insertTrashMap.do"
+                , type : "post"
+                , data :insertTrashMapData 
+                , success : function(data){
+                    getTrashMapList();
+                }
+		 		, error : function(request, error){
+                    alert("fail");
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+         });
+	}
 
-	                 data :insertTrashMapData1 ,
-	                success : function(data){
-//	                	fn_submit();
-	                    getTrashMapList();
-	                },
-	                error : function(xhr, status, error){
-	                    alert("통신 에러");
-	                }
-	            });
-			}else{
-				 $.ajax({
-		                url : "insertTrashMap.do",
-		                type : "post",
-		                 data :insertTrashMapData ,
-		                success : function(data){
-		                    getTrashMapList();
-		                },
-		                error : function(request, error){
-		                    alert("fail");
-		                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		                }
-		            });
-			}
-// insertTrashMapData.remove();
 }
 
 
 
 function getTrashMapList() {
+	
+	$('#contact1').animate({ scrollTop: 0 });
+	$('#file').val("");
 	$( '#trashMapListTable > #removeTbody').remove();
 	
 		 $.ajax({
@@ -672,24 +647,12 @@ function getTrashMapList() {
                type : "get",
                dataType:"json",
                success : function(result){
-            	   console.log(result[0].tmTime);
-// console.log( DateDeserialize(result[0].tmTime));
-
-            
+// console.log( DateDeserialize(result[0].tmTime));   
                	var len=result.length;
                	var table=$('#trashMapListTable');
                	var str="";
                	str += "<tbody id='removeTbody' class='removeTbody'>";
-               	for(var i=0;i<len;i++){
-// str += '<Tr class="removeTbody" style="cursor:pointer;" align="center"
-// onclick="contactMove('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+')">'+
-// result[i].tmTitle
-// str += '<Tr class="removeTbody" style="cursor:pointer;" align="center"
-// onclick="contactMove('+result[i].tmPostNum+',\''+result[i].tmTitle+'\',\''+result[i].tmAddr+'\',\''+result[i].tmContent+'\','+result[i].tmTime+','+result[i].tmCnt+')">'
-// str += '<Tr class="removeTbody" style="cursor:pointer;" align="center">'
-               		
-               		 
-               		
+               	for(var i=0;i<len;i++){           		
                		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+','+result[i].tmCnt+')">'
                		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
                		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
@@ -698,8 +661,7 @@ function getTrashMapList() {
                		+ '</TD><TD class="removeTbody" name="tmTime" align="center">' +result[i].tmTime
                		+ '</TD><TD class="removeTbody" name="tmCnt" align="center">' + result[i].tmCnt+'</td>'
                		+ '<input type="hidden" class="removeTbody" align="center" value="'+result[i].tmContent+'">'
-	                str += '</TR>'
-               			   
+	                str += '</TR>'		   
                	}
                	str += "</tbody>";
                	table.append(str).trigger("create");
@@ -742,7 +704,9 @@ function deleteTrashMap(){
 }
 
 function getTrashMap(tmPostNum,tmCnt) {
-// alert(tmPostNum);
+	
+	$('#contact').animate({ scrollTop: 0 });
+
 			var getTrashMap = {
 					tmPostNum : tmPostNum,
 					tmCnt : tmCnt
@@ -802,20 +766,13 @@ function getTrashMap(tmPostNum,tmCnt) {
 					element.addClass('active');	
 				
 					
-					 $("#tmPostNum").val(tmPostNum);
-//					 $("#tmTitle").val(tmTitle);
-//					 $("#tmAddr").val(tmAddr);
-//					 $("#tmContent").val(tmContent);
-		
+					 $("#tmPostNum").val(tmPostNum);	
 	
 }
 
 
 function updateCntTrashMap(tmPostNum,tmCnt){
 
-		
-
-// alert(tmPostNum,tmCnt);
 	 var updateCntTrashMap = {
 			 tmPostNum : tmPostNum,
 				tmCnt : tmCnt
@@ -835,35 +792,6 @@ function updateCntTrashMap(tmPostNum,tmCnt){
 	 
 			 
 }
-
-
-
-
-
-//
-// $("#trashMapListTable > #removeTbody1 tr").click(function(){
-//
-// var str = ""
-// var tdArr = new Array(); // 배열 선언
-//	            
-// // 현재 클릭된 Row(<tr>)
-// var tr = $(this);
-// var td = tr.children();
-// // tr.text()는 클릭된 Row 즉 tr에 있는 모든 값을 가져온다.
-// console.log("클릭한 Row의 모든 데이터 : "+tr.text());
-//	                
-// // 반복문을 이용해서 배열에 값을 담아 사용할 수 도 있다.
-// td.each(function(i){
-// console.log( tdArr.push(td.eq(i).text()));
-// });
-//	                
-// console.log("배열에 담긴 값 : "+tdArr);
-//
-// })
-
-
-
-
 
 
 
@@ -896,8 +824,9 @@ function handleImgFileSelect(e) {
 
 
 function fn_submit(){
-    alert("fn_submit 클릭함");
-    var form = new FormData();
+//    alert("fn_submit 클릭함");
+    var fnamereturn;
+	var form = new FormData();
     form.append( "file", $("#file")[0].files[0] );
     
      jQuery.ajax({
@@ -906,15 +835,23 @@ function fn_submit(){
        , processData : false
        , contentType : false
        , data : form
+       ,async: false
+       , dataType:"json"
        , success:function(response) {
            alert("성공하였습니다.");
-           console.log(response);
+           console.log("fn_submit 안에 있는거 :"+response.tmFname);
+           fnamereturn = response;
+           console.log("fn_submit 안에 있는success  fnamereturn :"+fnamereturn);
+
        }
        ,error: function (jqXHR) 
        { 
            alert(jqXHR.responseText); 
+           return false;
        }
    });
+     console.log("fn_submit 안에 있는 fnamereturn :"+fnamereturn);
+     return fnamereturn;
 }
 
 

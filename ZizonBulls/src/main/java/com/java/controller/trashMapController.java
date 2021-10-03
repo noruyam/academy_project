@@ -26,121 +26,65 @@ import com.java.service.trashMapService;
 public class trashMapController {
 	@Autowired
 	private trashMapService trashMapService;
-
+	
+	// trashMap 처음 새글등록하는 기능
 	@RequestMapping(value = "/insertTrashMap.do")
 	@ResponseBody
-	public String insertTrashMap(trashMapVO vo) throws IOException{
-		System.out.println(vo.getTmContent());
-		System.out.println(vo.getTmAddr());
-		System.out.println(vo.getTmTitle());
-		System.out.println(vo.getTmFname());
-		System.out.println(vo.getTmFnameEn());
-		
+	public String insertTrashMap(trashMapVO vo) throws IOException {
 		trashMapService.insertTrashMap(vo);
-		System.out.println(vo.getTmFname());
-		System.out.println(vo.getTmFnameEn());
-		
-//		return "/trashMap/insertTrashMap";
 		return null;
 	}
-
-	@GetMapping(value = "/getTrashMapList.do")
-	@ResponseBody
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-	public List<trashMapVO> getTrashMapList() {
-
-		return trashMapService.getTrashMapList();
-	}
-
+	// trashMap 글 수정해주는 기능
 	@RequestMapping(value = "/updateTrashMap.do")
 	@ResponseBody
 	public String updateTrashMap(trashMapVO vo) {
-		System.out.println(vo.getTmContent());
-		System.out.println(vo.getTmAddr());
-		System.out.println(vo.getTmTitle());
-		System.out.println(vo.getTmFname());
-		System.out.println(vo.getTmFnameEn());
 		trashMapService.updateTrashMap(vo);
-//		return "/trashMap/insertTrashMap";
 		return null;
 	}
-
+	// trashMap 글 삭제해주는 기능
 	@RequestMapping(value = "/deleteTrashMap.do")
 	@ResponseBody
 	public String deleteTrashMap(trashMapVO vo) {
-		System.out.println(vo.getTmContent());
-		System.out.println(vo.getTmAddr());
-		System.out.println(vo.getTmTitle());
 		trashMapService.deleteTrashMap(vo);
-//		return "/trashMap/insertTrashMap";
 		return null;
 
 	}
-
-	@RequestMapping(value = "/updateCntTrashMap.do")
-	@ResponseBody
-	public String updateCntTrashMap(trashMapVO vo) {
-		System.out.println(vo.getTmContent());
-		System.out.println(vo.getTmAddr());
-		System.out.println(vo.getTmTitle());
-		trashMapService.updateCntTrashMap(vo);
-//			return "/trashMap/insertTrashMap";
-		return null;
-	}
-
+	// trashMap 글목록 클릭하면 목록 불러와주는 기능
 	@RequestMapping(value = "/getTrashMap.do")
+	// ajax 리턴값을 주고싶을때 @ResponseBody 사용
 	@ResponseBody
 	public trashMapVO getTrashMap(trashMapVO vo) {
-		System.out.println(vo.getTmPostNum());
-
-		System.out.println(vo.getTmPostNum());
-//		return "/trashMap/insertTrashMap";
+		// 글목록 클릭하면서 조회수 기능까지 함께 실행하는 기능
 		trashMapService.updateCntTrashMap(vo);
 		return trashMapService.getTrashMap(vo);
 	}
-
-//			@GetMapping(value = "/test2.do", produces = MediaType.APPLICATION_JSON_VALUE)
-//		    public void getAllUsers(){
-//		        System.out.println("test2.do");
-//		    }
-
-//		@RequestMapping(value = "/insertTrashMap1.do")
-//		
-//		public String insertTrashMap1(trashMapVO vo,Model model) {
-//			model.addAttribute("trashMapList", trashMapService.getTrashMapList());
-//			return "/index";
-//		}
-
-//		@GetMapping(value = "/getTrashMapList.do", produces = MediaType.APPLICATION_JSON_VALUE)
-//		@ResponseBody
-//	    public List<trashMapVO> getTrashMapList(){
-//	        return trashMapService.getTrashMapList();
-//	    }
-
-//		@RequestMapping(value = "/trashMap/{url}.do")
-//		public String userJoin(@PathVariable String url) {
-//			System.out.println("ȣ��");
-//			return "/trashMap/"+url;
-//		}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	// trashMap 글 목록 보여주는 기능
+	@GetMapping(value = "/getTrashMapList.do")
+	// ajax 리턴값을 주고싶을때 @ResponseBody 사용
+	@ResponseBody
+	// 글목록에 날짜 형식 바꾸기 위한 어노테이션
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+	public List<trashMapVO> getTrashMapList() {
+		return trashMapService.getTrashMapList();
+	}
+	// trashMap 글목록 클릭할때마다 조회수 업데이트해주기 위한 기능
+	@RequestMapping(value = "/updateCntTrashMap.do")
+	@ResponseBody
+	public String updateCntTrashMap(trashMapVO vo) {
+		trashMapService.updateCntTrashMap(vo);
+		return null;
+	}
+	// 파일 저장위치 변수로 지정
 	private String path = "C:\\Users\\qkr26\\git\\last\\ZizonBulls\\src\\main\\webapp\\resources\\trashmappic";
-
+	// 멀티파트 서버 컨텐트타입을 지정해주는거같음
+	// trashMap 파일 업로드해주는 기능
 	@RequestMapping(value = "/result.do", method = RequestMethod.POST, headers = ("content-type=multipart/*"))
-	public String result(@RequestParam("file") MultipartFile multi, HttpServletRequest request,
+	// ajax 리턴값을 주고싶을때 @ResponseBody 사용
+	@ResponseBody
+	public trashMapVO result(@RequestParam("file") MultipartFile multi, HttpServletRequest request,
 			HttpServletResponse response, Model model) {
-		String url = null;
+//		String url = null;
+		// 파일 업로드 해주면서 vo에 파일네임을 set해주고 리턴해주기위해서 객체생성
 		trashMapVO vo = new trashMapVO();
 		try {
 
@@ -153,7 +97,6 @@ public class trashMapController {
 			vo.setTmFname(originFilename);
 			vo.setTmFnameEn(saveFileName);
 			System.out.println("uploadpath : " + uploadpath);
-
 			System.out.println("originFilename : " + originFilename);
 			System.out.println("extensionName : " + extName);
 			System.out.println("size : " + size);
@@ -166,12 +109,12 @@ public class trashMapController {
 				model.addAttribute("filename", multi.getOriginalFilename());
 				model.addAttribute("uploadPath", file.getAbsolutePath());
 
-				return null;
+				return vo;
 			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return null;
+		return vo;
 	}
 
 	// 현재 시간을 기준으로 파일 이름 생성
@@ -191,15 +134,4 @@ public class trashMapController {
 		return fileName;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
