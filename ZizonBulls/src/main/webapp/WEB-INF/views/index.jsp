@@ -253,7 +253,9 @@ a.go-to-top {
 								src="${path }/resources/img/svg/paper.svg" alt="" /></a></li>
 <!-- 						<li><a href="#contact"><img class="svg" -->
 <%-- 								src="${path }/resources/index/img/svg/mail.svg" alt="" /></a></li> --%>
-								<li><a href="#contact1"><img class="svg"
+						<li><a href="#contact1"><img class="svg"
+								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>
+						<li><a href="#contact3"><img class="svg"
 								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>
 					</ul>
 				</div>
@@ -276,6 +278,7 @@ a.go-to-top {
 						<li><a href="#news">News</a></li>
 <!-- 						<li><a href="#contact">Contact</a></li> -->
 						<li><a href="#contact1">분리수거 장소찾기</a></li>
+						<li><a href="#contact3">업체찾기</a></li>
 					</ul>
 				</div>
 				<div class="copyright">
@@ -2371,7 +2374,7 @@ a.go-to-top {
 
 						</div>
 					</div>
-				</div>
+				
 			</div>
 
 
@@ -2424,7 +2427,7 @@ a.go-to-top {
 
 					</div>
 				</div>
-			</div>
+			
 		</div>
 
 
@@ -2505,7 +2508,31 @@ a.go-to-top {
 			</div>
 		</div>
 		<!-- /CONTACT -->
+		
+		<!-- CONTACT3 -->
+		<div id="contact3" class="tokyo_tm_section">
+			<div class="container">
+				<div class="tokyo_tm_contact">
+					<div class="tokyo_tm_title">
+						<div class="title_flex">
+							<div class="left">
+								<span>trashMap</span>
+								<h3>장소 찾기</h3>
+							</div>
+						</div>
+					</div>
+					<div class="map_wrap">
+						<div class="map" id="ieatmaps"></div>
+					</div>
 
+					<div class="fields">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /CONTACT -->
+		
 		<!-- CONTACT1 -->
 		<div id="contact1" class="tokyo_tm_section">
 			<div class="container">
@@ -2539,7 +2566,7 @@ a.go-to-top {
 				</div>
 			</div>
 		</div>
-	</div>
+	
 	<!-- /CONTACT1 -->
 
 
