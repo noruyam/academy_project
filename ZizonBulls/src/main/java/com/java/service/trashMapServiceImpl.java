@@ -42,8 +42,7 @@ public class trashMapServiceImpl implements trashMapService{
 
 	@Override
 	public List<trashMapVO> getTrashMapList() {
-		System.out.println(">> TrashMapService.getTrashMapList() 호출");
-		
+		System.out.println(">> TrashMapService.getTrashMapList() 호출");	
 		return trashMapDAO.getTrashMapList();
 	}
 	
@@ -52,8 +51,11 @@ public class trashMapServiceImpl implements trashMapService{
 		System.out.println(">> TrashMapService.updateCntTrashMap() 호출");
 		trashMapDAO.updateCntTrashMap(vo);
 	}
-	
-	
+
+	@Override
+	public trashMapVO trashMapGetFileName(trashMapVO vo) {
+		return trashMapDAO.trashMapGetFileName(vo);
+	}
 }
 		
 		

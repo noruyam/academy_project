@@ -27,6 +27,9 @@ public class trashMapController {
 	@Autowired
 	private trashMapService trashMapService;
 	
+	// 파일 저장위치 변수로 지정
+	private String path = "C:\\Users\\qkr26\\git\\last\\ZizonBulls\\src\\main\\webapp\\resources\\trashmappic";
+	
 	// trashMap 처음 새글등록하는 기능
 	@RequestMapping(value = "/insertTrashMap.do")
 	@ResponseBody
@@ -44,20 +47,38 @@ public class trashMapController {
 	// trashMap 글 삭제해주는 기능
 	@RequestMapping(value = "/deleteTrashMap.do")
 	@ResponseBody
-	public String deleteTrashMap(trashMapVO vo) {
+	public trashMapVO deleteTrashMap(trashMapVO vo) {
+
+		trashMapVO getfname=getTrashMap(vo);
+		
+		File file = new File("C:\\Users\\qkr26\\git\\last\\ZizonBulls\\src\\main\\webapp\\resources\\trashmappic\\"+getfname.getTmFnameEn());
+		
+		if(file.delete()){
+			 System.out.println("파일삭제 성공");
+		}else{ 
+			System.out.println("파일삭제 실패");
+		}
+
 		trashMapService.deleteTrashMap(vo);
-		return null;
+		
+		return vo;
 
 	}
+	
+
 	// trashMap 글목록 클릭하면 목록 불러와주는 기능
 	@RequestMapping(value = "/getTrashMap.do")
 	// ajax 리턴값을 주고싶을때 @ResponseBody 사용
 	@ResponseBody
 	public trashMapVO getTrashMap(trashMapVO vo) {
+		
 		// 글목록 클릭하면서 조회수 기능까지 함께 실행하는 기능
 		trashMapService.updateCntTrashMap(vo);
+		
 		return trashMapService.getTrashMap(vo);
 	}
+	
+	
 	// trashMap 글 목록 보여주는 기능
 	@GetMapping(value = "/getTrashMapList.do")
 	// ajax 리턴값을 주고싶을때 @ResponseBody 사용
@@ -74,8 +95,8 @@ public class trashMapController {
 		trashMapService.updateCntTrashMap(vo);
 		return null;
 	}
-	// 파일 저장위치 변수로 지정
-	private String path = "C:\\Users\\qkr26\\git\\last\\ZizonBulls\\src\\main\\webapp\\resources\\trashmappic";
+	
+	
 	// 멀티파트 서버 컨텐트타입을 지정해주는거같음
 	// trashMap 파일 업로드해주는 기능
 	@RequestMapping(value = "/result.do", method = RequestMethod.POST, headers = ("content-type=multipart/*"))
@@ -101,7 +122,7 @@ public class trashMapController {
 			System.out.println("extensionName : " + extName);
 			System.out.println("size : " + size);
 			System.out.println("saveFileName : " + saveFileName);
-
+			
 			if (!multi.isEmpty()) {
 				File file = new File(uploadpath, saveFileName);
 				multi.transferTo(file);
@@ -135,3 +156,16 @@ public class trashMapController {
 	}
 
 }
+
+
+
+
+
+
+//@RequestMapping(value = "/deleteTrashMapFile.do")
+//@ResponseBody
+//public trashMapVO deleteTrashMapFile(trashMapVO vo) {
+//
+//	return trashMapService.trashMapGetFileName(vo);
+//
+//}

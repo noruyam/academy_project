@@ -13,4 +13,5 @@ public interface trashService {
 	void deleteBoard(trashVO vo);
 	trashVO getBoard(trashVO vo);
 	List<trashVO> getBoardList();
+	
 }

@@ -60,7 +60,11 @@
 		WHERE tmPostNum = #{tmPostNum}
 	</update>
 	
-	
+	<select id="trashMapGetFileName" parameterType="trashMap" resultType="trashMap">
+		SELECT tmFnameEn
+		FROM TrashMap
+		WHERE tmPostNum = #{tmPostNum}
+	</select>
 	
 	
 </mapper>

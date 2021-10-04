@@ -55,4 +55,11 @@ public class trashMapDAOImpl implements trashMapDAO {
 		mybatis.update("trashMapDAO.updateCntTrashMap", vo);
 	}
 
+	
+	@Override
+	public trashMapVO trashMapGetFileName(trashMapVO vo) {
+		System.out.println(">>>> trashService.trashMapGetFileName() 호출");
+		return mybatis.selectOne("trashMapDAO.trashMapGetFileName", vo);
+
+	}
 }

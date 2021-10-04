@@ -538,22 +538,18 @@ function tokyo_tm_owl_carousel(){
 
 
 
+//--------------------업체찾기 게시판 -------------------------
 
-
-
-
+// 처음 화면 contact에서 contact1로 화면 바꿔주는 function
 function contactMove(){
-//	alert("1");
 	var list	 = $('#contact1');
 	var element	 = $('#contact');
-
 	list.removeClass('active');
 	element.addClass('active');
 }
 
 
 function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
-
 	if(tmPostNum>0){
 		$("#deleteTrashMap").show();
 		$("#hideDateAndCnt").show();
@@ -577,26 +573,38 @@ function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 
 
 
-
+// 새글등록하거나 기존 글을 업데이트해주는 function
 function trashMapInsertOrUpdate(){
+	// Insert 또는 Update를 구별해주기 위해서 tmPostNum값이 없으면 Insert, tmPostNum 값이 있으면 Update 해줌
 	var tmPostNum1 = $("#tmPostNum").val();
+	
+	// 만약 파일첨부에 파일이 있으면 파일 첨부 실행하기 위한 if문
 	if($("#file")[0].files[0]!=null){
-		console.log("if시작");
-		var a= fn_submit();
+		
+		// 밑에 파일 첨부해주는 function을 부르고 리턴값을 저장하는 변수 
+		var fileUploadReturn = fn_submit();
+		
+		// 파일이 있으면 파일이름까지 데이터값을 가져감(json형식)
 		var insertTrashMapData = {
 				tmTitle : $("#tmTitle").val(),
 				tmContent : $("#tmContent").val(),
 				tmAddr : $("#tmAddr").val(),			
-				tmFname : a.tmFname,
-				tmFnameEn: a.tmFnameEn		
+				tmFname : fileUploadReturn.tmFname,
+				tmFnameEn: fileUploadReturn.tmFnameEn		
 		};
+		
+	// 만약 파일첨부에 파일이 없으면 
 	}else{
+		
+		// 파일 네임은 빼고 데이터값을 가져감(json형식)
 		var insertTrashMapData = {
 				tmTitle : $("#tmTitle").val(),
 				tmContent : $("#tmContent").val(),
 				tmAddr : $("#tmAddr").val()	
 			};
 	}
+	
+	// 업데이트를 위한 데이터값(json형식)
 	var updateTrashMapData = {
 			tmPostNum : $("#tmPostNum").val(),
 			tmTitle : $("#tmTitle").val(),
@@ -605,24 +613,35 @@ function trashMapInsertOrUpdate(){
 			tmFname : $("#file").val()
 	};
 	
+	// 만약 tmPostNum1값이 있으면 update를 위한 ajax 실행
 	if(tmPostNum1>0){
+		
+		// controller에 updateTrashMap를 실행해주는 ajax
 		 $.ajax({
 			 url : "updateTrashMap.do"
 	         , type : "post"
 	         , data :updateTrashMapData
 	         , success : function(data){
+	        	 
+	        	 // 업데이트를 성공하면 목록불러와주는 function 실행
 	             getTrashMapList();
 	         }
              , error : function(xhr, status, error){
                  alert("통신 에러");
              }
 	     });
+	
+	// 만약 tmPostNum1값이 없으면 insert를 위한 ajax 실행
 	}else{
+		
+		// controller에  insertTrashMap를 실행해주는 ajax
 		 $.ajax({
                 url : "insertTrashMap.do"
                 , type : "post"
                 , data :insertTrashMapData 
                 , success : function(data){
+                	
+                	// 인서트를 성공하면 목록불러와주는 function 실행
                     getTrashMapList();
                 }
 		 		, error : function(request, error){
@@ -635,225 +654,271 @@ function trashMapInsertOrUpdate(){
 }
 
 
-
+// 목록List를 불러와주는 function
 function getTrashMapList() {
 	
-	$('#contact1').animate({ scrollTop: 0 });
-	$('#file').val("");
-	$( '#trashMapListTable > #removeTbody').remove();
+	 // 누를때 맨위로 스크롤 이동
+	 $('#contact1').animate({ scrollTop: 0 });
 	
-		 $.ajax({
-               url : "getTrashMapList.do",
-               type : "get",
-               dataType:"json",
-               success : function(result){
-// console.log( DateDeserialize(result[0].tmTime));   
-               	var len=result.length;
-               	var table=$('#trashMapListTable');
-               	var str="";
-               	str += "<tbody id='removeTbody' class='removeTbody'>";
-               	for(var i=0;i<len;i++){           		
-               		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+','+result[i].tmCnt+')">'
-               		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
-               		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
-               		+ '</TD><TD class="removeTbody" name="tmAddr" align="center">' + result[i].tmAddr
-               		+ '</TD><TD class="removeTbody" name="cusId" align="center">cusId</TD>'
-               		+ '</TD><TD class="removeTbody" name="tmTime" align="center">' +result[i].tmTime
-               		+ '</TD><TD class="removeTbody" name="tmCnt" align="center">' + result[i].tmCnt+'</td>'
-               		+ '<input type="hidden" class="removeTbody" align="center" value="'+result[i].tmContent+'">'
-	                str += '</TR>'		   
-               	}
-               	str += "</tbody>";
-               	table.append(str).trigger("create");
-               },
-               error : function(request, error){
-                   alert("fail");
-                   alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-               }
-           });
-		 		
-				 	var list	 = $('#contact');
-					var element	 = $('#contact1');
-			
-					list.removeClass('active');
-					element.addClass('active');	
+ 	 // 목록으로 갈때 이전 화면에 있던 file을 지워줌
+	 $('#file').val("");
+	
+	 // 목록에 있는 동적 테이블을 지워주고 새로 리스트를 불러오기 위해서 우선 지워줌
+	 $( '#trashMapListTable > #removeTbody').remove();
+	 
+	 // 목록에 있는 이미지 지워줌
+	 $('#trashMapImagePanel').remove();
+	
+	 // controller에  getTrashMapList를 실행해주는 ajax 
+	 $.ajax({
+	       url : "getTrashMapList.do",
+	       type : "get",
+	       dataType:"json",
+	
+	       // controller에서 리턴된 List배열을 result에 담아서 for문으로 table에 뿌려줌
+	       success : function(result){
+	    	   
+	    	// 리턴된 List의 길이
+	       	var len=result.length;
+	       	
+	       	// index에 리턴된 List를 담기 위해 만들어놓은 테이블의 id값
+	       	var table=$('#trashMapListTable');
+	       	
+	       	// 동적 테이블을 생성하기 위한 변수 str 생성
+	       	var str="";
+	       	
+	       	// 나중에 목록을 불러와줄때마다 동적으로 생성된 table을 지워주기위해 tbody로 먼저 묶어서 id 지정하여 remove 실행
+	       	str += "<tbody id='removeTbody' class='removeTbody'>";
+	       	
+	       	// 테이블을 생성하기 위한 for문 
+	       	for(var i=0;i<len;i++){
+	       		
+	       		// tr전체를 클릭했을때 onclick을 실행하도록 동적 테이블 생성, 
+	       		// onclick 했을때 ()안에 변수를 가지고 들어가서 getTrashMap에서 활용하기 위한 동적테이블 생성
+	       		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+','+result[i].tmCnt+')">'
+	       		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
+	       		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
+	       		+ '</TD><TD class="removeTbody" name="tmAddr" align="center">' + result[i].tmAddr
+	       		+ '</TD><TD class="removeTbody" name="cusId" align="center">cusId</TD>'
+	       		+ '</TD><TD class="removeTbody" name="tmTime" align="center">' +result[i].tmTime
+	       		+ '</TD><TD class="removeTbody" name="tmCnt" align="center">' + result[i].tmCnt+'</td>'
+	       		+ '<input type="hidden" class="removeTbody" align="center" value="'+result[i].tmContent+'">'
+	            str += '</TR>'		   
+	       	}
+	       	str += "</tbody>";
+	       	
+	       	// str에 만들어놓은 테이블생성값들을 index에 만들어둔 테이블에 더해줌
+	       	table.append(str).trigger("create");
+	       },
+	       error : function(request, error){
+	           alert("fail");
+	           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       }
+	   });
+		
+ 	// 기존에 있던 화면을 List목록 화면으로 변경해주는 기능
+	 
+ 	var list	 = $('#contact');
+	var element	 = $('#contact1');
+	list.removeClass('active');
+	element.addClass('active');	
 	
 }
 
+// 목록 삭제를 위한 function
 function deleteTrashMap(){
 	
-	var insertTrashMapData1 = {
-			tmPostNum : $("#tmPostNum").val(),
-			tmTitle : $("#tmTitle").val(),
-			tmContent : $("#tmContent").val(),
-			tmAddr : $("#tmAddr").val()
-		};
-			
-			 $.ajax({
-				 url : "deleteTrashMap.do",
-	                type : "get",
-	                 data :insertTrashMapData1 ,
-	                success : function(data){
-	                    getTrashMapList();
-	                },
-	                error : function(xhr, status, error){
-	                    alert("통신 에러");
-	                }
-	            });
+	// 딜리트를 위한 데이터값(json형식) 
+	var deleteTrashMapData = {
+			tmPostNum : $("#tmPostNum").val(),		
+	};
+	
+	$.ajax({
+		url : "deleteTrashMap.do"
+		, type : "get"
+		, data :deleteTrashMapData 
+		, success : function(data){
+//			data.tmfnameen
+			// 인서트를 성공하면 목록불러와주는 function 실행
+			getTrashMapList();
+		}
+		, error : function(xhr, status, error){
+			alert("통신 에러");
+		}
+	});
 			
 }
+function deleteTrashMapFile(){
+	
+	$.ajax({
+		url : "deleteTrashMap.do"
+		, type : "get"
+		, data :deleteTrashMapData 
+		, success : function(data){
 
+			// 인서트를 성공하면 목록불러와주는 function 실행
+			getTrashMapList();
+		}
+		, error : function(xhr, status, error){
+			alert("통신 에러");
+		}
+	});
+			
+}
+// 목록을 클릭하면 인서트했었던 목록가져옴
 function getTrashMap(tmPostNum,tmCnt) {
 	
+	// 누를때 맨위로 스크롤 이동
 	$('#contact').animate({ scrollTop: 0 });
-
-			var getTrashMap = {
-					tmPostNum : tmPostNum,
-					tmCnt : tmCnt
-			};
 	
-			var tmTitle = $("#tmTitle")
-			var tmContent = $("#tmContent")
-			var tmAddr = $("#tmAddr")
-			var tmCnt = $("#tmCnt")
-			var tmTime = $("#tmTime")
-			var tmCntText =  $("#tmCntText")
-		
-		 $.ajax({
-               url : "getTrashMap.do",
-               type : "get",
-               data : getTrashMap,
-               dataType:"json",
-               success : function(result){
-            	   
-            	   tmTitle.val(result.tmTitle);
-            	   tmContent.val(result.tmContent);
-            	   tmAddr.val(result.tmAddr);
-    
-            	   tmCntText.text(result.tmCnt);
-            	   tmTime.text(result.tmTime);
-            
-//            	   updateCntTrashMap(result.tmPostNum,result.tmCnt);
-            	   
-//            	   contactMove(result.tmPostNum,result.tmTitle,result.tmAddr,result.tmContent,result.tmTime,result.tmCnt);
-            	   
-            		var list	 = $('#contact1');
-        			var element	 = $('#contact');
-        	
-        			list.removeClass('active');
-        			element.addClass('active');	
-        		
-               },
-               error : function(request, error){
-                   alert("fail");
-                   alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-               }
-           });
+	// 목록을 불러오기위한 데이터값(json형식) 
+	var getTrashMap = {
+		tmPostNum : tmPostNum,
+		tmCnt : tmCnt
+	};
+	var asd=tmPostNum;
+	// 각 목록을 테이블 val에 뿌려주기위한 변수지정
+	var tmTitle = $("#tmTitle")
+	var tmContent = $("#tmContent")
+	var tmAddr = $("#tmAddr")
+	var tmCnt = $("#tmCnt")
+	var tmTime = $("#tmTime")
+	var tmCntText =  $("#tmCntText")
+//	var tmFname =  $("#file")
+	
+	$.ajax({
+		url : "getTrashMap.do"
+		, type : "get"
+		, data : getTrashMap
+		, dataType:"json"
+		, success : function(result){
 			
-			
-			
+			// 성공하면 각 테이블에 맞게 값이 들어감
+			tmTitle.val(result.tmTitle);
+			tmContent.val(result.tmContent);
+			tmAddr.val(result.tmAddr);
+			tmCntText.text(result.tmCnt);
+			tmTime.text(result.tmTime);
 			if(tmPostNum>0){
-				 $("#deleteTrashMap").show();
-				 $("#hideDateAndCnt").show();
-			 }else{
-				 $("#deleteTrashMap").hide(); 
-				 $("#hideDateAndCnt").hide();
-			 }
+//				console.log(asd);
+				if(result.tmFnameEn!=null){
+					trashMapCreateImages(result.tmFnameEn);
+				}
+			}
+			// 기존에 있던 List화면을 목록 화면으로 변경해주는 기능
 			var list	 = $('#contact1');
 			var element	 = $('#contact');
-			
-					list.removeClass('active');
-					element.addClass('active');	
-				
-					
-					 $("#tmPostNum").val(tmPostNum);	
+			list.removeClass('active');
+			element.addClass('active');		
+		}
+		, error : function(request, error){
+			alert("fail");
+			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});
 	
+	// 만약 tmPostNum이 있으면 업데이트를 하는 버튼을 보여주고, 아니면 인서트하는 버튼을 보여줌
+	if(tmPostNum>0){
+		$("#deleteTrashMap").show();
+		$("#hideDateAndCnt").show();
+		
+	}else{
+		$("#deleteTrashMap").hide(); 
+		$("#hideDateAndCnt").hide();
+	}
+	var list	 = $('#contact1');
+	var element	 = $('#contact');
+	list.removeClass('active');
+	element.addClass('active');	
+	$("#tmPostNum").val(tmPostNum);	
 }
 
-
-function updateCntTrashMap(tmPostNum,tmCnt){
-
-	 var updateCntTrashMap = {
-			 tmPostNum : tmPostNum,
-				tmCnt : tmCnt
-	 };
-	 
-	 $.ajax({
-		 url : "updateCntTrashMap.do",
-         type : "get",
-          data :updateCntTrashMap ,
-         success : function(data){
-        	
-         },
-         error : function(xhr, status, error){
-             alert("통신 에러");
-         }
-     });
-	 
-			 
-}
-
-
-
+// 파일 첨부가 체인지되면 handleImgFileSelect 조건문 실행
 $(document).ready(function() {
-    $("#file").on("change", handleImgFileSelect);
+	$("#file").on("change", handleImgFileSelect);
 });
-var sel_file;
+
+// 첨부된 파일이 이미지 형식만 올릴수있도록 하는 function
 function handleImgFileSelect(e) {
-    var files = e.target.files;
-    var filesArr = Array.prototype.slice.call(files);
-
-    var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/;
-
-    filesArr.forEach(function(f) {
-        if (!f.type.match(reg)) {
-            alert("확장자는 이미지 확장자만 가능합니다.");
-            return;
-        }
-
-        sel_file = f;
-
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $("#img").attr("src", e.target.result);
-        }
-        reader.readAsDataURL(f);
-    });
+	var sel_file;
+	var files = e.target.files;
+	var filesArr = Array.prototype.slice.call(files);
+	var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/;
+	
+	filesArr.forEach(function(f) {
+		if (!f.type.match(reg)) {
+			alert("확장자는 이미지 확장자만 가능합니다.");
+			return;
+		}
+	
+		sel_file = f;
+		
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			$("#img").attr("src", e.target.result);
+		}
+		reader.readAsDataURL(f);
+	});
 }
 
 
-
+// 파일 업로드해주는 function
 function fn_submit(){
-//    alert("fn_submit 클릭함");
-    var fnamereturn;
+	// 파일 업로드 후 나온 값을 리턴해주기 위한 변수
+	var fnamereturn;
+	
+	// 사용자가 파일첨부한 파일을 폼데이터 형식으로 ajax 실행
 	var form = new FormData();
-    form.append( "file", $("#file")[0].files[0] );
-    
-     jQuery.ajax({
-         url : "result.do"
-       , type : "POST"
-       , processData : false
-       , contentType : false
-       , data : form
-       ,async: false
-       , dataType:"json"
-       , success:function(response) {
-           alert("성공하였습니다.");
-           console.log("fn_submit 안에 있는거 :"+response.tmFname);
-           fnamereturn = response;
-           console.log("fn_submit 안에 있는success  fnamereturn :"+fnamereturn);
-
-       }
-       ,error: function (jqXHR) 
-       { 
-           alert(jqXHR.responseText); 
-           return false;
-       }
-   });
-     console.log("fn_submit 안에 있는 fnamereturn :"+fnamereturn);
-     return fnamereturn;
+	form.append( "file", $("#file")[0].files[0] );
+	
+	jQuery.ajax({
+		url : "result.do"
+		, type : "POST"
+		, processData : false
+		, contentType : false
+		, data : form
+		, async: false
+		, dataType:"json"
+		, success:function(response) {
+			
+			// 리턴된 값을 위에 지정한 변수에 저장
+			fnamereturn = response;
+		}
+		,error: function (jqXHR) { 
+			alert(jqXHR.responseText); 
+			return false;
+		}
+	});
+	console.log("fn_submit 안에 있는 fnamereturn :"+fnamereturn);
+	
+	// 저장된 이름을 리턴해줌
+	return fnamereturn;
 }
 
+
+
+
+
+function trashMapCreateImages(objImageInfo) { 
+	var trashmapimage = "./resources/trashmappic/"+objImageInfo; 
+	var strDOM = ""; 
+
+		// N번째 이미지 정보를 구하기 var image = images[i]; 
+		// N번째 이미지 패널을 생성 
+		strDOM += '<div id="trashMapImagePanel" class="image_panel">';
+		strDOM += '<img src="' + trashmapimage + '">';
+
+		strDOM += '</div>'; 
+		
+		// 이미지 컨테이너에 생성한 이미지 패널들을 추가하기
+		var $imageContainer = $("#image_container"); 
+		$imageContainer.append(strDOM); 
+}
+	
+
+
+		
+//--------------------/업체찾기 게시판 -------------------------
 
 // --------------------나눔 게시판 -------------------------
 

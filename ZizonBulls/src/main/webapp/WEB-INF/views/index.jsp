@@ -2457,6 +2457,11 @@ a.go-to-top {
 								<input type="file" id="file" name="file">
 								<!--<button id="btn_submit" onclick="fn_submit()">전송</button> -->
 							</div>
+							<!-- 이미지 마크업 생성 공간 -->
+							<div id="image_container">  
+							
+							</div>
+
 							<div class="returnmessage"
 								data-success="Your message has been received, We will contact you soon."></div>
 							<div class="empty_notice">
