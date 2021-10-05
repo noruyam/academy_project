@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.java.domain.chatVO;
+import com.java.domain.trashMapVO;
 
 @Repository("chatDAO")
 public class chatDAOImpl implements chatDAO{
@@ -33,9 +34,9 @@ public class chatDAOImpl implements chatDAO{
 	}
 
 	@Override
-	public chatVO getBoard(chatVO vo) {
+	public trashMapVO getBoard(trashMapVO vo) {
 		System.out.println(">>>> boardService.gettBoard() 호출");
-		return mybatis.selectOne("BoardDAO.getBoard",vo);
+		return mybatis.selectOne("trashMapDAO.getTrashMap123",vo);
 	}
 
 	@Override

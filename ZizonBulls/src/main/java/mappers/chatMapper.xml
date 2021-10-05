@@ -26,9 +26,9 @@
 	</update>
 	
 	<select id="getBoard" parameterType="board" resultType="board">
-		SELECT *
-		FROM board
-		WHERE seq = #{seq}
+		SELECT conut(*)
+		FROM trashmap
+		WHERE tmTitle = #{tmTitle}
 	</select>
 	
 	<select id="getBoardList" resultType="board">

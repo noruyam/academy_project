@@ -3,6 +3,7 @@ package com.java.service;
 import java.util.List;
 
 import com.java.domain.chatVO;
+import com.java.domain.trashMapVO;
 
 public interface chatService {
 
@@ -11,6 +12,6 @@ public interface chatService {
 	void insertBoard(chatVO vo);
 	void updateBoard(chatVO vo);
 	void deleteBoard(chatVO vo);
-	chatVO getBoard(chatVO vo);
+	trashMapVO getBoard(trashMapVO vo);
 	List<chatVO> getBoardList();
 }

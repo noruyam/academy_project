@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.java.dao.chatDAO;
 import com.java.domain.chatVO;
+import com.java.domain.trashMapVO;
 
 @Service("chatService")
 public class chatServiceImpl implements chatService{
@@ -34,7 +35,7 @@ public class chatServiceImpl implements chatService{
 	}
 
 	@Override
-	public chatVO getBoard(chatVO vo) {
+	public trashMapVO getBoard(trashMapVO vo) {
 		System.out.println(">> chatService.getBoard() 호출");
 		
 		return chatDAO.getBoard(vo);

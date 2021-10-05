@@ -67,5 +67,11 @@
 	</select>
 	
 	
+	<select id="getTrashMap123" parameterType="trashMap" resultType="trashMap">
+		SELECT count(*)
+		FROM TrashMap
+		WHERE tmTitle = #{tmTitle}
+	</select>
+	
 </mapper>
 		

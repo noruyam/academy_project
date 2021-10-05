@@ -3162,9 +3162,17 @@ function getListItem1(index, places) {
     }
                  
       itemStr1 += '  <span class="tel1">' + places.phone +'&nbsp;&nbsp;' 
-               if(places.phone=='010-5019-6125'){
-            	   itemStr1 +=  '<input type="button" onclick="chat('+places.phone+')"value="채팅"/>'
-               }
+//                if(places.phone=='010-5019-6125'){
+// //             	   itemStr1 +=  '<input type="button" onclick="chat('+places.phone+')"value="채팅"/>'
+//             	   itemStr1 +=  '<a href="chat.do?phone='+places.phone+'">채팅</a>'
+//                }
+      
+      if(test123(places.phone)){
+   	   itemStr1 +=  '<a href="chat.do?phone='+places.phone+'">채팅</a>'
+      }
+      
+      
+      
       itemStr1 += '</span></div>';           
 
     el1.innerHTML = itemStr1;
@@ -3172,12 +3180,12 @@ function getListItem1(index, places) {
 
     return el1;
 }
-function chat(a) {
+function chat(b) {
 	
 	 $.ajax({
          url:"chat.do"
          , type : "get"
-         , data : a 
+         , data : b 
          , success :  function(data){
         	 alert("성공");
           }
@@ -3185,6 +3193,29 @@ function chat(a) {
              alert("실패"); 
           }
       });	    
+}
+
+function test123(phone) {
+	
+	var testdata={
+			tmTitle:phone
+	}
+	var str=false;
+	 $.ajax({
+        url:"test123.do"
+        , type : "get"
+        , data : testdata 
+        , dataType : "text"
+        , success :  function(data){
+       	 if(data==1){
+       		 str=true;
+       	 }
+         }
+        , error : function(xhr, status, error){
+            alert("실패"); 
+         }
+     });
+	 return str;
 }
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
