@@ -347,10 +347,12 @@ a.go-to-top {
 <%-- 								src="${path }/resources/index/img/svg/mail.svg" alt="" /></a></li> --%>
 						<li><a href="#contact1"><img class="svg"
 								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>
-						<li><a href="#contact3"><img class="svg"
-								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>
-						<li><a href="#contact4"><img class="svg"
-						src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>
+<!-- 						<li><a href="#contact3"><img class="svg" -->
+<%-- 								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
+<!-- 						<li><a href="#contact4"><img class="svg" -->
+<%-- 							src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
+						<li><a href="#contact5"><img class="svg"
+							src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>	
 					</ul>
 				</div>
 			</div>
@@ -372,8 +374,9 @@ a.go-to-top {
 						<li><a href="#news">News</a></li>
 <!-- 						<li><a href="#contact">Contact</a></li> -->
 						<li><a href="#contact1">분리수거 장소찾기</a></li>
-						<li><a href="#contact3">업체찾기</a></li>
-						<li><a href="#contact4">업체찾기</a></li>
+<!-- 						<li><a href="#contact3">업체찾기</a></li> -->
+<!-- 						<li><a href="#contact4">업체찾기</a></li> -->
+						<li><a href="#contact5">업체찾기</a></li>
 					</ul>
 				</div>
 				<div class="copyright">
@@ -2603,7 +2606,7 @@ a.go-to-top {
 			</div>
 		</div>
 		<!-- /CONTACT -->
-		
+
 		<!-- CONTACT3 -->
 		<div id="contact3" class="tokyo_tm_section">
 			<div class="container">
@@ -2617,34 +2620,34 @@ a.go-to-top {
 						</div>
 					</div>
 					<!-- map. 시작 -->
-<!-- 					<div id="map" style="width:100%;height:350px;"></div> -->
-					
+					<!-- 					<div id="map" style="width:100%;height:350px;"></div> -->
+
 					<div class="map_wrap1">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+						<div id="map"
+							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 
-    <div id="menu_wrap" class="bg_white">
-        <div class="option">
-            <div>
-                <form onsubmit="searchPlaces(); return false;">
-                    키워드 : <input type="text" value="인계동 청소 업체" id="keyword" size="15"> 
-                    <button type="submit">검색하기</button> 
-                </form>
-            </div>
-        </div>
-        <hr>
-        <ul id="placesList"></ul>
-        <div id="pagination"></div>
-    </div>
-</div>
-
-					<div class="fields">
-						
+						<div id="menu_wrap" class="bg_white">
+							<div class="option">
+								<div>
+									<form onsubmit="searchPlaces(); return false;">
+										키워드 : <input type="text" value="인계동 청소 업체" id="keyword"
+											size="15">
+										<button type="submit">검색하기</button>
+									</form>
+								</div>
+							</div>
+							<hr>
+							<ul id="placesList"></ul>
+							<div id="pagination"></div>
+						</div>
 					</div>
+
+					<div class="fields"></div>
 				</div>
 			</div>
 		</div>
 		<!-- /CONTACT3 -->
-		
+
 		<!-- CONTACT4 -->
 		<div id="contact4" class="tokyo_tm_section">
 			<div class="container">
@@ -2658,36 +2661,56 @@ a.go-to-top {
 						</div>
 					</div>
 					<!-- map. 시작 -->
-<!-- 					<div id="map" style="width:100%;height:350px;"></div> -->
 					
 					<div class="map_wrap2">
-    <div id="map1" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+						<div id="map1"
+							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 
-    <div id="menu_wrap1" class="bg_white">
-        <div class="option1">
-            <div>
-                <form onsubmit="searchPlaces1(); return false;">
-                    키워드 : <input type="text" value="인계동 청소 업체" id="keyword1" size="15"> 
-                    <button type="submit">검색하기</button> 
-                </form>
-            </div>
-        </div>
-        <hr>
-        <ul id="placesList1"></ul>
-        <div id="pagination1"></div>
-    </div>
-</div>
-
-					<div class="fields">
-						
+						<div id="menu_wrap1" class="bg_white">
+							<div class="option1">
+								<div>
+									<form onsubmit="searchPlaces1(); return false;">
+										키워드 : <input type="text" value="인계동 수거 업체" id="keyword1"
+											size="15">
+										<button type="submit">검색하기</button>
+									</form>
+								</div>
+							</div>
+							<hr>
+							<ul id="placesList1"></ul>
+							<div id="pagination1"></div>
+						</div>
 					</div>
+
+					<div class="fields"></div>
 				</div>
 			</div>
 		</div>
 		<!-- /CONTACT4 -->
-		
-		
-		
+		<!-- CONTACT5 -->
+		<div id="contact5" class="tokyo_tm_section">
+			<div class="container">
+				<div class="tokyo_tm_contact">
+					<div class="tokyo_tm_title">
+						<div class="title_flex">
+							<div class="left">
+								<span>trashMap</span>
+								<h3>업체 고르기</h3>
+							</div>
+						</div>
+					</div>
+					<input type="button" style="width:300px; height: 300px;font-size: 50px;background-color: gray;" value="청소업체" onclick="goContact3()">
+					<input type="button" style="width:300px; height: 300px;font-size: 50px;background-color: gray;" value="수거업체" onclick="goContact4()">
+					
+					
+
+					<div class="fields"></div>
+				</div>
+			</div>
+		</div>
+		<!-- /CONTACT5 -->
+
+
 		<!-- CONTACT1 -->
 		<div id="contact1" class="tokyo_tm_section">
 			<div class="container">
@@ -3138,13 +3161,30 @@ function getListItem1(index, places) {
         itemStr1 += '    <span>' +  places.address_name  + '</span>'; 
     }
                  
-      itemStr1 += '  <span class="tel1">' + places.phone  + '</span>' +
-                '</div>';           
+      itemStr1 += '  <span class="tel1">' + places.phone +'&nbsp;&nbsp;' 
+               if(places.phone=='010-5019-6125'){
+            	   itemStr1 +=  '<input type="button" onclick="chat('+places.phone+')"value="채팅"/>'
+               }
+      itemStr1 += '</span></div>';           
 
     el1.innerHTML = itemStr1;
     el1.className = 'item1';
 
     return el1;
+}
+function chat(a) {
+	
+	 $.ajax({
+         url:"chat.do"
+         , type : "get"
+         , data : a 
+         , success :  function(data){
+        	 alert("성공");
+          }
+         , error : function(xhr, status, error){
+             alert("실패"); 
+          }
+      });	    
 }
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
