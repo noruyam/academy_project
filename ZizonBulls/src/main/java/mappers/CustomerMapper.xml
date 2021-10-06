@@ -51,10 +51,10 @@
       WHERE email = #{email}
    </select>
    
-   <select id="getBoardList" resultType="customer">
-      SELECT *
-      FROM customer
-      ORDER BY seq DESC
+   <select id="getBoardList" resultType="int" parameterType="customer">
+      SELECT COUNT(*)
+      FROM customer1
+      WHERE busid = #{busId}
    </select>
    
    <select id="idCheck" parameterType="customer" resultType="customer">

@@ -10,7 +10,7 @@ public interface CustomerDAO {
 	void updateCustomerInfo(CustomerVO vo);
 	void deleteCustomerInfo(CustomerVO vo);
 	CustomerVO getCustomerIdPwd(CustomerVO vo);
-	List<CustomerVO> getBoardList();
+	int getBoardList(CustomerVO vo);
 	
 	CustomerVO idCheck(CustomerVO vo);
 	public List<CustomerVO> idCheck();

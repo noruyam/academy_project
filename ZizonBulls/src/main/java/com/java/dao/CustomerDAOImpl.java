@@ -42,10 +42,13 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public List<CustomerVO> getBoardList() {
+	public int getBoardList(CustomerVO vo) {
 		System.out.println(">>>> customerService.getBoardList() 호출");
 		// BoardMapper.xml에 namespace
-		return mybatis.selectList("customerDAO.getBoardList");
+		System.out.println("daoimpl"+vo.getBusId());
+		
+		return mybatis.selectOne("CustomerDAO.getBoardList",vo);
+	
 	}
 
 	@Override
@@ -55,7 +58,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 		System.out.println( vo.getPass());
 		return mybatis.selectOne("CustomerDAO.idCheck", vo);
 	}
-
+	
 	@Override
 	public List<CustomerVO> idCheck() {
 		System.out.println("커스터머다오임플 도는중");

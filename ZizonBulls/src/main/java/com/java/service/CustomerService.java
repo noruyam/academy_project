@@ -12,7 +12,7 @@ public interface CustomerService {
 	void updateCustomerInfo(CustomerVO vo);
 	void deleteCustomerInfo(CustomerVO vo);
 	CustomerVO getCustomerIdPwd(CustomerVO vo);
-	List<CustomerVO> getBoardList();
+	int getBoardList(CustomerVO vo);
 
 	public CustomerVO idCheck_Login(CustomerVO vo);
 	public List<CustomerVO> idCheck();

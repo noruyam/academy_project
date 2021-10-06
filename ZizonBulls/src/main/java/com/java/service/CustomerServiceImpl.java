@@ -40,10 +40,10 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public List<CustomerVO> getBoardList() {
+	public int getBoardList(CustomerVO vo) {
 		System.out.println(">> boardService.getBoardList() 호출");
 		
-		return customerDAO.getBoardList();
+		return customerDAO.getBoardList(vo);
 	}
 
 	@Override

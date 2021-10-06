@@ -14,9 +14,9 @@ public class CustomerVO {
 	private String cusAddr;
 	private int cusNumber;
 	private String mundab;
-	private int busId; // 사업자 등록번호
+	private String busId; // 사업자 등록번호
 	private int points;
-	
+	private int test;
 	// 파일첨부를 위한 작업
 	// insertBoard에서 선언한 
 
@@ -100,11 +100,11 @@ public class CustomerVO {
 		this.mundab = mundab;
 	}
 
-	public int getBusId() {
+	public String getBusId() {
 		return busId;
 	}
 
-	public void setBusId(int busId) {
+	public void setBusId(String busId) {
 		this.busId = busId;
 	}
 
@@ -114,6 +114,14 @@ public class CustomerVO {
 
 	public void setPoints(int points) {
 		this.points = points;
+	}
+
+	public int getTest() {
+		return test;
+	}
+
+	public void setTest(int test) {
+		this.test = test;
 	}
 
 }

@@ -3221,20 +3221,21 @@ function getListItem1(index, places) {
         itemStr1 += '    <span>' +  places.address_name  + '</span>'; 
     }
                  
-      itemStr1 += '  <span class="tel1">' + places.phone +'&nbsp;&nbsp;' 
+      	itemStr1 += '  <span class="tel1">' + places.phone 
 //                if(places.phone=='010-5019-6125'){
 // //             	   itemStr1 +=  '<input type="button" onclick="chat('+places.phone+')"value="채팅"/>'
 //             	   itemStr1 +=  '<a href="chat.do?phone='+places.phone+'">채팅</a>'
 //                }
 
 	  // 채팅버튼 생성 if문
-      if(test123(places.phone)){
-   	   itemStr1 +=  '<a href="chat.do?phone='+places.phone+'">채팅</a>'
+
+      if(test123(places.phone)>0){
+   	  	itemStr1 +=  '<a href="chat.do?phone='+places.phone+'">채팅</a>'
+   		itemStr1 += '</span></div>';  
       }
-      
-      
-      
-      itemStr1 += '</span></div>';           
+      else{
+    	  itemStr1 += '</span></div>';  
+      }       
 
     el1.innerHTML = itemStr1;
     el1.className = 'item1';
@@ -3257,20 +3258,22 @@ function chat(b) {
 }
 
 function test123(phone) {
-	
 	var testdata={
-			tmTitle:phone
+		busId:phone
 	}
-	var str=false;
+	var str;
 	 $.ajax({
         url:"test123.do"
-        , type : "get"
+        , type : "post"
         , data : testdata 
+        , async: false
         , dataType : "text"
         , success :  function(data){
-       	 if(data==1){
-       		 str=true;
-       	 }
+       	 	if(data == 1){
+       	 		str = 1;
+       	 	}else{
+       	 		str=0;
+       	 	} 
          }
         , error : function(xhr, status, error){
             alert("실패"); 
