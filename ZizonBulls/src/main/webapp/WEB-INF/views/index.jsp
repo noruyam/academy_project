@@ -45,7 +45,7 @@ if (cusId == null) {
 
 
 
-    <style>
+<style>
 .map_wrap1, .map_wrap1 * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap1 a, .map_wrap1 a:hover, .map_wrap1 a:active{color:#000;text-decoration: none;}
 .map_wrap1 {position:relative;width:100%;height:500px;}
@@ -89,7 +89,7 @@ if (cusId == null) {
 
 
 
-    <style>
+<style>
 .map_wrap2, .map_wrap2 * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap2 a, .map_wrap2 a:hover, .map_wrap2 a:active{color:#000;text-decoration: none;}
 .map_wrap2 {position:relative;width:100%;height:500px;}
@@ -128,7 +128,13 @@ if (cusId == null) {
 #pagination1 .on {font-weight: bold; cursor: default;color:#777;}
 </style>
 
-
+<style>
+    .map_wrap3 {position:relative;width:100%;height:350px;top: -70px}
+    .title3 {font-weight:bold;display:block;}
+    .hAddr3 {position:absolute;left:50px;top:155px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
+    #centerAddr3 {display:block;margin-top:2px;font-weight: normal;}
+    .bAddr3 {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+</style>
 
 
 
@@ -2545,23 +2551,28 @@ a.go-to-top {
 							</div>
 						</div>
 					</div>
-					<div class="map_wrap">
-						<div class="map" id="ieatmaps"></div>
+					<!-- 					<div class="map_wrap"> -->
+					<!-- 						<div class="map" id="ieatmaps"></div> -->
+					<!-- 					</div> -->
+					<div class="map_wrap3">
+						<div id="map3"
+							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+<!-- 						<div class="hAddr3"> -->
+<!-- 							<span class="title3">지도중심기준 행정동 주소정보</span>  -->
+<!-- 							<span id="centerAddr3"></span> -->
+<!-- 						</div> -->
 					</div>
-
 					<div class="fields">
 						<form action="insertTrashMap.do" method="post"
 							enctype="multipart/form-data" class="contact_form"
 							id="contact_form" name="contact_form" autocomplete="off">
 							<div>
-								<label for="file">파일</label> 
-								<input type="file" id="file" name="file">
+								<label for="file">파일</label> <input type="file" id="file"
+									name="file">
 								<!--<button id="btn_submit" onclick="fn_submit()">전송</button> -->
 							</div>
 							<!-- 이미지 마크업 생성 공간 -->
-							<div id="image_container">  
-							
-							</div>
+							<div id="image_container"></div>
 
 							<div class="returnmessage"
 								data-success="Your message has been received, We will contact you soon."></div>
@@ -2575,7 +2586,7 @@ a.go-to-top {
 								<div id="hideDateAndCnt" style="cursor: pointer;">
 									<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<span>조회수 : </span><span id="tmCntText"> </span>
-									</div>
+								</div>
 								<hr>
 								<br>
 								<ul>
@@ -2794,8 +2805,60 @@ a.go-to-top {
 
 	</div>
 
+<script type="text/javascript">
+
+function goContact3() {
+	var list	 = jQuery('.tokyo_tm_all_wrap .leftpart .menu ul li,.tokyo_tm_mobile_menu .menu ul li');
+	var vContent = jQuery('.tokyo_tm_all_wrap');
+	var vSection = jQuery('.tokyo_tm_section');
+	
+	
+		var element = jQuery(this);
+		var myHref	= element.find('a').attr('href');
+// alert(myHref);
+// console.log(myHref);
+		if(!element.hasClass('active')){
+			list.removeClass('active');
+			element.addClass('active');
+			vSection.removeClass('active');
+			vContent.find(myHref).addClass('active').animate({ scrollTop: 0 });
+			
+		}
+	var list	 = $('#contact5');
+	var element	 = $('#contact3');
+	list.removeClass('active');
+	element.addClass('active');
+
+}
+
+function goContact4() {
+	var list	 = jQuery('.tokyo_tm_all_wrap .leftpart .menu ul li,.tokyo_tm_mobile_menu .menu ul li');
+	var vContent = jQuery('.tokyo_tm_all_wrap');
+	var vSection = jQuery('.tokyo_tm_section');
+	
+	
+		var element = jQuery(this);
+		var myHref	= element.find('a').attr('href');
+// alert(myHref);
+// console.log(myHref);
+		if(!element.hasClass('active')){
+			list.removeClass('active');
+			element.addClass('active');
+			vSection.removeClass('active');
+			vContent.find(myHref).addClass('active').animate({ scrollTop: 0 });
+			
+		}
+	
+		var list	 = $('#contact5');
+		var element	 = $('#contact4');
+		list.removeClass('active');
+		element.addClass('active');
+
+}
+</script>
 
 
+<!--------------- 지도 1 시작------------ -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63c14f714ab97f512079075fedb88c69&libraries=services"></script>
 <script>
 var markers = [];
@@ -3018,13 +3081,13 @@ function removeAllChildNods(el) {
     }
 }
 </script>
+<!--------------- /지도 1 끝------------ -->
 
 
 
 
 
-
-
+<!--------------- 지도 2 시작------------ -->
 <script>
 var markers1 = [];
 var mapContainer1 = document.getElementById('map1'), // 지도를 표시할 div 
@@ -3294,11 +3357,83 @@ function removeAllChildNods1(el) {
     }
 }
 </script>
+<!--------------- /지도 2 끝------------ -->
 
+<!--------------- /지도 3 시작------------ -->
+<script>
+var mapContainer3 = document.getElementById('map3'), // 지도를 표시할 div 
+    mapOption3 = {
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+        level: 1 // 지도의 확대 레벨
+    };  
 
+// 지도를 생성합니다    
+var map3 = new kakao.maps.Map(mapContainer3, mapOption3); 
 
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder3 = new kakao.maps.services.Geocoder();
 
+var marker3 = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
+    infowindow3 = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
 
+// 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
+searchAddrFromCoords3(map3.getCenter(), displayCenterInfo3);
+
+// 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
+kakao.maps.event.addListener(map3, 'click', function(mouseEvent) {
+    searchDetailAddrFromCoords3(mouseEvent.latLng, function(result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            var detailAddr3 = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+            detailAddr3 += '<div id="trashMapJibun">지번 주소 : ' + result[0].address.address_name + '</div>';
+            $('#tmAddr').val(result[0].address.address_name);
+            var content3 = '<div class="bAddr3">' +
+                            '<span class="title3">법정동 주소정보</span>' + 
+                            detailAddr3 + 
+                        '</div>';
+
+            // 마커를 클릭한 위치에 표시합니다 
+            marker3.setPosition(mouseEvent.latLng);
+            marker3.setMap(map3);
+
+            // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
+            infowindow3.setContent(content3);
+            infowindow3.open(map3, marker3);
+        }   
+    });
+});
+
+// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
+kakao.maps.event.addListener(map3, 'idle', function() {
+    searchAddrFromCoords3(map3.getCenter(), displayCenterInfo3);
+});
+
+function searchAddrFromCoords3(coords, callback) {
+    // 좌표로 행정동 주소 정보를 요청합니다
+    geocoder3.coord2RegionCode(coords.getLng(), coords.getLat(), callback);         
+}
+
+function searchDetailAddrFromCoords3(coords, callback) {
+    // 좌표로 법정동 상세 주소 정보를 요청합니다
+    geocoder3.coord2Address(coords.getLng(), coords.getLat(), callback);
+}
+
+// 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
+function displayCenterInfo3(result, status) {
+    if (status === kakao.maps.services.Status.OK) {
+        var infoDiv3 = document.getElementById('centerAddr3');
+
+        for(var i = 0; i < result.length; i++) {
+            // 행정동의 region_type 값은 'H' 이므로
+            if (result[i].region_type === 'H') {
+                infoDiv3.innerHTML = result[i].address_name;
+                break;
+            }
+        }
+    }    
+}
+</script>
+
+<!--------------- /지도 3 끝------------ -->
 
 
 
