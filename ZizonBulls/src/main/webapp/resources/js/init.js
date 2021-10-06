@@ -1171,3 +1171,54 @@ $(function () {
 
 });
 
+
+
+
+function goContact3() {
+	var list	 = jQuery('.tokyo_tm_all_wrap .leftpart .menu ul li,.tokyo_tm_mobile_menu .menu ul li');
+	var vContent = jQuery('.tokyo_tm_all_wrap');
+	var vSection = jQuery('.tokyo_tm_section');
+	
+	
+		var element = jQuery(this);
+		var myHref	= element.find('a').attr('href');
+// alert(myHref);
+// console.log(myHref);
+		if(!element.hasClass('active')){
+			list.removeClass('active');
+			element.addClass('active');
+			vSection.removeClass('active');
+			vContent.find(myHref).addClass('active').animate({ scrollTop: 0 });
+			
+		}
+	var list	 = $('#contact5');
+	var element	 = $('#contact3');
+	list.removeClass('active');
+	element.addClass('active');
+
+}
+
+function goContact4() {
+	var list	 = jQuery('.tokyo_tm_all_wrap .leftpart .menu ul li,.tokyo_tm_mobile_menu .menu ul li');
+	var vContent = jQuery('.tokyo_tm_all_wrap');
+	var vSection = jQuery('.tokyo_tm_section');
+	
+	
+		var element = jQuery(this);
+		var myHref	= element.find('a').attr('href');
+// alert(myHref);
+// console.log(myHref);
+		if(!element.hasClass('active')){
+			list.removeClass('active');
+			element.addClass('active');
+			vSection.removeClass('active');
+			vContent.find(myHref).addClass('active').animate({ scrollTop: 0 });
+			
+		}
+	
+		var list	 = $('#contact5');
+		var element	 = $('#contact4');
+		list.removeClass('active');
+		element.addClass('active');
+
+}

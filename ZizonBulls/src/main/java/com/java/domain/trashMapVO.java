@@ -1,8 +1,6 @@
 package com.java.domain;
 
-import java.io.File;
 import java.util.Date;
-import java.util.UUID;
 
 import org.springframework.web.multipart.MultipartFile;
 
