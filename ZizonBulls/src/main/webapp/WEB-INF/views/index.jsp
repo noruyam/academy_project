@@ -2562,7 +2562,7 @@ a.go-to-top {
 <!-- 							<span id="centerAddr3"></span> -->
 <!-- 						</div> -->
 					</div>
-					<div class="fields">
+					<div class="fields" style="margin-top:100px">
 						<form action="insertTrashMap.do" method="post"
 							enctype="multipart/form-data" class="contact_form"
 							id="contact_form" name="contact_form" autocomplete="off">
@@ -2583,7 +2583,7 @@ a.go-to-top {
 								value="${tmPostNum }"> <input type="hidden" id="tmCnt"
 								name="tmCnt" value="${tmCnt }">
 							<div class="first">
-								<div id="hideDateAndCnt" style="cursor: pointer;">
+								<div id="hideDateAndCnt">
 									<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<span>조회수 : </span><span id="tmCntText"> </span>
 								</div>
@@ -2857,9 +2857,9 @@ function goContact4() {
 }
 </script>
 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63c14f714ab97f512079075fedb88c69&libraries=services"></script>
 
 <!--------------- 지도 1 시작------------ -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63c14f714ab97f512079075fedb88c69&libraries=services"></script>
 <script>
 var markers = [];
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -3084,9 +3084,6 @@ function removeAllChildNods(el) {
 <!--------------- /지도 1 끝------------ -->
 
 
-
-
-
 <!--------------- 지도 2 시작------------ -->
 <script>
 var markers1 = [];
@@ -3229,7 +3226,8 @@ function getListItem1(index, places) {
 // //             	   itemStr1 +=  '<input type="button" onclick="chat('+places.phone+')"value="채팅"/>'
 //             	   itemStr1 +=  '<a href="chat.do?phone='+places.phone+'">채팅</a>'
 //                }
-      
+
+	  // 채팅버튼 생성 if문
       if(test123(places.phone)){
    	   itemStr1 +=  '<a href="chat.do?phone='+places.phone+'">채팅</a>'
       }
@@ -3385,7 +3383,9 @@ kakao.maps.event.addListener(map3, 'click', function(mouseEvent) {
         if (status === kakao.maps.services.Status.OK) {
             var detailAddr3 = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
             detailAddr3 += '<div id="trashMapJibun">지번 주소 : ' + result[0].address.address_name + '</div>';
+            
             $('#tmAddr').val(result[0].address.address_name);
+            
             var content3 = '<div class="bAddr3">' +
                             '<span class="title3">법정동 주소정보</span>' + 
                             detailAddr3 + 
@@ -3420,12 +3420,12 @@ function searchDetailAddrFromCoords3(coords, callback) {
 // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
 function displayCenterInfo3(result, status) {
     if (status === kakao.maps.services.Status.OK) {
-        var infoDiv3 = document.getElementById('centerAddr3');
+//         var infoDiv3 = document.getElementById('centerAddr3');
 
         for(var i = 0; i < result.length; i++) {
             // 행정동의 region_type 값은 'H' 이므로
             if (result[i].region_type === 'H') {
-                infoDiv3.innerHTML = result[i].address_name;
+//                 infoDiv3.innerHTML = result[i].address_name;
                 break;
             }
         }
@@ -3434,8 +3434,6 @@ function displayCenterInfo3(result, status) {
 </script>
 
 <!--------------- /지도 3 끝------------ -->
-
-
 
 
 
