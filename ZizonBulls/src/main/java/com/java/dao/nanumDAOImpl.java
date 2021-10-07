@@ -18,38 +18,40 @@ public class nanumDAOImpl implements namumDAO{
 	
 	@Override
 	public void insertBoard(nanumVO vo) {
-		 System.out.println(vo.getTitle());
-		System.out.println(">>>> nanumDAO.insertBoard() �샇異�");
+//		System.out.println(vo.getTitle());
+		System.out.println(">>>> nanumDAO.insertBoard() 호출");
 		mybatis.insert("nanumDAO.insertBoard",vo);
 	}
 
 	@Override
 	public void updateBoard(nanumVO vo) {
-		System.out.println(">>>> nanumDAO.updateBoard() �샇異�");
+		System.out.println(">>>> nanumDAO.updateBoard() 호출");
 		mybatis.update("nanumDAO.updateBoard",vo);
 	}
 
 	@Override
 	public void deleteBoard(nanumVO vo) {
-		System.out.println(">>>> nanumDAO.deleteBoard() �샇異�");
+		System.out.println(">>>> nanumDAO.deleteBoard() 호출");
 		mybatis.delete("nanumDAO.deleteBoard",vo);
 	}
 
 	@Override
 	public nanumVO getBoard(nanumVO vo) {
-		System.out.println(">>>> nanumDAO.getBoard() �샇異�");
+		System.out.println(">>>> nanumDAO.getBoard() 호출");
 		return mybatis.selectOne("nanumDAO.getBoard",vo);
 	}
 
 	@Override
 	public List<nanumVO> getBoardList() {
-		System.out.println(">>>> nanumDAO.getBoardList() �샇異�");
-		// BoardMapper.xml�뿉 namespace
+		System.out.println(">>>> nanumDAO.getBoardList() 호출");
+		// BoardMapper.xml占쎈퓠 namespace
 		return mybatis.selectList("nanumDAO.getBoardList");
 	}
-
-	public void updateCount(nanumVO vo) {
-		mybatis.update("nanumDAO.updateCount",vo);
+	
+	@Override
+	public void updatecnt(nanumVO vo) {
+		System.out.println(">>>> nanumDAO.getBoardList() 호출");
+		mybatis.update("nanumDAO.updatecnt",vo);
 		
 	}
 		

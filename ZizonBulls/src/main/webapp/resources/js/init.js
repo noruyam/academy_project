@@ -968,12 +968,27 @@ function goContact4() {
 		
 //--------------------/업체찾기 게시판 -------------------------
 
-// --------------------나눔 게시판 -------------------------
+//--------------------나눔 게시판 -------------------------
 
+// moveActive : 메뉴에서 나눔게시판 클릭시 게시판리스트 화면에서 글 등록화면으로 넘겨주는 함수
+// insertBoard : 게시판 글 등록해주는 함수
+// updateBoard : getBoardList함수에서 table tr에 onlick 을 주고 클릭버튼 활성화 및 값을 가져와 수정과 동시에 게시판 리스트로 넘어가는 함수
+// deleteBoard : updateBoard화면이 보여지면 삭제버튼이 보여주며 삭제를 위한 함수
+// getBoard : table tr에 부여된 onclick 을 누를시 if문을 활용하여 updateBoard 함수로 넘어가게 해주는 함수
+// getBoardList : 나눔게시판 클릭시  DB에 입력된 게시판 작성 값을 가져와 리스트를 보여주고 index에 입력된 테이블에 맞춰서 값을 가져와주고 
+// uploadFile : 사진 업로드할때 필요한 ajax				   
 
 function moveActive(){
-	   
-	   
+	
+	$("#title").val("");
+	$("#writer").val("");
+	$("#content").val("");
+	$("#cnt").val("");
+	
+	$("#delete").hide();  
+	
+	   $("#insert").html("<span>글 등록</span>");
+	   $("#insert").attr("onclick","insertBoard()");
 	   
 	   var list    = $('#news');
 	   var element    = $('#news1');
@@ -984,12 +999,57 @@ function moveActive(){
 	         
 	}
 
+//-----------------insertBoard------------------ 
+
+function insertBoard(){
+//	   alert("나눔게시판 새글등록 제목 : " + $("#title").val());
+	
+	var uploadfile = fn_submit1();
+			   
+	var yn = confirm("게시글을 등록하시겠습니까?");
+	
+	var insertBoardData = {
+			
+			title : $("#title").val(),
+			writer : $("#writer").val(),
+			content : $("#content").val(),
+			fname : $("#fname").val()
+	};
+	
+	if(yn){
+		
+		$.ajax({
+			url : "insertBoard.do",
+			type : "get",
+			data :insertBoardData ,
+			
+			success : function(data){
+				
+				getBoardList();
+				
+			},
+			error : function(xhr, status, error){
+				alert("통신 에러");
+				
+			}
+			
+		});
+		var list    = $('#news1');
+		var element    = $('#news');
+		
+		list.removeClass('active');
+		element.addClass('active');   
+	} 
+}
+
+
+//-----------------updateBoard------------------ 
+
 function updateBoard(seq){
 	
-	
-	
+	 
 	   var updateBoard1 = {
-			 seq:seq,
+			 seq : $("#seq").val(),
 		     title : $("#title").val(),
 	         writer : $("#writer").val(),
 	         content : $("#content").val()
@@ -1001,6 +1061,7 @@ function updateBoard(seq){
 	          data :updateBoard1 ,
 	          success :  function(data){
 	        	 alert("성공");
+	        	 
 	        	  getBoardList();
 	          },
 	          error : function(xhr, status, error){
@@ -1008,58 +1069,25 @@ function updateBoard(seq){
 	               
 	          }
 	      
-	      });	    
+	      });
+	          
 	}
 
 
-//게시글 등록
-function insertBoard(){
-//	   alert("나눔게시판 새글등록 제목 : " + $("#title").val());
-	   
-	   var yn = confirm("게시글을 등록하시겠습니까?");
-	   
-	   var insertBoardData = {
-			 
-	         title : $("#title").val(),
-	         writer : $("#writer").val(),
-	         content : $("#content").val()
-	         
-	      };
-	   		if(yn){
-	   			
-		          $.ajax({
-	                   url : "insertBoard.do",
-	                   type : "get",
-	                    data :insertBoardData ,
-	                    
-	                   success : function(data){
-	                       
-	                	   getBoardList();
-	                       
-	                   },
-	                   error : function(xhr, status, error){
-	                       alert("통신 에러");
-	                       
-	                   }
-         
-		          });
-		          var list    = $('#news1');
-		          var element    = $('#news');
-		          
-		                list.removeClass('active');
-		                element.addClass('active');   
-	   		} 
-}
 
-//삭제 함수
+
+
+//-----------------deleteBoard------------------ 
+
 function deleteBoard(seq){
 	   
-	   
+		
 	   var deletedata = {
-	          seq : $("#seq").val(),
+	            seq : $("#seq").val(),
 	            title : $("#title").val(),
 	            writer : $("#writer").val(),
 	            content : $("#content").val()
+	            
 	   };
 	      $.ajax({
 	         url:"deleteBoard.do",
@@ -1073,26 +1101,50 @@ function deleteBoard(seq){
 	            alert("에러");
 	         }
 	      });
-	}
+	
+}
 
-
+//-----------------getBoard------------------
 
 function getBoard(seq,title,writer,content,regDate,cnt){
-	   
+//	   alert(seq);
+//	   alert(cnt);
+	
+	 
 	   if(seq > 0 ){
 	      
+//		   alert("#seq"+seq);
 	   $("#delete").show();
+	   $("#cnt").show();
 	   
-	   $("#test3").html("<span>글 수정</span>");
-	   $("#test3").attr("onclick","updateBoard("+seq+")");
+	   $("#insert").html("<span>글 수정</span>");
+	   $("#insert").attr("onclick","updateBoard("+seq+")");
 	   
 	   }
-	   $("#seq").val(seq);
-	     $("#title").val(title);
-	     $("#writer").val(writer);
-	     $("#content").val(content);
-	   
-	   
+	   var updatecnt = {
+	            seq : seq,
+	            cnt : cnt
+	            
+	            
+	   };
+	      $.ajax({
+	         url:"updatecnt.do",
+	         type : "get",
+	         data : updatecnt,
+	         success : function(data){
+	            
+	         },
+	         error : function(xhr, status, error){
+	            alert("에러");
+	         }
+	      });
+	      
+	      $("#seq").val(seq),
+	      $("#title").val(title),
+       $("#writer").val(writer),
+       $("#content").val(content),
+       $("#cnt1").text(cnt)
+       
 	   var list    = $('#news');
 	   var element    = $('#news1');
 	      
@@ -1101,53 +1153,90 @@ function getBoard(seq,title,writer,content,regDate,cnt){
 	        
 }
 
-//테이블 리스트 보여주는 함수
-function getBoardList() {
-//  console.log( $('#removetest10').val);
-//   $('#removetest10').remove();
-   $('#nanumBoardTable>#removetest10').remove();
-   
-   $("#title").val("");
-    $("#writer").val("");
-    $("#content").val("");
-    
-  
-   $.ajax({
-          url : "getBoardList.do",
-          type : "get",
-          dataType:"json",
-          success : function(result){
-//           alert(result[0]);
-             var len=result.length;
-             var table=$('#nanumBoardTable');
-             
-             var str ="<tbody id = 'removetest10'>";
+//-----------------uploadFile------------------
 
-             for(var i=0;i<len;i++){
-                   str += "<TR onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\","+result[i].regDate+","+result[i].cnt+")'>"
-                   str += '<TD name="seq" align="center">' + result[i].seq
-                   + '</TD><TD name="title" align="center">' + result[i].title
-                   + '</TD><TD name="writer" align="center">' + result[i].writer
-                   + '</TD><TD name="regDate" align="center" pattern="yyyy-MM-dd">' + result[i].regDate
-                   + '</TD><TD name="cnt" align="center">' + result[i].cnt + '</TD>'
-                      str += '</TR>'
-//                         str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="contactMove('+result[i].tmPostNum+','+result[i].tmTitle+','+result[i].tmAddr+','+result[i].tmContent+','+result[i].tmTime+','+result[i].tmCnt+')">'
-             }
-             str +="</tbody>";
-             table.append(str)
-          },
-          error : function(request, error){
-              alert("fail");
-              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-          }
-      });
-   
-     var list    = $('#news1');
-     var element    = $('#news');
-     
-           list.removeClass('active');
-           element.addClass('active');   
+
+//파일 업로드해주는 function
+function fn_submit1(){
+// 파일 업로드 후 나온 값을 리턴해주기 위한 변수
+var fnamereturn;
+ 
+// 사용자가 파일첨부한 파일을 폼데이터 형식으로 ajax 실행
+var form = new FormData();
+form.append( "file", $("#fname")[0].files[0] );
+
+jQuery.ajax({
+   url : "result1.do"
+   , type : "POST"
+   , processData : false
+   , contentType : false
+   , data : form
+   , async: false
+   , dataType:"json"
+   , success:function(response) {
+      
+      // 리턴된 값을 위에 지정한 변수에 저장
+      fnamereturn = response;
+   }
+   ,error: function (jqXHR) { 
+      alert(jqXHR.responseText); 
+      return false;
+   }
+});
+console.log("fn_submit 안에 있는 fnamereturn :"+fnamereturn);
+
+// 저장된 이름을 리턴해줌
+return fnamereturn;
 }
+
+			
+
+//-----------------getBoardList------------------
+
+function getBoardList() {
+//console.log( $('#removetest10').val);
+	
+$('#nanumBoardTable > #removetest10').remove();
+	
+$.ajax({
+       url : "getBoardList.do",
+       type : "get",
+       dataType:"json",
+       success : function(result){
+//        alert(result[0]);
+          var len=result.length;
+          var table=$('#nanumBoardTable');
+          
+          var str ="<tbody id = 'removetest10'>";
+          for(var i=0;i<len;i++){
+                str += "<TR onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\",\""+result[i].content+"\","+result[i].regDate+","+result[i].cnt+")'>"
+                str += '<TD name="seq" align="center">' + result[i].seq
+                + '</TD><TD name="title" align="center">' + result[i].title
+                + '</TD><TD name="writer" align="center">' + result[i].writer
+                + '</TD><TD name="regDate" align="center" pattern="yyyy-MM-dd">' + result[i].regDate
+                + '</TD><TD name="cnt" align="center">' + result[i].cnt + '</TD>'
+                   str += '</TR>'
+
+          }
+          str +="</tbody>";
+          table.append(str)
+       },
+       error : function(request, error){
+           alert("fail");
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+   });
+
+  var list    = $('#news1');
+  var element    = $('#news');
+  
+        list.removeClass('active');
+        element.addClass('active');   
+}
+
+
+
+//--------------------나눔 게시판 ------------------------- 꿑---------------------
 
 
 

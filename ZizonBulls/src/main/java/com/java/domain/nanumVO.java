@@ -16,7 +16,7 @@ public class nanumVO {
 	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
 	private Date regDate;
 	private int cnt;
-	private long fsize;
+	private String fname;
 	
 	MultipartFile file;
 	   
@@ -30,10 +30,9 @@ public class nanumVO {
 		
 		if(!file.isEmpty()) {
 			
-			this.writer = file.getOriginalFilename(); // 파일의 이름
-			this.fsize = file.getSize(); // 파일크기
-			
-			File f = new File("C:\\Users\\Administrator\\Desktop\\ZizonBulls\\src\\main\\webapp\\WEB-INF\\views\\upload\\" + writer);
+			this.writer = file.getOriginalFilename(); // �뙆�씪�쓽 �씠由�
+					
+			File f = new File("C:\\Users\\Administrator\\Desktop\\ZizonBulls\\src\\main\\webapp\\resources\\nanumupload" + writer);
 			
 			try {
 				file.transferTo(f);
@@ -43,12 +42,15 @@ public class nanumVO {
 		}
 	}	
 	
-	public long getFsize() {
-		return fsize;
+	
+	public String getFname() {
+		return fname;
 	}
-	public void setFsize(long fsize) {
-		this.fsize = fsize;
+
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
+
 	public int getSeq() {
 		return seq;
 	}

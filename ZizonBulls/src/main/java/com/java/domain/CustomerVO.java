@@ -17,6 +17,7 @@ public class CustomerVO {
 	private String busId; // 사업자 등록번호
 	private int points;
 	private int test;
+	private String busPhoneNum;
 	// 파일첨부를 위한 작업
 	// insertBoard에서 선언한 
 
@@ -122,6 +123,14 @@ public class CustomerVO {
 
 	public void setTest(int test) {
 		this.test = test;
+	}
+
+	public String getBusPhoneNum() {
+		return busPhoneNum;
+	}
+
+	public void setBusPhoneNum(String busPhoneNum) {
+		this.busPhoneNum = busPhoneNum;
 	}
 
 }

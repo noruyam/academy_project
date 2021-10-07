@@ -8,37 +8,37 @@
  
 <mapper namespace="nanumDAO">
 	
-	<insert id="insertBoard" parameterType="board">
-		INSERT INTO board(seq, title, writer, content, regDate, cnt)
-		VALUES (SQ_board.nextval, #{title}, #{writer}, #{content}, sysdate, 0)
+	<insert id="insertBoard" parameterType="nanum">
+		INSERT INTO nanum(seq, title, writer, content, regDate, cnt,fname)
+		VALUES (SQ_nanum.nextval, #{title}, #{writer}, #{content}, sysdate, 0,#{fname})
 	</insert>
 	
-	<delete id="deleteBoard" parameterType="board">
-		DELETE FROM board
+	<delete id="deleteBoard" parameterType="nanum">
+		DELETE FROM nanum
 		WHERE seq = #{seq}
 	</delete>
 	
-	<update id="updateBoard" parameterType="board">
-		UPDATE board 
+	<update id="updateBoard" parameterType="nanum">
+		UPDATE nanum 
 		SET title = #{title},
 			writer = #{writer},
 			content = #{content}
 		WHERE seq = #{seq}
 	</update>
 	
-	<select id="getBoard" parameterType="board" resultType="board">
+	<select id="getBoard" parameterType="nanum" resultType="nanum">
 		SELECT *
-		FROM board
+		FROM nanum
 		WHERE seq = #{seq}
 	</select>
 	
-	<select id="getBoardList"  parameterType="board" resultType="board">
+	<select id="getBoardList"  parameterType="nanum" resultType="nanum" >
 		SELECT *
-		FROM board
+		FROM nanum
 		order by seq desc
 	</select>
-	<update id="updateCount" parameterType="board">
-	   UPDATE upLoadtemp1
+	<update id="updatecnt" parameterType="nanum">
+	   UPDATE nanum
 	   SET cnt = cnt + 1
 	   WHERE seq = ${seq}
 	</update>   

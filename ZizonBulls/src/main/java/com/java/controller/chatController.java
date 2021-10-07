@@ -57,7 +57,7 @@ public class chatController {
 	@ResponseBody
 	public int getTrashMap(CustomerVO vo, HttpServletRequest request) {
 		System.out.println("test123 Controller");
-		System.out.println(vo.getBusId());
+		System.out.println(vo.getBusPhoneNum());
 //		customerservice.getBoardList();
 		
 		int test123=customerservice.getBoardList(vo);;

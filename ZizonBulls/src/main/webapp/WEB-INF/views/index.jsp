@@ -224,7 +224,7 @@ if (cusId == null) {
 		<div class="tokyo_tm_mobile_menu">
 			<div class="menu_inner">
 				<div class="logo">
-					<img src="${path }/resources/img/logo/dark.png" alt="" />
+					<img src="${path }/resources/img/logo/지존불쓰.png" alt="" />
 				</div>
 				<div class="menu">
 					<ul>
@@ -264,7 +264,7 @@ if (cusId == null) {
 						<li class="active"><a href="#home" class="offTs">Home</a></li>
 						<li><a href="#about" class="offTs">About</a></li>
 						<li><a href="#portfolio" class="onTs">분리수거 정보</a></li>
-						<li><a href="#news" class="offTs">News</a></li>
+						<li><a href="#news" class="offTs">나눔게시판</a></li>
 <!-- 						<li><a href="#contact">Contact</a></li> -->
 						<li><a href="#contact1" class="offTs">분리수거 장소찾기</a></li>
 <!-- 						<li><a href="#contact3">업체찾기</a></li> -->
@@ -297,14 +297,18 @@ if (cusId == null) {
 							<div class="home_content">
 								<div class="avatar">
 									<div class="image"
-										data-img-url="${path }/resources/img/portfolio/1.jpg"></div>
+										data-img-url="${path }/resources/img/portfolio/메인.png"></div>
 								</div>
 								<div class="details">
 									<h3 class="name">
-										Adriano <span>Smith</span>
-									</h3>
-									<p class="job">Creative Photographer based in New York and
-										happy to travel all over Europe to capture photos.</p>
+									   <span style="color: green;">지</span><span style="font-size: 30px; color: gray;">상에</span><span
+                                 style="color: red;"><br>존</span><span style="font-size: 30px; color: gray;">재하는</span><br>
+                              <span style="color: blue;">불</span><span style="font-size: 30px; color: gray;">편한</span><span
+                                 style="color: orange;"><br>쓰</span><span style="font-size: 30px; color: gray;">레기🔥</span>
+                                                            </h3>
+                           <p class="job">
+                              이 사이트의 분리수거 정보는 blisgo.com<br>쓰레기백과사전에서 가져온 것을 알려드립니다
+                           </p>
 									<div class="social">
 										<ul>
 											<li><a href="#"><img class="svg"
@@ -2344,7 +2348,6 @@ if (cusId == null) {
 								</div>
 							</div>
 							<div class="fields">
-
 								<table border="1" id="nanumBoardTable">
 									<tr>
 										<th width="50">No.1</th>
@@ -2353,26 +2356,16 @@ if (cusId == null) {
 										<th width="150">작성시간</th>
 										<th width="150">조회수</th>
 									</tr>
-
 								</table>
 								<div class="tokyo_tm_button">
 									<br> <a id="moveActive" onclick="moveActive()"
 										style="cursor: pointer">새글 등록</a>
 								</div>
 							</div>
-
-							<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
-
-
 						</div>
 					</div>
-				
+				</div>
 			</div>
-
-
-
-
-
 			<div id="news1" class="tokyo_tm_section">
 				<div class="container">
 					<div class="tokyo_tm_contact">
@@ -2390,9 +2383,18 @@ if (cusId == null) {
 							<div id="wrap">
 								<div id="container">
 									<div class="inner">
-										<span>게시글 작성</span>
+										<span>게시글 작성</span><br><br>
 									</div>
-									<input type="hidden" id="seq" value="${seq }">
+									<input type="hidden" id="seq" name="seq" value="${seq }">
+									<input type="hidden" id="cnt" name="cnt" value="${cnt }">								
+									<div id="cnt" style="cursor: pointer">
+										<span>조회수  : </span><span id="cnt1"></span>
+										
+									</div>
+									<div>
+										<label for="fname">파일 : </label> <input id="fname" type="file" name="uploadfile" accept="*"/>
+										<button type="button" onclick="fn_submit1()">파일전송</button>
+									</div><br><br><hr><br><br>
 									<div>
 										<ul>
 											<li><input id="title" type="text" placeholder="제목"></li>
@@ -2401,31 +2403,22 @@ if (cusId == null) {
 										</ul>
 									</div>
 									<div class="tokyo_tm_button">
-										<a id="test3" onclick="insertBoard()" style="cursor: pointer"><span>글
+										<a id="insert" onclick="insertBoard()" style="cursor: pointer"><span>글
 												등록</span></a>
 										<a id="delete" onclick="deleteBoard()" style="cursor:pointer; display: none" ><span>글 삭제</span></a>
-
 									</div>
-
 								</div>
-							</div>
-
-							<!--                         <br> <a id="test3" onclick="deleteBoard()"  style="cursor:pointer"><span>게시글 삭제</span></a> -->
-							<!--                         <br> <a id="test4" onclick="goBoardList()" style="cursor:pointer">목록으로</a> -->
+							</div>						
 						</div>
-
-						<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
-
-
 					</div>
 				</div>
-			
+			</div>
 		</div>
 
 
 
-
 		<!----------------------- 나눔 게시판 끝 ------------------- -->
+
 
 		<!-- CONTACT -->
 		<div id="contact" class="tokyo_tm_section">

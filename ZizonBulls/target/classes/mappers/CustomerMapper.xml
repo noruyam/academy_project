@@ -54,7 +54,7 @@
    <select id="getBoardList" resultType="int" parameterType="customer">
       SELECT COUNT(*)
       FROM customer1
-      WHERE busid = #{busId}
+      WHERE busPhoneNum = #{busPhoneNum}
    </select>
    
    <select id="idCheck" parameterType="customer" resultType="customer">

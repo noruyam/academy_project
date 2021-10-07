@@ -8,7 +8,8 @@
 	<typeAliases>
 		<typeAlias type="com.java.domain.CustomerVO" alias="customer"/>
 		<typeAlias type="com.java.domain.trashMapVO" alias="trashMap"/>
-		<typeAlias type="com.java.domain.nanumVO" alias="board" />
+		<typeAlias type="com.java.domain.nanumVO" alias="nanum" />
+		<typeAlias type="com.java.domain.chatVO" alias="board" />
 	</typeAliases>
 
 </configuration>

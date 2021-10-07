@@ -4209,8 +4209,9 @@ function chat(b) {
 }
 
 function test123(phone) {
+	console.log(phone);
 	var testdata={
-		busId:phone
+			busPhoneNum:phone
 	}
 	var str;
 	 $.ajax({

@@ -45,7 +45,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 	public int getBoardList(CustomerVO vo) {
 		System.out.println(">>>> customerService.getBoardList() 호출");
 		// BoardMapper.xml에 namespace
-		System.out.println("daoimpl"+vo.getBusId());
+		System.out.println("daoimpl"+vo.getBusPhoneNum());
 		
 		return mybatis.selectOne("CustomerDAO.getBoardList",vo);
 	

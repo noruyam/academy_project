@@ -11,5 +11,5 @@ public interface namumDAO {
 	void deleteBoard(nanumVO vo);
 	nanumVO getBoard(nanumVO vo);
 	List<nanumVO> getBoardList();
-	void updateCount(nanumVO vo);
+	void updatecnt(nanumVO vo);
 }
