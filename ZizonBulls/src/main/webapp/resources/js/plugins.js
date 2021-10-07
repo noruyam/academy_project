@@ -4227,7 +4227,7 @@ function test123(phone) {
        	 	} 
          }
         , error : function(xhr, status, error){
-            alert("실패"); 
+           
          }
      });
 	 return str;

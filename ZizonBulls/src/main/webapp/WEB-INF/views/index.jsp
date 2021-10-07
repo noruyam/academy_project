@@ -36,30 +36,14 @@ if (cusId == null) {
 <!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
 <link rel="stylesheet" type="text/css" href="./resources/css/style.css" />
 
-
+<!-- 팝업css -->
+<link rel="stylesheet" href="./resources/css/magnific-popup.css">
 
 
 
 
 
 <style>
-a.go-to-top {
-	position: absolute;
-	bottom: 100px;
-	right: 100px;
-	z-index: 99;
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	border-radius: 30px;
-	line-height: 50px;
-	text-align: center;
-	text-decoration: none;
-	background: #0055FF;
-	opacity: 0.8;
-	color: #fff;
-	font-size: 30px;
-}
 </style>
 </head>
 
@@ -244,23 +228,23 @@ a.go-to-top {
 				</div>
 				<div class="menu">
 					<ul>
-						<li><a href="#home"><img class="svg"
+						<li><a href="#home" class="offTs"><img class="svg"
 								src="${path }/resources/img/svg/home-run.svg" alt="" /></a></li>
-						<li><a href="#about"><img class="svg"
+						<li><a href="#about" class="offTs"><img class="svg"
 								src="${path }/resources/img/svg/avatar.svg" alt="" /></a></li>
-						<li><a href="#portfolio"><img class="svg"
+						<li><a href="#portfolio" class="onTs"><img class="svg"
 								src="${path }/resources/img/svg/briefcase.svg" alt="" /></a></li>
-						<li><a href="#news"><img class="svg"
+						<li><a href="#news" class="offTs"><img class="svg"
 								src="${path }/resources/img/svg/paper.svg" alt="" /></a></li>
 <!-- 						<li><a href="#contact"><img class="svg" -->
 <%-- 								src="${path }/resources/index/img/svg/mail.svg" alt="" /></a></li> --%>
-						<li><a href="#contact1"><img class="svg"
+						<li><a href="#contact1" class="offTs"><img class="svg"
 								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>
 <!-- 						<li><a href="#contact3"><img class="svg" -->
 <%-- 								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
 <!-- 						<li><a href="#contact4"><img class="svg" -->
 <%-- 							src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
-						<li><a href="#contact5"><img class="svg"
+						<li><a href="#contact5" class="offTs"><img class="svg"
 							src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>	
 					</ul>
 				</div>
@@ -273,19 +257,19 @@ a.go-to-top {
 			<div class="leftpart_inner">
 				<div class="logo">
 					<a href="#"><img
-						src="${path }/resources/img/logo/dark.png" alt="" /></a>
+						src="${path }/resources/img/logo/지존불쓰.png" alt="" /></a>
 				</div>
 				<div class="menu">
 					<ul>
-						<li class="active"><a href="#home">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#news">News</a></li>
+						<li class="active"><a href="#home" class="offTs">Home</a></li>
+						<li><a href="#about" class="offTs">About</a></li>
+						<li><a href="#portfolio" class="onTs">분리수거 정보</a></li>
+						<li><a href="#news" class="offTs">News</a></li>
 <!-- 						<li><a href="#contact">Contact</a></li> -->
-						<li><a href="#contact1">분리수거 장소찾기</a></li>
+						<li><a href="#contact1" class="offTs">분리수거 장소찾기</a></li>
 <!-- 						<li><a href="#contact3">업체찾기</a></li> -->
 <!-- 						<li><a href="#contact4">업체찾기</a></li> -->
-						<li><a href="#contact5">업체찾기</a></li>
+						<li><a href="#contact5" class="offTs">업체찾기</a></li>
 					</ul>
 				</div>
 				<div class="copyright">
@@ -426,8 +410,7 @@ a.go-to-top {
 											<li><a href="#" data-filter=".image">대형폐기물</a></li>
 											<li><a href="#" data-filter=".detail">의류</a></li>
 											<li><input type="search" value="" id="search"
-												placeholder="쓰레기를 검색하세요."><input type="button"
-												onclick="test11()"></li>
+												placeholder="쓰레기를 검색하세요." onkeyup="if(window.event.keyCode==13){search()}"></li>
 										</ul>
 									</div>
 								</div>
@@ -517,8 +500,8 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="신발" data-category="의류수거함">
-												<a class="popup_info"
-													href="./resources/img/portfolio/신발.jpg"> <img
+												<a class="popup-vimeo"
+													href="./resources/img/portfolio/신발.png"> <img
 													src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/신발.jpg"></div>
@@ -736,7 +719,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="골프가방" data-category="대형폐기물">
-												<a class="zoom" href="./resources/img/portfolio/골프가방.jpg">
+												<a class="zoom" href="./resources/img/portfolio/골프가방.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/골프가방.jpg"></div>
@@ -750,8 +733,8 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="모자" data-category="의류수거함">
-												<a class="popup_info"
-													href="./resources/img/portfolio/모자.jpg"> <img
+												<a class="popup-vimeo"
+													href="./resources/img/portfolio/모자.png"> <img
 													src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/모자.jpg"></div>
@@ -877,7 +860,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="냉장고" data-category="대형폐기물, 재활용쓰레기, 폐가전제품">
-												<a class="zoom" href="./resources/img/portfolio/냉장고.jpg">
+												<a class="zoom" href="./resources/img/portfolio/냉장고.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/냉장고.jpg"></div>
@@ -890,7 +873,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="노트북" data-category="대형폐기물, 재활용쓰레기, 폐가전제품">
-												<a class="zoom" href="./resources/img/portfolio/노트북.jpg">
+												<a class="zoom" href="./resources/img/portfolio/노트북.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/노트북.jpg"></div>
@@ -959,7 +942,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="라텍스" data-category="대형폐기물, 일반쓰레기">
-												<a class="zoom" href="./resources/img/portfolio/라텍스.jpg">
+												<a class="zoom" href="./resources/img/portfolio/라텍스.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/라텍스.jpg"></div>
@@ -1000,7 +983,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="매트리스" data-category="대형폐기물">
-												<a class="zoom" href="./resources/img/portfolio/매트리스.jpg">
+												<a class="zoom" href="./resources/img/portfolio/매트리스.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/매트리스.jpg"></div>
@@ -1055,7 +1038,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="모니터" data-category="재활용쓰레기, 대형폐기물, 폐가전제품">
-												<a class="zoom" href="./resources/img/portfolio/모니터.jpg">
+												<a class="zoom" href="./resources/img/portfolio/모니터.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/모니터.jpg"></div>
@@ -1252,7 +1235,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="세탁기" data-category="대형폐기물, 폐가전제품">
-												<a class="zoom" href="./resources/img/portfolio/세탁기.jpg">
+												<a class="zoom" href="./resources/img/portfolio/세탁기.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/세탁기.jpg"></div>
@@ -1265,7 +1248,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="소파" data-category="대형폐기물">
-												<a class="zoom" href="./resources/img/portfolio/소파.jpg">
+												<a class="zoom" href="./resources/img/portfolio/소파.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/소파.jpg"></div>
@@ -1278,7 +1261,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="소형난방기구" data-category="대형폐기물, 폐가전제품">
-												<a class="zoom" href="./resources/img/portfolio/소형난방기구.jpg">
+												<a class="zoom" href="./resources/img/portfolio/소형난방기구.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/소형난방기구.jpg"></div>
@@ -1291,8 +1274,8 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="속옷" data-category="의류수거함, 일반쓰레기">
-												<a class="popup_info"
-													href="./resources/img/portfolio/속옷.jpg"> <img
+												<a class="popup-vimeo"
+													href="./resources/img/portfolio/속옷.png"> <img
 													src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/속옷.jpg"></div>
@@ -1502,7 +1485,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="여행용가방" data-category="대형폐기물">
-												<a class="zoom" href="./resources/img/portfolio/여행용가방.jpg">
+												<a class="zoom" href="./resources/img/portfolio/여행용가방.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/여행용가방.jpg"></div>
@@ -1586,8 +1569,8 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="의류" data-category="의류수거함">
-												<a class="popup_info"
-													href="./resources/img/portfolio/의류.jpg"> <img
+												<a class="popup-vimeo"
+													href="./resources/img/portfolio/의류.png"> <img
 													src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/의류.jpg"></div>
@@ -1600,7 +1583,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="의자" data-category="대형폐기물">
-												<a class="zoom" href="./resources/img/portfolio/의자.jpg">
+												<a class="zoom" href="./resources/img/portfolio/의자.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/의자.jpg"></div>
@@ -1613,8 +1596,8 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="이불" data-category="의류수거함, 대형쓰레기, 일반쓰레기">
-												<a class="popup_info"
-													href="./resources/img/portfolio/이불.jpg"> <img
+												<a class="popup-vimeo"
+													href="./resources/img/portfolio/이불.png"> <img
 													src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/이불.jpg"></div>
@@ -1655,7 +1638,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="전기장판" data-category="대형폐기물">
-												<a class="zoom" href="./resources/img/portfolio/전기장판.jpg">
+												<a class="zoom" href="./resources/img/portfolio/전기장판.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/전기장판.jpg"></div>
@@ -1822,7 +1805,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="침대" data-category="대형폐기물">
-												<a class="zoom" href="./resources/img/portfolio/침대.jpg">
+												<a class="zoom" href="./resources/img/portfolio/침대.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/침대.jpg"></div>
@@ -1864,7 +1847,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="캣타워" data-category="대형폐기물, 일반쓰레기">
-												<a class="zoom" href="./resources/img/portfolio/캣타워.jpg">
+												<a class="zoom" href="./resources/img/portfolio/캣타워.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/캣타워.jpg"></div>
@@ -1877,8 +1860,8 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="커튼" data-category="의류수거함, 일반쓰레기">
-												<a class="popup_info"
-													href="./resources/img/portfolio/커튼.jpg"> <img
+												<a class="popup-vimeo"
+													href="./resources/img/portfolio/커튼.png"> <img
 													src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/커튼.jpg"></div>
@@ -1919,7 +1902,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="컴퓨터" data-category="대형폐기물, 폐가전제품">
-												<a class="zoom" href="./resources/img/portfolio/컴퓨터.jpg">
+												<a class="zoom" href="./resources/img/portfolio/컴퓨터.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/컴퓨터.jpg"></div>
@@ -2115,7 +2098,7 @@ a.go-to-top {
 										<div class="inner">
 											<div class="entry tokyo_tm_portfolio_animation_wrap"
 												data-title="프린터" data-category="대형폐기물, 폐가전제품">
-												<a class="zoom" href="./resources/img/portfolio/프린터.jpg">
+												<a class="zoom" href="./resources/img/portfolio/프린터.png">
 													<img src="./resources/img/thumbs/1-1.jpg" alt="" />
 													<div class="main_image"
 														data-img-url="./resources/img/portfolio/프린터.jpg"></div>
@@ -2342,6 +2325,8 @@ a.go-to-top {
 						</div>
 					</div>
 				</div>
+
+				
 				<!-- /PORTFOLIO -->
 
 				<!----------------------- 나눔 게시판 ------------------- -->
@@ -2674,7 +2659,19 @@ a.go-to-top {
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63c14f714ab97f512079075fedb88c69&libraries=services"></script>
-
+<script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"21251fef9449302413eb6b3172d623d48","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>
+<!-- 	팝업js -->
+<script src="./resources/js/jquery.magnific-popup.js"></script>
 
 	<!-- SCRIPTS -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

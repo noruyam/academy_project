@@ -1222,3 +1222,38 @@ function goContact4() {
 		element.addClass('active');
 
 }
+
+//쓰레기정보페이지 상위이동 div 
+function go_Top() {
+
+	//	클릭시 보이기
+   $('.onTs').click(function () {
+     
+      if( $('#test1').css("display") == "none"){
+         $('#test1').show();
+      }      
+   });
+	// 다른곳 클릭시 숨김
+   $('.offTs').click(function () {
+      
+      if( $('#test1').css("display") != "none"){
+         $('#test1').hide();
+      }      
+   });
+
+};
+
+//검색기능
+function search() { 
+	var search = $('#search').val()
+$.get("http://localhost:8080/zizon/resources/img/portfolio/"+search+".png").done(function() {
+    $.magnificPopup.open({ 
+        items: { src: "http://localhost:8080/zizon/resources/img/portfolio/"+search+".png"}, 
+        type: 'image', 
+        closeOnContentClick : true
+    }); 
+}).fail(function() {
+	alert("검색하신 쓰레기가 없습니다.")
+})
+}
+
