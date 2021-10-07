@@ -38,6 +38,7 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="forgotLoginInfo.do")
+	@ResponseBody
 	public CustomerVO forgotInfo(CustomerVO vo) {
 		System.out.println(vo.getEmail());
 		System.out.println(vo.getCusId()); // null
@@ -47,6 +48,7 @@ public class CustomerController {
 		System.out.println(vo.getEmail());
 		System.out.println("디비 갔다온 후" + vo.getCusId()); // null
 		System.out.println("디비 갔다온 후" + vo.getPass()); // null
+		System.out.println("디비 갔다온 후 " + result.getEmail());
 		System.out.println("디비 갔다온 후" + result.getCusId()); //email에 따른 값
 		System.out.println("디비 갔다온 후" + result.getPass()); //email에 따른 값
 //		if (result == null || (result.getCusId() == null && result.getPass() == null)) {

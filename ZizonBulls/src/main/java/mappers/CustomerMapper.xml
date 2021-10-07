@@ -46,7 +46,7 @@
    </update>
    
    <select id="getCustomerIdPwd" parameterType="customer" resultType="customer">
-      SELECT cusid, pass
+      SELECT cusid, pass, email
       FROM customer1
       WHERE email = #{email}
    </select>

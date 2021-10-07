@@ -97,7 +97,12 @@ public class MailSendController {
 			// 제목
 			messageHelper.setSubject("[제목]");
 			// 내용 html
-			String htmlStr = "<h1>파일 다운받아 어서 </h1>";
+			String htmlStr = "";
+			if(vo.getCusId() == null) {
+				htmlStr = "고객님의 비밀번호는 " + vo.getPass();
+			} else if (vo.getPass() == null) {
+				htmlStr = "고객님의 아이디는 " + vo.getCusId();
+			}
 			// 내용설정
 			// multipart/form-data is one of the value of enctype attribute, which is used in form element that have a file upload.
 			// multi-part means form data divides into multiple parts and send to server.

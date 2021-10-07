@@ -122,7 +122,7 @@ public class trashMapController {
 			if (!multi.isEmpty()) {
 				File file = new File(uploadpath, saveFileName);
 				multi.transferTo(file);
-
+				
 				model.addAttribute("filename", multi.getOriginalFilename());
 				model.addAttribute("uploadPath", file.getAbsolutePath());
 

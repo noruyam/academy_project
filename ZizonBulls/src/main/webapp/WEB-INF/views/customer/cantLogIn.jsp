@@ -37,8 +37,8 @@
                             <input class="form-control input-lg" type="email" name="email" placeholder="your@email.com"/><br>
                             </div>
                             
-							<input class="btn btn-lg btn-primary btn-block" type="button" name="forgotId" value="SEND ME ID" onclick="sendLoginInfo('idPwd')"> <span>  </span>
-							<input class="btn btn-lg btn-primary btn-block" type="button" name="forgotPassword" value="SEND ME PASSWORD" onclick="sendLoginInfo('idPwd')">
+							<input class="btn btn-lg btn-primary btn-block" type="button" name="forgotId" value="SEND ME ID" onclick="sendLoginInfo('id')"> <span>  </span>
+							<input class="btn btn-lg btn-primary btn-block" type="button" name="forgotPassword" value="SEND ME PASSWORD" onclick="sendLoginInfo('pwd')">
 <!-- 						value로 값을 보내줄 수는 없으니까 어떻게 id값이랑 password값을 불러와서 이메일로 불러줄까 -->
                         </fieldset>
                     </div>
@@ -109,23 +109,49 @@ background:#eee;
 // }
 		
 function sendLoginInfo(choice){
+	var email = {"email" : $('input[name="email"]').val()}
 $.ajax({
     url:"forgotLoginInfo.do", 
-     type : "get",
-     data :$('input[name="email"]').val() ,
-     dataType:"text",
+     type : "post",
+     data : email,
+     dataType:"json",
      success :  function(data1){
      	
        alert("성공");
        alert(data1);
        alert(JSON.stringify(data1));
-        
+       
+       if(choice == 'id'){
+    	   $.ajax({
+    		   url:"../mail/send3.do",
+    	       type:"post",
+    	       data: {"email" : data1.email, "cusId" : data1.cusId},
+    	       dataType: "text",
+    	       success: function(text){
+    	    	   alert(text);
+    	       },
+    	       error: function(xhr, status, error){
+    	    	   alert("실패");
+    	       }
+    	   });
+       } else if( choice == "pwd" ){
+    	   $.ajax({
+    		   url : "../mail/send3.do",
+    		   type : "post",
+    		   data : {"email" : data1.email, "pass" : data1.pass},
+    		   dataType : "text",
+    		   success : function(text) {
+    			   alert(text);
+    		   },
+    		   error : function(xhr, status, error){
+    			   alert("실패");
+    		   }
+    	   });
+       }        
      },
      error : function(xhr, status, error){
         alert("실패"); 
-          
      }
- 
  });
 }
 	
