@@ -72,27 +72,10 @@
       where cusid = #{cusId}
    </select>
    
-   <insert id="customerInsert" parameterType="customer">
-      <!--  
-      insert into customer
-      (cusname, email, pass)
-      values(#{cusName}, #{email}, #{pass})
-      -->
-      insert into customer1
-      (cusid, pass, cusname, email)
-      values(#{cusId}, #{pass}, #{cusName}, #{email})
-      <!--  
-      where not exists
-      (select cusid from customer1 where cusid = #{cusId})
-      -->
-      <!--  
-      insert into customer
-      (cusid, pass, cusname, birth, gender, ssn, 
-      email, cusaddr, cusnumber, mundab, busid, points)
-      values(#{cusId}, #{pass}, #{cusName}, #{birth}, #{gender}, 
-      #{ssn}, #{email}, #{cusAddr}, #{cusNumber}, #{mundab}, #{busId}, #{points})
-      -->
-   </insert>
+  <insert id="customerInsert" parameterType="customer"> 
+  	  insert into customer1(cusid, pass, cusname, email, busPhoneNum)
+      values(#{cusId}, #{pass}, #{cusName}, #{email}, #{busPhoneNum})
+  </insert>
    
 </mapper>
       

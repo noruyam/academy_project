@@ -14,6 +14,7 @@
 		#busPhoneNum{
 			display:none;
 		}
+		
 	</style>
 </head>
 <body>
@@ -122,9 +123,11 @@
 									success : function(data) {
 
 										if (data == 0) {
+											$('.msg').css('color','red')
 											$(".result .msg").text(
 													"You can Not use ID");
 										} else {
+											$('.msg').css('color','green')
 											$(".result .msg").text(
 													"You can use ID");
 										}
