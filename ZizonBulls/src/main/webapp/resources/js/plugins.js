@@ -4036,6 +4036,27 @@ if (status === kakao.maps.services.Status.OK) {
     }
 }    
 }
+
+function removeMarker5() {
+	infowindow3.close();
+	marker3.setMap(null);
+
+	var points5 = new kakao.maps.LatLng(37.277186311044446, 127.02799793217469);
+	
+	var bounds5 = new kakao.maps.LatLngBounds();  
+	bounds5.extend(points5);
+	
+	map3.setBounds(bounds5);
+	
+//	bounds5 = new kakao.maps.LatLngBounds()
+//    
+//    // 마커를 생성하고 지도에 표시합니다
+//    var placePosition5 = new kakao.maps.LatLng(37.56, 127.00)
+//    // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+//    // LatLngBounds 객체에 좌표를 추가합니다
+//    bounds5.extend(placePosition5);
+   
+}
 //-------------------/분리수거 지도--------------------
 
 

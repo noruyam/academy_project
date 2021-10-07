@@ -655,6 +655,8 @@ function trashMapInsertOrUpdate(){
 
 // 목록List를 불러와주는 function
 function getTrashMapList(cnt) {
+	
+	removeMarker5();
 	 // 데이터 리스트의 총 갯수를 변수로 지정
 	 var ListCnt=getTrashMapListCnt();
 	 
@@ -721,11 +723,11 @@ function getTrashMapList(cnt) {
 	       	str += "</tbody>";
 	       	var strcnt="";
 	       	for(var j=1;j<=(ListCnt/getTrashMapListOnePageCnt)+1;j++){
-	       		strcnt+='<a id="removecnt" onclick="getTrashMapList('+j+')">['+j+']</a>'
+	       		strcnt+='<a id="removecnt" style="cursor:pointer;" onclick="getTrashMapList('+j+')">['+j+']</a>'
 	       	}
 	       	// str에 만들어놓은 테이블생성값들을 index에 만들어둔 테이블에 더해줌
 	       	table.append(str).trigger("create");
-	       	$('#trashMapListTableCnt').append(strcnt);
+	       	$('#trashMapListTableCnt').append(strcnt).css("cursor:pointer");;
 	       },
 	       error : function(request, error){
 	           alert("fail");

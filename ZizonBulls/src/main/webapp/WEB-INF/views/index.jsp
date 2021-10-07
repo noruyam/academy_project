@@ -2611,17 +2611,17 @@ if (cusId == null) {
 								style="cursor: pointer">새글 등록</a>
 						</div>
 						<table id="trashMapListTable">
-							<tr>
+							<tr style='background-color:gray;color:white'>
 								<th bgcolor="orange" width="50">번호</th>
 								<th bgcolor="orange" width="200">제목</th>
 								<th bgcolor="orange" width="200">주소</th>
 								<th bgcolor="orange" width="100">아이디</th>
 								<th bgcolor="orange" width="100">시간</th>
-								<th bgcolor="orange" width="50">조회수</th>
+								<th bgcolor="orange" width="70">조회수</th>
 							</tr>
 						</table>
-					<div id="trashMapListTableCnt"></div>
 					</div>
+					<div id="trashMapListTableCnt"></div>
 					<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 				</div>
 			</div>
