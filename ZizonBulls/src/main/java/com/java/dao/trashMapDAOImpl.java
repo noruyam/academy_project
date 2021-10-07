@@ -41,7 +41,11 @@ public class trashMapDAOImpl implements trashMapDAO {
 		return mybatis.selectOne("trashMapDAO.getTrashMap", vo);
 
 	}
-
+	@Override
+	public int getTrashMapListCnt(trashMapVO vo) {
+		System.out.println(">>>> trashService.gettTrashMap() 호출");
+		return mybatis.selectOne("trashMapDAO.getTrashMapListCnt", vo);
+	}
 	@Override
 	public List<trashMapVO> getTrashMapList() {
 		System.out.println(">>>> trashService.getTrashMapList() 호출");

@@ -65,7 +65,7 @@ function tokyo_tm_menu(){
 		
 		
 		if(myHref=="#contact1"){
-			getTrashMapList();
+			getTrashMapList(1);
 
 		}else if(myHref=="#news"){
 			getBoardList();
@@ -624,7 +624,7 @@ function trashMapInsertOrUpdate(){
 	         , success : function(data){
 	        	 
 	        	 // 업데이트를 성공하면 목록불러와주는 function 실행
-	             getTrashMapList();
+	             getTrashMapList(1);
 	         }
              , error : function(xhr, status, error){
                  alert("통신 에러");
@@ -642,7 +642,7 @@ function trashMapInsertOrUpdate(){
                 , success : function(data){
                 	
                 	// 인서트를 성공하면 목록불러와주는 function 실행
-                    getTrashMapList();
+                    getTrashMapList(1);
                 }
 		 		, error : function(request, error){
                     alert("fail");
@@ -655,8 +655,11 @@ function trashMapInsertOrUpdate(){
 
 
 // 목록List를 불러와주는 function
-function getTrashMapList() {
-	
+function getTrashMapList(cnt) {
+	 var ListCnt=getTrashMapListCnt();
+	 var getTrashMapListPage=10;
+//	 console.log(ListCnt);
+//	 console.log(cnt);
 	 // 누를때 맨위로 스크롤 이동
 	 $('#contact1').animate({ scrollTop: 0 });
 	
@@ -666,6 +669,8 @@ function getTrashMapList() {
 	 // 목록에 있는 동적 테이블을 지워주고 새로 리스트를 불러오기 위해서 우선 지워줌
 	 $( '#trashMapListTable > #removeTbody').remove();
 	 
+	 
+	 $( '#trashMapListTableCnt > #removecnt').remove();
 	 // 목록에 있는 이미지 지워줌
 	 $('#trashMapImagePanel').remove();
 	
@@ -677,7 +682,7 @@ function getTrashMapList() {
 	
 	       // controller에서 리턴된 List배열을 result에 담아서 for문으로 table에 뿌려줌
 	       success : function(result){
-	    	   
+	    	   console.log( result[15].tmPostNum);
 	    	// 리턴된 List의 길이
 	       	var len=result.length;
 	       	
@@ -689,10 +694,13 @@ function getTrashMapList() {
 	       	
 	       	// 나중에 목록을 불러와줄때마다 동적으로 생성된 table을 지워주기위해 tbody로 먼저 묶어서 id 지정하여 remove 실행
 	       	str += "<tbody id='removeTbody' class='removeTbody'>";
-	       	
+
 	       	// 테이블을 생성하기 위한 for문 
-	       	for(var i=0;i<len;i++){
-	       		
+	       	for(var i=((cnt-1)*10)+1;i<=getTrashMapListPage*cnt;i++){
+	       		if(i>ListCnt-1){
+	       			break;
+	       		}
+
 	       		// tr전체를 클릭했을때 onclick을 실행하도록 동적 테이블 생성, 
 	       		// onclick 했을때 ()안에 변수를 가지고 들어가서 getTrashMap에서 활용하기 위한 동적테이블 생성
 	       		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+','+result[i].tmCnt+')">'
@@ -703,12 +711,17 @@ function getTrashMapList() {
 	       		+ '</TD><TD class="removeTbody" name="tmTime" align="center">' +result[i].tmTime
 	       		+ '</TD><TD class="removeTbody" name="tmCnt" align="center">' + result[i].tmCnt+'</td>'
 	       		+ '<input type="hidden" class="removeTbody" align="center" value="'+result[i].tmContent+'">'
-	            str += '</TR>'		   
+	            str += '</TR>'	
+	            	
 	       	}
 	       	str += "</tbody>";
-	       	
+	       	var strcnt="";
+	       	for(var j=1;j<=(ListCnt/getTrashMapListPage)+1;j++){
+	       		strcnt+='<a id="removecnt" onclick="getTrashMapList('+j+')">['+j+']</a>'
+	       	}
 	       	// str에 만들어놓은 테이블생성값들을 index에 만들어둔 테이블에 더해줌
 	       	table.append(str).trigger("create");
+	       	$('#trashMapListTableCnt').append(strcnt);
 	       },
 	       error : function(request, error){
 	           alert("fail");
@@ -740,7 +753,7 @@ function deleteTrashMap(){
 		, success : function(data){
 //			data.tmfnameen
 			// 인서트를 성공하면 목록불러와주는 function 실행
-			getTrashMapList();
+			getTrashMapList(1);
 		}
 		, error : function(xhr, status, error){
 			alert("통신 에러");
@@ -757,7 +770,7 @@ function deleteTrashMapFile(){
 		, success : function(data){
 
 			// 인서트를 성공하면 목록불러와주는 function 실행
-			getTrashMapList();
+			getTrashMapList(1);
 		}
 		, error : function(xhr, status, error){
 			alert("통신 에러");
@@ -965,7 +978,32 @@ function goContact4() {
 
 }
 
-		
+function getTrashMapListCnt(){
+	// 파일 업로드 후 나온 값을 리턴해주기 위한 변수
+	var cnt;
+	
+	// 사용자가 파일첨부한 파일을 폼데이터 형식으로 ajax 실행
+	
+	jQuery.ajax({
+		url : "getTrashMapListCnt.do"
+		, type : "POST"
+		, async: false
+		, dataType:"text"
+		, success:function(response) {
+			
+			// 리턴된 값을 위에 지정한 변수에 저장
+			cnt = response;
+		}
+		,error: function (jqXHR) { 
+			alert(jqXHR.responseText); 
+			return false;
+		}
+	});
+//	console.log("fn_submit 안에 있는 fnamereturn :"+fnamereturn);
+	
+	// 저장된 이름을 리턴해줌
+	return cnt;
+}	
 //--------------------/업체찾기 게시판 -------------------------
 
 //--------------------나눔 게시판 -------------------------

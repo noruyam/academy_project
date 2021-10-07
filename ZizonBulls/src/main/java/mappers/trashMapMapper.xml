@@ -46,7 +46,10 @@
 		FROM TrashMap
 		WHERE tmPostNum = #{tmPostNum}
 	</select>
-	
+	<select id="getTrashMapListCnt" parameterType="trashMap" resultType="int">
+		SELECT count(*)
+		FROM TrashMap
+	</select>
 	<select id="getTrashMapList" resultType="trashMap">
 		SELECT *
 		FROM trashmap

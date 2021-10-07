@@ -47,6 +47,14 @@ public class trashMapController {
 		trashMapService.updateCntTrashMap(vo);
 		return trashMapService.getTrashMap(vo);
 	}
+	// trashMap 글목록 클릭하면 목록 불러와주는 기능
+		@RequestMapping(value = "/getTrashMapListCnt.do")
+		// ajax 리턴값을 주고싶을때 @ResponseBody 사용
+		@ResponseBody
+		public int getTrashMapListCnt(trashMapVO vo) {
+			// 글목록 클릭하면서 조회수 기능까지 함께 실행하는 기능
+			return trashMapService.getTrashMapListCnt(vo);
+		}
 
 	// trashMap 글 목록 보여주는 기능
 	@GetMapping(value = "/getTrashMapList.do")

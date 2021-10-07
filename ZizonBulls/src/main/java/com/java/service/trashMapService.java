@@ -15,5 +15,6 @@ public interface trashMapService {
 	List<trashMapVO> getTrashMapList();
 	void updateCntTrashMap(trashMapVO vo);
 	trashMapVO trashMapGetFileName(trashMapVO vo);
+	int getTrashMapListCnt(trashMapVO vo);
 	
 }

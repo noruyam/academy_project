@@ -2620,7 +2620,7 @@ if (cusId == null) {
 								<th bgcolor="orange" width="50">조회수</th>
 							</tr>
 						</table>
-					
+					<div id="trashMapListTableCnt"></div>
 					</div>
 					<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 				</div>
