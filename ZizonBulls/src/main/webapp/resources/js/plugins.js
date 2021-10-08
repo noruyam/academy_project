@@ -3996,12 +3996,9 @@ searchDetailAddrFromCoords3(mouseEvent.latLng, function(result, status) {
                         detailAddr3 + 
                     '</div>';
 
-        console.log(mouseEvent.latLng.getLat());
-        console.log(mouseEvent.latLng.getLng());
+        // 위도 경도값을 히든인풋에 넣어주고 db에 삽입
         $('#tmGetLat').val(mouseEvent.latLng.getLat());
         $('#tmGetLng').val(mouseEvent.latLng.getLng());
-        
-        
         
         // 마커를 클릭한 위치에 표시합니다 
         marker3.setPosition(mouseEvent.latLng);
@@ -4031,19 +4028,20 @@ geocoder3.coord2Address(coords.getLng(), coords.getLat(), callback);
 
 //지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
 function displayCenterInfo3(result, status) {
-if (status === kakao.maps.services.Status.OK) {
-//     var infoDiv3 = document.getElementById('centerAddr3');
-
-    for(var i = 0; i < result.length; i++) {
-        // 행정동의 region_type 값은 'H' 이므로
-        if (result[i].region_type === 'H') {
-//             infoDiv3.innerHTML = result[i].address_name;
-            break;
-        }
-    }
-}    
+	if (status === kakao.maps.services.Status.OK) {
+	//     var infoDiv3 = document.getElementById('centerAddr3');
+	
+	    for(var i = 0; i < result.length; i++) {
+	        // 행정동의 region_type 값은 'H' 이므로
+	        if (result[i].region_type === 'H') {
+	//             infoDiv3.innerHTML = result[i].address_name;
+	            break;
+	        }
+	    }
+	}    
 }
 
+// 맵 마커를 초기화하고 처음 좌표로 돌아가는 function
 function removeMarker5() {
 	infowindow3.close();
 	marker3.setMap(null);
@@ -4055,14 +4053,6 @@ function removeMarker5() {
 	
 	map3.setBounds(bounds5);
 	
-//	bounds5 = new kakao.maps.LatLngBounds()
-//    
-//    // 마커를 생성하고 지도에 표시합니다
-//    var placePosition5 = new kakao.maps.LatLng(37.56, 127.00)
-//    // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-//    // LatLngBounds 객체에 좌표를 추가합니다
-//    bounds5.extend(placePosition5);
-   
 }
 
 function removeMarker6(tmGetLat1,tmGetLng1) {

@@ -40,6 +40,8 @@
       , tmFname = #{tmFname}
 <!--       , tmFnameEn=#{tmFnameEn} -->
       </if>
+       ,tmGetLat= #{tmGetLat}
+       ,tmGetLng= #{tmGetLng}
       WHERE tmPostNum = #{tmPostNum}
    </update>
    

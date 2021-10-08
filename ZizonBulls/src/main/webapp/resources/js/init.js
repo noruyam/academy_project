@@ -613,7 +613,9 @@ function trashMapInsertOrUpdate(){
 			tmTitle : $("#tmTitle").val(),
 			tmContent : $("#tmContent").val(),
 			tmAddr : $("#tmAddr").val(),
-			tmFname : $("#file").val()
+			tmFname : $("#file").val(),
+			tmGetLat:$('#tmGetLat').val(),
+			tmGetLng:$('#tmGetLng').val()
 	};
 	
 	// 만약 tmPostNum1값이 있으면 update를 위한 ajax 실행
@@ -659,8 +661,10 @@ function trashMapInsertOrUpdate(){
 
 // 목록List를 불러와주는 function
 function getTrashMapList(cnt) {
-	
-	removeMarker5();
+	 
+	 // 맵 초기화
+	 removeMarker5();
+	 
 	 // 데이터 리스트의 총 갯수를 변수로 지정
 	 var ListCnt=getTrashMapListCnt();
 	 
@@ -707,7 +711,7 @@ function getTrashMapList(cnt) {
 	       	str += "<tbody id='removeTbody' class='removeTbody'>";
 
 	       	// 테이블을 생성하기 위한 for문 
-	       	for(var i=((cnt-1)*getTrashMapListOnePageCnt)+1;i<=getTrashMapListOnePageCnt*cnt;i++){
+	       	for(var i=((cnt-1)*getTrashMapListOnePageCnt);i<getTrashMapListOnePageCnt*cnt;i++){
 	       		
 	       		// 만약 i가 총 리스트 갯수보다 많아지면 멈춤
 	       		if(i>ListCnt-1){
@@ -749,31 +753,7 @@ function getTrashMapList(cnt) {
 	element.addClass('active');	
 }
 
-// 목록 삭제를 위한 function
-function deleteTrashMap(){
-	
-	// 딜리트를 위한 데이터값(json형식) 
-	var deleteTrashMapData = {
-			tmPostNum : $("#tmPostNum").val(),		
-	};
-	
-	$.ajax({
-		url : "deleteTrashMap.do"
-		, type : "get"
-		, data :deleteTrashMapData 
-		, success : function(data){
-
-			// 인서트를 성공하면 목록불러와주는 function 실행
-			getTrashMapList(1);
-		}
-		, error : function(xhr, status, error){
-			alert("통신 에러");
-		}
-	});
-			
-}
-
-// 목록을 클릭하면 인서트했었던 목록가져옴
+//목록을 클릭하면 인서트했었던 목록가져옴
 function getTrashMap(tmPostNum,tmCnt) {
 	
 	// 누를때 맨위로 스크롤 이동
@@ -845,6 +825,31 @@ function getTrashMap(tmPostNum,tmCnt) {
 	element.addClass('active');	
 	$("#tmPostNum").val(tmPostNum);	
 }
+
+// 목록 삭제를 위한 function
+function deleteTrashMap(){
+	
+	// 딜리트를 위한 데이터값(json형식) 
+	var deleteTrashMapData = {
+			tmPostNum : $("#tmPostNum").val(),		
+	};
+	
+	$.ajax({
+		url : "deleteTrashMap.do"
+		, type : "get"
+		, data :deleteTrashMapData 
+		, success : function(data){
+
+			// 인서트를 성공하면 목록불러와주는 function 실행
+			getTrashMapList(1);
+		}
+		, error : function(xhr, status, error){
+			alert("통신 에러");
+		}
+	});
+			
+}
+
 
 // 파일 첨부가 체인지되면 handleImgFileSelect 조건문 실행
 $(document).ready(function() {
