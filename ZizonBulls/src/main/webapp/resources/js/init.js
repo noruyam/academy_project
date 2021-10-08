@@ -593,7 +593,16 @@ function trashMapInsertOrUpdate(){
 				tmGetLat:$('#tmGetLat').val(),
 				tmGetLng:$('#tmGetLng').val()
 		};
-		
+		var updateTrashMapData = {
+				tmPostNum : $("#tmPostNum").val(),
+				tmTitle : $("#tmTitle").val(),
+				tmContent : $("#tmContent").val(),
+				tmAddr : $("#tmAddr").val(),
+				tmFname : fileUploadReturn.tmFname,
+				tmFnameEn: fileUploadReturn.tmFnameEn,
+				tmGetLat:$('#tmGetLat').val(),
+				tmGetLng:$('#tmGetLng').val()
+		};
 	// 만약 파일첨부에 파일이 없으면 
 	}else{
 		
@@ -605,18 +614,19 @@ function trashMapInsertOrUpdate(){
 				tmGetLat:$('#tmGetLat').val(),
 				tmGetLng:$('#tmGetLng').val()
 			};
+		
+		var updateTrashMapData = {
+				tmPostNum : $("#tmPostNum").val(),
+				tmTitle : $("#tmTitle").val(),
+				tmContent : $("#tmContent").val(),
+				tmAddr : $("#tmAddr").val(),
+				tmGetLat:$('#tmGetLat').val(),
+				tmGetLng:$('#tmGetLng').val()
+		};
 	}
 	
 	// 업데이트를 위한 데이터값(json형식)
-	var updateTrashMapData = {
-			tmPostNum : $("#tmPostNum").val(),
-			tmTitle : $("#tmTitle").val(),
-			tmContent : $("#tmContent").val(),
-			tmAddr : $("#tmAddr").val(),
-			tmFname : $("#file").val(),
-			tmGetLat:$('#tmGetLat').val(),
-			tmGetLng:$('#tmGetLng').val()
-	};
+	
 	
 	// 만약 tmPostNum1값이 있으면 update를 위한 ajax 실행
 	if(tmPostNum1>0){
@@ -786,11 +796,10 @@ function getTrashMap(tmPostNum,tmCnt) {
 			tmAddr.val(result.tmAddr);
 			tmCntText.text(result.tmCnt);
 			tmTime.text(result.tmTime);
-//			alert(result.tmGetLat);
-//			tmGetLat.val(result.tmGetLat);
-//			tmGetLng.val(result.tmGetLng);
 			var tmGetLat1=result.tmGetLat;
 			var tmGetLng1=result.tmGetLng;
+			$('#tmGetLat').val(tmGetLat1);
+			$('#tmGetLng').val(tmGetLng1);
 			removeMarker6(tmGetLat1,tmGetLng1);
 			
 			if(tmPostNum>0){

@@ -38,7 +38,7 @@
          tmAddr = #{tmAddr}
       <if test="tmFname != null">
       , tmFname = #{tmFname}
-<!--       , tmFnameEn=#{tmFnameEn} -->
+      , tmFnameEn=#{tmFnameEn}
       </if>
        ,tmGetLat= #{tmGetLat}
        ,tmGetLng= #{tmGetLng}
