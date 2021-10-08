@@ -573,7 +573,7 @@ function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 
 // 새글등록하거나 기존 글을 업데이트해주는 function
 function trashMapInsertOrUpdate(){
-	
+//	alert($('#tmGetLat').val());
 	// Insert 또는 Update를 구별해주기 위해서 tmPostNum값이 없으면 Insert, tmPostNum 값이 있으면 Update 해줌
 	var tmPostNum1 = $("#tmPostNum").val();
 	
@@ -589,7 +589,9 @@ function trashMapInsertOrUpdate(){
 				tmContent : $("#tmContent").val(),
 				tmAddr : $("#tmAddr").val(),			
 				tmFname : fileUploadReturn.tmFname,
-				tmFnameEn: fileUploadReturn.tmFnameEn		
+				tmFnameEn: fileUploadReturn.tmFnameEn,		
+				tmGetLat:$('#tmGetLat').val(),
+				tmGetLng:$('#tmGetLng').val()
 		};
 		
 	// 만약 파일첨부에 파일이 없으면 
@@ -599,7 +601,9 @@ function trashMapInsertOrUpdate(){
 		var insertTrashMapData = {
 				tmTitle : $("#tmTitle").val(),
 				tmContent : $("#tmContent").val(),
-				tmAddr : $("#tmAddr").val()	
+				tmAddr : $("#tmAddr").val(),
+				tmGetLat:$('#tmGetLat').val(),
+				tmGetLng:$('#tmGetLng').val()
 			};
 	}
 	
@@ -668,6 +672,9 @@ function getTrashMapList(cnt) {
 	
  	 // 목록으로 갈때 이전 화면에 있던 file을 지워줌
 	 $('#file').val("");
+	 
+	 $('#tmGetLat').val("");
+	 $('#tmGetLng').val("");
 	
 	 // 목록에 있는 동적 테이블을 지워주고 새로 리스트를 불러오기 위해서 우선 지워줌
 	 $( '#trashMapListTable > #removeTbody').remove();
@@ -734,7 +741,7 @@ function getTrashMapList(cnt) {
 	           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	       }
 	   });
-		
+	 
  	// 기존에 있던 화면을 List목록 화면으로 변경해주는 기능
  	var list	 = $('#contact');
 	var element	 = $('#contact1');
@@ -799,6 +806,12 @@ function getTrashMap(tmPostNum,tmCnt) {
 			tmAddr.val(result.tmAddr);
 			tmCntText.text(result.tmCnt);
 			tmTime.text(result.tmTime);
+//			alert(result.tmGetLat);
+//			tmGetLat.val(result.tmGetLat);
+//			tmGetLng.val(result.tmGetLng);
+			var tmGetLat1=result.tmGetLat;
+			var tmGetLng1=result.tmGetLng;
+			removeMarker6(tmGetLat1,tmGetLng1);
 			
 			if(tmPostNum>0){
 				if(result.tmFnameEn!=null){

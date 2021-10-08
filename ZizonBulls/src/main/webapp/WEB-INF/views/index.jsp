@@ -2471,6 +2471,7 @@ if (cusId == null) {
 										placeholder="제목"></li>
 									<li><input id="tmAddr" name="tmAddr" type="text"
 										placeholder="맵을 클릭해주세요"></li>
+										
 								</ul>
 								<hr>
 								<br>
@@ -2484,7 +2485,8 @@ if (cusId == null) {
 									id="deleteTrashMap" style="display: none; cursor: pointer;"
 									onclick="deleteTrashMap()"> <span>글 삭제</span></a>
 							</div>
-
+							<input id="tmGetLat" name="tmGetLat" type="hidden">
+							<input id="tmGetLng" name="tmGetLng" type="hidden">
 							<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 
 						</form>

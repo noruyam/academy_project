@@ -7,74 +7,77 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="trashMapDAO">
-	
-	<insert id="insertTrashMap" parameterType="trashMap">
-	INSERT INTO trashmap(tmPostNum, tmTitle, tmContent, tmAddr,tmTime,tmCnt
-	<if test="tmFname != null">
-		,tmFname
-		, tmFnameEn
-	</if>
-	)
-	VALUES (TrashMap_seq.nextval, #{tmTitle}, #{tmContent}, #{tmAddr},sysdate,0
-	<if test="tmFname != null">
-		,#{tmFname}
-		, #{tmFnameEn}
-	</if>
-	)
+   
+   <insert id="insertTrashMap" parameterType="trashMap">
+   INSERT INTO trashmap(tmPostNum, tmTitle, tmContent, tmAddr,tmTime,tmCnt
+   <if test="tmFname != null">
+      ,tmFname
+      , tmFnameEn
+   </if>
+   ,tmGetLat,tmGetLng
+   )
+   VALUES (TrashMap_seq.nextval, #{tmTitle}, #{tmContent}, #{tmAddr},sysdate,0
+   <if test="tmFname != null">
+      ,#{tmFname}
+      , #{tmFnameEn}
+   </if>
+   , #{tmGetLat}, #{tmGetLng}
+   )
 
 </insert>
-	
-	<delete id="deleteTrashMap" parameterType="trashMap">
-		DELETE FROM TrashMap
-		WHERE tmPostNum = #{tmPostNum}
-	</delete>
-	
-	<update id="updateTrashMap" parameterType="trashMap">
-		UPDATE TrashMap 
-		SET tmTitle = #{tmTitle},
-			tmContent = #{tmContent},
-			tmAddr = #{tmAddr}
-			<if test="tmFname != null">
-		, tmFname = #{tmFname}
-<!-- 		, tmFnameEn=#{tmFnameEn} -->
-	</if>
-		WHERE tmPostNum = #{tmPostNum}
-	</update>
-	
-	<select id="getTrashMap" parameterType="trashMap" resultType="trashMap">
-		SELECT *
-		FROM TrashMap
-		WHERE tmPostNum = #{tmPostNum}
-	</select>
-	<select id="getTrashMapListCnt" parameterType="trashMap" resultType="int">
-		SELECT count(*)
-		FROM TrashMap
-	</select>
-	<select id="getTrashMapList" resultType="trashMap">
-		SELECT *
-		FROM trashmap
-		ORDER BY tmPostNum DESC
-	</select>
-	
-	
-	<update id="updateCntTrashMap" parameterType="trashMap">
-		UPDATE TrashMap 
-		SET tmCnt = #{tmCnt}+1
-		WHERE tmPostNum = #{tmPostNum}
-	</update>
-	
-	<select id="trashMapGetFileName" parameterType="trashMap" resultType="trashMap">
-		SELECT tmFnameEn
-		FROM TrashMap
-		WHERE tmPostNum = #{tmPostNum}
-	</select>
-	
-	
-	<select id="getTrashMap123" parameterType="trashMap" resultType="trashMap">
-		SELECT count(*)
-		FROM TrashMap
-		WHERE tmTitle = #{tmTitle}
-	</select>
-	
+   
+   <delete id="deleteTrashMap" parameterType="trashMap">
+      DELETE FROM TrashMap
+      WHERE tmPostNum = #{tmPostNum}
+   </delete>
+   
+   <update id="updateTrashMap" parameterType="trashMap">
+      UPDATE TrashMap 
+      SET tmTitle = #{tmTitle},
+         tmContent = #{tmContent},
+         tmAddr = #{tmAddr}
+      <if test="tmFname != null">
+      , tmFname = #{tmFname}
+<!--       , tmFnameEn=#{tmFnameEn} -->
+      </if>
+      WHERE tmPostNum = #{tmPostNum}
+   </update>
+   
+   <select id="getTrashMap" parameterType="trashMap" resultType="trashMap">
+      SELECT *
+      FROM TrashMap
+      WHERE tmPostNum = #{tmPostNum}
+   </select>
+   <select id="getTrashMapListCnt" parameterType="trashMap" resultType="int">
+      SELECT count(*)
+      FROM TrashMap
+   </select>
+   <select id="getTrashMapList" resultType="trashMap">
+      SELECT *
+      FROM trashmap
+<!--       where tmaddr like '%인계동%' -->
+      order by TMPOSTNUM desc
+   </select>
+   
+   
+   <update id="updateCntTrashMap" parameterType="trashMap">
+      UPDATE TrashMap 
+      SET tmCnt = #{tmCnt}+1
+      WHERE tmPostNum = #{tmPostNum}
+   </update>
+   
+   <select id="trashMapGetFileName" parameterType="trashMap" resultType="trashMap">
+      SELECT tmFnameEn
+      FROM TrashMap
+      WHERE tmPostNum = #{tmPostNum}
+   </select>
+   
+   
+   <select id="getTrashMap123" parameterType="trashMap" resultType="trashMap">
+      SELECT count(*)
+      FROM TrashMap
+      WHERE tmTitle = #{tmTitle}
+   </select>
+   
 </mapper>
-		
+      

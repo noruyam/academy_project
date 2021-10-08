@@ -34,6 +34,8 @@ public class trashMapController {
 	@RequestMapping(value = "/insertTrashMap.do")
 	@ResponseBody
 	public String insertTrashMap(trashMapVO vo) throws IOException {
+		System.out.println(vo.getTmGetLat());
+		System.out.println(vo.getTmGetLng());
 		trashMapService.insertTrashMap(vo);
 		return null;
 	}

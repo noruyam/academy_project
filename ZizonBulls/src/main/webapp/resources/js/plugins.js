@@ -3996,6 +3996,13 @@ searchDetailAddrFromCoords3(mouseEvent.latLng, function(result, status) {
                         detailAddr3 + 
                     '</div>';
 
+        console.log(mouseEvent.latLng.getLat());
+        console.log(mouseEvent.latLng.getLng());
+        $('#tmGetLat').val(mouseEvent.latLng.getLat());
+        $('#tmGetLng').val(mouseEvent.latLng.getLng());
+        
+        
+        
         // 마커를 클릭한 위치에 표시합니다 
         marker3.setPosition(mouseEvent.latLng);
         marker3.setMap(map3);
@@ -4057,6 +4064,26 @@ function removeMarker5() {
 //    bounds5.extend(placePosition5);
    
 }
+
+function removeMarker6(tmGetLat1,tmGetLng1) {
+
+	infowindow3.close();
+	marker3.setMap(null);
+	
+	var aa = {tmGetLat1,tmGetLng1};
+	var points5 = new kakao.maps.LatLng(tmGetLat1, tmGetLng1);
+	
+	var bounds5 = new kakao.maps.LatLngBounds();  
+	bounds5.extend(points5);
+	
+	map3.setBounds(bounds5);
+
+	// 마커가 지도 위에 표시되도록 설정합니다
+	marker3.setPosition(points5);
+	marker3.setMap(map3);
+	 
+}
+
 //-------------------/분리수거 지도--------------------
 
 
