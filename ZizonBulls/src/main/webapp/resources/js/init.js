@@ -687,6 +687,7 @@ function getTrashMapList(cnt) {
  	 // 목록으로 갈때 이전 화면에 있던 file을 지워줌
 	 $('#file').val("");
 	 
+	 // 위도 경도 초기화
 	 $('#tmGetLat').val("");
 	 $('#tmGetLng').val("");
 	
@@ -743,7 +744,7 @@ function getTrashMapList(cnt) {
 	       	}
 	       	str += "</tbody>";
 	       	var strcnt="";
-	       	for(var j=1;j<=(ListCnt/getTrashMapListOnePageCnt)+1;j++){
+	       	for(var j=1;j<(ListCnt/getTrashMapListOnePageCnt)+1;j++){
 	       		strcnt+='<a id="removecnt" style="cursor:pointer;" onclick="getTrashMapList('+j+')">['+j+']</a>'
 	       	}
 	       	// str에 만들어놓은 테이블생성값들을 index에 만들어둔 테이블에 더해줌

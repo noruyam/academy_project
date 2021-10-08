@@ -2365,7 +2365,7 @@ if (cusId == null) {
 						</div>
 					</div>
 				</div>
-			</div>
+			
 			<div id="news1" class="tokyo_tm_section">
 				<div class="container">
 					<div class="tokyo_tm_contact">
@@ -2413,7 +2413,7 @@ if (cusId == null) {
 					</div>
 				</div>
 			</div>
-		</div>
+		
 
 
 
@@ -2434,7 +2434,7 @@ if (cusId == null) {
 					</div>
 					<div class="map_wrap3">
 						<div id="map3"
-							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+							style="width: 100%; height: 100%; position: relative; overflow: hidden;top:10px"></div>
 <!-- 						<div class="hAddr3"> -->
 <!-- 							<span class="title3">지도중심기준 행정동 주소정보</span>  -->
 <!-- 							<span id="centerAddr3"></span> -->
@@ -2509,7 +2509,7 @@ if (cusId == null) {
 						</div>
 					</div>
 
-					<div class="map_wrap1">
+					<div class="map_wrap1" style="margin-top: 150px">
 						<div id="map"
 							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 
@@ -2549,7 +2549,7 @@ if (cusId == null) {
 					</div>
 					<!-- map. 시작 -->
 					
-					<div class="map_wrap2">
+					<div class="map_wrap2" style="margin-top: 150px">
 						<div id="map1"
 							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 
@@ -2622,8 +2622,22 @@ if (cusId == null) {
 								<th bgcolor="orange" width="70">조회수</th>
 							</tr>
 						</table>
+						<table>
+							<tr>
+								<th width="50"></th>
+								<th width="200"></th>
+								<th width="200"></th>
+								<th width="100"></th>
+								<th width="100"></th>
+								<th width="70"></th>
+							</tr>
+							<tr >
+								<th colspan="6"><div id="trashMapListTableCnt" ></div></th>
+							</tr>
+						</table>
+							
+						
 					</div>
-					<div id="trashMapListTableCnt"></div>
 					<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 				</div>
 			</div>
