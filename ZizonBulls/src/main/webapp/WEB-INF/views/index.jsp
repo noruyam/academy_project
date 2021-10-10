@@ -85,9 +85,9 @@ if (cusId == null) {
     animation: b09_electric_blinkIn 0.1s step-end 0 2;
     -webkit-animation: b09_electric_blinkIn 0.1s step-end 0 2;
     -moz-animation: b09_electric_blinkIn 0.1s step-end 0 2;
-    transition: all 0.2s ease 0.2s;
-    -webkit-transition: all 0.2s ease 0.2s;
-    -moz-transition: all 0.2s ease 0.2s;
+    transition: all 0.1s ease 0.1s;
+    -webkit-transition: all 0.1s ease 0.1s;
+    -moz-transition: all 0.1s ease 0.1s;
 }
 
 @-webkit-keyframes b09_electric_blinkIn {
@@ -2491,264 +2491,262 @@ if (cusId == null) {
 
 
 
-		<!----------------------- 나눔 게시판 끝 ------------------- -->
+	<!----------------------- 나눔 게시판 끝 ------------------- -->
 
 
-		<!-- CONTACT -->
-		<div id="contact" class="tokyo_tm_section">
-			<div class="container">
-				<div class="tokyo_tm_contact">
-					<div class="tokyo_tm_title">
-						<div class="title_flex">
-							<div class="left">
-								<span>trashMap</span>
-								<h3>장소 찾기</h3>
-							</div>
-						</div>
-					</div>
-					<div class="map_wrap3">
-						<div id="map3"
-							style="width: 100%; height: 100%; position: relative; overflow: hidden;top:10px"></div>
-  <div id="menu_wrap1" class="bg_white" style="top: 150px;bottom: 100px;width: 300px">
-        <div class="option10">
-            <div >
-                <form onsubmit="searchPlaces10(); return false;">
-                    키워드 : <input type="text" placeholder="장소를 검색해주세요" id="keyword10" size="20"> 
-                    <button type="submit">검색하기</button> 
-                </form>
-            </div>
-        </div>
-       
-
-    </div>
-					</div>
-					<div class="fields" style="margin-top:100px">
-						<form action="insertTrashMap.do" method="post"
-							enctype="multipart/form-data" class="contact_form"
-							id="contact_form" name="contact_form" autocomplete="off">
-							<div>
-								<label for="file">파일</label> 
-								<input type="file" id="file" name="file">
-							</div>
-							<!-- 이미지 마크업 생성 공간 -->
-							<div id="image_container"></div>
-							<div class="returnmessage"
-								data-success="Your message has been received, We will contact you soon."></div>
-							<div class="empty_notice">
-								<span>Please Fill Required Fields</span>
-							</div>
-							<input type="hidden" id="tmPostNum" name="tmPostNum"
-								value="${tmPostNum }"> <input type="hidden" id="tmCnt"
-								name="tmCnt" value="${tmCnt }">
-							<div class="first">
-								<div id="hideDateAndCnt">
-									<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<span>조회수 : </span>
-									<span id="tmCntText"> </span>
-								</div>
-								<hr>
-								<br>
-								<ul>
-									<li><input id="tmTitle" name="tmTitle" type="text"
-										placeholder="제목"></li>
-									<li><input id="tmAddr" name="tmAddr" type="text"
-										placeholder="맵을 클릭해주세요"></li>
-										
-								</ul>
-								<hr>
-								<br>
-							</div>
-							<div class="last">
-								<textarea id="tmContent" name="tmContent" placeholder="내용"></textarea>
-							</div>
-							<div class="tokyo_tm_button" data-position="left">
-								<a id="trashMapInsertOrUpdate" style="cursor: pointer"
-									onclick="trashMapInsertOrUpdate()"> <span>글 등록</span></a> <a
-									id="deleteTrashMap" style="display: none; cursor: pointer;"
-									onclick="deleteTrashMap()"> <span>글 삭제</span></a>
-							</div>
-							<input id="tmGetLat" name="tmGetLat" type="hidden">
-							<input id="tmGetLng" name="tmGetLng" type="hidden">
-							<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
-
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /CONTACT -->
-
-		<!-- CONTACT3 -->
-		<div id="contact3" class="tokyo_tm_section">
-			<div class="container">
-				<div class="tokyo_tm_contact">
-					<div class="tokyo_tm_title">
-						<div class="title_flex">
-							<div class="left">
-								<span>trashMap</span>
-								<h3>장소 찾기</h3>
-							</div>
-						</div>
-					</div>
-
-					<div class="map_wrap1" style="margin-top: 150px">
-						<div id="map"
-							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-
-						<div id="menu_wrap" class="bg_white">
-							<div class="option">
-								<div>
-									<form onsubmit="searchPlaces(); return false;">
-										키워드 : <input type="text" value="인계동 청소 업체" id="keyword"
-											size="15">
-										<button type="submit">검색하기</button>
-									</form>
+			<!-- CONTACT -->
+			<div id="contact" class="tokyo_tm_section">
+				<div class="container">
+					<div class="tokyo_tm_contact">
+						<div class="tokyo_tm_title">
+							<div class="title_flex">
+								<div class="left">
+									<span>trashMap</span>
+									<h3>장소 찾기</h3>
 								</div>
 							</div>
-							<hr>
-							<ul id="placesList"></ul>
-							<div id="pagination"></div>
 						</div>
-					</div>
-
-					<div class="fields"></div>
-				</div>
-			</div>
-		</div>
-		<!-- /CONTACT3 -->
-
-		<!-- CONTACT4 -->
-		<div id="contact4" class="tokyo_tm_section">
-			<div class="container">
-				<div class="tokyo_tm_contact">
-					<div class="tokyo_tm_title">
-						<div class="title_flex">
-							<div class="left">
-								<span>trashMap</span>
-								<h3>장소 찾기</h3>
-							</div>
-						</div>
-					</div>
-					<!-- map. 시작 -->
-					
-					<div class="map_wrap2" style="margin-top: 150px">
-						<div id="map1"
-							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-
-						<div id="menu_wrap1" class="bg_white">
-							<div class="option1">
-								<div>
-									<form onsubmit="searchPlaces1(); return false;">
-										키워드 : <input type="text" value="인계동 수거 업체" id="keyword1"
-											size="15">
-										<button type="submit">검색하기</button>
-									</form>
-								</div>
-							</div>
-							<hr>
-							<ul id="placesList1"></ul>
-							<div id="pagination1"></div>
-						</div>
-					</div>
-
-					<div class="fields"></div>
-				</div>
-			</div>
-		</div>
-		<!-- /CONTACT4 -->
-				<!-- CONTACT5 -->
-				<div id="contact5" class="tokyo_tm_section">
-					<div class="container">
-						<div class="tokyo_tm_contact">
-							<div class="tokyo_tm_title">
-								<div class="title_flex">
-									<div class="left">
-										<span>trashMap</span>
-<!-- 										<h3>업체 고르기</h3> -->
+						<div class="map_wrap3">
+							<div id="map3" style="width: 100%; height: 100%; position: relative; overflow: hidden; top: 10px"></div>
+							<div id="menu_wrap1" class="bg_white" style="top: 150px; bottom: 100px; width: 300px">
+								<div class="option10">
+									<div>
+										<form onsubmit="searchPlaces10(); return false;">
+											키워드 : <input type="text" placeholder="장소를 검색해주세요" id="keyword10" size="20">
+											<button type="submit">검색하기</button>
+										</form>
 									</div>
 								</div>
+
+
 							</div>
-							<div class="fields">
+						</div>
+						<div class="fields" style="margin-top: 100px">
+							<form action="insertTrashMap.do" method="post"
+								enctype="multipart/form-data" class="contact_form"
+								id="contact_form" name="contact_form" autocomplete="off">
+								<div>
+									<label for="file">파일</label> <input type="file" id="file" name="file">
+								</div>
+								<!-- 이미지 마크업 생성 공간 -->
+								<div id="image_container"></div>
+								<div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
+								<div class="empty_notice">
+									<span>Please Fill Required Fields</span>
+								</div>
+								<input type="hidden" id="tmPostNum" name="tmPostNum" value="${tmPostNum }"> 
+								<input type="hidden" id="tmCnt" name="tmCnt" value="${tmCnt }">
+								<div class="first">
+									<div id="hideDateAndCnt">
+										<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<span>조회수 : </span> <span id="tmCntText"> </span>
+									</div>
+									<hr>
+									<br>
+									<ul>
+										<li>
+											<input id="tmTitle" name="tmTitle" type="text" placeholder="제목">
+										</li>
+										<li>
+											<input id="tmAddr" name="tmAddr" type="text" placeholder="맵을 클릭해주세요">
+										</li>
+									</ul>
+									<hr>
+									<br>
+								</div>
+								<div class="last">
+									<textarea id="tmContent" name="tmContent" placeholder="내용"></textarea>
+								</div>
+								<div class="tokyo_tm_button" data-position="left">
+									<a id="trashMapInsertOrUpdate" style="cursor: pointer"
+										onclick="trashMapInsertOrUpdate()"> <span>글 등록</span></a> 
+										<a id="deleteTrashMap" style="display: none; cursor: pointer;" onclick="deleteTrashMap()"> 
+											<span>글 삭제</span>
+										</a>
+								</div>
+								<input id="tmGetLat" name="tmGetLat" type="hidden"> 
+								<input id="tmGetLng" name="tmGetLng" type="hidden">
+								<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /CONTACT -->
+
+			<!-- CONTACT3 -->
+			<div id="contact3" class="tokyo_tm_section">
+				<div class="container">
+					<div class="tokyo_tm_contact">
+						<div class="tokyo_tm_title">
+							<div class="title_flex">
+								<div class="left">
+									<span>trashMap</span>
+									<h3>장소 찾기</h3>
+								</div>
+							</div>
+						</div>
+
+						<div class="map_wrap1" style="margin-top: 150px">
+							<div id="map"
+								style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+
+							<div id="menu_wrap" class="bg_white">
+								<div class="option">
+									<div>
+										<form onsubmit="searchPlaces(); return false;">
+											키워드 : <input type="text" value="인계동 청소 업체" id="keyword" size="15">
+											<button type="submit">검색하기</button>
+										</form>
+									</div>
+								</div>
+								<hr>
+								<ul id="placesList"></ul>
+								<div id="pagination"></div>
+							</div>
+						</div>
+
+						<div class="fields"></div>
+					</div>
+				</div>
+			</div>
+			<!-- /CONTACT3 -->
+
+			<!-- CONTACT4 -->
+			<div id="contact4" class="tokyo_tm_section">
+				<div class="container">
+					<div class="tokyo_tm_contact">
+						<div class="tokyo_tm_title">
+							<div class="title_flex">
+								<div class="left">
+									<span>trashMap</span>
+									<h3>장소 찾기</h3>
+								</div>
+							</div>
+						</div>
+						<!-- map. 시작 -->
+
+						<div class="map_wrap2" style="margin-top: 150px">
+							<div id="map1" style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+							<div id="menu_wrap1" class="bg_white">
+								<div class="option1">
+									<div>
+										<form onsubmit="searchPlaces1(); return false;">
+											키워드 : <input type="text" value="인계동 수거 업체" id="keyword1" size="15">
+											<button type="submit">검색하기</button>
+										</form>
+									</div>
+								</div>
+								<hr>
+								<ul id="placesList1"></ul>
+								<div id="pagination1"></div>
+							</div>
+						</div>
+
+						<div class="fields"></div>
+					</div>
+				</div>
+			</div>
+			<!-- /CONTACT4 -->
+			<!-- CONTACT5 -->
+			<div id="contact5" class="tokyo_tm_section">
+				<div class="container">
+					<div class="tokyo_tm_contact">
+						<div class="tokyo_tm_title">
+							<div class="title_flex">
+								<div class="left">
+									<span>trashMap</span>
+									<!-- 										<h3>업체 고르기</h3> -->
+								</div>
+							</div>
+						</div>
+						<div class="fields">
 							<table style="width: 100%">
 								<tr style="text-align: center">
-									<td colspan="2" style="text-align: center;font-size: 30px">
+									<td colspan="2" style="text-align: center; font-size: 30px">
 										업체 고르기
 									</td>
 								</tr>
 								<tr>
-								<td style="text-align: center">청소 업체를 찾고 싶으시다면 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▶</td>
+									<td style="text-align: center">청소 업체를 찾고 싶으시다면
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▶</td>
 									<td style="text-align: center">
-										<input class="button_base b09_electric" type="button"  value="청소업체" onclick="goContact3()">
+										<input class="button_base b09_electric" type="button" value="청소업체"	onclick="goContact3()">
 									</td>
 									<td style="width: 30%;"></td>
 								</tr>
 								<tr>
-								<td style="text-align: center">수거 업체를 찾고 싶으시다면 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▶</td>
+									<td style="text-align: center">수거 업체를 찾고 싶으시다면
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▶</td>
 									<td style="text-align: center">
-										<input class="button_base b09_electric" type="button"  value="수거업체" onclick="goContact4()">
+										<input class="button_base b09_electric" type="button" value="수거업체" onclick="goContact4()">
 									</td>
-									<td></td>
+									<td>
+									</td>
 								</tr>
-							</table>		
-							</div>
+							</table>
 						</div>
 					</div>
 				</div>
-					<!-- /CONTACT5 -->
+			</div>
+			<!-- /CONTACT5 -->
 
 
-					<!-- CONTACT1 -->
-					<div id="contact1" class="tokyo_tm_section">
-						<div class="container">
-							<div class="tokyo_tm_contact">
-								<div class="tokyo_tm_title">
-									<div class="title_flex">
-										<div class="left">
-											<span>trashMap</span>
-											<h3>장소 찾기 글목록</h3>
-										</div>
-									</div>
+			<!-- CONTACT1 -->
+			<div id="contact1" class="tokyo_tm_section">
+				<div class="container">
+					<div class="tokyo_tm_contact">
+						<div class="tokyo_tm_title">
+							<div class="title_flex">
+								<div class="left">
+									<span>trashMap</span>
+									<h3>장소 찾기 글목록</h3>
 								</div>
-								<div class="fields">
-									<div class="tokyo_tm_button" data-position="left">
-										<br> <a id="contactMove" onclick="contactMove()"
-											style="cursor: pointer">새글 등록</a>
-									</div>
-									<table id="trashMapListTable">
-										<tr style='background-color: gray; color: white'>
-											<th bgcolor="orange" width="50">번호</th>
-											<th bgcolor="orange" width="200">제목</th>
-											<th bgcolor="orange" width="200">주소</th>
-											<th bgcolor="orange" width="100">아이디</th>
-											<th bgcolor="orange" width="100">시간</th>
-											<th bgcolor="orange" width="70">조회수</th>
-										</tr>
-									</table>
-									<table>
-										<tr>
-											<th width="50"></th>
-											<th width="200"></th>
-											<th width="200"></th>
-											<th width="100"></th>
-											<th width="100"></th>
-											<th width="70"></th>
-										</tr>
-										<tr>
-											<th colspan="6"><div id="trashMapListTableCnt"></div></th>
-										</tr>
-									</table>
-
-
-								</div>
-								<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 							</div>
 						</div>
+						<div class="fields">
+							<div class="tokyo_tm_button" data-position="left">
+								<br> 
+								<a id="contactMove" onclick="contactMove()" style="cursor: pointer">새글 등록</a>
+							</div>
+							<table id="trashMapListTable">
+								<tr style='background-color: gray; color: white'>
+									<th bgcolor="orange" width="50">번호</th>
+									<th bgcolor="orange" width="200">제목</th>
+									<th bgcolor="orange" width="200">주소</th>
+									<th bgcolor="orange" width="100">아이디</th>
+									<th bgcolor="orange" width="100">시간</th>
+									<th bgcolor="orange" width="70">조회수</th>
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<th width="50"></th>
+									<th width="200"></th>
+									<th width="200"></th>
+									<th width="100"></th>
+									<th width="100"></th>
+									<th width="70"></th>
+								</tr>
+								<tr>
+									<th colspan="6">
+									<div id="trashMapListTableCnt"></div>
+									</th>
+								</tr>
+							</table>
+
+
+						</div>
+						<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 					</div>
-
-					<!-- /CONTACT1 -->
-
-
 				</div>
+			</div>
+
+			<!-- /CONTACT1 -->
+
+
+			</div>
 			</div>
 	<!-- /RIGHTPART -->
 
