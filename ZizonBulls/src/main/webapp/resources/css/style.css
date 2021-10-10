@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 /*
 /*	Copyright (c) 2021 Marketify
@@ -2000,3 +2001,7 @@ a.go-to-top {
 	color: #fff;
 	font-size: 30px;
 }
+
+
+
+

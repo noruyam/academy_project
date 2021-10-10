@@ -40,8 +40,82 @@ if (cusId == null) {
 <link rel="stylesheet" href="./resources/css/magnific-popup.css">
 
 
+<style type="text/css">
 
 
+.button_base {
+    margin: 0;
+    border: 0;
+    font-size: 25px;
+/*     position: relative; */
+    top: 50%;
+    left: 50%;
+/*     margin-top: -25px; */
+/*     margin-left: -100px; */
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+.button_base:hover {
+    cursor: pointer;
+}
+
+
+
+/* ### ### ### 09 */
+.b09_electric {
+    color: #000000;
+    background-color: #ffffff;
+    border: #000000 solid 1px;
+    padding: 10px;
+    transition: all 0.1s ease;
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+}
+
+.b09_electric:hover {
+    color: #ffffff;
+    background-color: #000000;
+    animation: b09_electric_blinkIn 0.1s step-end 0 2;
+    -webkit-animation: b09_electric_blinkIn 0.1s step-end 0 2;
+    -moz-animation: b09_electric_blinkIn 0.1s step-end 0 2;
+    transition: all 0.2s ease 0.2s;
+    -webkit-transition: all 0.2s ease 0.2s;
+    -moz-transition: all 0.2s ease 0.2s;
+}
+
+@-webkit-keyframes b09_electric_blinkIn {
+    from,
+    to {
+        background-color: #f8f8f8;
+        color: #080808;
+    }
+    50% {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+@-moz-keyframes b09_electric_blinkIn {
+    from,
+    to {
+        background-color: #f8f8f8;
+        color: #080808;
+    }
+    50% {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+
+</style>
 
 <style>
 </style>
@@ -2574,80 +2648,100 @@ if (cusId == null) {
 			</div>
 		</div>
 		<!-- /CONTACT4 -->
-		<!-- CONTACT5 -->
-		<div id="contact5" class="tokyo_tm_section">
-			<div class="container">
-				<div class="tokyo_tm_contact">
-					<div class="tokyo_tm_title">
-						<div class="title_flex">
-							<div class="left">
-								<span>trashMap</span>
-								<h3>업체 고르기</h3>
+				<!-- CONTACT5 -->
+				<div id="contact5" class="tokyo_tm_section">
+					<div class="container">
+						<div class="tokyo_tm_contact">
+							<div class="tokyo_tm_title">
+								<div class="title_flex">
+									<div class="left">
+										<span>trashMap</span>
+<!-- 										<h3>업체 고르기</h3> -->
+									</div>
+								</div>
+							</div>
+							<div class="fields">
+							<table style="width: 100%">
+								<tr style="text-align: center">
+									<td colspan="2" style="text-align: center;font-size: 30px">
+										업체 고르기
+									</td>
+								</tr>
+								<tr>
+								<td style="text-align: center">청소 업체를 찾고 싶으시다면 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▶</td>
+									<td style="text-align: center">
+										<input class="button_base b09_electric" type="button"  value="청소업체" onclick="goContact3()">
+									</td>
+									<td style="width: 30%;"></td>
+								</tr>
+								<tr>
+								<td style="text-align: center">수거 업체를 찾고 싶으시다면 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▶</td>
+									<td style="text-align: center">
+										<input class="button_base b09_electric" type="button"  value="수거업체" onclick="goContact4()">
+									</td>
+									<td></td>
+								</tr>
+							</table>		
 							</div>
 						</div>
 					</div>
-					<input type="button" style="width:300px; height: 300px;font-size: 50px;background-color: gray;" value="청소업체" onclick="goContact3()">
-					<input type="button" style="width:300px; height: 300px;font-size: 50px;background-color: gray;" value="수거업체" onclick="goContact4()">
-					<div class="fields"></div>
 				</div>
-			</div>
-		</div>
-		<!-- /CONTACT5 -->
+					<!-- /CONTACT5 -->
 
 
-		<!-- CONTACT1 -->
-		<div id="contact1" class="tokyo_tm_section">
-			<div class="container">
-				<div class="tokyo_tm_contact">
-					<div class="tokyo_tm_title">
-						<div class="title_flex">
-							<div class="left">
-								<span>trashMap</span>
-								<h3>장소 찾기 글목록</h3>
+					<!-- CONTACT1 -->
+					<div id="contact1" class="tokyo_tm_section">
+						<div class="container">
+							<div class="tokyo_tm_contact">
+								<div class="tokyo_tm_title">
+									<div class="title_flex">
+										<div class="left">
+											<span>trashMap</span>
+											<h3>장소 찾기 글목록</h3>
+										</div>
+									</div>
+								</div>
+								<div class="fields">
+									<div class="tokyo_tm_button" data-position="left">
+										<br> <a id="contactMove" onclick="contactMove()"
+											style="cursor: pointer">새글 등록</a>
+									</div>
+									<table id="trashMapListTable">
+										<tr style='background-color: gray; color: white'>
+											<th bgcolor="orange" width="50">번호</th>
+											<th bgcolor="orange" width="200">제목</th>
+											<th bgcolor="orange" width="200">주소</th>
+											<th bgcolor="orange" width="100">아이디</th>
+											<th bgcolor="orange" width="100">시간</th>
+											<th bgcolor="orange" width="70">조회수</th>
+										</tr>
+									</table>
+									<table>
+										<tr>
+											<th width="50"></th>
+											<th width="200"></th>
+											<th width="200"></th>
+											<th width="100"></th>
+											<th width="100"></th>
+											<th width="70"></th>
+										</tr>
+										<tr>
+											<th colspan="6"><div id="trashMapListTableCnt"></div></th>
+										</tr>
+									</table>
+
+
+								</div>
+								<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 							</div>
 						</div>
 					</div>
-					<div class="fields">
-						<div class="tokyo_tm_button" data-position="left">
-							<br> <a id="contactMove" onclick="contactMove()"
-								style="cursor: pointer">새글 등록</a>
-						</div>
-						<table id="trashMapListTable">
-							<tr style='background-color:gray;color:white'>
-								<th bgcolor="orange" width="50">번호</th>
-								<th bgcolor="orange" width="200">제목</th>
-								<th bgcolor="orange" width="200">주소</th>
-								<th bgcolor="orange" width="100">아이디</th>
-								<th bgcolor="orange" width="100">시간</th>
-								<th bgcolor="orange" width="70">조회수</th>
-							</tr>
-						</table>
-						<table>
-							<tr>
-								<th width="50"></th>
-								<th width="200"></th>
-								<th width="200"></th>
-								<th width="100"></th>
-								<th width="100"></th>
-								<th width="70"></th>
-							</tr>
-							<tr >
-								<th colspan="6"><div id="trashMapListTableCnt" ></div></th>
-							</tr>
-						</table>
-							
-						
-					</div>
-					<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
+
+					<!-- /CONTACT1 -->
+
+
 				</div>
 			</div>
-		</div>
-	
-	<!-- /CONTACT1 -->
-
-
-	</div>
-	</div>
 	<!-- /RIGHTPART -->
 
 	<!-- CURSOR -->
