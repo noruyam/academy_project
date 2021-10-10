@@ -2509,10 +2509,18 @@ if (cusId == null) {
 					<div class="map_wrap3">
 						<div id="map3"
 							style="width: 100%; height: 100%; position: relative; overflow: hidden;top:10px"></div>
-<!-- 						<div class="hAddr3"> -->
-<!-- 							<span class="title3">지도중심기준 행정동 주소정보</span>  -->
-<!-- 							<span id="centerAddr3"></span> -->
-<!-- 						</div> -->
+  <div id="menu_wrap1" class="bg_white" style="top: 150px;bottom: 100px;width: 300px">
+        <div class="option10">
+            <div >
+                <form onsubmit="searchPlaces10(); return false;">
+                    키워드 : <input type="text" placeholder="장소를 검색해주세요" id="keyword10" size="20"> 
+                    <button type="submit">검색하기</button> 
+                </form>
+            </div>
+        </div>
+       
+
+    </div>
 					</div>
 					<div class="fields" style="margin-top:100px">
 						<form action="insertTrashMap.do" method="post"

@@ -3978,6 +3978,60 @@ var geocoder3 = new kakao.maps.services.Geocoder();
 
 var marker3 = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
 infowindow3 = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
+var ps10 = new kakao.maps.services.Places();  
+searchPlaces10();
+function searchPlaces10() {
+    var keyword10 = document.getElementById('keyword10').value;
+
+    if (!keyword10.replace(/^\s+|\s+$/g, '')) {
+//        alert('키워드를 입력해주세요!');
+        return false;
+    }
+
+    // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+    ps10.keywordSearch( keyword10, placesSearchCB10); 
+}
+function placesSearchCB10(data, status, pagination) {
+    if (status === kakao.maps.services.Status.OK) {
+
+        // 정상적으로 검색이 완료됐으면
+        // 검색 목록과 마커를 표출합니다
+        displayPlaces10(data);
+
+    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+
+        alert('검색 결과가 존재하지 않습니다.');
+        return;
+
+    } else if (status === kakao.maps.services.Status.ERROR) {
+
+        alert('검색 결과 중 오류가 발생했습니다.');
+        return;
+
+    }
+}
+
+// 검색 결과 목록과 마커를 표출하는 함수입니다
+function displayPlaces10(places) {
+
+
+    bounds10 = new kakao.maps.LatLngBounds()
+    
+    for ( var i=0; i<places.length; i++ ) {
+
+        // 마커를 생성하고 지도에 표시합니다
+        var placePosition10 = new kakao.maps.LatLng(places[i].y, places[i].x),
+            marker10 = addMarker(placePosition10, i)
+//            itemEl10 = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        bounds10.extend(placePosition10);
+    }
+
+    // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+    map3.setBounds(bounds10);
+}
+
 
 //현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
 searchAddrFromCoords3(map3.getCenter(), displayCenterInfo3);
