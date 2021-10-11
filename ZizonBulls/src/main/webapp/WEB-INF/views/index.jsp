@@ -25,7 +25,7 @@ if (cusId == null) {
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Tokyo | Home</title>
+<title> 불쓰 </title>
 
 <%-- <script src="${path }/resources/index/js/mainCSS.js"></script> --%>
 
@@ -42,78 +42,91 @@ if (cusId == null) {
 
 <style type="text/css">
 
-
-.button_base {
-    margin: 0;
-    border: 0;
-    font-size: 25px;
-/*     position: relative; */
-    top: 50%;
-    left: 50%;
-/*     margin-top: -25px; */
-/*     margin-left: -100px; */
-    width: 200px;
-    height: 100px;
-    text-align: center;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-user-select: none;
-    cursor: default;
+#tmbtntable {
+  width: 100%;
+  border-bottom: 1px solid #444444;
+  border-collapse: collapse;
+}
+.tmbtntr, .tmbtntd {
+  border-bottom: 1px solid #444444;
+  padding: 10px;
 }
 
-.button_base:hover {
-    cursor: pointer;
+@font-face { font-family: 'GoyangIlsan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+/* body { */
+/*   background-color: #1a237e; */
+/*   font-family: 'GoyangIlsan' */
+/* } */
+.box-wrap {
+/*   width: 100vw; height: 100vh; */
+/*   display: flex; */
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  position: relative;
+/*   background: #000; */
+  width: 400px; height: 300px;
+/*   border: 7px solid #283593; */
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+.box img {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.box:before {
+   content: ''; 
+   background: #000; 
+  width: 0px; height: 1px;
+  position: absolute; right: 20px; top: 20px;
+  transition: all 0.35s ease;
+}
+.box:after {
+  content: '';
+   background: #000; 
+  width: 1px; height: 0px;
+  position: absolute; right: 20px; top: 20px;
+  transition: all 0.35s ease;
 }
 
-
-
-/* ### ### ### 09 */
-.b09_electric {
-    color: #000000;
-    background-color: #ffffff;
-    border: #000000 solid 1px;
-    padding: 10px;
-    transition: all 0.1s ease;
-    -webkit-transition: all 0.1s ease;
-    -moz-transition: all 0.1s ease;
+.box .info {
+  position: absolute; left: 0; bottom: 0;
+  color: #000;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 }
-
-.b09_electric:hover {
-    color: #ffffff;
-    background-color: #000000;
-    animation: b09_electric_blinkIn 0.1s step-end 0 2;
-    -webkit-animation: b09_electric_blinkIn 0.1s step-end 0 2;
-    -moz-animation: b09_electric_blinkIn 0.1s step-end 0 2;
-    transition: all 0.1s ease 0.1s;
-    -webkit-transition: all 0.1s ease 0.1s;
-    -moz-transition: all 0.1s ease 0.1s;
+.box .info h3 {
+  font-size: 24px;
+  line-height: 40px;
+  overflow: hidden; 
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-bottom: 3px;
 }
-
-@-webkit-keyframes b09_electric_blinkIn {
-    from,
-    to {
-        background-color: #f8f8f8;
-        color: #080808;
-    }
-    50% {
-        background-color: #ffffff;
-        color: #000000;
-    }
+.box .info p {
+  font-size: 16px;
+  overflow: hidden; 
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-
-@-moz-keyframes b09_electric_blinkIn {
-    from,
-    to {
-        background-color: #f8f8f8;
-        color: #080808;
-    }
-    50% {
-        background-color: #ffffff;
-        color: #000000;
-    }
+.box:hover .info {
+  opacity: 1;
 }
-
+.box:hover img {
+  opacity: 0.2;
+}
+.box:hover:before {
+  width: 60px;
+}
+.box:hover:after {
+  height: 60px;
+}
 
 </style>
 
@@ -297,8 +310,14 @@ if (cusId == null) {
 		<!-- MOBILE MENU -->
 		<div class="tokyo_tm_mobile_menu">
 			<div class="menu_inner">
-				<div class="logo">
-					<img src="${path }/resources/img/logo/지존불쓰.png" alt="" />
+				<div class="menu">
+					<ul>
+						<li>
+							<a href="#home" class="offTs">
+							<img style="width:170px; height:60px;"src="${path }/resources/img/logo/로고8.png" alt="" />
+							</a>
+						</li>
+					</ul>
 				</div>
 				<div class="menu">
 					<ul>
@@ -329,31 +348,36 @@ if (cusId == null) {
 		<!-- LEFTPART -->
 		<div class="leftpart">
 			<div class="leftpart_inner">
-				<div class="logo">
-					<a href="#"><img
-						src="${path }/resources/img/logo/지존불쓰.png" alt="" /></a>
-				</div>
+<!-- 				<div class="logo"> -->
+<!-- 					<a href="#"><img -->
+<%-- 						src="${path }/resources/img/logo/지존불쓰.png" alt="" /></a> --%>
+<!-- 				</div> -->
 				<div class="menu">
 					<ul>
-						<li class="active"><a href="#home" class="offTs">Home</a></li>
-						<li><a href="#about" class="offTs">About</a></li>
-						<li><a href="#portfolio" class="onTs">분리수거 정보</a></li>
-						<li><a href="#news" class="offTs">나눔게시판</a></li>
+						<li>
+							<div class="logo">
+							<a href="#home" class="offTs"><img style="width:210px; height:80px; margin-bottom:10px"
+							src="${path }/resources/img/logo/로고4.png" alt="" /></a>
+							</div>
+						</li>
+						<li class="active"><a href="#home" class="offTs"> ♻ 메인 </a></li>
+						<li><a href="#about" class="offTs"> ♻  소개 </a></li>
+						<li><a href="#portfolio" class="onTs"> ♻  분리수거 정보 </a></li>
+						<li><a href="#news" class="offTs"> ♻  무료나눔 게시판 </a></li>
 <!-- 						<li><a href="#contact">Contact</a></li> -->
-						<li><a href="#contact1" class="offTs">분리수거 장소찾기</a></li>
+						<li><a href="#contact1" class="offTs"> ♻  주변 분리수거 장소</a></li>
 <!-- 						<li><a href="#contact3">업체찾기</a></li> -->
 <!-- 						<li><a href="#contact4">업체찾기</a></li> -->
-						<li><a href="#contact5" class="offTs">업체찾기</a></li>
+						<li><a href="#contact5" class="offTs">♻   주변 업체찾기</a></li>
 					</ul>
 				</div>
 				<div class="copyright">
-					<p>
-						&copy; 2021 Tokyo<br>Created by <a
-							href="customer/customerLogin.do">Marketify</a>
-					</p>
 					<br>
 					<p>
-						<a href="customer/customerInfo.do">My Profile</a>
+						<a href="customer/customerInfo.do"> My profile </a>
+					</p>
+					<p>
+					<a href="customer/customerLogin.do"> LogOut </a>
 					</p>
 				</div>
 			</div>
@@ -363,7 +387,7 @@ if (cusId == null) {
 		<!-- RIGHTPART -->
 		<div class="rightpart">
 			<div class="rightpart_in">
-
+				<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
 				<!-- HOME -->
 				<div id="home" class="tokyo_tm_section active">
 					<div class="container">
@@ -375,33 +399,15 @@ if (cusId == null) {
 								</div>
 								<div class="details">
 									<h3 class="name">
-									   <span style="color: green;">지</span><span style="font-size: 30px; color: gray;">상에</span><span
-                                 style="color: red;"><br>존</span><span style="font-size: 30px; color: gray;">재하는</span><br>
-                              <span style="color: blue;">불</span><span style="font-size: 30px; color: gray;">편한</span><span
-                                 style="color: orange;"><br>쓰</span><span style="font-size: 30px; color: gray;">레기🔥</span>
-                                                            </h3>
-                           <p class="job">
-                              이 사이트의 분리수거 정보는 blisgo.com<br>쓰레기백과사전에서 가져온 것을 알려드립니다
-                           </p>
-									<div class="social">
-										<ul>
-											<li><a href="#"><img class="svg"
-													src="${path }/resources/img/svg/social/facebook.svg"
-													alt="" /></a></li>
-											<li><a href="#"><img class="svg"
-													src="${path }/resources/img/svg/social/twitter.svg"
-													alt="" /></a></li>
-											<li><a href="#"><img class="svg"
-													src="${path }/resources/img/svg/social/instagram.svg"
-													alt="" /></a></li>
-											<li><a href="#"><img class="svg"
-													src="${path }/resources/img/svg/social/dribbble.svg"
-													alt="" /></a></li>
-											<li><a href="#"><img class="svg"
-													src="${path }/resources/img/svg/social/tik-tok.svg"
-													alt="" /></a></li>
-										</ul>
-									</div>
+									  	<span style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen ;">지 </span><span style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">상에</span>
+									   	<span style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen ;">존 </span><span style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">재하는</span><br>
+                              			<span style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen ;">불 </span><span style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">편한</span>
+                              			<span style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen ;">쓰 </span><span style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">레기 🔥</span>
+                                    </h3>
+                           			<p class="job">
+                              			이 사이트의 분리수거 정보는 blisgo.com<br>쓰레기백과사전에서 가져온 것을 알려드립니다
+                           			</p>
+									
 								</div>
 							</div>
 						</div>
@@ -2657,35 +2663,52 @@ if (cusId == null) {
 							<div class="title_flex">
 								<div class="left">
 									<span>trashMap</span>
-									<!-- 										<h3>업체 고르기</h3> -->
+
 								</div>
 							</div>
 						</div>
 						<div class="fields">
-							<table style="width: 100%">
-								<tr style="text-align: center">
-									<td colspan="2" style="text-align: center; font-size: 30px">
-										업체 고르기
+							<table style="width: 100%" id="tmbtntable" class="tmbtntable">
+								<tr style="text-align: center" class="tmbtntr">
+									<td colspan="2" style="text-align: center; font-size: 30px"
+										class="tmbtntd">업체 선택 <br> <br>
 									</td>
 								</tr>
-								<tr>
-									<td style="text-align: center">청소 업체를 찾고 싶으시다면
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▶</td>
-									<td style="text-align: center">
-										<input class="button_base b09_electric" type="button" value="청소업체"	onclick="goContact3()">
+								<tr style="border-bottom: 1px solid;" class="tmbtntr">
+
+									<td class="tmbtntd" style="text-align: center;">
+										<div class="box-wrap" style="text-align: center">
+											<div class="box">
+												<div class="img">
+													<img src="./resources/img/trashmap/청소업체.png"
+														alt="Hover Effect" onclick="goContact3()">
+
+												</div>
+												<div class="info">
+													<h3>청소업체</h3>
+													<p>청소업체를 찾고 싶으시다면 click</p>
+												</div>
+											</div>
+										</div>
 									</td>
-									<td style="width: 30%;"></td>
-								</tr>
-								<tr>
-									<td style="text-align: center">수거 업체를 찾고 싶으시다면
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▶</td>
-									<td style="text-align: center">
-										<input class="button_base b09_electric" type="button" value="수거업체" onclick="goContact4()">
-									</td>
-									<td>
+									<td class="tmbtntd" style="text-align: center;">
+										<div class="box-wrap" style="text-align: center">
+											<div class="box" style="top: -52px">
+												<div class="img">
+													<img src="./resources/img/trashmap/수거업체.png"
+														alt="Hover Effect" onclick="goContact3()">
+
+												</div>
+												<div class="info">
+													<h3>수거업체</h3>
+													<p>수거업체를 찾고 싶으시다면 click</p>
+												</div>
+											</div>
+										</div>
 									</td>
 								</tr>
 							</table>
+
 						</div>
 					</div>
 				</div>
