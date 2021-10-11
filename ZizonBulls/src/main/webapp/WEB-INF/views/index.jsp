@@ -2678,7 +2678,7 @@ if (cusId == null) {
 
 									<td class="tmbtntd" style="text-align: center;">
 										<div class="box-wrap" style="text-align: center">
-											<div class="box">
+											<div class="box" style="top: 23px">
 												<div class="img">
 													<img src="./resources/img/trashmap/청소업체.png"
 														alt="Hover Effect" onclick="goContact3()">
@@ -2693,7 +2693,7 @@ if (cusId == null) {
 									</td>
 									<td class="tmbtntd" style="text-align: center;">
 										<div class="box-wrap" style="text-align: center">
-											<div class="box" style="top: -52px">
+											<div class="box" style="top: -29px">
 												<div class="img">
 													<img src="./resources/img/trashmap/수거업체.png"
 														alt="Hover Effect" onclick="goContact3()">
