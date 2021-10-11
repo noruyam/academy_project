@@ -102,7 +102,7 @@ if (cusId == null) {
   transition: all 0.3s ease-in-out;
 }
 .box .info h3 {
-  font-size: 24px;
+  font-size: 30px;
   line-height: 40px;
   overflow: hidden; 
   white-space: nowrap;
@@ -110,7 +110,7 @@ if (cusId == null) {
   padding-bottom: 3px;
 }
 .box .info p {
-  font-size: 16px;
+  font-size: 20px;
   overflow: hidden; 
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -2682,7 +2682,6 @@ if (cusId == null) {
 												<div class="img">
 													<img src="./resources/img/trashmap/청소업체.png"
 														alt="Hover Effect" onclick="goContact3()">
-
 												</div>
 												<div class="info">
 													<h3>청소업체</h3>
@@ -2694,10 +2693,9 @@ if (cusId == null) {
 									<td class="tmbtntd" style="text-align: center;">
 										<div class="box-wrap" style="text-align: center">
 											<div class="box" style="top: -29px">
-												<div class="img">
+												<div class="img" >
 													<img src="./resources/img/trashmap/수거업체.png"
-														alt="Hover Effect" onclick="goContact3()">
-
+														alt="Hover Effect" onclick="goContact4()">
 												</div>
 												<div class="info">
 													<h3>수거업체</h3>
