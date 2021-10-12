@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="tmDatDAO">
+   
+   <insert id="inserttmDat" parameterType="tmDat">
+   INSERT INTO tmDat(tmDatNum, tmPostNum, cusId, tmDat,tmTime)
+   VALUES (tmDat_seq.nextval, #{tmPostNum}, #{cusId}, #{tmDat},sysdate)
+
+	</insert>
+   
+   <delete id="deletetmDat" parameterType="tmDat">
+      DELETE FROM tmDat
+      WHERE tmDatNum = #{tmDatNum}
+   </delete>
+   
+   <update id="updatetmDat" parameterType="tmDat">
+      UPDATE tmDat 
+      SET tmDatNum = #{tmDatNum},
+         cusId = #{cusId},
+         tmDat = #{tmDat}
+      <if test="tmFname != null">
+      , tmFname = #{tmFname}
+      , tmFnameEn=#{tmFnameEn}
+      </if>
+       ,tmGetLat= #{tmGetLat}
+       ,tmGetLng= #{tmGetLng}
+      WHERE tmDatNum = #{tmDatNum}
+   </update>
+   
+   <select id="gettmDat" parameterType="tmDat" resultType="tmDat">
+      SELECT *
+      FROM tmDat
+      WHERE tmPostNum = #{tmPostNum}
+   </select>
+   
+   
+   <select id="gettmDatListCnt" parameterType="tmDat" resultType="int">
+      SELECT count(*)
+      FROM tmDat
+   </select>
+   <select id="gettmDatList" parameterType="tmDat" resultType="tmDat">
+      SELECT *
+      FROM tmDat
+      WHERE tmPostNum = #{tmPostNum}
+
+      order by tmDatNum desc
+   </select>
+   
+   
+
+   
+   <select id="gettmDat123" parameterType="tmDat" resultType="tmDat">
+      SELECT count(*)
+      FROM tmDat
+      WHERE tmDatNum = #{tmDatNum}
+   </select>
+   
+   
+
+</mapper>
+      

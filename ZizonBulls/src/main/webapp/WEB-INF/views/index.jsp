@@ -43,35 +43,10 @@ if (cusId == null) {
 #phoneChatCss:hover  {
 	font-size:13px;
 	color: red;
-/*  	background: green;  */
 }
 
 </style>
 
-
-<script type="text/javascript">
-$(document).ready(function(){
-	$('#phoneChatCss').mouseover(function(){ 
-		alert('gd');
-		$(this).css("backgroundColor","#ccc"); 
-	}); 
-
-	$('#phoneChatCss').mouseout(function(){ 
-		$(this).css("backgroundColor","#fff"); 
-	}); 
-});
-
-
-
-
-// $(document.body).delegate('#phoneChatCss','click',function(){
-// 	alert('gd');
-// // 	$(this).css("backgroundColor","red"); 
-	
-// });
-
-
-</script>
 </head>
 
 
@@ -2556,6 +2531,44 @@ $(document).ready(function(){
 									<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 
 								</form>
+								
+									<div>
+										<div>
+											<table id="tmDatListTable">
+												<tr style='background-color: gray; color: white'>
+													<th bgcolor="orange" width="50">글번호</th>
+													<th bgcolor="orange" width="200">작성자ID</th>
+													<th bgcolor="orange" width="200">댓글내용</th>
+													<th bgcolor="orange" width="100">댓글번호</th>
+													<th bgcolor="orange" width="100">시간</th>
+												</tr>
+											</table>
+											<table>
+									<tr>
+										<th width="50"></th>
+										<th width="200"></th>
+										<th width="200"></th>
+										<th width="100"></th>
+										<th width="100"></th>
+										<th width="70"></th>
+									</tr>
+									<tr>
+										<th colspan="6">
+											<div id="tmDatListTableCnt"></div>
+										</th>
+									</tr>
+
+								</table>
+										</div>
+										
+										<div>
+										
+											<input id="tmDatText" type="text" size="30px">
+											<input type="button" value="댓글등록" onclick="tmDatInsert()">
+										
+										</div>
+									</div>
+								
 							</div>
 						</div>
 					</div>

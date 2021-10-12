@@ -10,6 +10,7 @@
 		<typeAlias type="com.java.domain.trashMapVO" alias="trashMap"/>
 		<typeAlias type="com.java.domain.nanumVO" alias="nanum" />
 		<typeAlias type="com.java.domain.chatVO" alias="board" />
+		<typeAlias type="com.java.domain.tmDatVO" alias="tmDat"/>
 	</typeAliases>
 
 </configuration>

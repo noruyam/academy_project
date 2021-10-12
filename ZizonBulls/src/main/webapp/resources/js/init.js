@@ -673,7 +673,7 @@ function trashMapInsertOrUpdate(){
 
 // 목록List를 불러와주는 function
 function getTrashMapList(cnt) {
-	 
+	
 	 // 맵 초기화
 	 removeMarker5();
 	 
@@ -768,7 +768,7 @@ function getTrashMapList(cnt) {
 
 //목록을 클릭하면 인서트했었던 목록가져옴
 function getTrashMap(tmPostNum,tmCnt) {
-	
+	gettmDatList(1,tmPostNum);
 	// 누를때 맨위로 스크롤 이동
 	$('#contact').animate({ scrollTop: 0 });
 	
@@ -805,6 +805,7 @@ function getTrashMap(tmPostNum,tmCnt) {
 			$('#tmGetLat').val(tmGetLat1);
 			$('#tmGetLng').val(tmGetLng1);
 			removeMarker6(tmGetLat1,tmGetLng1);
+			
 			
 			
 			if(sessionId==result.cusId){
@@ -1491,4 +1492,135 @@ function getTrashMapList1(cnt) {
 	   });
 		
 	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//새글등록하거나 기존 글을 업데이트해주는 function
+function tmDatInsert(){
+	var tmPostNum = $("#tmPostNum").val();
+
+	gettmDatList(1,tmPostNum);
+
+	 
+	var datInsert ={
+			tmPostNum : $("#tmPostNum").val(),
+			cusId:$('#sessionId').val(),
+			tmDat:$('#tmDatText').val()
+			
+	}
+	
+		 $.ajax({
+             url : "insertTmDat.do"
+             , type : "post"
+             , data :datInsert 
+             , success : function(data){
+             	console.log(data);
+             	// 인서트를 성공하면 목록불러와주는 function 실행
+//                 getTrashMapList(1);
+             }
+		 		, error : function(request, error){
+                 alert("fail");
+                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+             }
+      });
+	
+
+}
+
+
+
+
+//목록List를 불러와주는 function
+function gettmDatList(cnt,tmPostNum) {
+	 console.log(tmPostNum);
+	var gettmDatList ={
+			tmPostNum : tmPostNum
+			
+	}
+	 // 한페이지당 10개씩 보여주기위한 변수 저장
+	 var gettmDatListOnePageCnt=10;
+	 
+	 // 목록에 있는 동적 테이블을 지워주고 새로 리스트를 불러오기 위해서 우선 지워줌
+	 $( '#tmDatListTable > #removetmDatTbody').remove();
+	 
+	 // 페이지 숫자 div에 남아있는거 지우고 다시 for문 돌리기 위함 
+	 $( '#tmDatListTableCnt > #removetmDatcnt').remove();
+	 
+	 // controller에  getTrashMapList를 실행해주는 ajax 
+	 $.ajax({
+	       url : "gettmDatList.do",
+	       type : "get",
+	       data:gettmDatList,
+	       dataType:"json",
+	
+	       // controller에서 리턴된 List배열을 result에 담아서 for문으로 table에 뿌려줌
+	       success : function(result){
+	    	 
+	    	// 리턴된 List의 길이
+	       	var len=result.length;
+	       	
+	       	// index에 리턴된 List를 담기 위해 만들어놓은 테이블의 id값
+	       	var table=$('#tmDatListTable');
+	       	
+	       	// 동적 테이블을 생성하기 위한 변수 str 생성
+	       	var str="";
+	       	
+	       	// 나중에 목록을 불러와줄때마다 동적으로 생성된 table을 지워주기위해 tbody로 먼저 묶어서 id 지정하여 remove 실행
+	       	str += "<tbody id='removetmDatTbody' class='removetmDatTbody'>";
+
+	       	// 테이블을 생성하기 위한 for문 
+	       	for(var i=((cnt-1)*gettmDatListOnePageCnt);i<gettmDatListOnePageCnt*cnt;i++){
+	       		
+	       		// 만약 i가 총 리스트 갯수보다 많아지면 멈춤
+	       		if(i>len-1){
+	       			break;
+	       		}
+
+	       		// tr전체를 클릭했을때 onclick을 실행하도록 동적 테이블 생성, 
+	       		// onclick 했을때 ()안에 변수를 가지고 들어가서 getTrashMap에서 활용하기 위한 동적테이블 생성
+	       		str += '<Tr class="removetmDatTbody">'
+	       		str += '<TD class="removetmDatTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
+	       		+ '</TD><TD class="removetmDatTbody" name="cusId" align="center">'+ result[i].cusId
+	       		+ '</TD><TD class="removetmDatTbody" name="tmDat" align="center">' + result[i].tmDat
+	       		+ '</TD><TD class="removetmDatTbody" name="tmDatNum" align="center">'+result[i].tmDatNum
+	       		+ '</TD><TD class="removetmDatTbody" name="tmTime" align="center">' +result[i].tmTime
+	            str += '</TD></TR>'	
+	            	
+	       	}
+	       	str += "</tbody>";
+	       	var strcnt="";
+	       	for(var j=1;j<(len/gettmDatListOnePageCnt)+1;j++){
+	       		strcnt+='<a id="removetmDatcnt" style="cursor:pointer;" onclick="gettmDatList('+j+')">['+j+']</a>'
+	       	}
+	       	// str에 만들어놓은 테이블생성값들을 index에 만들어둔 테이블에 더해줌
+	       	table.append(str).trigger("create");
+	       	$('#tmDatListTableCnt').append(strcnt).css("cursor:pointer");;
+	       },
+	       error : function(request, error){
+	           alert("fail");
+	           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       }
+	   });
+
 }
