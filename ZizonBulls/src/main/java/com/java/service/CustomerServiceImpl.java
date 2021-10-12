@@ -68,6 +68,13 @@ public class CustomerServiceImpl implements CustomerService{
 	      return customerDAO.idCheck_Join(vo);
 	   }
 
+	@Override
+	public void uploadProfilePicture(CustomerVO vo) {
+		System.out.println(">> customerService.uploadProfilePicture() 호출");
+		customerDAO.uploadProfilePicture(vo);
+		
+	}
+
 	
 	
 }

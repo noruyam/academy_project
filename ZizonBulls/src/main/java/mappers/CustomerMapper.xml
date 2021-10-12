@@ -76,6 +76,17 @@
   	  insert into customer1(cusid, pass, cusname, email, busPhoneNum)
       values(#{cusId}, #{pass}, #{cusName}, #{email}, #{busPhoneNum})
   </insert>
+  
+  <update id="uploadProfilePicture" parameterType="customer">
+  		UPDATE customer1
+  		SET
+  		profilePictureName = #{profilePictureName},
+	    profilePictureName_en = #{profilePictureName_en}, 
+	    profilePictureSize = #{profilePictureSize}
+	    WHERE 
+	    cusid = #{cusId}
+  		
+  </update>
    
 </mapper>
       

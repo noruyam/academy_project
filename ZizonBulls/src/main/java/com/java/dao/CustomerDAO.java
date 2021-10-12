@@ -16,4 +16,6 @@ public interface CustomerDAO {
 	public List<CustomerVO> idCheck();
 	int customerInsert(CustomerVO vo);
 	public CustomerVO idCheck_Join(CustomerVO vo);
+	
+	void uploadProfilePicture(CustomerVO vo);
 }

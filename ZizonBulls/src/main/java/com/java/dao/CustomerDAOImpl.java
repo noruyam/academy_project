@@ -82,6 +82,12 @@ public class CustomerDAOImpl implements CustomerDAO{
 	      return mybatis.selectOne("CustomerDAO.idCheck_Join", vo);
 	   }
 
+	@Override
+	public void uploadProfilePicture(CustomerVO vo) {
+		System.out.println("==>> customerDAO.uploadProfilePicture() 호출");
+		mybatis.update("CustomerDAO.uploadProfilePicture", vo);
+	}
+
 }
 	
 	

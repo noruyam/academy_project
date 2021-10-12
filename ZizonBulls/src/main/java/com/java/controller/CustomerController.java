@@ -1,5 +1,6 @@
 package com.java.controller;
 
+import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -176,5 +177,19 @@ public class CustomerController {
 	       if (resultVO != null) result = 0;
 	       return result;
 	   }
+	 
+	 @RequestMapping(value="uploadProfilePicture.do")
+	 public String uploadProfilePicture(CustomerVO vo, HttpSession session) throws IOException{
+		 System.out.println("프로파일픽쳐" + vo.getProfilePicture());
+		 System.out.println("프로파일픽쳐내임인코딩" + vo.getProfilePictureName_en());
+		 System.out.println("아이디" + vo.getCusId());
+		 customerService.uploadProfilePicture(vo);
+		 System.out.println(vo.getProfilePicture());
+		 System.out.println("업로드 후 프로파일픽쳐내임인코딩" + vo.getProfilePictureName_en());
+		 
+		 session.setAttribute("profilePictureName_en", vo.getProfilePictureName_en());
+		 
+		 return "redirect:customerInfo.do";
+	 } 
 	
 }
