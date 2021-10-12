@@ -37,30 +37,17 @@ public class chatController {
         return "chat";
     }
     
-//    // trashMap 글목록 클릭하면 목록 불러와주는 기능
-// 	@RequestMapping(value = "/test123.do", method = RequestMethod.POST)
-// 	// ajax 리턴값을 주고싶을때 @ResponseBody 사용
-// 	
-// 	public List<CustomerVO> getTrashMap(CustomerVO vo, HttpServletRequest request, @RequestParam String phone) {
-// 		System.out.println("test123 Controller");
-// 		vo.setBusId(phone);
-// 		customerservice.getBoardList();
-// 		
-// 		return customerservice.getBoardList();
-// 	}
-    
-    
     
   // trashMap 글목록 클릭하면 목록 불러와주는 기능
-	@RequestMapping(value = "/test123.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/phoneChat.do", method = RequestMethod.POST)
 	// ajax 리턴값을 주고싶을때 @ResponseBody 사용
 	@ResponseBody
 	public int getTrashMap(CustomerVO vo, HttpServletRequest request) {
-		System.out.println("test123 Controller");
+		System.out.println("phoneChat Controller");
 		System.out.println(vo.getBusPhoneNum());
-//		customerservice.getBoardList();
-		
-		int test123=customerservice.getBoardList(vo);;
+
+		int test123=customerservice.getBoardList(vo);
+	
 		System.out.println(test123);
 		return test123;
 	}

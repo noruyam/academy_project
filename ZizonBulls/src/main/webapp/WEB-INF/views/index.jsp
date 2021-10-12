@@ -25,7 +25,7 @@ if (cusId == null) {
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title> 불쓰 </title>
+<title>불쓰</title>
 
 <%-- <script src="${path }/resources/index/js/mainCSS.js"></script> --%>
 
@@ -38,101 +38,42 @@ if (cusId == null) {
 
 <!-- 팝업css -->
 <link rel="stylesheet" href="./resources/css/magnific-popup.css">
-
-
 <style type="text/css">
 
-#tmbtntable {
-  width: 100%;
-  border-bottom: 1px solid #444444;
-  border-collapse: collapse;
-}
-.tmbtntr, .tmbtntd {
-  border-bottom: 1px solid #444444;
-  padding: 10px;
-}
-
-@font-face { font-family: 'GoyangIlsan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff'); font-weight: normal; font-style: normal; }
-
-/* body { */
-/*   background-color: #1a237e; */
-/*   font-family: 'GoyangIlsan' */
-/* } */
-.box-wrap {
-/*   width: 100vw; height: 100vh; */
-/*   display: flex; */
-  align-items: center;
-  justify-content: center;
-}
-.box {
-  position: relative;
-/*   background: #000; */
-  width: 400px; height: 300px;
-/*   border: 7px solid #283593; */
-  cursor: pointer;
-  overflow: hidden;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-}
-.box img {
-  width: 100%;
-  transition: all 0.3s ease-in-out;
-}
-.box:before {
-   content: ''; 
-   background: #000; 
-  width: 0px; height: 1px;
-  position: absolute; right: 20px; top: 20px;
-  transition: all 0.35s ease;
-}
-.box:after {
-  content: '';
-   background: #000; 
-  width: 1px; height: 0px;
-  position: absolute; right: 20px; top: 20px;
-  transition: all 0.35s ease;
-}
-
-.box .info {
-  position: absolute; left: 0; bottom: 0;
-  color: #000;
-  width: 100%;
-  padding: 15px;
-  box-sizing: border-box;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-}
-.box .info h3 {
-  font-size: 30px;
-  line-height: 40px;
-  overflow: hidden; 
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding-bottom: 3px;
-}
-.box .info p {
-  font-size: 20px;
-  overflow: hidden; 
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.box:hover .info {
-  opacity: 1;
-}
-.box:hover img {
-  opacity: 0.2;
-}
-.box:hover:before {
-  width: 60px;
-}
-.box:hover:after {
-  height: 60px;
+#phoneChatCss:hover  {
+	font-size:13px;
+	color: red;
+/*  	background: green;  */
 }
 
 </style>
 
-<style>
-</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#phoneChatCss').mouseover(function(){ 
+		alert('gd');
+		$(this).css("backgroundColor","#ccc"); 
+	}); 
+
+	$('#phoneChatCss').mouseout(function(){ 
+		$(this).css("backgroundColor","#fff"); 
+	}); 
+});
+
+
+
+
+// $(document.body).delegate('#phoneChatCss','click',function(){
+// 	alert('gd');
+// // 	$(this).css("backgroundColor","red"); 
+	
+// });
+
+
+</script>
 </head>
+
 
 
 <body>
@@ -312,11 +253,10 @@ if (cusId == null) {
 			<div class="menu_inner">
 				<div class="menu">
 					<ul>
-						<li>
-							<a href="#home" class="offTs">
-							<img style="width:170px; height:60px;"src="${path }/resources/img/logo/로고8.png" alt="" />
-							</a>
-						</li>
+						<li><a href="#home" class="offTs"> <img
+								style="width: 170px; height: 60px;"
+								src="${path }/resources/img/logo/로고8.png" alt="" />
+						</a></li>
 					</ul>
 				</div>
 				<div class="menu">
@@ -329,16 +269,16 @@ if (cusId == null) {
 								src="${path }/resources/img/svg/trash.svg" alt="" /></a></li>
 						<li><a href="#news" class="offTs"><img class="svg"
 								src="${path }/resources/img/svg/nanum.svg" alt="" /></a></li>
-<!-- 						<li><a href="#contact"><img class="svg" -->
-<%-- 								src="${path }/resources/index/img/svg/mail.svg" alt="" /></a></li> --%>
+						<!-- 						<li><a href="#contact"><img class="svg" -->
+						<%-- 								src="${path }/resources/index/img/svg/mail.svg" alt="" /></a></li> --%>
 						<li><a href="#contact1" class="offTs"><img class="svg"
 								src="${path }/resources/img/svg/map.svg" alt="" /></a></li>
-<!-- 						<li><a href="#contact3"><img class="svg" -->
-<%-- 								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
-<!-- 						<li><a href="#contact4"><img class="svg" -->
-<%-- 							src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
+						<!-- 						<li><a href="#contact3"><img class="svg" -->
+						<%-- 								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
+						<!-- 						<li><a href="#contact4"><img class="svg" -->
+						<%-- 							src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
 						<li><a href="#contact5" class="offTs"><img class="svg"
-							src="${path }/resources/img/svg/search.svg" alt="" /></a></li>	
+								src="${path }/resources/img/svg/search.svg" alt="" /></a></li>
 					</ul>
 				</div>
 			</div>
@@ -348,27 +288,28 @@ if (cusId == null) {
 		<!-- LEFTPART -->
 		<div class="leftpart">
 			<div class="leftpart_inner">
-<!-- 				<div class="logo"> -->
-<!-- 					<a href="#"><img -->
-<%-- 						src="${path }/resources/img/logo/지존불쓰.png" alt="" /></a> --%>
-<!-- 				</div> -->
+				<!-- 				<div class="logo"> -->
+				<!-- 					<a href="#"><img -->
+				<%-- 						src="${path }/resources/img/logo/지존불쓰.png" alt="" /></a> --%>
+				<!-- 				</div> -->
 				<div class="menu">
 					<ul>
 						<li>
 							<div class="logo">
-							<a href="#home" class="offTs"><img style="width:210px; height:80px; margin-bottom:10px"
-							src="${path }/resources/img/logo/로고4.png" alt="" /></a>
+								<a href="#home" class="offTs"><img
+									style="width: 210px; height: 80px; margin-bottom: 10px"
+									src="${path }/resources/img/logo/로고8.png" alt="" /></a>
 							</div>
 						</li>
 						<li class="active"><a href="#home" class="offTs"> ♻ 메인 </a></li>
-						<li><a href="#about" class="offTs"> ♻  소개 </a></li>
-						<li><a href="#portfolio" class="onTs"> ♻  분리수거 정보 </a></li>
-						<li><a href="#news" class="offTs"> ♻  무료나눔 게시판 </a></li>
-<!-- 						<li><a href="#contact">Contact</a></li> -->
-						<li><a href="#contact1" class="offTs"> ♻  주변 분리수거 장소</a></li>
-<!-- 						<li><a href="#contact3">업체찾기</a></li> -->
-<!-- 						<li><a href="#contact4">업체찾기</a></li> -->
-						<li><a href="#contact5" class="offTs">♻   주변 업체찾기</a></li>
+						<li><a href="#about" class="offTs"> ♻ 소개 </a></li>
+						<li><a href="#portfolio" class="onTs"> ♻ 분리수거 정보 </a></li>
+						<li><a href="#news" class="offTs"> ♻ 무료나눔 게시판 </a></li>
+						<!-- 						<li><a href="#contact">Contact</a></li> -->
+						<li><a href="#contact1" class="offTs"> ♻ 주변 분리수거 장소</a></li>
+						<!-- 						<li><a href="#contact3">업체찾기</a></li> -->
+						<!-- 						<li><a href="#contact4">업체찾기</a></li> -->
+						<li><a href="#contact5" class="offTs">♻ 주변 업체찾기</a></li>
 					</ul>
 				</div>
 				<div class="copyright">
@@ -377,7 +318,7 @@ if (cusId == null) {
 						<a href="customer/customerInfo.do"> My profile </a>
 					</p>
 					<p>
-					<a href="customer/logout.do"> LogOut </a>
+						<a href="customer/logout.do"> LogOut </a>
 					</p>
 				</div>
 			</div>
@@ -387,7 +328,9 @@ if (cusId == null) {
 		<!-- RIGHTPART -->
 		<div class="rightpart">
 			<div class="rightpart_in">
-				<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+				<link
+					href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap"
+					rel="stylesheet">
 				<!-- HOME -->
 				<div id="home" class="tokyo_tm_section active">
 					<div class="container">
@@ -399,15 +342,29 @@ if (cusId == null) {
 								</div>
 								<div class="details">
 									<h3 class="name">
-									  	<span style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen ;">지 </span><span style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">상에</span>
-									   	<span style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen ;">존 </span><span style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">재하는</span><br>
-                              			<span style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen ;">불 </span><span style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">편한</span>
-                              			<span style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen ;">쓰 </span><span style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">레기 🔥</span>
-                                    </h3>
-                           			<p class="job">
-                              			이 사이트의 분리수거 정보는 blisgo.com<br>쓰레기백과사전에서 가져온 것을 알려드립니다
-                           			</p>
-									
+										<span
+											style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen;">지
+										</span><span
+											style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">상에</span>
+										<span
+											style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen;">존
+										</span><span
+											style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">재하는</span><br>
+										<span
+											style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen;">불
+										</span><span
+											style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">편한</span>
+										<span
+											style="font-family: 'East Sea Dokdo', cursive; font-size: 70px; color: seagreen;">쓰
+										</span>
+										<span
+											style="font-family: 'East Sea Dokdo', cursive; font-size: 25px; color: gray;">레기
+											🔥</span>
+									</h3>
+									<p class="job">
+										이 사이트의 분리수거 정보는 blisgo.com<br>쓰레기백과사전에서 가져온 것을 알려드립니다
+									</p>
+
 								</div>
 							</div>
 						</div>
@@ -482,6 +439,11 @@ if (cusId == null) {
 									<div class="left">
 										<span>분리수거 정보</span>
 										<h3>분리수거 정보</h3>
+										<br> <input type="search" value="" id="search"
+											style="width: 180px; border-radius: 100px; border-color: black; height: 30px"
+											placeholder="쓰레기를 검색하세요."
+											onkeyup="if(window.event.keyCode==13){search()}">
+
 									</div>
 									<div class="portfolio_filter">
 										<ul>
@@ -490,11 +452,11 @@ if (cusId == null) {
 											<li><a href="#" data-filter=".youtube">재활용쓰래기</a></li>
 											<li><a href="#" data-filter=".soundcloud">일반, 생활폐기물</a></li>
 											<br>
+											<br>
 
 											<li><a href="#" data-filter=".image">대형폐기물</a></li>
 											<li><a href="#" data-filter=".detail">의류</a></li>
-											<li><input type="search" value="" id="search"
-												placeholder="쓰레기를 검색하세요." onkeyup="if(window.event.keyCode==13){search()}"></li>
+
 										</ul>
 									</div>
 								</div>
@@ -2410,7 +2372,7 @@ if (cusId == null) {
 					</div>
 				</div>
 
-				
+
 				<!-- /PORTFOLIO -->
 
 				<!----------------------- 나눔 게시판 ------------------- -->
@@ -2445,339 +2407,367 @@ if (cusId == null) {
 						</div>
 					</div>
 				</div>
-			
-			<div id="news1" class="tokyo_tm_section">
-				<div class="container">
-					<div class="tokyo_tm_contact">
-						<div class="tokyo_tm_title">
-							<div class="title_flex">
-								<div class="left">
-									<span>Notice Board</span>
-									<h3>나눔 게시판</h3>
-									<br>
-									<br>
+
+				<div id="news1" class="tokyo_tm_section">
+					<div class="container">
+						<div class="tokyo_tm_contact">
+							<div class="tokyo_tm_title">
+								<div class="title_flex">
+									<div class="left">
+										<span>Notice Board</span>
+										<h3>나눔 게시판</h3>
+										<br> <br>
+									</div>
+								</div>
+							</div>
+							<div class="fields">
+								<div id="wrap">
+									<div id="container">
+										<div class="inner">
+											<span>게시글 작성</span><br>
+											<br>
+										</div>
+										<input type="hidden" id="seq" name="seq" value="${seq }">
+										<input type="hidden" id="cnt" name="cnt" value="${cnt }">
+										<div id="cnt" style="cursor: pointer">
+											<span>조회수 : </span><span id="cnt1"></span>
+
+										</div>
+										<div>
+											<label for="fname">파일 : </label> <input id="fname"
+												type="file" name="uploadfile" accept="*" />
+											<button type="button" onclick="fn_submit1()">파일전송</button>
+										</div>
+										<br>
+										<br>
+										<hr>
+										<br>
+										<br>
+										<div>
+											<ul>
+												<li><input id="title" type="text" placeholder="제목"></li>
+												<li><input id="writer" type="text" placeholder="작성자"></li>
+												<li><textarea id="content" cols="2" placeholder="내용"></textarea></li>
+											</ul>
+										</div>
+										<div class="tokyo_tm_button">
+											<a id="insert" onclick="insertBoard()"
+												style="cursor: pointer"> <span>글 등록</span>
+											</a> <a id="delete" onclick="deleteBoard()"
+												style="cursor: pointer; display: none"> <span>글
+													삭제</span>
+											</a>
+
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="fields">
-							<div id="wrap">
-								<div id="container">
-									<div class="inner">
-										<span>게시글 작성</span><br><br>
+					</div>
+				</div>
+
+
+
+
+				<!----------------------- 나눔 게시판 끝 ------------------- -->
+
+
+				<!-- CONTACT -->
+				<div id="contact" class="tokyo_tm_section">
+					<div class="container">
+						<div class="tokyo_tm_contact">
+							<div class="tokyo_tm_title">
+								<div class="title_flex">
+									<div class="left">
+										<span>trashMap</span>
+										<h3>장소 찾기</h3>
 									</div>
-									<input type="hidden" id="seq" name="seq" value="${seq }">
-									<input type="hidden" id="cnt" name="cnt" value="${cnt }">								
-									<div id="cnt" style="cursor: pointer">
-										<span>조회수  : </span><span id="cnt1"></span>
-										
+								</div>
+							</div>
+							<div class="map_wrap3">
+								<div id="map3"
+									style="width: 100%; height: 100%; position: relative; overflow: hidden; top: 10px"></div>
+								<div id="menu_wrap1" class="bg_white"
+									style="top: 150px; bottom: 100px; width: 300px">
+									<div class="option10">
+										<div>
+											<form onsubmit="searchPlaces10(); return false;">
+												키워드 : <input type="text" placeholder="장소를 검색해주세요"
+													id="keyword10" size="20">
+												<button type="submit">검색하기</button>
+											</form>
+										</div>
 									</div>
+
+
+								</div>
+							</div>
+							<div class="fields" style="margin-top: 100px">
+								<form action="insertTrashMap.do" method="post"
+									enctype="multipart/form-data" class="contact_form"
+									id="contact_form" name="contact_form" autocomplete="off">
 									<div>
-										<label for="fname">파일 : </label> <input id="fname" type="file" name="uploadfile" accept="*"/>
-										<button type="button" onclick="fn_submit1()">파일전송</button>
-									</div><br><br><hr><br><br>
-									<div>
+										<label for="file">파일</label> <input type="file" id="file"
+											name="file">
+									</div>
+									<!-- 이미지 마크업 생성 공간 -->
+									<div id="image_container"></div>
+									<div class="returnmessage"
+										data-success="Your message has been received, We will contact you soon."></div>
+									<div class="empty_notice">
+										<span>Please Fill Required Fields</span>
+									</div>
+									<input type="hidden" id="tmPostNum" name="tmPostNum"
+										value="${tmPostNum }"> <input type="hidden" id="tmCnt"
+										name="tmCnt" value="${tmCnt }">
+									<div class="first">
+										<div id="hideDateAndCnt">
+											<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<span>조회수 : </span> <span id="tmCntText"> </span>
+										</div>
+										<hr>
+										<br>
 										<ul>
-											<li><input id="title" type="text" placeholder="제목"></li>
-											<li><input id="writer" type="text" placeholder="작성자"></li>
-											<li><textarea id="content" cols="2" placeholder="내용"></textarea></li>
+											<li><input id="tmTitle" name="tmTitle" type="text"
+												placeholder="제목"></li>
+											<li><input id="tmAddr" name="tmAddr" type="text"
+												placeholder="맵을 클릭해주세요"></li>
 										</ul>
+										<hr>
+										<br>
 									</div>
-									<div class="tokyo_tm_button">
-										<a id="insert" onclick="insertBoard()" style="cursor: pointer"><span>글
-												등록</span></a>
-										<a id="delete" onclick="deleteBoard()" style="cursor:pointer; display: none" ><span>글 삭제</span></a>
+									<div class="last">
+										<textarea id="tmContent" name="tmContent" placeholder="내용"></textarea>
 									</div>
-								</div>
-							</div>						
-						</div>
-					</div>
-				</div>
-			</div>
-		
-
-
-
-	<!----------------------- 나눔 게시판 끝 ------------------- -->
-
-
-			<!-- CONTACT -->
-			<div id="contact" class="tokyo_tm_section">
-				<div class="container">
-					<div class="tokyo_tm_contact">
-						<div class="tokyo_tm_title">
-							<div class="title_flex">
-								<div class="left">
-									<span>trashMap</span>
-									<h3>장소 찾기</h3>
-								</div>
-							</div>
-						</div>
-						<div class="map_wrap3">
-							<div id="map3" style="width: 100%; height: 100%; position: relative; overflow: hidden; top: 10px"></div>
-							<div id="menu_wrap1" class="bg_white" style="top: 150px; bottom: 100px; width: 300px">
-								<div class="option10">
-									<div>
-										<form onsubmit="searchPlaces10(); return false;">
-											키워드 : <input type="text" placeholder="장소를 검색해주세요" id="keyword10" size="20">
-											<button type="submit">검색하기</button>
-										</form>
-									</div>
-								</div>
-
-
-							</div>
-						</div>
-						<div class="fields" style="margin-top: 100px">
-							<form action="insertTrashMap.do" method="post"
-								enctype="multipart/form-data" class="contact_form"
-								id="contact_form" name="contact_form" autocomplete="off">
-								<div>
-									<label for="file">파일</label> <input type="file" id="file" name="file">
-								</div>
-								<!-- 이미지 마크업 생성 공간 -->
-								<div id="image_container"></div>
-								<div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
-								<div class="empty_notice">
-									<span>Please Fill Required Fields</span>
-								</div>
-								<input type="hidden" id="tmPostNum" name="tmPostNum" value="${tmPostNum }"> 
-								<input type="hidden" id="tmCnt" name="tmCnt" value="${tmCnt }">
-								<div class="first">
-									<div id="hideDateAndCnt">
-										<span id="tmTime">날짜 : </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<span>조회수 : </span> <span id="tmCntText"> </span>
-									</div>
-									<hr>
-									<br>
-									<ul>
-										<li>
-											<input id="tmTitle" name="tmTitle" type="text" placeholder="제목">
-										</li>
-										<li>
-											<input id="tmAddr" name="tmAddr" type="text" placeholder="맵을 클릭해주세요">
-										</li>
-									</ul>
-									<hr>
-									<br>
-								</div>
-								<div class="last">
-									<textarea id="tmContent" name="tmContent" placeholder="내용"></textarea>
-								</div>
-								<div class="tokyo_tm_button" data-position="left">
-									<a id="trashMapInsertOrUpdate" style="cursor: pointer"
-										onclick="trashMapInsertOrUpdate()"> <span>글 등록</span></a> 
-										<a id="deleteTrashMap" style="display: none; cursor: pointer;" onclick="deleteTrashMap()"> 
-											<span>글 삭제</span>
+									<div class="tokyo_tm_button" data-position="left"
+										id="tmbtntest">
+										<a id="trashMapInsertOrUpdate"
+											style="display: none; cursor: pointer"
+											onclick="trashMapInsertOrUpdate()"> <span>글 등록</span>
+										</a> <a id="deleteTrashMap"
+											style="display: none; cursor: pointer;"
+											onclick="deleteTrashMap()"> <span>글 삭제</span>
 										</a>
-								</div>
-								<input id="tmGetLat" name="tmGetLat" type="hidden"> 
-								<input id="tmGetLng" name="tmGetLng" type="hidden">
-								<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
+									</div>
+									<input id="sessionId" value="${sessionScope.cusId }"
+										type="hidden"> <input id="tmGetLat" name="tmGetLat"
+										type="hidden"> <input id="tmGetLng" name="tmGetLng"
+										type="hidden">
+									<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 
-							</form>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- /CONTACT -->
+				<!-- /CONTACT -->
 
-			<!-- CONTACT3 -->
-			<div id="contact3" class="tokyo_tm_section">
-				<div class="container">
-					<div class="tokyo_tm_contact">
-						<div class="tokyo_tm_title">
-							<div class="title_flex">
-								<div class="left">
-									<span>trashMap</span>
-									<h3>장소 찾기</h3>
-								</div>
-							</div>
-						</div>
-
-						<div class="map_wrap1" style="margin-top: 150px">
-							<div id="map"
-								style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-
-							<div id="menu_wrap" class="bg_white">
-								<div class="option">
-									<div>
-										<form onsubmit="searchPlaces(); return false;">
-											키워드 : <input type="text" value="인계동 청소 업체" id="keyword" size="15">
-											<button type="submit">검색하기</button>
-										</form>
+				<!-- CONTACT3 -->
+				<div id="contact3" class="tokyo_tm_section">
+					<div class="container">
+						<div class="tokyo_tm_contact">
+							<div class="tokyo_tm_title">
+								<div class="title_flex">
+									<div class="left">
+										<span>trashMap</span>
+										<h3>장소 찾기</h3>
 									</div>
 								</div>
-								<hr>
-								<ul id="placesList"></ul>
-								<div id="pagination"></div>
 							</div>
-						</div>
 
-						<div class="fields"></div>
-					</div>
-				</div>
-			</div>
-			<!-- /CONTACT3 -->
+							<div class="map_wrap1" style="margin-top: 150px">
+								<div id="map"
+									style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 
-			<!-- CONTACT4 -->
-			<div id="contact4" class="tokyo_tm_section">
-				<div class="container">
-					<div class="tokyo_tm_contact">
-						<div class="tokyo_tm_title">
-							<div class="title_flex">
-								<div class="left">
-									<span>trashMap</span>
-									<h3>장소 찾기</h3>
+								<div id="menu_wrap" class="bg_white">
+									<div class="option">
+										<div>
+											<form onsubmit="searchPlaces(); return false;">
+												키워드 : <input type="text" value="인계동 청소 업체" id="keyword"
+													size="15">
+												<button type="submit">검색하기</button>
+											</form>
+										</div>
+									</div>
+									<hr>
+									<ul id="placesList"></ul>
+									<div id="pagination"></div>
 								</div>
 							</div>
-						</div>
-						<!-- map. 시작 -->
 
-						<div class="map_wrap2" style="margin-top: 150px">
-							<div id="map1" style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-							<div id="menu_wrap1" class="bg_white">
-								<div class="option1">
-									<div>
-										<form onsubmit="searchPlaces1(); return false;">
-											키워드 : <input type="text" value="인계동 수거 업체" id="keyword1" size="15">
-											<button type="submit">검색하기</button>
-										</form>
+							<div class="fields"></div>
+						</div>
+					</div>
+				</div>
+				<!-- /CONTACT3 -->
+
+				<!-- CONTACT4 -->
+				<div id="contact4" class="tokyo_tm_section">
+					<div class="container">
+						<div class="tokyo_tm_contact">
+							<div class="tokyo_tm_title">
+								<div class="title_flex">
+									<div class="left">
+										<span>trashMap</span>
+										<h3>장소 찾기</h3>
 									</div>
 								</div>
-								<hr>
-								<ul id="placesList1"></ul>
-								<div id="pagination1"></div>
 							</div>
-						</div>
+							<!-- map. 시작 -->
 
-						<div class="fields"></div>
-					</div>
-				</div>
-			</div>
-			<!-- /CONTACT4 -->
-			<!-- CONTACT5 -->
-			<div id="contact5" class="tokyo_tm_section">
-				<div class="container">
-					<div class="tokyo_tm_contact">
-						<div class="tokyo_tm_title">
-							<div class="title_flex">
-								<div class="left">
-									<span>trashMap</span>
-
+							<div class="map_wrap2" style="margin-top: 150px">
+								<div id="map1"
+									style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+								<div id="menu_wrap1" class="bg_white">
+									<div class="option1">
+										<div>
+											<form onsubmit="searchPlaces1(); return false;">
+												키워드 : <input type="text" value="인계동 수거 업체" id="keyword1"
+													size="15">
+												<button type="submit">검색하기</button>
+											</form>
+										</div>
+									</div>
+									<hr>
+									<ul id="placesList1"></ul>
+									<div id="pagination1"></div>
 								</div>
 							</div>
-						</div>
-						<div class="fields">
-							<table style="width: 100%" id="tmbtntable" class="tmbtntable">
-								<tr style="text-align: center" class="tmbtntr">
-									<td colspan="2" style="text-align: center; font-size: 30px"
-										class="tmbtntd">업체 선택 <br> <br>
-									</td>
-								</tr>
-								<tr style="border-bottom: 1px solid;" class="tmbtntr">
 
-									<td class="tmbtntd" style="text-align: center;">
-										<div class="box-wrap" style="text-align: center">
-											<div class="box" style="top: 23px">
-												<div class="img">
-													<img src="./resources/img/trashmap/청소업체.png"
-														alt="Hover Effect" onclick="goContact3()">
-												</div>
-												<div class="info">
-													<h3>청소업체</h3>
-													<p>청소업체를 찾고 싶으시다면 click</p>
-												</div>
-											</div>
-										</div>
-									</td>
-									<td class="tmbtntd" style="text-align: center;">
-										<div class="box-wrap" style="text-align: center">
-											<div class="box" style="top: -29px">
-												<div class="img" >
-													<img src="./resources/img/trashmap/수거업체.png"
-														alt="Hover Effect" onclick="goContact4()">
-												</div>
-												<div class="info">
-													<h3>수거업체</h3>
-													<p>수거업체를 찾고 싶으시다면 click</p>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-							</table>
-
+							<div class="fields"></div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- /CONTACT5 -->
+				<!-- /CONTACT4 -->
+				<!-- CONTACT5 -->
+				<div id="contact5" class="tokyo_tm_section">
+					<div class="container">
+						<div class="tokyo_tm_contact">
+							<div class="tokyo_tm_title">
+								<div class="title_flex">
+									<div class="left">
+										<span>trashMap</span>
 
-
-			<!-- CONTACT1 -->
-			<div id="contact1" class="tokyo_tm_section">
-				<div class="container">
-					<div class="tokyo_tm_contact">
-						<div class="tokyo_tm_title">
-							<div class="title_flex">
-								<div class="left">
-									<span>trashMap</span>
-									<h3>장소 찾기 게시판</h3>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="fields">
-							<div class="tokyo_tm_button" data-position="left">
-								<br> 
-								<a id="contactMove" onclick="contactMove()" style="cursor: pointer">새글 등록</a>
-							<input style="margin-right:0px;margin-left: 400px; border-color: black; height: 30px" onkeyup="if(window.event.keyCode==13){getTrashMapList1()}" type="search" id="tmSearchList" name="tmSearchList" placeholder="지명을 입력하세요."/>
-							
+							<div class="fields">
+								<table style="width: 100%" id="tmbtntable" class="tmbtntable">
+									<tr style="text-align: center" class="tmbtntr">
+										<td colspan="2" style="text-align: center; font-size: 30px"
+											class="tmbtntd">업체 선택 <br> <br>
+										</td>
+									</tr>
+									<tr style="border-bottom: 1px solid;" class="tmbtntr">
+
+										<td class="tmbtntd" style="text-align: center;">
+											<div class="tmbox-wrap" style="text-align: center">
+												<div class="tmbox" style="top: 23px">
+													<div class="img">
+														<img src="./resources/img/trashmap/청소업체.png"
+															alt="Hover Effect" onclick="goContact3()">
+													</div>
+													<div class="info">
+														<h3>청소업체</h3>
+														<p>홈케어, 에어컨, 세탁기, 냉장고 등</p>
+														<p>청소업체를 찾고 싶으시다면 click</p>
+
+													</div>
+												</div>
+											</div>
+										</td>
+										<td class="tmbtntd" style="text-align: center;">
+											<div class="tmbox-wrap" style="text-align: center">
+												<div class="tmbox" style="top: -29px">
+													<div class="img">
+														<img src="./resources/img/trashmap/수거업체.png"
+															alt="Hover Effect" onclick="goContact4()">
+													</div>
+													<div class="info">
+														<h3>수거업체</h3>
+														<p>생활폐기물, 산업폐기물 등</p>
+														<p>수거업체를 찾고 싶으시다면 click</p>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+
 							</div>
-							<table id="trashMapListTable">
-								<tr style='background-color: gray; color: white'>
-									<th bgcolor="orange" width="50">번호</th>
-									<th bgcolor="orange" width="200">제목</th>
-									<th bgcolor="orange" width="200">주소</th>
-									<th bgcolor="orange" width="100">아이디</th>
-									<th bgcolor="orange" width="100">시간</th>
-									<th bgcolor="orange" width="70">조회수</th>
-								</tr>
-							</table>
-							<table>
-								<tr>
-									<th width="50"></th>
-									<th width="200"></th>
-									<th width="200"></th>
-									<th width="100"></th>
-									<th width="100"></th>
-									<th width="70"></th>
-								</tr>
-								<tr>
-									<th colspan="6">
-									<div id="trashMapListTableCnt"></div>
-									</th>
-								</tr>
-								
-							</table>
-
-
 						</div>
-						<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
 					</div>
 				</div>
+				<!-- /CONTACT5 -->
+
+
+				<!-- CONTACT1 -->
+				<div id="contact1" class="tokyo_tm_section">
+					<div class="container">
+						<div class="tokyo_tm_contact">
+							<div class="tokyo_tm_title">
+								<div class="title_flex">
+									<div class="left">
+										<span>trashMap</span>
+										<h3>장소 찾기 게시판</h3>
+									</div>
+								</div>
+							</div>
+							<div class="fields">
+								<div class="tokyo_tm_button" data-position="left">
+									<br> <a id="contactMove" onclick="contactMove()"
+										style="cursor: pointer">새글 등록</a> <input
+										style="margin-right: 0px; margin-left: 400px; border-color: black; height: 30px"
+										onkeyup="if(window.event.keyCode==13){getTrashMapList1(1)}"
+										type="search" id="tmSearchList" name="tmSearchList"
+										placeholder="지명을 입력하세요." />
+
+								</div>
+								<table id="trashMapListTable">
+									<tr style='background-color: gray; color: white'>
+										<th bgcolor="orange" width="50">번호</th>
+										<th bgcolor="orange" width="200">제목</th>
+										<th bgcolor="orange" width="200">주소</th>
+										<th bgcolor="orange" width="100">아이디</th>
+										<th bgcolor="orange" width="100">시간</th>
+										<th bgcolor="orange" width="70">조회수</th>
+									</tr>
+								</table>
+								<table>
+									<tr>
+										<th width="50"></th>
+										<th width="200"></th>
+										<th width="200"></th>
+										<th width="100"></th>
+										<th width="100"></th>
+										<th width="70"></th>
+									</tr>
+									<tr>
+										<th colspan="6">
+											<div id="trashMapListTableCnt"></div>
+										</th>
+									</tr>
+
+								</table>
+
+
+							</div>
+							<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
+						</div>
+					</div>
+				</div>
+
+				<!-- /CONTACT1 -->
+
+
 			</div>
+		</div>
+		<!-- /RIGHTPART -->
 
-			<!-- /CONTACT1 -->
-
-
-			</div>
-			</div>
-	<!-- /RIGHTPART -->
-
-	<!-- CURSOR -->
-	<div class="mouse-cursor cursor-outer"></div>
-	<div class="mouse-cursor cursor-inner"></div>
-	<!-- /CURSOR -->
+		<!-- CURSOR -->
+		<div class="mouse-cursor cursor-outer"></div>
+		<div class="mouse-cursor cursor-inner"></div>
+		<!-- /CURSOR -->
 
 	</div>
 	<!-- / WRAPPER ALL -->
@@ -2791,20 +2781,28 @@ if (cusId == null) {
 	</div>
 
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63c14f714ab97f512079075fedb88c69&libraries=services"></script>
-<script type="text/javascript">
-    (function(d, m){
-        var kommunicateSettings = 
-            {"appId":"21251fef9449302413eb6b3172d623d48","popupWidget":true,"automaticChatOpenOnNavigation":true};
-        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-        window.kommunicate = m; m._globals = kommunicateSettings;
-    })(document, window.kommunicate || {});
-/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
-</script>
-<!-- 	팝업js -->
-<script src="./resources/js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63c14f714ab97f512079075fedb88c69&libraries=services"></script>
+	<script type="text/javascript">
+		(function(d, m) {
+			var kommunicateSettings = {
+				"appId" : "21251fef9449302413eb6b3172d623d48",
+				"popupWidget" : true,
+				"automaticChatOpenOnNavigation" : true
+			};
+			var s = document.createElement("script");
+			s.type = "text/javascript";
+			s.async = true;
+			s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+			var h = document.getElementsByTagName("head")[0];
+			h.appendChild(s);
+			window.kommunicate = m;
+			m._globals = kommunicateSettings;
+		})(document, window.kommunicate || {});
+		/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+	</script>
+	<!-- 	팝업js -->
+	<script src="./resources/js/jquery.magnific-popup.js"></script>
 
 	<!-- SCRIPTS -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -4272,8 +4272,8 @@ function getListItem1(index, places) {
 
 	  // 채팅버튼 생성 if문
 
-      if(test123(places.phone)>0){
-   	  	itemStr1 +=  '<a href="chat.do?phone='+places.phone+'">채팅</a>'
+      if(phoneChat(places.phone)>0){
+    	  itemStr1 +=  '✔<a  href="chat.do?phone='+places.phone+'" ><span id="phoneChatCss">  BULLS회원입니다 [1:1상담]</span></a>'
    		itemStr1 += '</span></div>';  
       }
       else{
@@ -4285,6 +4285,7 @@ function getListItem1(index, places) {
 
     return el1;
 }
+
 function chat(b) {
 
 	 $.ajax({
@@ -4300,14 +4301,14 @@ function chat(b) {
       });	    
 }
 
-function test123(phone) {
-	console.log(phone);
+function phoneChat(phone) {
+
 	var testdata={
 			busPhoneNum:phone
 	}
 	var str;
 	 $.ajax({
-        url:"test123.do"
+        url:"phoneChat.do"
         , type : "post"
         , data : testdata 
         , async: false
@@ -4541,12 +4542,12 @@ function getListItem(index, places) {
         itemStr += '    <span>' +  places.address_name  + '</span>'; 
     }
                  
-      itemStr += '  <span class="tel">' + places.phone +'&nbsp;&nbsp;'  
-                
-      if(test123(places.phone)>0){
-     	  	itemStr +=  '<a href="chat.do?phone='+places.phone+'">채팅</a>'
-        }
-      itemStr += '</span></div>';  
+    itemStr += '  <span class="tel">' + places.phone +'&nbsp;&nbsp;'  
+            
+    if(phoneChat(places.phone)>0){
+	  itemStr +=  '✔<a  href="chat.do?phone='+places.phone+'" ><span id="phoneChatCss">  BULLS회원입니다 [1:1상담]</span></a>'
+    }
+    itemStr += '</span></div>';  
       
       
       

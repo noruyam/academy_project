@@ -53,8 +53,6 @@ function tokyo_tm_menu(){
 	list.on('click',function(){
 		var element = jQuery(this);
 		var myHref	= element.find('a').attr('href');
-// alert(myHref);
-// console.log(myHref);
 		if(!element.hasClass('active')){
 			list.removeClass('active');
 			element.addClass('active');
@@ -544,6 +542,7 @@ function tokyo_tm_owl_carousel(){
 
 // 처음 화면 contact에서 contact1로 화면 바꿔주는 function
 function contactMove(){
+	$("#trashMapInsertOrUpdate").show();
 	var list	 = $('#contact1');
 	var element	 = $('#contact');
 	list.removeClass('active');
@@ -551,6 +550,7 @@ function contactMove(){
 }
 
 function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
+	$("#trashMapInsertOrUpdate").show();
 	if(tmPostNum>0){
 		$("#deleteTrashMap").show();
 		$("#hideDateAndCnt").show();
@@ -573,7 +573,7 @@ function contactMove(tmPostNum,tmTitle,tmAddr,tmContent,tmTime,tmCnt){
 
 // 새글등록하거나 기존 글을 업데이트해주는 function
 function trashMapInsertOrUpdate(){
-//	alert($('#tmGetLat').val());
+
 	// Insert 또는 Update를 구별해주기 위해서 tmPostNum값이 없으면 Insert, tmPostNum 값이 있으면 Update 해줌
 	var tmPostNum1 = $("#tmPostNum").val();
 	
@@ -591,7 +591,8 @@ function trashMapInsertOrUpdate(){
 				tmFname : fileUploadReturn.tmFname,
 				tmFnameEn: fileUploadReturn.tmFnameEn,		
 				tmGetLat:$('#tmGetLat').val(),
-				tmGetLng:$('#tmGetLng').val()
+				tmGetLng:$('#tmGetLng').val(),
+				cusId:$('#sessionId').val()
 		};
 		var updateTrashMapData = {
 				tmPostNum : $("#tmPostNum").val(),
@@ -612,7 +613,8 @@ function trashMapInsertOrUpdate(){
 				tmContent : $("#tmContent").val(),
 				tmAddr : $("#tmAddr").val(),
 				tmGetLat:$('#tmGetLat').val(),
-				tmGetLng:$('#tmGetLng').val()
+				tmGetLng:$('#tmGetLng').val(),
+				cusId:$('#sessionId').val()
 			};
 		
 		var updateTrashMapData = {
@@ -735,7 +737,7 @@ function getTrashMapList(cnt) {
 	       		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
 	       		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
 	       		+ '</TD><TD class="removeTbody" name="tmAddr" align="center">' + result[i].tmAddr
-	       		+ '</TD><TD class="removeTbody" name="cusId" align="center">cusId</TD>'
+	       		+ '</TD><TD class="removeTbody" name="cusId" align="center">'+result[i].cusId+'</TD>'
 	       		+ '</TD><TD class="removeTbody" name="tmTime" align="center">' +result[i].tmTime
 	       		+ '</TD><TD class="removeTbody" name="tmCnt" align="center">' + result[i].tmCnt+'</td>'
 	       		+ '<input type="hidden" class="removeTbody" align="center" value="'+result[i].tmContent+'">'
@@ -783,6 +785,7 @@ function getTrashMap(tmPostNum,tmCnt) {
 	var tmCnt = $("#tmCnt")
 	var tmTime = $("#tmTime")
 	var tmCntText =  $("#tmCntText")
+	var sessionId = $('#sessionId').val();
 	
 	$.ajax({
 		url : "getTrashMap.do"
@@ -803,6 +806,17 @@ function getTrashMap(tmPostNum,tmCnt) {
 			$('#tmGetLng').val(tmGetLng1);
 			removeMarker6(tmGetLat1,tmGetLng1);
 			
+			
+			if(sessionId==result.cusId){
+				$("#trashMapInsertOrUpdate").show();
+				$("#deleteTrashMap").show();
+				$("#hideDateAndCnt").show();
+			}else{
+				$("#trashMapInsertOrUpdate").hide(); 
+				$("#deleteTrashMap").hide(); 
+				$("#hideDateAndCnt").hide();
+			}
+			
 			if(tmPostNum>0){
 				if(result.tmFnameEn!=null){
 					trashMapCreateImages(result.tmFnameEn);
@@ -819,16 +833,19 @@ function getTrashMap(tmPostNum,tmCnt) {
 			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 		}
 	});
-	
+
 	// 만약 tmPostNum이 있으면 업데이트를 하는 버튼을 보여주고, 아니면 인서트하는 버튼을 보여줌
-	if(tmPostNum>0){
-		$("#deleteTrashMap").show();
-		$("#hideDateAndCnt").show();
-		
-	}else{
-		$("#deleteTrashMap").hide(); 
-		$("#hideDateAndCnt").hide();
-	}
+//	if(tmPostNum>0){
+//		
+//		$("#deleteTrashMap").show();
+//		$("#hideDateAndCnt").show();
+//		
+//	}else{
+//		$("#deleteTrashMap").hide(); 
+//		$("#hideDateAndCnt").hide();
+//	}
+	
+	
 	var list	 = $('#contact1');
 	var element	 = $('#contact');
 	list.removeClass('active');
@@ -1389,7 +1406,7 @@ $.get("http://localhost:8080/zizon/resources/img/portfolio/"+search+".png").done
 
 
 // 주변 분리수거 장소 검색
-function getTrashMapList1() {
+function getTrashMapList1(cnt) {
 //	alert("getTrashMapList1");
 	var tsl = {
 			tmSearchList : $('#tmSearchList').val()
@@ -1400,8 +1417,7 @@ function getTrashMapList1() {
 	 // 목록으로 갈때 이전 화면에 있던 file을 지워줌
 	 $('#file').val("");
 	
-	 // 목록에 있는 동적 테이블을 지워주고 새로 리스트를 불러오기 위해서 우선 지워줌
-	 $( '#trashMapListTable > #removeTbody').remove();
+	 var getTrashMapListOnePageCnt=10;
 	 
 	 // 목록에 있는 이미지 지워줌
 	 $('#trashMapImagePanel').remove();
@@ -1427,26 +1443,46 @@ function getTrashMapList1() {
 	       	
 	       	// 나중에 목록을 불러와줄때마다 동적으로 생성된 table을 지워주기위해 tbody로 먼저 묶어서 id 지정하여 remove 실행
 	       	str += "<tbody id='removeTbody' class='removeTbody'>";
-	       	
-	       	// 테이블을 생성하기 위한 for문 
-	       	for(var i=0;i<len;i++){
-	       		
-	       		// tr전체를 클릭했을때 onclick을 실행하도록 동적 테이블 생성, 
-	       		// onclick 했을때 ()안에 변수를 가지고 들어가서 getTrashMap에서 활용하기 위한 동적테이블 생성
-	       		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+','+result[i].tmCnt+')">'
-	       		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
-	       		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
-	       		+ '</TD><TD class="removeTbody" name="tmAddr" align="center">' + result[i].tmAddr
-	       		+ '</TD><TD class="removeTbody" name="cusId" align="center">cusId</TD>'
-	       		+ '</TD><TD class="removeTbody" name="tmTime" align="center">' +result[i].tmTime
-	       		+ '</TD><TD class="removeTbody" name="tmCnt" align="center">' + result[i].tmCnt+'</td>'
-	       		+ '<input type="hidden" class="removeTbody" align="center" value="'+result[i].tmContent+'">'
-	            str += '</TR>'		   
+	       	if(len==0){
+	       		alert('해당 지역은 없습니다.')
 	       	}
-	       	str += "</tbody>";
-	       	
-	       	// str에 만들어놓은 테이블생성값들을 index에 만들어둔 테이블에 더해줌
-	       	table.append(str).trigger("create");
+	       	else{
+	       		
+		       	// 목록에 있는 동적 테이블을 지워주고 새로 리스트를 불러오기 위해서 우선 지워줌
+		       	 $( '#trashMapListTable > #removeTbody').remove();
+		       	 
+		       	 // 페이지 숫자 div에 남아있는거 지우고 다시 for문 돌리기 위함 
+		    	 $( '#trashMapListTableCnt > #removecnt').remove();
+		       	 
+		       	// 테이블을 생성하기 위한 for문 
+		       	for(var i=((cnt-1)*getTrashMapListOnePageCnt);i<getTrashMapListOnePageCnt*cnt;i++){
+		       		
+		       		// 만약 i가 총 리스트 갯수보다 많아지면 멈춤
+		       		if(i>len-1){
+		       			break;
+		       		}
+
+		       		// tr전체를 클릭했을때 onclick을 실행하도록 동적 테이블 생성, 
+		       		// onclick 했을때 ()안에 변수를 가지고 들어가서 getTrashMap에서 활용하기 위한 동적테이블 생성
+		       		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+','+result[i].tmCnt+')">'
+		       		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
+		       		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
+		       		+ '</TD><TD class="removeTbody" name="tmAddr" align="center">' + result[i].tmAddr
+		       		+ '</TD><TD class="removeTbody" name="cusId" align="center">'+result[i].cusId+'</TD>'
+		       		+ '</TD><TD class="removeTbody" name="tmTime" align="center">' +result[i].tmTime
+		       		+ '</TD><TD class="removeTbody" name="tmCnt" align="center">' + result[i].tmCnt+'</td>'
+		       		+ '<input type="hidden" class="removeTbody" align="center" value="'+result[i].tmContent+'">'
+		            str += '</TR>'	
+		            	
+		       	}
+		       	str += "</tbody>";
+		       	var strcnt="";
+		       	for(var j=1;j<(len/getTrashMapListOnePageCnt)+1;j++){
+		       		strcnt+='<a id="removecnt" style="cursor:pointer;" onclick="getTrashMapList1('+j+')">['+j+']</a>'
+		       	}
+		       	table.append(str).trigger("create");
+		       	$('#trashMapListTableCnt').append(strcnt).css("cursor:pointer");;
+	       	}
 	       },
 	       error : function(request, error){
 	           alert("fail");

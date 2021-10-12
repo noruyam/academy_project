@@ -14,14 +14,14 @@
       ,tmFname
       , tmFnameEn
    </if>
-   ,tmGetLat,tmGetLng
+   ,tmGetLat,tmGetLng,cusId
    )
    VALUES (TrashMap_seq.nextval, #{tmTitle}, #{tmContent}, #{tmAddr},sysdate,0
    <if test="tmFname != null">
       ,#{tmFname}
       , #{tmFnameEn}
    </if>
-   , #{tmGetLat}, #{tmGetLng}
+   , #{tmGetLat}, #{tmGetLng},#{cusId}
    )
 
 </insert>
