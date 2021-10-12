@@ -61,6 +61,12 @@ public class trashMapServiceImpl implements trashMapService{
 	public trashMapVO trashMapGetFileName(trashMapVO vo) {
 		return trashMapDAO.trashMapGetFileName(vo);
 	}
+
+	@Override
+	public List<trashMapVO> searchList(trashMapVO vo) {
+		
+		return	trashMapDAO.searchList(vo);
+	}
 }
 		
 		

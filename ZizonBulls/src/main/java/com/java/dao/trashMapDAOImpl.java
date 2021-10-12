@@ -66,4 +66,10 @@ public class trashMapDAOImpl implements trashMapDAO {
 		return mybatis.selectOne("trashMapDAO.trashMapGetFileName", vo);
 
 	}
+	
+	@Override
+	public List<trashMapVO> searchList(trashMapVO vo) {
+		System.out.println("다오임플"+vo.getTmSearchList());
+		return mybatis.selectList("trashMapDAO.searchList",vo);
+	}
 }

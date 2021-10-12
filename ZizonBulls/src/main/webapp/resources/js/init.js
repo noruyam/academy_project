@@ -1385,3 +1385,74 @@ $.get("http://localhost:8080/zizon/resources/img/portfolio/"+search+".png").done
 })
 }
 
+
+
+
+// 주변 분리수거 장소 검색
+function getTrashMapList1() {
+//	alert("getTrashMapList1");
+	var tsl = {
+			tmSearchList : $('#tmSearchList').val()
+		};
+	 // 누를때 맨위로 스크롤 이동
+	 $('#contact1').animate({ scrollTop: 0 });
+	
+	 // 목록으로 갈때 이전 화면에 있던 file을 지워줌
+	 $('#file').val("");
+	
+	 // 목록에 있는 동적 테이블을 지워주고 새로 리스트를 불러오기 위해서 우선 지워줌
+	 $( '#trashMapListTable > #removeTbody').remove();
+	 
+	 // 목록에 있는 이미지 지워줌
+	 $('#trashMapImagePanel').remove();
+	
+	 // controller에  getTrashMapList를 실행해주는 ajax 
+	 $.ajax({
+	       url : "getTrashMapList1.do",
+	       type : "get",
+	       data: tsl,
+	       dataType:"json",
+	
+	       // controller에서 리턴된 List배열을 result에 담아서 for문으로 table에 뿌려줌
+	       success : function(result){
+	    
+	    	// 리턴된 List의 길이
+	       	var len=result.length;
+	       	
+	       	// index에 리턴된 List를 담기 위해 만들어놓은 테이블의 id값
+	       	var table=$('#trashMapListTable');
+	       	
+	       	// 동적 테이블을 생성하기 위한 변수 str 생성
+	       	var str="";
+	       	
+	       	// 나중에 목록을 불러와줄때마다 동적으로 생성된 table을 지워주기위해 tbody로 먼저 묶어서 id 지정하여 remove 실행
+	       	str += "<tbody id='removeTbody' class='removeTbody'>";
+	       	
+	       	// 테이블을 생성하기 위한 for문 
+	       	for(var i=0;i<len;i++){
+	       		
+	       		// tr전체를 클릭했을때 onclick을 실행하도록 동적 테이블 생성, 
+	       		// onclick 했을때 ()안에 변수를 가지고 들어가서 getTrashMap에서 활용하기 위한 동적테이블 생성
+	       		str += '<Tr class="removeTbody" style="cursor:pointer;" align="center" onclick="getTrashMap('+result[i].tmPostNum+','+result[i].tmCnt+')">'
+	       		str += '<TD class="removeTbody"  name="tmPostNum" align="center">' + result[i].tmPostNum
+	       		+ '</TD><TD class="removeTbody" name="tmTitle" align="center">'+ result[i].tmTitle
+	       		+ '</TD><TD class="removeTbody" name="tmAddr" align="center">' + result[i].tmAddr
+	       		+ '</TD><TD class="removeTbody" name="cusId" align="center">cusId</TD>'
+	       		+ '</TD><TD class="removeTbody" name="tmTime" align="center">' +result[i].tmTime
+	       		+ '</TD><TD class="removeTbody" name="tmCnt" align="center">' + result[i].tmCnt+'</td>'
+	       		+ '<input type="hidden" class="removeTbody" align="center" value="'+result[i].tmContent+'">'
+	            str += '</TR>'		   
+	       	}
+	       	str += "</tbody>";
+	       	
+	       	// str에 만들어놓은 테이블생성값들을 index에 만들어둔 테이블에 더해줌
+	       	table.append(str).trigger("create");
+	       },
+	       error : function(request, error){
+	           alert("fail");
+	           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       }
+	   });
+		
+	
+}

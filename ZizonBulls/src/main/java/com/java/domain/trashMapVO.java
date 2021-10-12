@@ -16,8 +16,17 @@ public class trashMapVO {
    @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
    private Date tmTime;
    private int tmCnt;
+   private String tmSearchList;
    
-   private String tmFname;
+   public String getTmSearchList() {
+	return tmSearchList;
+}
+
+public void setTmSearchList(String tmSearchList) {
+	this.tmSearchList = tmSearchList;
+}
+
+private String tmFname;
    private String tmFnameEn;
    
    String tmComment;

@@ -320,25 +320,25 @@ if (cusId == null) {
 					</ul>
 				</div>
 				<div class="menu">
-					<ul>
+					<ul id="icon">
 						<li><a href="#home" class="offTs"><img class="svg"
 								src="${path }/resources/img/svg/home-run.svg" alt="" /></a></li>
 						<li><a href="#about" class="offTs"><img class="svg"
 								src="${path }/resources/img/svg/avatar.svg" alt="" /></a></li>
 						<li><a href="#portfolio" class="onTs"><img class="svg"
-								src="${path }/resources/img/svg/briefcase.svg" alt="" /></a></li>
+								src="${path }/resources/img/svg/trash.svg" alt="" /></a></li>
 						<li><a href="#news" class="offTs"><img class="svg"
-								src="${path }/resources/img/svg/paper.svg" alt="" /></a></li>
+								src="${path }/resources/img/svg/nanum.svg" alt="" /></a></li>
 <!-- 						<li><a href="#contact"><img class="svg" -->
 <%-- 								src="${path }/resources/index/img/svg/mail.svg" alt="" /></a></li> --%>
 						<li><a href="#contact1" class="offTs"><img class="svg"
-								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>
+								src="${path }/resources/img/svg/map.svg" alt="" /></a></li>
 <!-- 						<li><a href="#contact3"><img class="svg" -->
 <%-- 								src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
 <!-- 						<li><a href="#contact4"><img class="svg" -->
 <%-- 							src="${path }/resources/img/svg/mail.svg" alt="" /></a></li> --%>
 						<li><a href="#contact5" class="offTs"><img class="svg"
-							src="${path }/resources/img/svg/mail.svg" alt="" /></a></li>	
+							src="${path }/resources/img/svg/search.svg" alt="" /></a></li>	
 					</ul>
 				</div>
 			</div>
@@ -2722,7 +2722,7 @@ if (cusId == null) {
 							<div class="title_flex">
 								<div class="left">
 									<span>trashMap</span>
-									<h3>장소 찾기 글목록</h3>
+									<h3>장소 찾기 게시판</h3>
 								</div>
 							</div>
 						</div>
@@ -2730,6 +2730,8 @@ if (cusId == null) {
 							<div class="tokyo_tm_button" data-position="left">
 								<br> 
 								<a id="contactMove" onclick="contactMove()" style="cursor: pointer">새글 등록</a>
+							<input style="margin-right:0px;margin-left: 400px; border-color: black; height: 30px" onkeyup="if(window.event.keyCode==13){getTrashMapList1()}" type="search" id="tmSearchList" name="tmSearchList" placeholder="지명을 입력하세요."/>
+							
 							</div>
 							<table id="trashMapListTable">
 								<tr style='background-color: gray; color: white'>
@@ -2755,6 +2757,7 @@ if (cusId == null) {
 									<div id="trashMapListTableCnt"></div>
 									</th>
 								</tr>
+								
 							</table>
 
 

@@ -81,5 +81,12 @@
       WHERE tmTitle = #{tmTitle}
    </select>
    
+   
+   <select id="searchList" parameterType="trashMap" resultType="trashMap">
+	select * 
+	from TrashMap
+	where tmaddr like '%'||#{tmSearchList}||'%'
+	
+	</select>
 </mapper>
       
