@@ -165,6 +165,14 @@ public class CustomerController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value="logout.do")
+	public String logout(CustomerVO vo, HttpSession session) {
+		System.out.println("로그아웃");
+		session.invalidate();
+		
+		return "redirect:/";
+	}
+	
 	 @RequestMapping(value = "idCheck.do", method = RequestMethod.POST)
 	   @ResponseBody
 	   public int idCheck_Join(CustomerVO vo, HttpServletRequest req) {

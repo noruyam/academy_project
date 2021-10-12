@@ -9,6 +9,10 @@ list-type-ulli, .socials {
   margin: 0;
   padding: 0; }
 
+.cusIdLabel {
+	top : 20%
+}
+
 /* poppins-300 - latin */
 @font-face {
   font-family: 'Poppins';

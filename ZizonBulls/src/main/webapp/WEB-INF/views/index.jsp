@@ -377,7 +377,7 @@ if (cusId == null) {
 						<a href="customer/customerInfo.do"> My profile </a>
 					</p>
 					<p>
-					<a href="customer/customerLogin.do"> LogOut </a>
+					<a href="customer/logout.do"> LogOut </a>
 					</p>
 				</div>
 			</div>
