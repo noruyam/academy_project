@@ -11,6 +11,7 @@
 		<typeAlias type="com.java.domain.nanumVO" alias="nanum" />
 		<typeAlias type="com.java.domain.chatVO" alias="board" />
 		<typeAlias type="com.java.domain.tmDatVO" alias="tmDat"/>
+		<typeAlias type="com.java.domain.ReplyVO" alias="Reply" />
 	</typeAliases>
 
 </configuration>

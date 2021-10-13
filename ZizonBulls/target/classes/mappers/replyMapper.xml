@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="ReplyDAO">
+	
+<!-- 	<insert id="replyinsertBoard" parameterType="Reply"> -->
+<!-- 		INSERT INTO reply(seq, cusId, recontent, renum, reregDate) -->
+<!-- 		VALUES (#{seq},#{cusId}, #{recontent}, SQ_reply.nextval, sysdate) -->
+<!-- 	</insert> -->
+	<insert id="replyinsertBoard" parameterType="Reply">
+   INSERT INTO reply(renum, seq, cusId, recontent,reregDate)
+   VALUES (SQ_reply.nextval, #{seq}, #{cusId}, #{recontent},sysdate)
+
+   </insert>
+	<delete id="deleteBoard" parameterType="Reply">
+		DELETE FROM reply
+		WHERE seq = #{seq}
+	</delete>
+	
+	<update id="updateBoard" parameterType="Reply">
+		UPDATE reply
+		SET retitle = #{retitle},
+			rewriter = #{rewriter},
+			recontent = #{recontent}
+		WHERE seq = #{seq}
+	</update>
+	
+	<select id="getBoard" parameterType="Reply" resultType="Reply">
+		SELECT *
+		FROM reply
+		WHERE seq = #{seq}
+	</select>
+	
+	<select id="getreplyList"  parameterType="Reply" resultType="Reply" >
+		SELECT *
+		FROM reply
+		where seq = #{seq}
+		order by seq desc
+	</select>
+	<select id="searchNanum" parameterType="nanum" resultType="nanum">
+	   select * 
+	   from reply
+	   where title like '%'||#{searchNanum}||'%'
+   
+   </select>
+</mapper>
+

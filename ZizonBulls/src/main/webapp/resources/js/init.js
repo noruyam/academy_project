@@ -66,7 +66,7 @@ function tokyo_tm_menu(){
 			getTrashMapList(1);
 
 		}else if(myHref=="#news"){
-			getBoardList();
+			getBoardList(1);
 		}
 	});
 }
@@ -1041,99 +1041,101 @@ function getTrashMapListCnt(){
 // uploadFile : 사진 업로드할때 필요한 ajax				   
 
 function moveActive(){
-	
-	$("#title").val("");
-	$("#writer").val("");
-	$("#content").val("");
-	$("#cnt").val("");
-	
-	$("#delete").hide();  
-	
-	   $("#insert").html("<span>글 등록</span>");
-	   $("#insert").attr("onclick","insertBoard()");
 	   
-	   var list    = $('#news');
-	   var element    = $('#news1');
+	   $("#title").val("");
+	   $("#writer").val("");
+	   $("#content").val("");
+	   $("#fanme").val("");
+	   $("#cnt").val("");
 	   
-	         list.removeClass('active');
-	         element.addClass('active');   
-	         
-	         
-	}
+	   $("#delete").hide();  
+	   
+	      $("#insert").html("<span>글 등록</span>");
+	      $("#insert").attr("onclick","insertBoard()");
+	      
+	      var list    = $('#news');
+	      var element    = $('#news1');
+	      
+	            list.removeClass('active');
+	            element.addClass('active');   
+	            
+	            
+   }
 
 //-----------------insertBoard------------------ 
 
 function insertBoard(){
-//	   alert("나눔게시판 새글등록 제목 : " + $("#title").val());
-	
-	var uploadfile = fn_submit1();
-			   
-	var yn = confirm("게시글을 등록하시겠습니까?");
-	
-	var insertBoardData = {
-			
-			title : $("#title").val(),
-			writer : $("#writer").val(),
-			content : $("#content").val(),
-			fname : $("#fname").val()
-	};
-	
-	if(yn){
-		
-		$.ajax({
-			url : "insertBoard.do",
-			type : "get",
-			data :insertBoardData ,
-			
-			success : function(data){
-				
-				getBoardList();
-				
-			},
-			error : function(xhr, status, error){
-				alert("통신 에러");
-				
-			}
-			
-		});
-		var list    = $('#news1');
-		var element    = $('#news');
-		
-		list.removeClass('active');
-		element.addClass('active');   
-	} 
+//	      alert("나눔게시판 새글등록 제목 : " + $("#title").val());
+   
+   
+   var uploadfile = fn_submit1();
+            
+   var yn = confirm("게시글을 등록하시겠습니까?");
+   
+   var insertBoardData = {
+         
+         title : $("#title").val(),
+         writer : $("#writer").val(),
+         content : $("#content").val(),
+         fname : $("#fname").val()
+   };
+   
+   if(yn){
+      
+      $.ajax({
+         url : "insertBoard.do",
+         type : "get",
+         data :insertBoardData ,
+         
+         success : function(data){
+            
+            getBoardList(1);
+            
+         },
+         error : function(xhr, status, error){
+            alert("통신 에러");
+            
+         }
+         
+      });
+      var list    = $('#news1');
+      var element    = $('#news');
+      
+      list.removeClass('active');
+      element.addClass('active');   
+   } 
 }
 
 
 //-----------------updateBoard------------------ 
 
 function updateBoard(seq){
-	
-	 
-	   var updateBoard1 = {
-			 seq : $("#seq").val(),
-		     title : $("#title").val(),
-	         writer : $("#writer").val(),
-	         content : $("#content").val()
-	   };
-	  
-	      $.ajax({
-	         url:"updateBoard.do", 
-	          type : "get",
-	          data :updateBoard1 ,
-	          success :  function(data){
-	        	 alert("성공");
-	        	 
-	        	  getBoardList();
-	          },
-	          error : function(xhr, status, error){
-	             alert("실패"); 
-	               
-	          }
-	      
-	      });
-	          
-	}
+   
+    
+      var updateBoard1 = {
+          seq : $("#seq").val(),
+           title : $("#title").val(),
+            writer : $("#writer").val(),
+            content : $("#content").val()
+      };
+     
+         $.ajax({
+            url:"updateBoard.do", 
+             type : "get",
+             data :updateBoard1 ,
+             success :  function(data){
+               alert("성공");
+               
+                getBoardList(1);
+             },
+             error : function(xhr, status, error){
+                alert("실패"); 
+                  
+             }
+         
+         });
+             
+   }
 
 
 
@@ -1142,77 +1144,76 @@ function updateBoard(seq){
 //-----------------deleteBoard------------------ 
 
 function deleteBoard(seq){
-	   
-		
-	   var deletedata = {
-	            seq : $("#seq").val(),
-	            title : $("#title").val(),
-	            writer : $("#writer").val(),
-	            content : $("#content").val()
-	            
-	   };
-	      $.ajax({
-	         url:"deleteBoard.do",
-	         type : "get",
-	         data : deletedata,
-	         success : function(data){
-	            
-	            getBoardList();
-	         },
-	         error : function(xhr, status, error){
-	            alert("에러");
-	         }
-	      });
-	
+      
+      
+      var deletedata = {
+               seq : $("#seq").val(),
+               title : $("#title").val(),
+               writer : $("#writer").val(),
+               content : $("#content").val()
+               
+      };
+         $.ajax({
+            url:"deleteBoard.do",
+            type : "get",
+            data : deletedata,
+            success : function(data){
+               
+               getBoardList(1);
+            },
+            error : function(xhr, status, error){
+               alert("에러");
+            }
+         });
+   
 }
 
 //-----------------getBoard------------------
 
 function getBoard(seq,title,writer,content,regDate,cnt){
-//	   alert(seq);
-//	   alert(cnt);
-	
-	 
-	   if(seq > 0 ){
-	      
-//		   alert("#seq"+seq);
-	   $("#delete").show();
-	   $("#cnt").show();
-	   
-	   $("#insert").html("<span>글 수정</span>");
-	   $("#insert").attr("onclick","updateBoard("+seq+")");
-	   
-	   }
-	   var updatecnt = {
-	            seq : seq,
-	            cnt : cnt
-	            
-	            
-	   };
-	      $.ajax({
-	         url:"updatecnt.do",
-	         type : "get",
-	         data : updatecnt,
-	         success : function(data){
-	            
-	         },
-	         error : function(xhr, status, error){
-	            alert("에러");
-	         }
-	      });
-	      
-	      $("#seq").val(seq),
-	      $("#title").val(title),
+
+      getreplyList(seq);
+    
+      if(seq > 0 ){
+         
+//	         alert("#seq"+seq);
+      $("#delete").show();
+      $("#cnt").show();
+      
+      $("#insert").html("<span>글 수정</span>");
+      $("#insert").attr("onclick","updateBoard("+seq+")");
+      
+      }
+      var updatecnt = {
+               seq : seq,
+               cnt : cnt
+               
+               
+      };
+         $.ajax({
+            url:"updatecnt.do",
+            type : "get",
+            data : updatecnt,
+            success : function(data){
+               
+            },
+            error : function(xhr, status, error){
+               alert("에러");
+            }
+         });
+         
+         $("#seq").val(seq),
+         $("#title").val(title),
        $("#writer").val(writer),
        $("#content").val(content),
        $("#cnt1").text(cnt)
        
-	   var list    = $('#news');
-	   var element    = $('#news1');
-	      
-	    list.removeClass('active');
-	    element.addClass('active');   
-	        
+      var list    = $('#news');
+      var element    = $('#news1');
+         
+       list.removeClass('active');
+       element.addClass('active');   
+           
 }
 
 //-----------------uploadFile------------------
@@ -1241,36 +1242,44 @@ jQuery.ajax({
       fnamereturn = response;
    }
    ,error: function (jqXHR) { 
-      alert(jqXHR.responseText); 
+//	      alert(jqXHR.responseText); 
       return false;
    }
 });
-console.log("fn_submit 안에 있는 fnamereturn :"+fnamereturn);
 
 // 저장된 이름을 리턴해줌
 return fnamereturn;
 }
 
-			
+         
 
 //-----------------getBoardList------------------
 
-function getBoardList() {
-//console.log( $('#removetest10').val);
-	
+function getBoardList(pagecnt) {
+   
+// 페이지 숫자 div에 남아있는거 지우고 다시 for문 돌리기 위함 
+$( '#nanumListTableCnt > #removecnt').remove();
+
+var getBoardListOnePage=10;
+   
 $('#nanumBoardTable > #removetest10').remove();
-	
+   
 $.ajax({
        url : "getBoardList.do",
        type : "get",
        dataType:"json",
        success : function(result){
-//        alert(result[0]);
+//	        alert(result[0]);
           var len=result.length;
           var table=$('#nanumBoardTable');
-          
           var str ="<tbody id = 'removetest10'>";
-          for(var i=0;i<len;i++){
+         
+          
+          for(var i=((pagecnt-1)*getBoardListOnePage);i<getBoardListOnePage*pagecnt;i++){
+             if(i>len-1){
+                  break;
+               }
+
                 str += "<TR onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\",\""+result[i].content+"\","+result[i].regDate+","+result[i].cnt+")'>"
                 str += '<TD name="seq" align="center">' + result[i].seq
                 + '</TD><TD name="title" align="center">' + result[i].title
@@ -1282,6 +1291,12 @@ $.ajax({
           }
           str +="</tbody>";
           table.append(str)
+          var strcnt="";
+          for(var j=1;j<(len/getBoardListOnePage)+1;j++){
+             strcnt+='<a id="removecnt" style="cursor:pointer; align:center;" onclick="getBoardList('+j+')">['+j+']</a>'
+          }
+          $('#nanumListTableCnt').append(strcnt).css("cursor:pointer");;
+
        },
        error : function(request, error){
            alert("fail");
@@ -1296,9 +1311,184 @@ $.ajax({
         element.addClass('active');   
 }
 
+// -----------------searchNanum----------------------
+function searchNanum() {
+      //console.log( $('#removetest10').val);
+      var sN = {
+            searchNanum : $('#searchNanum').val()
+         };
+    
+      $.ajax({
+             url : "searchNanum.do",
+             type : "get",
+             data : sN,
+             dataType:"json",
+             success : function(result){
+                
+//	              alert(result[0]);
+                var len=result.length;
+                var table=$('#nanumBoardTable');
+                
+                var str ="";
+               if(result.length == 0){
+                  alert("해당게시글은 없습니다.")
+               }else{
+                  
+              $('#nanumBoardTable > #removetest10').remove();
+                 var p = 10;
+              
+                 
+                 str +=  "<tbody id = 'removetest10'>";
+                for(var i=0;i<len;i++){
+                      str += "<TR onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\",\""+result[i].content+"\","+result[i].regDate+","+result[i].cnt+")'>"
+                      str += '<TD name="seq" align="center">' + result[i].seq
+                      + '</TD><TD name="title" align="center">' + result[i].title
+                      + '</TD><TD name="writer" align="center">' + result[i].writer
+                      + '</TD><TD name="regDate" align="center" pattern="yyyy-MM-dd">' + result[i].regDate
+                      + '</TD><TD name="cnt" align="center">' + result[i].cnt + '</TD>'
+                         str += '</TR>'
+
+                }
+                
+                str +="</tbody>";
+                table.append(str)}
+             },
+             error : function(request, error){
+                 alert("fail");
+                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+             }
+         });
+
+        var list    = $('#news1');
+        var element    = $('#news');
+        
+              list.removeClass('active');
+              element.addClass('active');   
+      }
+//댓글 쓰기 (버튼을 눌러서 id값이 넘어와 실행되는 자바스크립트 구문)
+function replyinsertBoard(){
+
+      
+   var yn = confirm("댓글을 등록하시겠습니까?");
+   
+   var insertreplyData = {
+         
+         seq : $("#seq").val(),
+         cusId : "id",
+         recontent : $("#recontent").val()
+         
+   };
+   
+   if(yn){
+      
+      $.ajax({
+         url : "replyinsertBoard.do",
+         type : "get",
+         data :insertreplyData ,
+         
+         success : function(data){
+            
+            getreplyList($("#seq").val());
+            
+         },
+         error : function(xhr, status, error){
+            alert("통신 에러");
+            
+         }
+         
+      });
+
+   } 
+}
 
 
-//--------------------나눔 게시판 ------------------------- 꿑---------------------
+//-----------------getreply------------------ 
+
+function getreply(seq,title,writer,content,regDate){
+       
+      if(seq > 0 ){
+         
+      $("#delete").show();
+      
+      $("#insert").html("<span>글 수정</span>");
+      $("#insert").attr("onclick","updateBoard("+seq+")");
+      
+      }
+      
+         $.ajax({
+            url:"updatecnt.do",
+            type : "get",
+            data : updatecnt,
+            success : function(data){
+               updateBoard();
+            },
+            error : function(xhr, status, error){
+               alert("에러");
+            }
+         });
+         
+         $("#seq").val(seq),
+         $("#title").val(title),
+        $("#writer").val(writer),
+        $("#content").val(content)
+    
+    
+      var list    = $('#news');
+      var element    = $('#news1');
+         
+       list.removeClass('active');
+       element.addClass('active');   
+           
+}
+//-----------------getreplyList------------------
+
+function getreplyList(seq) {
+   
+      
+   $('#replyTable > #removetest1').remove();
+      var replyBoard = {
+            
+            seq : seq
+      }
+         
+   $.ajax({
+          url : "replygetreplyList.do",
+          type : "get",
+          data : replyBoard,
+          dataType:"json",
+          success : function(result){
+//	           alert(result[0]);
+             var len=result.length;
+             var table=$('#replyTable');
+             
+             var str ="<tbody id = 'removetest1'>";
+             for(var i=0;i<len;i++){
+                   str += "<TR>"
+                   str += '<TD name="seq" align="center">' + result[i].seq
+                   + '</TD><TD name="cusId" align="center">' + result[i].cusId
+                   + '</TD><TD name="recontent" align="center">' + result[i].recontent
+                   + '</TD><TD name="renum" align="center">' + result[i].renum
+                   + '</TD><TD name="reregdate" align="center" pattern="yyyy-MM-dd">' + result[i].reregdate
+                      str += '</TR>'
+
+             }
+             str +="</tbody>";
+             table.append(str)
+          },
+          error : function(request, error){
+              alert("fail");
+              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+          }
+      });
+
+     var list    = $('#news1');
+     var element    = $('#news');
+     
+           list.removeClass('active');
+           element.addClass('active');   
+   }
+
+//--------------------나눔 게시판 ------------------------- 끝---------------------
 
 
 

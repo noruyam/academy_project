@@ -2350,101 +2350,120 @@ if (cusId == null) {
 
 				<!-- /PORTFOLIO -->
 
-				<!----------------------- 나눔 게시판 ------------------- -->
+	<!----------------------- 나눔 게시판 ------------------- -->
 
 
-				<div id="news" class="tokyo_tm_section">
-					<div class="container">
-						<div class="tokyo_tm_contact">
-							<div class="tokyo_tm_title">
-								<div class="title_flex">
-									<div class="left">
-										<span>Notice Board</span>
-										<h3>나눔 게시판</h3>
-									</div>
-								</div>
-							</div>
-							<div class="fields">
-								<table border="1" id="nanumBoardTable">
-									<tr>
-										<th width="50">No.1</th>
-										<th width="200">제목</th>
-										<th width="300">작성자</th>
-										<th width="150">작성시간</th>
-										<th width="150">조회수</th>
-									</tr>
-								</table>
-								<div class="tokyo_tm_button">
-									<br> <a id="moveActive" onclick="moveActive()"
-										style="cursor: pointer">새글 등록</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div id="news1" class="tokyo_tm_section">
-					<div class="container">
-						<div class="tokyo_tm_contact">
-							<div class="tokyo_tm_title">
-								<div class="title_flex">
-									<div class="left">
-										<span>Notice Board</span>
-										<h3>나눔 게시판</h3>
-										<br> <br>
-									</div>
-								</div>
-							</div>
-							<div class="fields">
-								<div id="wrap">
-									<div id="container">
-										<div class="inner">
-											<span>게시글 작성</span><br>
-											<br>
-										</div>
-										<input type="hidden" id="seq" name="seq" value="${seq }">
-										<input type="hidden" id="cnt" name="cnt" value="${cnt }">
-										<div id="cnt" style="cursor: pointer">
-											<span>조회수 : </span><span id="cnt1"></span>
-
-										</div>
-										<div>
-											<label for="fname">파일 : </label> <input id="fname"
-												type="file" name="uploadfile" accept="*" />
-											<button type="button" onclick="fn_submit1()">파일전송</button>
-										</div>
-										<br>
-										<br>
-										<hr>
-										<br>
-										<br>
-										<div>
-											<ul>
-												<li><input id="title" type="text" placeholder="제목"></li>
-												<li><input id="writer" type="text" placeholder="작성자"></li>
-												<li><textarea id="content" cols="2" placeholder="내용"></textarea></li>
-											</ul>
-										</div>
-										<div class="tokyo_tm_button">
-											<a id="insert" onclick="insertBoard()"
-												style="cursor: pointer"> <span>글 등록</span>
-											</a> <a id="delete" onclick="deleteBoard()"
-												style="cursor: pointer; display: none"> <span>글
-													삭제</span>
-											</a>
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-
-
-				<!----------------------- 나눔 게시판 끝 ------------------- -->
+            <div id="news" class="tokyo_tm_section">
+               <div class="container">
+                  <div class="tokyo_tm_contact">
+                     <div class="tokyo_tm_title">
+                        <div class="title_flex">
+                           <div class="left">
+                              <span>Notice Board</span>
+                              <h3>나눔 게시판</h3>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="fields">
+                        <table border="1" id="nanumBoardTable">
+                           <tr style="background-color: #969696;">
+                              <th width="50">No.1</th>
+                              <th width="200">제목</th>
+                              <th width="300">작성자</th>
+                              <th width="150">작성시간</th>
+                              <th width="150">조회수</th>
+                           </tr>
+                        </table>
+                        <table>
+                        	<tr>
+								<th width="50"></th>
+								<th width="200"></th>
+								<th width="300"></th>
+								<th width="150"></th>
+								<th width="150"></th>
+							</tr>
+                           <th colspan="5">
+                              <div id="nanumListTableCnt"></div>
+                           </th>
+                        </table>
+                        <div class="tokyo_tm_button">
+                           <br> <a id="moveActive" onclick="moveActive()"
+                              style="cursor: pointer">새글 등록</a>
+                          <input style=" margin-right: 0px;margin-left:410px; border-color: black; height: 50px; width: 180px" id="searchNanum" placeholder="제목을 검색해주세요." type="search" onkeyup="if(window.event.keyCode==13){searchNanum()}">
+                        </div>         
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="news1" class="tokyo_tm_section">
+            <div class="container">
+               <div class="tokyo_tm_contact">
+                  <div class="tokyo_tm_title">
+                     <div class="title_flex">
+                        <div class="left">
+                           <span>Notice Board</span>
+                           <h3>나눔 게시판</h3>
+                           <br>
+                           <br>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="fields">
+                     <div id="wrap">
+                        <div id="container">
+                           <div class="inner">
+                              <span>게시글 작성</span><br><br>
+                           </div>
+                           <input type="hidden" id="seq" name="seq" value="${seq }">
+                           <input type="hidden" id="cnt" name="cnt" value="${cnt }">                        
+                           <div id="cnt" style="cursor: pointer">
+                              <span>조회수  : </span><span id="cnt1"></span>
+                              
+                           </div>
+                           <div>
+                              <label for="fname">파일 : </label> <input id="fname" type="file" name="uploadfile" accept="*"/>
+                              <button type="button" onclick="fn_submit1()">파일전송</button>
+                           </div><br><br><hr><br><br>
+                           <div> 
+                              <ul>
+                                 <li><input id="title" type="text" placeholder="제목"></li>
+                                 <li><input id="writer" type="text" placeholder="작성자"></li>
+                                 <li><textarea id="content" cols="2" placeholder="내용"></textarea></li>
+                              </ul>
+                           </div>
+                           <div class="tokyo_tm_button">
+                              <a id="insert" onclick="insertBoard()" style="cursor: pointer"><span>글
+                                   	 등록</span></a>
+                              <a id="delete" onclick="deleteBoard()" style="cursor:pointer; display: none" ><span>글 삭제</span></a>
+                           </div>
+                           <br>
+                           <div class="fields">
+                              <table border="1" id="replyTable">
+                                 <tr style="background-color: #969696;">
+                                    <th width="50">No.1</th>
+                                    <th width="200">작성자ID</th>
+                                    <th width="300">내용</th>
+                                    <th width="150">댓글번호</th>
+                                    <th width="150">시간</th>
+                                 </tr>
+                              </table>
+                              <div class="tokyo_tm_button">
+                                 <br> <a id="reply" onclick="replyinsertBoard()"
+                                    style="cursor: pointer">댓글 등록</a>
+                                    <input type="text" id="recontent" width="200">
+                              </div>         
+                           </div>
+                        </div>
+                     </div>                  
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+         
+            <!----------------------- 나눔 게시판 끝 ------------------- -->
 
 
 				<!-- CONTACT -->
