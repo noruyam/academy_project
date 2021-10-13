@@ -627,47 +627,52 @@ function trashMapInsertOrUpdate(){
 		};
 	}
 	
+	// 맵을 클릭해서 위도값이 들어갔을때만 ajax 실행
+	if (!($('#tmGetLat').val())){
+		alert('맵을 클릭해주세요');
+	}else{
+	
 	// 업데이트를 위한 데이터값(json형식)
 	
 	
 	// 만약 tmPostNum1값이 있으면 update를 위한 ajax 실행
-	if(tmPostNum1>0){
+		if(tmPostNum1>0){
+			
+			// controller에 updateTrashMap를 실행해주는 ajax
+			 $.ajax({
+				 url : "updateTrashMap.do"
+		         , type : "post"
+		         , data :updateTrashMapData
+		         , success : function(data){
+		        	 
+		        	 // 업데이트를 성공하면 목록불러와주는 function 실행
+		             getTrashMapList(1);
+		         }
+	             , error : function(xhr, status, error){
+	                 alert("통신 에러");
+	             }
+		     });
 		
-		// controller에 updateTrashMap를 실행해주는 ajax
-		 $.ajax({
-			 url : "updateTrashMap.do"
-	         , type : "post"
-	         , data :updateTrashMapData
-	         , success : function(data){
-	        	 
-	        	 // 업데이트를 성공하면 목록불러와주는 function 실행
-	             getTrashMapList(1);
-	         }
-             , error : function(xhr, status, error){
-                 alert("통신 에러");
-             }
-	     });
-	
-	// 만약 tmPostNum1값이 없으면 insert를 위한 ajax 실행
-	}else{
-		
-		// controller에  insertTrashMap를 실행해주는 ajax
-		 $.ajax({
-                url : "insertTrashMap.do"
-                , type : "post"
-                , data :insertTrashMapData 
-                , success : function(data){
-                	
-                	// 인서트를 성공하면 목록불러와주는 function 실행
-                    getTrashMapList(1);
-                }
-		 		, error : function(request, error){
-                    alert("fail");
-                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-                }
-         });
+		// 만약 tmPostNum1값이 없으면 insert를 위한 ajax 실행
+		}else{
+			
+			// controller에  insertTrashMap를 실행해주는 ajax
+			 $.ajax({
+	                url : "insertTrashMap.do"
+	                , type : "post"
+	                , data :insertTrashMapData 
+	                , success : function(data){
+	                	
+	                	// 인서트를 성공하면 목록불러와주는 function 실행
+	                    getTrashMapList(1);
+	                }
+			 		, error : function(request, error){
+	//                    alert("fail");
+	//                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	                }
+	         });
+		}
 	}
-
 }
 
 
@@ -1522,7 +1527,6 @@ function tmDatInsert(){
 
 	gettmDatList(1,tmPostNum);
 
-	 
 	var datInsert ={
 			tmPostNum : $("#tmPostNum").val(),
 			cusId:$('#sessionId').val(),
@@ -1556,7 +1560,6 @@ function gettmDatList(cnt,tmPostNum) {
 	 console.log(tmPostNum);
 	var gettmDatList ={
 			tmPostNum : tmPostNum
-			
 	}
 	 // 한페이지당 10개씩 보여주기위한 변수 저장
 	 var gettmDatListOnePageCnt=10;
@@ -1606,7 +1609,6 @@ function gettmDatList(cnt,tmPostNum) {
 	       		+ '</TD><TD class="removetmDatTbody" name="tmDatNum" align="center">'+result[i].tmDatNum
 	       		+ '</TD><TD class="removetmDatTbody" name="tmTime" align="center">' +result[i].tmTime
 	            str += '</TD></TR>'	
-	            	
 	       	}
 	       	str += "</tbody>";
 	       	var strcnt="";
