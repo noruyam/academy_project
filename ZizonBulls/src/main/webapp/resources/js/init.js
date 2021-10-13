@@ -812,8 +812,8 @@ function getTrashMap(tmPostNum,tmCnt) {
 			removeMarker6(tmGetLat1,tmGetLng1);
 			
 			
-			
-			if(sessionId==result.cusId){
+			// 세션아이디가 현재 로그인되어있는 아이디와 같거나 관리자 아이디일때 글 수정 버튼 생성
+			if(sessionId==result.cusId||sessionId=='123'){
 				$("#trashMapInsertOrUpdate").show();
 				$("#deleteTrashMap").show();
 				$("#hideDateAndCnt").show();
