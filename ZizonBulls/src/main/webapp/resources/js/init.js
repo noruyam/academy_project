@@ -1499,27 +1499,24 @@ function getreplyList(seq) {
 
 
 
-
+// 분리수거 정보페이지 상위이동 div 숨김, 보이기
 $(function () {
    $('.onTs').click(function () {
       
-      
-      if( $('#test1').css("display") == "none"){
-         $('#test1').show();
+      // 분리수거 정보페이지 클릭시 보이기
+      if( $('#up_button').css("display") == "none"){
+         $('#up_button').show();
       }      
    });
-
+   // 다른 페이지 클릭시 숨김
    $('.offTs').click(function () {
       
-      
-      if( $('#test1').css("display") != "none"){
-         $('#test1').hide();
+      if( $('#up_button').css("display") != "none"){
+         $('#up_button').hide();
       }      
    });
 
 });
-
-
 
 
 function goContact3() {
@@ -1571,25 +1568,7 @@ function goContact4() {
 
 }
 
-//쓰레기정보페이지 상위이동 div 
-function go_Top() {
 
-	//	클릭시 보이기
-   $('.onTs').click(function () {
-     
-      if( $('#test1').css("display") == "none"){
-         $('#test1').show();
-      }      
-   });
-	// 다른곳 클릭시 숨김
-   $('.offTs').click(function () {
-      
-      if( $('#test1').css("display") != "none"){
-         $('#test1').hide();
-      }      
-   });
-
-};
 
 //검색기능
 function search() { 

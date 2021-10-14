@@ -14,6 +14,7 @@ if (cusId == null) {
 <html>
 <head>
 <link href="resources/style/main.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <!-- <script type="text/javascript" src="resources/js/jquery-1.7.1.js"></script> -->
 <!-- <script src="js/*"></script> -->
 <meta charset="UTF-8">
@@ -354,46 +355,55 @@ if (cusId == null) {
 					<div class="container">
 						<div class="tokyo_tm_about">
 							<div class="about_image">
-								<img src="./resources/img/thumbs/4-2.jpg" alt="" />
-								<div class="main" data-img-url="./resources/img/portfolio/1.jpg"></div>
+								<img src="./resources/img/thumbs/단체사진.png" alt="" />
+								<div class="main" data-img-url="./resources/img/thumbs/단체사진.png"></div>
 							</div>
 							<div class="description">
 								<h3 class="name">
-									Adriano Smith &amp; <span>Photographer</span>
+									휴먼교육센터 &amp; <span>BULLS</span>
 								</h3>
 								<div class="description_inner">
 									<div class="left">
-										<p>Hello, I am a creative photographer based in New York
-											and happy to travel all over Europe to capture your big day
-											in candid and authentic photos. I will create a lasting
-											memory of the people.</p>
-										<div class="tokyo_tm_button">
-											<a href="#">Learn More</a>
-										</div>
+										<p>
+											어느날 길거리를 더럽히고 있는 
+											<br>
+											'지'상에 '존'재하는 '불'편한 '쓰'레기들을 보고 
+											<br>
+											평소 환경파괴에 대해 심각하게 생각하던
+											<br>
+											5명의 남자들이 뭉쳤다.
+											<br>
+											그 이름하야 BULLS...
+											<br> 
+											자신감으로 똘똘 뭉친 다섯 남자들의 생각과 이야기가 담겨있는 페이지 
+										</p>
+<!-- 										<div class="tokyo_tm_button"> -->
+<!-- 											<a href="#">Learn More</a> -->
+<!-- 										</div> -->
 									</div>
 									<div class="right">
 										<ul>
 											<li><p>
-													<span>Birthday:</span>01.07.1990
+													<span>조장:</span>정현훈
 												</p></li>
 											<li><p>
-													<span>Age:</span>31
+													<span>부조장:</span>송찬우
 												</p></li>
 											<li><p>
-													<span>Address:</span>Ave 11, New York, USA
+													<span>팀원:</span>박창용
+												</p></li>
+<!-- 											<li><p> -->
+<!-- 													<span>Email:</span><a href="mailto:mail@gmail.com">mail@gmail.com</a> -->
+<!-- 												</p></li> -->
+<!-- 											<li><p> -->
+<!-- 													<span>Phone:</span><a href="tel:+770221770505">+77 022 -->
+<!-- 														177 05 05</a> -->
+<!-- 												</p></li> -->
+											<li><p>
+													<span></span>신예성
 												</p></li>
 											<li><p>
-													<span>Email:</span><a href="mailto:mail@gmail.com">mail@gmail.com</a>
-												</p></li>
-											<li><p>
-													<span>Phone:</span><a href="tel:+770221770505">+77 022
-														177 05 05</a>
-												</p></li>
-											<li><p>
-													<span>Study:</span>Univercity of Texas
-												</p></li>
-											<li><p>
-													<span>Freelance:</span>Available
+													<span></span>이준현
 												</p></li>
 										</ul>
 									</div>
@@ -412,7 +422,7 @@ if (cusId == null) {
 							<div class="tokyo_tm_title">
 								<div class="title_flex">
 									<div class="left">
-										<span>분리수거 정보</span>
+										<span>TRASH INFO</span>
 										<h3>분리수거 정보</h3>
 										<br> <input type="search" value="" id="search"
 											style="width: 180px; border-radius: 100px; border-color: black; height: 30px"
@@ -2365,7 +2375,7 @@ if (cusId == null) {
                         </div>
                      </div>
                      <div class="fields">
-                        <table border="1" id="nanumBoardTable">
+                        <table class="table table-bordered" border="1" id="nanumBoardTable">
                            <tr style="background-color: #969696;">
                               <th width="50">No.1</th>
                               <th width="200">제목</th>
@@ -2375,15 +2385,15 @@ if (cusId == null) {
                            </tr>
                         </table>
                         <table>
-                        	<tr>
-								<th width="50"></th>
-								<th width="200"></th>
-								<th width="300"></th>
-								<th width="150"></th>
-								<th width="150"></th>
-							</tr>
+                           <tr>
+                        <th width="50"></th>
+                        <th width="200"></th>
+                        <th width="300"></th>
+                        <th width="150"></th>
+                        <th width="150"></th>
+                     </tr>
                            <th colspan="5">
-                              <div id="nanumListTableCnt"></div>
+                              <div id="nanumListTableCnt" style="margin-left: 370px"></div>
                            </th>
                         </table>
                         <div class="tokyo_tm_button">
@@ -2434,12 +2444,12 @@ if (cusId == null) {
                            </div>
                            <div class="tokyo_tm_button">
                               <a id="insert" onclick="insertBoard()" style="cursor: pointer"><span>글
-                                   	 등록</span></a>
+                                       	등록</span></a>
                               <a id="delete" onclick="deleteBoard()" style="cursor:pointer; display: none" ><span>글 삭제</span></a>
+                           <br><br><br><br>
                            </div>
-                           <br>
-                           <div class="fields" id="replyTableDiv" style="display: none;">
-                              <table border="1" id="replyTable">
+                           <div class="fields" id="replyTableDiv" style="display: none">
+                              <table class="table table-bordered" border="1" id="replyTable" >
                                  <tr style="background-color: #969696;">
                                     <th width="50">No.1</th>
                                     <th width="200">작성자ID</th>
@@ -2448,10 +2458,11 @@ if (cusId == null) {
                                     <th width="150">시간</th>
                                  </tr>
                               </table>
+                             
                               <div class="tokyo_tm_button">
-                                 <br> <a id="reply" onclick="replyinsertBoard()"
-                                    style="cursor: pointer">댓글 등록</a>
-                                    <input type="text" id="recontent" width="200">
+                               <br><br>
+                                    <input type="text" id="recontent" width="200" size="90" style="border-color: black;">
+                                    <a id="reply" onclick="replyinsertBoard()" style="cursor: pointer">댓글 등록</a>
                               </div>         
                            </div>
                         </div>
@@ -2464,7 +2475,6 @@ if (cusId == null) {
       
          
             <!----------------------- 나눔 게시판 끝 ------------------- -->
-
 
 				<!-- CONTACT -->
 				<div id="contact" class="tokyo_tm_section">
@@ -2554,7 +2564,7 @@ if (cusId == null) {
 									<div id="tmDatDiv" style="display: none;">
 									<br><br><br>
 										<div>
-											<table id="tmDatListTable">
+											<table id="tmDatListTable"  >
 												<tr style='background-color: gray; color: white'>
 													<th width="50">글번호</th>
 													<th width="100">작성자ID</th>
@@ -2756,9 +2766,9 @@ if (cusId == null) {
 										placeholder="지명을 입력하세요." />
 
 								</div>
-								<table id="trashMapListTable">
-									<tr style='background-color: gray; color: white'>
-										<th bgcolor="orange" width="50">번호</th>
+								<table id="trashMapListTable" class="table table-bordered">
+									<tr style="background-color: #969696;text-align: center;">
+										<th bgcolor="orange" width="60">번호</th>
 										<th bgcolor="orange" width="200">제목</th>
 										<th bgcolor="orange" width="200">주소</th>
 										<th bgcolor="orange" width="100">아이디</th>
@@ -2768,7 +2778,7 @@ if (cusId == null) {
 								</table>
 								<table>
 									<tr>
-										<th width="50"></th>
+										<th width="60"></th>
 										<th width="200"></th>
 										<th width="200"></th>
 										<th width="100"></th>
@@ -2794,7 +2804,7 @@ if (cusId == null) {
 
 
 			</div>
-		</div>
+	
 		<!-- /RIGHTPART -->
 
 		<!-- CURSOR -->
@@ -2802,13 +2812,13 @@ if (cusId == null) {
 		<div class="mouse-cursor cursor-inner"></div>
 		<!-- /CURSOR -->
 
-	</div>
+	
 	<!-- / WRAPPER ALL -->
 
 
 
 
-	<div id="test1" style="display: none;">
+	<div id="up_button" style="display: none;">
 		<a href="#go_Top" class="go-to-top">↑</a>
 
 	</div>
