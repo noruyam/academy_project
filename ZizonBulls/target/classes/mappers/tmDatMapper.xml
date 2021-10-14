@@ -49,7 +49,7 @@
       FROM tmDat
       WHERE tmPostNum = #{tmPostNum}
 
-      order by tmDatNum desc
+      order by tmDatNum
    </select>
    
    

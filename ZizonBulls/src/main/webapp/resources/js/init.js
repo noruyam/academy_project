@@ -678,7 +678,9 @@ function trashMapInsertOrUpdate(){
 
 // 목록List를 불러와주는 function
 function getTrashMapList(cnt) {
-	
+	 // 댓글창 감추기
+	 $("#tmDatDiv").hide();
+	 
 	 // 맵 초기화
 	 removeMarker5();
 	 
@@ -750,7 +752,9 @@ function getTrashMapList(cnt) {
 	            	
 	       	}
 	       	str += "</tbody>";
+	       	// 페이징 숫자를 위한 변수 지정
 	       	var strcnt="";
+	       	// 페이징 숫자을 담을 a태그 생성
 	       	for(var j=1;j<(ListCnt/getTrashMapListOnePageCnt)+1;j++){
 	       		strcnt+='<a id="removecnt" style="cursor:pointer;" onclick="getTrashMapList('+j+')">['+j+']</a>'
 	       	}
@@ -776,6 +780,9 @@ function getTrashMap(tmPostNum,tmCnt) {
 	gettmDatList(1,tmPostNum);
 	// 누를때 맨위로 스크롤 이동
 	$('#contact').animate({ scrollTop: 0 });
+	
+	// 댓글창 보여주기
+	$("#tmDatDiv").show();
 	
 	// 목록을 불러오기위한 데이터값(json형식) 
 	var getTrashMap = {
@@ -1171,7 +1178,7 @@ function deleteBoard(seq){
 //-----------------getBoard------------------
 
 function getBoard(seq,title,writer,content,regDate,cnt){
-
+	$("#replyTableDiv").show();
       getreplyList(seq);
     
       if(seq > 0 ){
@@ -1256,7 +1263,7 @@ return fnamereturn;
 //-----------------getBoardList------------------
 
 function getBoardList(pagecnt) {
-   
+	$("#replyTableDiv").hide();
 // 페이지 숫자 div에 남아있는거 지우고 다시 for문 돌리기 위함 
 $( '#nanumListTableCnt > #removecnt').remove();
 
@@ -1602,8 +1609,8 @@ $.get("http://localhost:8080/zizon/resources/img/portfolio/"+search+".png").done
 
 
 // 주변 분리수거 장소 검색
-function getTrashMapList1(cnt) {
-//	alert("getTrashMapList1");
+function getTrashMapListSearch(cnt) {
+
 	var tsl = {
 			tmSearchList : $('#tmSearchList').val()
 		};
@@ -1620,7 +1627,7 @@ function getTrashMapList1(cnt) {
 	
 	 // controller에  getTrashMapList를 실행해주는 ajax 
 	 $.ajax({
-	       url : "getTrashMapList1.do",
+	       url : "getTrashMapListSearch.do",
 	       type : "get",
 	       data: tsl,
 	       dataType:"json",
@@ -1673,8 +1680,9 @@ function getTrashMapList1(cnt) {
 		       	}
 		       	str += "</tbody>";
 		       	var strcnt="";
+		       	// 페이징 숫자표기를 위한 반복문
 		       	for(var j=1;j<(len/getTrashMapListOnePageCnt)+1;j++){
-		       		strcnt+='<a id="removecnt" style="cursor:pointer;" onclick="getTrashMapList1('+j+')">['+j+']</a>'
+		       		strcnt+='<a id="removecnt" style="cursor:pointer;" onclick="getTrashMapListSearch('+j+')">['+j+']</a>'
 		       	}
 		       	table.append(str).trigger("create");
 		       	$('#trashMapListTableCnt').append(strcnt).css("cursor:pointer");;
@@ -1685,43 +1693,19 @@ function getTrashMapList1(cnt) {
 	           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	       }
 	   });
-		
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //새글등록하거나 기존 글을 업데이트해주는 function
 function tmDatInsert(){
+	
+	// 댓글 리스트를 가지고 오기 위한 변수 지정
 	var tmPostNum = $("#tmPostNum").val();
-
-	gettmDatList(1,tmPostNum);
-
+	
 	var datInsert ={
 			tmPostNum : $("#tmPostNum").val(),
 			cusId:$('#sessionId').val(),
 			tmDat:$('#tmDatText').val()
-			
 	}
 	
 		 $.ajax({
@@ -1739,15 +1723,17 @@ function tmDatInsert(){
              }
       });
 	
-
+	// 댓글 텍스트 박스 안에 있는 값 초기화
+	$('#tmDatText').val("");
+	// 댓글 등록 후 댓글 리스트 출력하는 펑션
+	gettmDatList(1,tmPostNum);
 }
-
-
-
 
 //목록List를 불러와주는 function
 function gettmDatList(cnt,tmPostNum) {
-	 console.log(tmPostNum);
+
+	
+	
 	var gettmDatList ={
 			tmPostNum : tmPostNum
 	}
@@ -1803,7 +1789,7 @@ function gettmDatList(cnt,tmPostNum) {
 	       	str += "</tbody>";
 	       	var strcnt="";
 	       	for(var j=1;j<(len/gettmDatListOnePageCnt)+1;j++){
-	       		strcnt+='<a id="removetmDatcnt" style="cursor:pointer;" onclick="gettmDatList('+j+')">['+j+']</a>'
+	       		strcnt+='<a id="removetmDatcnt" style="cursor:pointer;" onclick="gettmDatList('+j+','+tmPostNum+')">['+j+']</a>'
 	       	}
 	       	// str에 만들어놓은 테이블생성값들을 index에 만들어둔 테이블에 더해줌
 	       	table.append(str).trigger("create");

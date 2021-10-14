@@ -230,7 +230,7 @@ if (cusId == null) {
 					<ul>
 						<li><a href="#home" class="offTs"> <img
 								style="width: 170px; height: 60px;"
-								src="${path }/resources/img/logo/로고8.png" alt="" />
+								src="${path }/resources/img/logo/로고10.png" alt="" />
 						</a></li>
 					</ul>
 				</div>
@@ -272,8 +272,8 @@ if (cusId == null) {
 						<li>
 							<div class="logo">
 								<a href="#home" class="offTs"><img
-									style="width: 210px; height: 80px; margin-bottom: 10px"
-									src="${path }/resources/img/logo/로고8.png" alt="" /></a>
+									style="width: 210px; height: 80px; margin-bottom: 20px"
+									src="${path }/resources/img/logo/로고10.png" alt=""  /></a>
 							</div>
 						</li>
 						<li class="active"><a href="#home" class="offTs"> ♻ 메인 </a></li>
@@ -2438,7 +2438,7 @@ if (cusId == null) {
                               <a id="delete" onclick="deleteBoard()" style="cursor:pointer; display: none" ><span>글 삭제</span></a>
                            </div>
                            <br>
-                           <div class="fields">
+                           <div class="fields" id="replyTableDiv" style="display: none;">
                               <table border="1" id="replyTable">
                                  <tr style="background-color: #969696;">
                                     <th width="50">No.1</th>
@@ -2551,21 +2551,22 @@ if (cusId == null) {
 
 								</form>
 								
-									<div>
+									<div id="tmDatDiv" style="display: none;">
+									<br><br><br>
 										<div>
 											<table id="tmDatListTable">
 												<tr style='background-color: gray; color: white'>
-													<th bgcolor="orange" width="50">글번호</th>
-													<th bgcolor="orange" width="200">작성자ID</th>
-													<th bgcolor="orange" width="200">댓글내용</th>
-													<th bgcolor="orange" width="100">댓글번호</th>
-													<th bgcolor="orange" width="100">시간</th>
+													<th width="50">글번호</th>
+													<th width="100">작성자ID</th>
+													<th width="200">댓글내용</th>
+													<th width="100">댓글번호</th>
+													<th width="100">시간</th>
 												</tr>
 											</table>
 											<table>
 									<tr>
 										<th width="50"></th>
-										<th width="200"></th>
+										<th width="100"></th>
 										<th width="200"></th>
 										<th width="100"></th>
 										<th width="100"></th>
@@ -2750,7 +2751,7 @@ if (cusId == null) {
 									<br> <a id="contactMove" onclick="contactMove()"
 										style="cursor: pointer">새글 등록</a> <input
 										style="margin-right: 0px; margin-left: 400px; border-color: black; height: 30px"
-										onkeyup="if(window.event.keyCode==13){getTrashMapList1(1)}"
+										onkeyup="if(window.event.keyCode==13){getTrashMapListSearch(1)}"
 										type="search" id="tmSearchList" name="tmSearchList"
 										placeholder="지명을 입력하세요." />
 

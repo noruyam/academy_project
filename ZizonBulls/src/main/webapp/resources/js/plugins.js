@@ -3978,8 +3978,13 @@ var geocoder3 = new kakao.maps.services.Geocoder();
 
 var marker3 = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
 infowindow3 = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
+
 var ps10 = new kakao.maps.services.Places();  
+
 searchPlaces10();
+
+
+
 function searchPlaces10() {
     var keyword10 = document.getElementById('keyword10').value;
 
@@ -3991,6 +3996,8 @@ function searchPlaces10() {
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
     ps10.keywordSearch( keyword10, placesSearchCB10); 
 }
+
+
 function placesSearchCB10(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
 
@@ -4038,31 +4045,32 @@ searchAddrFromCoords3(map3.getCenter(), displayCenterInfo3);
 
 //지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
 kakao.maps.event.addListener(map3, 'click', function(mouseEvent) {
-searchDetailAddrFromCoords3(mouseEvent.latLng, function(result, status) {
-    if (status === kakao.maps.services.Status.OK) {
-        var detailAddr3 = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
-        detailAddr3 += '<div id="trashMapJibun">지번 주소 : ' + result[0].address.address_name + '</div>';
-        
-        $('#tmAddr').val(result[0].address.address_name);
-        
-        var content3 = '<div class="bAddr3">' +
-                        '<span class="title3">법정동 주소정보</span>' + 
-                        detailAddr3 + 
-                    '</div>';
-
-        // 위도 경도값을 히든인풋에 넣어주고 db에 삽입
-        $('#tmGetLat').val(mouseEvent.latLng.getLat());
-        $('#tmGetLng').val(mouseEvent.latLng.getLng());
-        
-        // 마커를 클릭한 위치에 표시합니다 
-        marker3.setPosition(mouseEvent.latLng);
-        marker3.setMap(map3);
-
-        // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
-        infowindow3.setContent(content3);
-        infowindow3.open(map3, marker3);
-    }   
-});
+	searchDetailAddrFromCoords3(mouseEvent.latLng, function(result, status) {
+	    if (status === kakao.maps.services.Status.OK) {
+	        var detailAddr3 = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+	        detailAddr3 += '<div id="trashMapJibun">지번 주소 : ' + result[0].address.address_name + '</div>';
+	        
+	        // 지번주소를 tmAddr textbox에 삽입
+	        $('#tmAddr').val(result[0].address.address_name);
+	        
+	        var content3 = '<div class="bAddr3">' +
+	                        '<span class="title3">법정동 주소정보</span>' + 
+	                        detailAddr3 + 
+	                    '</div>';
+	
+	        // 위도 경도값을 히든인풋에 넣어주고 db에 삽입
+	        $('#tmGetLat').val(mouseEvent.latLng.getLat());
+	        $('#tmGetLng').val(mouseEvent.latLng.getLng());
+	        
+	        // 마커를 클릭한 위치에 표시합니다 
+	        marker3.setPosition(mouseEvent.latLng);
+	        marker3.setMap(map3);
+	
+	        // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
+	        infowindow3.setContent(content3);
+	        infowindow3.open(map3, marker3);
+	    }   
+	});
 });
 
 //중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
@@ -4112,14 +4120,16 @@ function removeMarker5() {
 function removeMarker6(tmGetLat1,tmGetLng1) {
 
 	infowindow3.close();
+	
+	// 맵에 있던 마커를 지워줍니다
 	marker3.setMap(null);
 	
-	var aa = {tmGetLat1,tmGetLng1};
 	var points5 = new kakao.maps.LatLng(tmGetLat1, tmGetLng1);
 	
 	var bounds5 = new kakao.maps.LatLngBounds();  
+	// DB에서 나온 좌표를 대입합니다
 	bounds5.extend(points5);
-	
+	// 대입된 좌표로 맵을 움직여줍니다
 	map3.setBounds(bounds5);
 
 	// 마커가 지도 위에 표시되도록 설정합니다

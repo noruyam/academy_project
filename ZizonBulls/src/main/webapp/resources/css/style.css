@@ -290,7 +290,7 @@ h6 { font-size: 16px; }
 	height: auto;
 }
 .tokyo_tm_all_wrap .leftpart img{
-	max-width: 150px;
+/* 	max-width: 150px; */
 }
 .tokyo_tm_all_wrap .leftpart .menu{
 	padding: 40px 0px 50px 0px;

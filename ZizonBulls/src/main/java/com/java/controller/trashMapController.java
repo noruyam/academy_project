@@ -28,7 +28,7 @@ public class trashMapController {
 	private trashMapService trashMapService;
 
 	// 파일 저장위치 변수로 지정
-	private String path = "C:\\Users\\qkr26\\git\\last\\ZizonBulls\\src\\main\\webapp\\resources\\trashmappic\\";
+	private String path = "C:\\Users\\User\\git\\last\\ZizonBulls\\src\\main\\webapp\\resources\\trashmappic\\";
 
 	// trashMap 처음 새글등록하는 기능
 	@RequestMapping(value = "/insertTrashMap.do")
@@ -166,7 +166,7 @@ public class trashMapController {
 
 
 
-@RequestMapping(value = "/getTrashMapList1.do")
+@RequestMapping(value = "/getTrashMapListSearch.do")
 @ResponseBody
 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 public List<trashMapVO> searchList(trashMapVO vo) {
