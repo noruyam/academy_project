@@ -50,7 +50,7 @@
 									<h6 class="mb-0">Full Name</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="${sessionScope.cusName }">
+									<input type="text" class="form-control" value="${sessionScope.cusName }" readonly/>
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -67,7 +67,7 @@
 									<h6 class="mb-0">ID</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" name="cusId" value="${sessionScope.cusId }">
+									<input type="text" class="form-control" name="cusId" value="${sessionScope.cusId }" readonly/>
 								</div>
 							</div>
 							<div class="row mb-3">

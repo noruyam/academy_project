@@ -1131,7 +1131,7 @@ function updateBoard(seq){
              type : "get",
              data :updateBoard1 ,
              success :  function(data){
-               alert("성공");
+//               alert("성공");
                
                 getBoardList(1);
              },
@@ -1287,7 +1287,7 @@ $.ajax({
                   break;
                }
 
-                str += "<TR onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\",\""+result[i].content+"\","+result[i].regDate+","+result[i].cnt+")'>"
+                str += "<TR style='cursor:pointer;' onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\",\""+result[i].content+"\","+result[i].regDate+","+result[i].cnt+")'>"
                 str += '<TD name="seq" align="center">' + result[i].seq
                 + '</TD><TD name="title" align="center">' + result[i].title
                 + '</TD><TD name="writer" align="center">' + result[i].writer
@@ -1347,7 +1347,7 @@ function searchNanum() {
                  
                  str +=  "<tbody id = 'removetest10'>";
                 for(var i=0;i<len;i++){
-                      str += "<TR onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\",\""+result[i].content+"\","+result[i].regDate+","+result[i].cnt+")'>"
+                      str += "<TR style='cursor:pointer;' onclick='getBoard("+result[i].seq+",\""+result[i].title+"\",\""+result[i].writer+"\",\""+result[i].content+"\","+result[i].regDate+","+result[i].cnt+")'>"
                       str += '<TD name="seq" align="center">' + result[i].seq
                       + '</TD><TD name="title" align="center">' + result[i].title
                       + '</TD><TD name="writer" align="center">' + result[i].writer
@@ -1358,7 +1358,8 @@ function searchNanum() {
                 }
                 
                 str +="</tbody>";
-                table.append(str)}
+                table.append(str)
+                }
              },
              error : function(request, error){
                  alert("fail");
@@ -1694,7 +1695,7 @@ function tmDatInsert(){
              , success : function(data){
              	console.log(data);
              	// 인서트를 성공하면 목록불러와주는 function 실행
-//                 getTrashMapList(1);
+            	gettmDatList(1,tmPostNum);
              }
 		 		, error : function(request, error){
                  alert("fail");
@@ -1705,7 +1706,7 @@ function tmDatInsert(){
 	// 댓글 텍스트 박스 안에 있는 값 초기화
 	$('#tmDatText').val("");
 	// 댓글 등록 후 댓글 리스트 출력하는 펑션
-	gettmDatList(1,tmPostNum);
+
 }
 
 //목록List를 불러와주는 function

@@ -2379,7 +2379,7 @@ if (cusId == null) {
                            <tr style="background-color: #969696;text-align: center;">
                               <th width="50">No.1</th>
                               <th width="200">제목</th>
-                              <th width="300">작성자</th>
+                              <th width="300">내용</th>
                               <th width="150">작성시간</th>
                               <th width="150">조회수</th>
                            </tr>
@@ -2433,12 +2433,12 @@ if (cusId == null) {
                            </div>
                            <div>
                               <label for="fname">파일 : </label> <input id="fname" type="file" name="uploadfile" accept="*"/>
-                              <button type="button" onclick="fn_submit1()">파일전송</button>
+<!--                               <button type="button" onclick="fn_submit1()">파일전송</button> -->
                            </div><br><br><hr><br><br>
                            <div> 
                               <ul>
                                  <li><input id="title" type="text" placeholder="제목"></li>
-                                 <li><input id="writer" type="text" placeholder="작성자"></li>
+                                 <li><input id="writer" type="text" placeholder="내용"></li>
                                  <li><textarea id="content" cols="2" placeholder="내용"></textarea></li>
                               </ul>
                            </div>
@@ -2564,16 +2564,16 @@ if (cusId == null) {
 									<div id="tmDatDiv" style="display: none;">
 									<br><br><br>
 										<div>
-											<table id="tmDatListTable"  >
-												<tr style='background-color: gray; color: white'>
+											<table id="tmDatListTable" style="width: 100%">
+												<tr style='background-color: gray; color: white;text-align: center;'>
 													<th width="50">글번호</th>
 													<th width="100">작성자ID</th>
 													<th width="200">댓글내용</th>
 													<th width="100">댓글번호</th>
-													<th width="100">시간</th>
+													<th width="100">날짜</th>
 												</tr>
 											</table>
-											<table>
+											<table style="width: 100%">
 									<tr>
 										<th width="50"></th>
 										<th width="100"></th>
@@ -2582,7 +2582,7 @@ if (cusId == null) {
 										<th width="100"></th>
 										<th width="70"></th>
 									</tr>
-									<tr>
+									<tr style='text-align: center;'>
 										<th colspan="6">
 											<div id="tmDatListTableCnt"></div>
 										</th>
@@ -2592,9 +2592,14 @@ if (cusId == null) {
 										</div>
 										
 										<div>
-										
-											<input id="tmDatText" type="text" size="30px">
-											<input type="button" value="댓글등록" onclick="tmDatInsert()">
+											<textarea id="tmDatText" style="border-color: black;height: 100px"></textarea>
+<!-- 											<input id="tmDatText" style="border-color: black; " type="text" size="30px"> -->
+											<div class="tokyo_tm_button" data-position="left">
+												<a style="cursor: pointer;" onclick="tmDatInsert()"> 
+													<span>댓글등록</span>
+												</a>
+											</div>
+<!-- 											<input type="button" value="댓글등록" onclick="tmDatInsert()"> -->
 										
 										</div>
 									</div>
