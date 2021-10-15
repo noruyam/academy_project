@@ -373,7 +373,7 @@ if (cusId == null) {
 											<br>
 											5명의 남자들이 뭉쳤다.
 											<br>
-											그 이름하야 BULLS...
+											그 이름 BULLS...
 											<br> 
 											자신감으로 똘똘 뭉친 다섯 남자들의 생각과 이야기가 담겨있는 페이지 
 										</p>
@@ -2376,7 +2376,7 @@ if (cusId == null) {
                      </div>
                      <div class="fields">
                         <table class="table table-bordered" border="1" id="nanumBoardTable">
-                           <tr style="background-color: #969696;">
+                           <tr style="background-color: #969696;text-align: center;">
                               <th width="50">No.1</th>
                               <th width="200">제목</th>
                               <th width="300">작성자</th>
@@ -2393,7 +2393,7 @@ if (cusId == null) {
                         <th width="150"></th>
                      </tr>
                            <th colspan="5">
-                              <div id="nanumListTableCnt" style="margin-left: 370px"></div>
+                              <div id="nanumListTableCnt" style="text-align:center;"></div>
                            </th>
                         </table>
                         <div class="tokyo_tm_button">
@@ -2450,7 +2450,7 @@ if (cusId == null) {
                            </div>
                            <div class="fields" id="replyTableDiv" style="display: none">
                               <table class="table table-bordered" border="1" id="replyTable" >
-                                 <tr style="background-color: #969696;">
+                                 <tr style="background-color: #969696;text-align: center;">
                                     <th width="50">No.1</th>
                                     <th width="200">작성자ID</th>
                                     <th width="300">내용</th>
@@ -2787,7 +2787,7 @@ if (cusId == null) {
 									</tr>
 									<tr>
 										<th colspan="6">
-											<div id="trashMapListTableCnt"></div>
+											<div id="trashMapListTableCnt" style="text-align: center;"></div>
 										</th>
 									</tr>
 

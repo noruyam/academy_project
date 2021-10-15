@@ -24,15 +24,16 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="d-flex flex-column align-items-center text-center">
-								<img src="https://bootdey.com/img/Content/avatar/avatar6.png"
-									alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+							  <img src="${path }/resources/upload/${sessionScope.profilePictureName_en}" alt="Admin" class="rounded-circle" width="150">
+<!-- 								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" -->
+<!-- 									alt="Admin" class="rounded-circle p-1 bg-primary" width="110"> -->
 								<div class="mt-3">
 									<h4>${sessionScope.cusName }</h4>
 									<p class="text-secondary mb-1">Full Stack Developer</p>
-									<p class="text-muted font-size-sm">Bay Area, San Francisco,
-										CA</p>
-									<button class="btn btn-primary">Follow</button>
-									<button class="btn btn-outline-primary">Message</button>
+<!-- 									<p class="text-muted font-size-sm">Bay Area, San Francisco, -->
+<!-- 										CA</p> -->
+<!-- 									<button class="btn btn-primary">Follow</button> -->
+<!-- 									<button class="btn btn-outline-primary">Message</button> -->
 								</div>
 							</div>
 							<hr class="my-4">
@@ -77,15 +78,15 @@
 									<input type="text" class="form-control" name="pass" value="${sessionScope.pass }">
 								</div>
 							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Address</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control"
-										value="Bay Area, San Francisco, CA">
-								</div>
-							</div>
+<!-- 							<div class="row mb-3"> -->
+<!-- 								<div class="col-sm-3"> -->
+<!-- 									<h6 class="mb-0">Address</h6> -->
+<!-- 								</div> -->
+<!-- 								<div class="col-sm-9 text-secondary"> -->
+<!-- 									<input type="text" class="form-control" -->
+<!-- 										value="Bay Area, San Francisco, CA"> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
 							<div class="row">
 								<div class="col-sm-3"></div>
 								<div class="col-sm-9 text-secondary">

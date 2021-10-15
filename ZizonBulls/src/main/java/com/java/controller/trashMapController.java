@@ -63,7 +63,7 @@ public class trashMapController {
 	// ajax 리턴값을 주고싶을때 @ResponseBody 사용
 	@ResponseBody
 	// 글목록에 날짜 형식 바꾸기 위한 어노테이션
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yy-MM-dd HH:mm:ss")
 	public List<trashMapVO> getTrashMapList() {
 		return trashMapService.getTrashMapList();
 	}
@@ -168,7 +168,7 @@ public class trashMapController {
 
 @RequestMapping(value = "/getTrashMapListSearch.do")
 @ResponseBody
-@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yy-MM-dd HH:mm:ss")
 public List<trashMapVO> searchList(trashMapVO vo) {
 	  System.out.println(vo.getTmSearchList());
    return trashMapService.searchList(vo);

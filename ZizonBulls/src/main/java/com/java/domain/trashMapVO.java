@@ -13,7 +13,7 @@ public class trashMapVO {
    private String tmAddr;
    private String tmContent;
    private String cusId;
-   @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
+   @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yy-MM-dd")
    private Date tmTime;
    private int tmCnt;
    private String tmSearchList;

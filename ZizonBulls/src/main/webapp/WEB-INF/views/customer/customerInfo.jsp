@@ -14,6 +14,16 @@
 	<script src="${path }/resources/customer/js/jquery-1.10.2.min.js"></script>
     <link href="${path }/resources/customer/css/customerInfo.css" rel="stylesheet" type="text/css">
     <script src="${path }/resources/customer/js/customerInfo.js"></script>
+    <style>
+    	.filebox input[type="file"]{
+    		position: absolute;
+    		width: 0;
+    		height: 0;
+    		padding: 0;
+    		overflow: hidden;
+    		border: 0;
+    	}
+    </style>
 </head>
 <body>
 
@@ -39,10 +49,13 @@
 
                       <h4>회원의 이름 : ${sessionScope.cusName } </h4>
                       <p class="text-secondary mb-1">Full Stack Developer</p>
-                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+<!--                       <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
                       <form name="uploadProfilePicture" action="uploadProfilePicture.do" method="post" enctype="multipart/form-data">
-	                      <input type="file" id="profilePicture" name="profilePicture" class="btn btn-primary" value="프로필 사진 변경"/>
-						  <input type="text" name="cusId" value="${sessionScope.cusId }"/>
+	                      <div class="filebox">
+						  	<label for="profilePicture" class="btn btn-primary">프로필 사진 변경</label>
+	                      	<input type="file" id="profilePicture" name="profilePicture" class="btn btn-primary" value=""/>
+	                      </div>	
+	                      <input type="hidden" name="cusId" value="${sessionScope.cusId }"/>
 	                      <button onclick="submit_by_name()" class="btn btn-outline-primary">선택</button>
                       </form>
                     </div>
@@ -92,15 +105,15 @@
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
-                    </div>
-                  </div>
-                  <hr>
+<!--                   <div class="row"> -->
+<!--                     <div class="col-sm-3"> -->
+<!--                       <h6 class="mb-0">Address</h6> -->
+<!--                     </div> -->
+<!--                     <div class="col-sm-9 text-secondary"> -->
+<!--                       Bay Area, San Francisco, CA -->
+<!--                     </div> -->
+<!--                   </div> -->
+<!--                   <hr> -->
                   <div class="row">
                     <div class="col-sm-12">
 						<form action="fromDeleteCustomerInfo.do" method="post">
